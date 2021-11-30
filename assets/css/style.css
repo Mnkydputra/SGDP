@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Chango&family=Chewy&family=Mochiy+Pop+One&family=Titan+One&display=swap');
+
+.roundedmurry{
+    border-radius: 22px 22px 0 0;
+}
+
+.roundedmurry1
+{
+    border-radius: 0px 0px 22px 22px;
+}
+
+#content{
+  margin-top: 35mm;
+}
+#brand{
+    margin-top:0;
+    margin-left:0;
+    padding-left:0;
+}
+.nostyle{
+    text-decoration: none;
+    color:black;
+}
+
+h4{
+ font-family: Titan One;
+}
+#navbot{
+    font-family:arial;
+    font-size:13px;
+}
+
