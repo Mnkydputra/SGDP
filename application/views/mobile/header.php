@@ -33,7 +33,7 @@
     }
 </script>
 </head>
-<body style="background-color:#F9FAFA" onload="openFullscreen();">
+<body style="background-color:#F9FAFA">
 <!-- HEADER -->
             <div class="container-md-3 fixed-top">
                 <nav style="background-color:#F9FAFA; border-style:none;" class="navbar navbar-expand-lg roundedmurry1 navbar-light  ">
@@ -41,7 +41,6 @@
                     <a id="brand" class="navbar-brand" href="#">
                         <img style="background-color:#F9FAFA;  border-style:none;" class="img-thumbnail"  src="<?= base_url('assets/img/')?>Group_2.png" alt="brand" width=156; height=67;>
                         </a>
-                        <iframe id="main_frame" style="width:100%;height:100%;border:none;display:none"></iframe>
                     <a href="#" > <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-3" src="<?= base_url('assets/') ?>img/anton.png" alt="avatar" height=67px; width=67px; >
                     </a>
                     </div>

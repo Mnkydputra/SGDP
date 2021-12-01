@@ -27,7 +27,7 @@
               <div class="container border border-dark">
                 <div class="row">
                         <h4 class="text-center">LOGIN</h4>
-                        <form action="<?= base_url()?>" class="form-group" method="post">
+                        <form action="<?= base_url('Login/')?>cekLogin" class="form-group" method="post">
                             <div class="col-auto">
                             <label for="npk">Nomor Pokok karyawan</label>
                              <input type="text" class="form-control" id="npk" name="npk" placeholder="Masukan Nomor NPK Anda" >
