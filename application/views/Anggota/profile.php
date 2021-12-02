@@ -211,54 +211,54 @@
                   <table class="table table-striped">
                       <td>No KTA</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->no_kta ?></td>
                   </tr>
                   <tr>
                     <td>Tanggal Expired KTA</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->expired_kta?></td>
                   </tr>
 
                   <tr>
                     <td>Jabatan</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->jabatan?></td>
                   </tr>
 
                   <tr>
                     <td>Status Anggota</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->status_anggota?></td>
                   </tr>
 
                   <tr>
                     <td>Status KTA</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->status_kta?></td>
                   </tr>
 
                   <tr>
                     <td>Area Kerja</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->area_kerja?></td>
                   </tr>
 
                   <tr>
                     <td>Wilayah</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->wilayah?></td>
                   </tr>
 
                   <tr>
                     <td>Tanggal Masuk Sigap</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->tgl_masuk_sigap?></td>
                   </tr>
 
                   <tr>
                     <td>Tanggal Masuk ADM</td>
                     <td>:</td>
-                    <td></td>
+                    <td><?= $employee->tgl_masuk_adm?></td>
                   </tr>
 
                   <tr>
@@ -301,7 +301,7 @@
                   <div class="modal-body">
                   <form method="post" id="form">
                               <div class="row">
-                                <div class="col-md-3">
+                                <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                   <label for="no_kta">No KTA</label>
                                   <input type="hidden" name="id_karyawan" value="">
                                   <input type="hidden" name="npk" value="">

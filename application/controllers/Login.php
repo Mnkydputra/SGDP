@@ -22,14 +22,17 @@ class Login extends CI_Controller
 		$password   = md5($this->input->post('pass'));	
 
 		$auth = $this->Login_model->cek_login($username, $password)->num_rows();
-        $cekstatus = $this->db->get_where("biodata",array("npk" =>$username))->row();
+       
+        // $cekstatus = $this->db->get_where("biodata",array("npk" =>$username))->row();
 		 if($auth > 0){
-			$user = $this->Login_model->cek_login($username, $password)->row();        
-            }if ($user->pass == md5($username))
+			$user = $this->Login_model->cek_login($username, $password)->row();   
+            var_dump($user);
+            }
+            if ($user->pass == md5($username))
             {
                 redirect("Auth");
             }else {
-                $this->session->set_userdata('id_karyawan',$user->id_karyawan);
+                $this->session->set_userdata('id_akun',$user->id_akun);
 		 		$this->session->set_userdata('npk',$user->npk);
 		 		$this->session->set_userdata('role_id',$user->role_id);
 		 		$this->session->set_userdata('nama',$user->nama);

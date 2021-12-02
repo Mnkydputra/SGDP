@@ -7,8 +7,8 @@ class Login_model extends CI_Model{
   {
   		$this->db->select("*");
   		$this->db->from("akun");
-  		$this->db->where(array ("akun.id_karyawan" => $username  ,'akun.password' => $password) );
-  		$this->db->join("biodata" ," akun.id_karyawan  = biodata.id_karyawan " , "left");
+  		$this->db->where(array ("akun.npk" => $username  ,'akun.password' => $password) );
+  		$this->db->join("biodata" ," akun.id_akun  = biodata.id_biodata " , "left");
   		return $this->db->get();
 
   }

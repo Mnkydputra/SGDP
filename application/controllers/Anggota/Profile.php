@@ -3,21 +3,24 @@
 
 class Profile extends CI_Controller{
 
-    function __construct()
-    {
-      parent::__construct();
-      $id = $this->session->userdata('id_karyawan');
+  function __construct()
+  {
+    parent::__construct();
+
+    $id = $this->session->userdata('id_akun');
       
       if ($id == null || $id == "") {
       $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
       redirect('Login');
-      }
-    }
+  }
+      
+  }
     
     function index()
     {
       $data = array(
-        'biodata' => $this->db->get_where('biodata', array('id_karyawan' => $this->session->userdata('id_karyawan')))->row(),
+        'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+        'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
         'url'  => $this->uri->segment(2),
      );
     //  echo '<pre>';
