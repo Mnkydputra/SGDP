@@ -18,6 +18,7 @@ class Profile extends CI_Controller{
     
     function index()
     {
+      
       $data = array(
         'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
         'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
@@ -29,4 +30,80 @@ class Profile extends CI_Controller{
         $this->load->view('Anggota/profile',$data);
         $this->load->view('mobile/fotter');
     }
+
+    function Foto()
+    {
+       $data = array(
+         'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row()
+       );
+        $this->load->view('mobile/header');
+        $this->load->view('Anggota/Foto',$data);
+        $this->load->view('mobile/fotter');
+    }
+
+
+    function BiodataUpdate()
+    {
+      $where = array('id_biodata'  => $this->input->post('id_biodata') );
+      //masukan data update karyawan ke array data
+      $data = array(
+        'no_ktp'                  => $this->input->post("no_ktp"),
+        'no_kk'                   => $this->input->post("no_kk"),
+        'no_hp'                   => $this->input->post("no_hp"),
+        'no_emergency'            => $this->input->post("no_emergency"),
+        'email'                   => $this->input->post("email"),
+        'jl_ktp'                  => $this->input->post("jl_ktp"),
+        'rt_ktp'                  => $this->input->post("rt_ktp"),
+        'rw_ktp'                  => $this->input->post("rw_ktp"),
+        'kel_ktp'                 => $this->input->post("kel_ktp"),
+        'kota_ktp'                => $this->input->post("kota_ktp"),
+        'rt_dom'                  => $this->input->post("rt_dom"),
+        'rw_dom'                  => $this->input->post("rw_dom"),
+        'kel_dom'                 => $this->input->post("kel_dom"),
+        'kec_dom'                 => $this->input->post("kec_dom"),
+        'kota_dom'                => $this->input->post("kota_dom"),
+        'berat_badan'             => $this->input->post("berat_badan"),
+        'tinggi_badan'            => $this->input->post("tinggi_badan"),
+        'imt'                     => $this->input->post("imt"),
+
+      );
+      var_dump($data);
+      //input update karyawan
+      // $updateInfouser = $this->m_karyawan->updateFile($data,"biodata",$where);
+      // if($updateInfouser){
+      //   echo "Sukses";
+      // } else {
+      //   echo "Gagal";
+      // }
+    }
+
+    public function UpdateFoto()
+ 	  {	
+    $id_akun = $this->session->userdata('id_akun');
+ 		$directory = "Poto" ;
+ 		$this->load->library('upload');
+ 		$config['allowed_types'] = 'jpg|png|jpeg|pdf' ;
+ 		$config['upload_path']  = './assets/upload/berkas/Poto/';
+ 		$config['overwrite'] = true ;
+ 		$config['file_name'] = $directory . $this->input->post('npk');
+ 			$this->upload->initialize($config);
+
+ 		if($this->upload->do_upload("foto")){
+ 			$file = $this->upload->data('file_name');
+ 			$data = array(
+ 				'foto'		=> $file 
+ 			);
+
+       var_dump($data);
+ 			// $where = array('id_berkas'  => $this->session->userdata('id_akun'));
+ 			// $update = $this->Anggota_model->updateFile($data,'berkas',$where);
+ 			// 	if($update){
+ 			// 		echo "Sukses";
+ 			// 	}else {
+ 			// 		echo "Gagal";
+ 			// 	}
+ 		}
+ 	}
+
+  
 }

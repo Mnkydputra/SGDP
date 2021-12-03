@@ -109,7 +109,7 @@
     <!-- MODAL BIODATA -->
           <!-- Button trigger modal -->
              <!-- Modal -->
-                <div class="modal fade" id="ModalBiodata" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal fade" id="ModalBiodata" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
               <div class="modal-dialog">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -117,78 +117,78 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                  <form method="post" id="form">
+                  <form method="post" id="form<?= $biodata->id_biodata?>">
                               <div class="row">
                                 <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2" >
                                    <h5>Biodata</h5>
                                   <label for="no_ktp">No KTP</label>
-                                  <input type="hidden" name="id_karyawan" value="">
-                                  <input type="hidden" name="npk" value="">
-                                  <input type="text" name="no_ktp" id="no_ktp" value="" class="form-control" placeholder="">
+                                  <input type="hidden" name="id_biodata" value="<?= $biodata->id_biodata?>">
+                                  <input type="hidden" name="npk" value="<?= $biodata->npk?>">
+                                  <input type="text" name="no_ktp" id="no_ktp" value="<?= $biodata->ktp?>" class="form-control" placeholder="">
 
                                     <label for="no_kk">No KK</label>
-                                    <input type="text" name="no_kk" id="no_kk" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="no_kk" id="no_kk" value="<?= $biodata->kk?>" class="form-control"  placeholder="">
 
                                     <label for="no_hp">No Handphone</label>
-                                    <input type="tel" name="no_hp" id="no_hp" value="" class="form-control"  placeholder="">
+                                    <input type="tel" name="no_hp" id="no_hp" value="<?= $biodata->no_hp?>" class="form-control"  placeholder="">
 
                                     <label for="no_emergency">No Emergency</label>
-                                    <input type="tel" name="no_emergency" id="no_emergency" value="" class="form-control"  placeholder="">
+                                    <input type="tel" name="no_emergency" id="no_emergency" value="<?= $biodata->no_emergency?>" class="form-control"  placeholder="">
 
                                     <label for="email">Alamat Email</label>
-                                    <input type="email" name="email" id="email" value="" class="form-control"  placeholder="">
+                                    <input type="email" name="email" id="email" value="<?= $biodata->email?>" class="form-control"  placeholder="">
                                     
                                    
                                   </div>    
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                     <h5>Alamat KTP</h5>
                                     <label for="jl_ktp">Nama Jalan & Nomor Rumah</label>
-                                    <input type="text" name="jl_ktp" id="jl_ktp" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="jl_ktp" id="jl_ktp" value="<?= $biodata->jl_ktp?>" class="form-control"  placeholder="">
 
                                     <label for="rt_ktp">RT</label>
-                                    <input type="text" name="rt_ktp" id="rt_ktp" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="rt_ktp" id="rt_ktp" value="<?= $biodata->rt_ktp?>" class="form-control"  placeholder="">
 
                                     <label for="rw_ktp">RW</label>
-                                    <input type="text" name="rw_ktp" id="rw_ktp" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="rw_ktp" id="rw_ktp" value="<?= $biodata->rw_ktp?>" class="form-control"  placeholder="">
 
                                     <label for="kel_ktp">Kelurahan</label>
-                                    <input type="text" name="kel_ktp" id="kel_ktp" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="kel_ktp" id="kel_ktp" value="<?= $biodata->kel_ktp?>" class="form-control"  placeholder="">
 
                                     <label for="kec_ktp">Kecamatan</label>
-                                    <input type="text" name="kec_ktp" id="kec_ktp" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="kec_ktp" id="kec_ktp" value="<?= $biodata->kec_ktp?>" class="form-control"  placeholder="">
 
                                     <label for="kota_ktp">Kota / Kabupaten</label>
-                                    <input type="text" name="kota_ktp" id="kota_ktp" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="kota_ktp" id="kota_ktp" value="<?= $biodata->kota_ktp?>" class="form-control"  placeholder="">
                                   </div>
 
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                     <h5>Alamat Domisili</h5>
                                     <label for="jl_dom">Nama Jalan & Nomor Rumah</label>
-                                    <input type="text" name="jl_dom" id="jl_dom" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="jl_dom" id="jl_dom" value="<?= $biodata->jl_dom?>" class="form-control"  placeholder="">
 
                                     <label for="rt_dom">RT</label>
-                                    <input type="text" name="rt_dom" id="rt_dom" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="rt_dom" id="rt_dom" value="<?= $biodata->rt_dom?>" class="form-control"  placeholder="">
 
                                     <label for="rw_dom">RW</label>
-                                    <input type="text" name="rw_dom" id="rw_dom" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="rw_dom" id="rw_dom" value="<?= $biodata->rw_dom?>" class="form-control"  placeholder="">
 
                                     <label for="kel_dom">Kelurahan</label>
-                                    <input type="text" name="kel_dom" id="kel_dom" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="kel_dom" id="kel_dom" value="<?= $biodata->kel_dom?>" class="form-control"  placeholder="">
 
                                     <label for="kec_dom">Kecamatan</label>
-                                    <input type="text" name="kec_dom" id="kec_dom" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="kec_dom" id="kec_dom" value="<?= $biodata->kec_dom?>" class="form-control"  placeholder="">
 
                                     <label for="kota_dom">Kota / Kabupaten</label>
-                                    <input type="text" name="kota_dom" id="kota_dom" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="kota_dom" id="kota_dom" value="<?= $biodata->kota_dom?>" class="form-control"  placeholder="">
                                   </div>
 
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                     <h5>Postur Tubuh</h5>
                                     <label for="berat_badan">Berat Badan</label>
-                                    <input type="text" name="berat_badan" id="berat_badan" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="berat_badan" id="berat_badan" value="<?= $biodata->berat_badan?>" class="form-control"  placeholder="">
 
                                     <label for="tinggi_badan">Tinggi Badan</label>
-                                    <input type="text" name="tinggi_badan" id="tinggi_badan" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="tinggi_badan" id="tinggi_badan" value="<?= $biodata->tinggi_badan?>" class="form-control"  placeholder="">
 
                                     <label for="imt">IMT</label>
                                     <input type="text" readonly="" name="imt" id="imt" value="" class="form-control"  placeholder="">
@@ -203,6 +203,51 @@
                 </div>
               </div>
             </div>
+            <script type="text/javascript">
+  //kirim data biodata untuk di update lewat ajax
+  $(document).ready(function(){
+    $("#form<?= $biodata->id_biodata ?>").on('submit',function(event){
+      event.preventDefault();
+        var no_ktp = document.getElementById('no_ktp').value ;
+        var no_kk = document.getElementById('no_kk').value ;
+        var no_hp = document.getElementById('no_hp').value ;
+        var no_emergency = document.getElementById('no_emergency').value ;
+        var email = document.getElementById('email').value ;
+        var jl_ktp = document.getElementById('jl_ktp').value ;
+        var rt_ktp = document.getElementById('rt_ktp').value ;
+        var rw_ktp = document.getElementById('rw_ktp').value ;
+        var kel_ktp = document.getElementById('kel_ktp').value ;
+        var kec_ktp = document.getElementById('kec_ktp').value ;
+        var kota_ktp = document.getElementById('kota_ktp').value ;
+        var jl_dom = document.getElementById('jl_dom').value ;
+        var rt_dom = document.getElementById('rt_dom').value ;
+        var rw_dom = document.getElementById('rw_dom').value ;
+        var rw_ktp = document.getElementById('rw_ktp').value ;
+        var kel_dom = document.getElementById('kel_dom').value ;
+        var kec_dom = document.getElementById('kec_dom').value ;
+        var kota_dom = document.getElementById('kota_dom').value ;
+        var berat_badan = document.getElementById('berat_badan').value ;
+        var tinggi_badan = document.getElementById('tinggi_badan').value ;
+        var imt = document.getElementById('imt').value ;
+         
+             $.ajax({
+                url : "<?= base_url('Anggota/Profile/BiodataUpdate') ?>",
+                data : new FormData(this),
+                method : "POST",
+                contentType : false ,
+                processData : false ,
+                cache : false ,
+                success : function(response){
+                    alert ("sukses").then(function(){
+                      window.location.href="<?= base_url("Anggota/Profile") ?>"
+                    })
+
+                }
+             })
+          
+    })
+  })
+</script>
     <!-- END MODAL BIODATA -->
 
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

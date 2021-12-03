@@ -16,10 +16,17 @@
 <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap.min.css">
 <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap-grid.css.map">
 <!-- Jquery CDN -->
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <!-- Chart -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
 <!-- End Chart -->
+<!-- CDN Bootstrap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- END CDN Bootstrap -->
+<!-- SWEET ALERT -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- SWEET ALERT -->
 <script type="text/javascript">
     $(function()
     {
@@ -35,14 +42,25 @@
 </head>
 <body style="background-color:#F9FAFA">
 <!-- HEADER -->
-            <div class="container-md-3 fixed-top">
+            <div  class="container-md-3 fixed-top">
                 <nav style="background-color:#F9FAFA; border-style:none;" class="navbar navbar-expand-lg roundedmurry1 navbar-light  ">
                     <div class="container-fluid">
                     <a id="brand" class="navbar-brand" href="#">
                         <img style="background-color:#F9FAFA;  border-style:none;" class="img-thumbnail"  src="<?= base_url('assets/img/')?>Group_2.png" alt="brand" width=156; height=67;>
                         </a>
-                    <a href="#" > <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-3" src="<?= base_url('assets/') ?>img/anton.png" alt="avatar" height=67px; width=67px; >
+                    <a style="border-style:none" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/') ?>img/anton.png" alt="avatar" height=67px; width=67px; >
                     </a>
+                    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul  style="float:right;" class="navbar-nav px-1 mx-3">
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="<?= base_url('Anggota/Profile/')?>Foto"><span>Foto Profil</span></a>
+                            </li>          
+                            <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="<?= base_url('LogOut')?>"><span>Keluar</span></a>
+                            </li>                        
+                        </ul>
+                    </div>
                     </div>
                 </nav>
             </div>
