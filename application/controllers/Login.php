@@ -19,11 +19,11 @@ class Login extends CI_Controller
 	{
 		date_default_timezone_set('Asia/Jakarta');
 		$username 	= $this->input->post('npk');
-		$password   = md5($this->input->post('pass'));	
+		$password   = md5($this->input->post('password'));	
 
 		$auth = $this->Login_model->cek_login($username, $password)->num_rows();
        
-        // $cekstatus = $this->db->get_where("biodata",array("npk" =>$username))->row();
+        $cekstatus = $this->db->get_where("biodata",array("npk" =>$username))->row();
 		 if($auth > 0){
 			$user = $this->Login_model->cek_login($username, $password)->row();   
             var_dump($user);

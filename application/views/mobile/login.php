@@ -34,7 +34,7 @@
                             </div> <br>
                             <div class="col-auto">
                             <label for="pass">Password</label>
-                             <input type="password" class="form-control" id="pass" name="pass" placeholder="Masukan Nomor Password Anda" >
+                             <input type="password" class="form-control" id="password" name="password" placeholder="Masukan Nomor Password Anda" >
                             </div> <br>
                             <div class="col-auto">
                             <button style="float:right;" class="btn btn-info" type="submit"><b>LOGIN</b></button>

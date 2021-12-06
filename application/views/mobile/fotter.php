@@ -14,6 +14,7 @@
                 <div class="container-fluid">
                     <a class="navbar-expand-md nostyle   text-center" href="<?= base_url('Anggota/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center">Home</p></a>
                     <a class="navbar-expand-md nostyle   text-center" href="#"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center">Inbox</p></a>
+                    <a class="navbar-expand-md nostyle   text-center" href="<?= base_url('Anggota/')?>Pengumuman"><i class='bx bx-broadcast bx-sm'></i><br><p id="navbot" class="text-center">Announcement</p></a>
                     <a class="navbar-expand-md nostyle   text-center" href="<?= base_url('Anggota/')?>Course"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center">Course</p> </a>
                     <a class="navbar-expand-md nostyle   text-center" href="<?= base_url('Anggota/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center">Profile</p></a>
                 </div>

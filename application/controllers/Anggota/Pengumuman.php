@@ -1,7 +1,8 @@
 <?php
 
-class Course extends CI_Controller{
-    
+
+class Pengumuman extends CI_Controller
+{
     function __construct()
     {
       parent::__construct();
@@ -11,22 +12,21 @@ class Course extends CI_Controller{
         if ($id == null || $id == "") {
         $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
         redirect('Login');
-        }
     }
-   
-    
+    }
+
+
     function index()
     {
-        $data =  array(
+        $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'url'  => $this->uri->segment(2),
             'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-			'url' 				=> $this->uri->segment(2),
-		);
+        );
         $this->load->view('mobile/header',$data);
-        $this->load->view('Anggota/course');
-        $this->load->view('mobile/fotter',$data);
+        $this->load->view('Anggota/pengumuman');
+        $this->load->view('mobile/fotter');
     }
 }
 
-
 ?>
-

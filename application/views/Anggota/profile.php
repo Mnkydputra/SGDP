@@ -197,7 +197,7 @@
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" id="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    <button type="submit" id="submit" data-bs-dismiss="modal" class="btn btn-primary">Simpan Perubahan</button>
                   </div>
                    </form>
                 </div>
@@ -238,13 +238,14 @@
                 processData : false ,
                 cache : false ,
                 success : function(response){
-                    alert ("sukses").then(function(){
+                  Swal.fire({
+                    icon : "success",
+                    title : response
+                  }).then(function(){
                       window.location.href="<?= base_url("Anggota/Profile") ?>"
                     })
-
                 }
              })
-          
     })
   })
 </script>
@@ -344,39 +345,66 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                  <form method="post" id="form">
+                  <form method="post" id="formEmployee">
                               <div class="row">
                                 <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                   <label for="no_kta">No KTA</label>
-                                  <input type="hidden" name="id_karyawan" value="">
-                                  <input type="hidden" name="npk" value="">
-                                  <input type="text" name="no_kta" id="no_kta" value="" class="form-control" placeholder="">
+                                  <input type="hidden" name="id_karyawan" value="<?= $employee->id_employee?>">
+                                  <input type="hidden" name="npk" value="<?= $employee->npk?>">
+                                  <input type="text" name="no_kta" id="no_kta" value="<?= $employee->no_kta?>" class="form-control" placeholder="">
 
                                     <label for="ex_kta">Expired KTA</label>
-                                    <input type="text" name="ex_kta" id="ex_kta" value="" class="form-control"  placeholder="">
+                                    <input type="text" name="ex_kta" id="datepicker" value="<?= $employee->expired_kta?>" class="form-control"  placeholder="">
 
                                     <label for="status_kta">Status KTA</label>
-                                    <input class="form-control" list="datalistOptions" id="status_kta" placeholder="Aktif / Tidak Aktif">
-                                    <datalist  class="custom-select" name="status_kta" id="datalistOptions" >
+                                    <input class="form-control" list="datalistOptions" name="status_kta" id="status_kta" value="<?= $employee->status_kta?>" placeholder="Aktif / Tidak Aktif">
+                                    <datalist  class="custom-select" name="status_kta" id="datalistOptions"  >
                                     <option value="Aktif"></option>
                                     <option value="Tidak Aktif"></option>
                                     </datalist>
-                                   
                                 </div>
                               </div>
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                    <button type="submit" id="submit" class="btn btn-primary">Simpan Perubahan</button>
+                    <button type="submit" id="submit" data-bs-dismiss="modal" class="btn btn-primary">Simpan Perubahan</button>
                   </div>
                    </form>
                   </div>
                 </div>
               </div>
-        
+
+
     <!-- END MODAL STATUS -->
 
- 
+ <script type="text/javascript">
+  //kirim data biodata untuk di update lewat ajax
+  $(document).ready(function(){
+    $("#formEmployee").on('submit',function(event){
+      event.preventDefault();
+        var no_kta =      document.getElementById('no_kta').value ;
+        var expired_kta = document.getElementById('datepicker').value ;
+        var status_kta = document.getElementById('status_kta').value ;
+         
+             $.ajax({
+                url : "<?= base_url('Anggota/Profile/EmployeeUpdate') ?>",
+                data : new FormData(this),
+                method : "POST",
+                contentType : false ,
+                processData : false ,
+                cache : false ,
+                success : function(response){
+                  Swal.fire({
+                    icon : "success",
+                    title : response
+                  }).then(function(){
+                      window.location.href="<?= base_url("Anggota/Profile") ?>"
+                    })
+                }
+             });
+    })
+  })
+</script> 
       </div> 
     </div>
 </div>
