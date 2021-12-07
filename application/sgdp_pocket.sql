@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 02, 2021 at 10:04 AM
+-- Generation Time: Dec 07, 2021 at 10:39 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -40,7 +40,8 @@ CREATE TABLE `akun` (
 
 INSERT INTO `akun` (`id_akun`, `npk`, `password`, `role_id`) VALUES
 ('agt-220927', 220927, 'e10adc3949ba59abbe56e057f20f883e', 1),
-('dnr-123456', 123456, 'e10adc3949ba59abbe56e057f20f883e', 2);
+('dnr-123456', 123456, 'e10adc3949ba59abbe56e057f20f883e', 2),
+('sip-987654', 987654, 'e10adc3949ba59abbe56e057f20f883e', 4);
 
 -- --------------------------------------------------------
 
@@ -52,15 +53,36 @@ CREATE TABLE `anggota` (
   `id_akun` varchar(25) DEFAULT NULL,
   `id_biodata` varchar(25) DEFAULT NULL,
   `id_employe` varchar(25) DEFAULT NULL,
-  `id_danru` varchar(25) DEFAULT NULL
+  `id_korlap` varchar(25) NOT NULL,
+  `id_danru` varchar(25) DEFAULT NULL,
+  `id_berkas` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `anggota`
 --
 
-INSERT INTO `anggota` (`id_akun`, `id_biodata`, `id_employe`, `id_danru`) VALUES
-('agt-220927', 'agt-220927', 'agt-220927', 'dnr-123456');
+INSERT INTO `anggota` (`id_akun`, `id_biodata`, `id_employe`, `id_korlap`, `id_danru`, `id_berkas`) VALUES
+('agt-220927', 'agt-220927', 'agt-220927', '', 'dnr-123456', 'agt-220927');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `berkas`
+--
+
+CREATE TABLE `berkas` (
+  `id_berkas` varchar(25) NOT NULL,
+  `foto` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `berkas`
+--
+
+INSERT INTO `berkas` (`id_berkas`, `foto`) VALUES
+('agt-220927', 'Potoagt-220927.jpg'),
+('sip-987654', NULL);
 
 -- --------------------------------------------------------
 
@@ -99,7 +121,8 @@ CREATE TABLE `biodata` (
 --
 
 INSERT INTO `biodata` (`id_biodata`, `npk`, `nama`, `ktp`, `kk`, `email`, `no_hp`, `no_emergency`, `tinggi_badan`, `berat_badan`, `imt`, `jl_ktp`, `rt_ktp`, `rw_ktp`, `kel_ktp`, `kec_ktp`, `kota_ktp`, `jl_dom`, `rt_dom`, `rw_dom`, `kel_dom`, `kec_dom`, `kota_dom`) VALUES
-('agt-220927', 220927, 'Murry Febriansyah Putra', '', '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '');
+('agt-220927', 220927, 'Murry Febriansyah Putra', '3172021402980003', '12144154', 'mreuhreufn@gmail.com', '087886511096', '08558876512', 172, 55, 0, 'asjdkasdjeiji no.23', '11', '11', 'wareajkas', 'adasdsa', 'jakarta', 'maksmdfn', '11', '11', 'jfisjdsi', 'dijfkejfejiw', 'ojkaodkweod'),
+('sip-987654', 987654, 'Murrs Fucking Brian', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -147,7 +170,46 @@ CREATE TABLE `employee` (
 --
 
 INSERT INTO `employee` (`id_employee`, `npk`, `no_kta`, `expired_kta`, `jabatan`, `status_anggota`, `status_kta`, `area_kerja`, `wilayah`, `tgl_masuk_sigap`, `tgl_masuk_adm`) VALUES
-('agt-220927', 220927, '215454152231', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+('agt-220927', 220927, '215454152231', '2021-12-16', NULL, NULL, 'Aktif', NULL, NULL, NULL, NULL),
+('sip-987654', 987654, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `korlap`
+--
+
+CREATE TABLE `korlap` (
+  `id_korlap` varchar(25) NOT NULL,
+  `id_akun` varchar(25) DEFAULT NULL,
+  `id_biodata` varchar(25) DEFAULT NULL,
+  `id_employee` varchar(25) DEFAULT NULL,
+  `id_berkas` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sipd`
+--
+
+CREATE TABLE `sipd` (
+  `id_sipd` varchar(25) NOT NULL,
+  `id_akun` varchar(25) DEFAULT NULL,
+  `id_korlap` varchar(25) DEFAULT NULL,
+  `id_danru` varchar(25) DEFAULT NULL,
+  `id_anggota` varchar(25) DEFAULT NULL,
+  `id_biodata` varchar(25) DEFAULT NULL,
+  `id_employee` varchar(25) DEFAULT NULL,
+  `id_berkas` varchar(25) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `sipd`
+--
+
+INSERT INTO `sipd` (`id_sipd`, `id_akun`, `id_korlap`, `id_danru`, `id_anggota`, `id_biodata`, `id_employee`, `id_berkas`) VALUES
+('sip-987654', 'sip-987654', NULL, NULL, NULL, NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -163,10 +225,18 @@ ALTER TABLE `akun`
 -- Indexes for table `anggota`
 --
 ALTER TABLE `anggota`
+  ADD UNIQUE KEY `id_berkas` (`id_berkas`),
+  ADD UNIQUE KEY `id_korlap` (`id_korlap`),
   ADD UNIQUE KEY `id_akun` (`id_akun`),
   ADD UNIQUE KEY `id_biodata` (`id_biodata`),
   ADD UNIQUE KEY `id_employe` (`id_employe`),
   ADD UNIQUE KEY `id_danru` (`id_danru`);
+
+--
+-- Indexes for table `berkas`
+--
+ALTER TABLE `berkas`
+  ADD PRIMARY KEY (`id_berkas`);
 
 --
 -- Indexes for table `biodata`
@@ -188,6 +258,29 @@ ALTER TABLE `danru`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id_employee`);
+
+--
+-- Indexes for table `korlap`
+--
+ALTER TABLE `korlap`
+  ADD PRIMARY KEY (`id_korlap`),
+  ADD UNIQUE KEY `id_akun` (`id_akun`),
+  ADD UNIQUE KEY `id_biodata` (`id_biodata`),
+  ADD UNIQUE KEY `id_employee` (`id_employee`),
+  ADD UNIQUE KEY `id_berkas` (`id_berkas`);
+
+--
+-- Indexes for table `sipd`
+--
+ALTER TABLE `sipd`
+  ADD PRIMARY KEY (`id_sipd`),
+  ADD UNIQUE KEY `id_akun` (`id_akun`),
+  ADD UNIQUE KEY `id_korlap` (`id_korlap`),
+  ADD UNIQUE KEY `id_danru` (`id_danru`),
+  ADD UNIQUE KEY `id_anggota` (`id_anggota`),
+  ADD UNIQUE KEY `id_biodata` (`id_biodata`),
+  ADD UNIQUE KEY `id_employee` (`id_employee`),
+  ADD UNIQUE KEY `id_berkas` (`id_berkas`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

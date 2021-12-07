@@ -7,11 +7,31 @@ class Login extends CI_Controller
     function __construct()
 	  {
 	    parent::__construct();
+        $this->load->library('user_agent');
 		$id 	 = $this->session->userdata('role_id');
 	  }
 
     function index()
     {
+    
+        if($this->agent->platform() == 'Android'){
+            redirect('Login/mobile');
+        }else if ($this->agent->platform() == 'iOS'){
+            redirect('Login/mobile');
+        }else{
+            redirect('Login/web');
+        }
+    }
+
+    function web()
+    {
+         
+        $this->load->view('web/login');
+    }
+
+    function mobile()
+    {
+        
         $this->load->view('mobile/login');
     }
 

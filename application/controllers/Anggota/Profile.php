@@ -6,7 +6,7 @@ class Profile extends CI_Controller{
   function __construct()
   {
     parent::__construct();
-
+    $this->load->library('user_agent');
     $id = $this->session->userdata('id_akun');
       
       if ($id == null || $id == "") {
