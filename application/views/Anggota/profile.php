@@ -1,4 +1,4 @@
-<div id="content" class="container-md">
+<div id="content" class="container-md" style="background-color:#F9FAFA;">
     <div class="row">
        
         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -14,7 +14,7 @@
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
      <div class="row">
          <div class="col-md-3">
-             <table class="table table-striped">
+             <table class="table ">
         <td>NPK</td>
           <td>:</td>
           <td><?= $biodata->npk ?></td>
@@ -117,14 +117,14 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                  <form method="post" id="form<?= $biodata->id_biodata?>">
+                  <form method="post" id="form<?= $biodata->id_biodata?>" style="color:black">
                               <div class="row">
                                 <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2" >
                                    <h5>Biodata</h5>
                                   <label for="no_ktp">No KTP</label>
                                   <input type="hidden" name="id_biodata" value="<?= $biodata->id_biodata?>">
                                   <input type="hidden" name="npk" value="<?= $biodata->npk?>">
-                                  <input type="text" name="no_ktp" id="no_ktp" value="<?= $biodata->ktp?>" class="form-control" placeholder="">
+                                  <input type="text" name="no_ktp" id="no_ktp" value="<?= $biodata->ktp?>" class="form-control text-dark" placeholder="">
 
                                     <label for="no_kk">No KK</label>
                                     <input type="text" name="no_kk" id="no_kk" value="<?= $biodata->kk?>" class="form-control"  placeholder="">
@@ -254,7 +254,7 @@
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
               <div class="row">
                   <div class="col-md-3">
-                  <table class="table table-striped">
+                  <table class="table">
                       <td>No KTA</td>
                     <td>:</td>
                     <td><?= $employee->no_kta ?></td>
@@ -345,7 +345,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                  <form method="post" id="formEmployee">
+                  <form method="post" id="formEmployee" style="color:black">
                               <div class="row">
                                 <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                   <label for="no_kta">No KTA</label>

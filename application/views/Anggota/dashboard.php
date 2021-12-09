@@ -22,7 +22,7 @@
         </div>
 <!-- End Sticky Top -->
 
-            <div style="margin-top:100px; padding-top:40mm"class="container-md mt-5">
+            <div style="margin-top:100px; padding-top:40mm; background-color:#F9FAFA;"class="container-md mt-5">
                 <div class="row">
                     <div class="container-md-3">
                             <div style="background-color:#6f9390; font-size:12px; font-weight:solid" class=" alert alert" role="alert">

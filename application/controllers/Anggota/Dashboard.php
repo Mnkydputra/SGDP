@@ -23,9 +23,9 @@ Class Dashboard Extends CI_Controller
         'url'  => $this->uri->segment(2),
         'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
      );
-        $this->load->view('web/header',$data);
-        // $this->load->view('Anggota/dashboard',$data);
-        // $this->load->view('mobile/fotter');
+        $this->load->view('mobile/header',$data);
+        $this->load->view('Anggota/dashboard',$data);
+        $this->load->view('mobile/fotter');
     }
 
 }

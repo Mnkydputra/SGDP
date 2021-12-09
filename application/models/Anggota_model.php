@@ -29,7 +29,6 @@
    }
 
    //ganti password user
-
    public function updatePass($where,$data)
    {
    		$this->db->where($where);

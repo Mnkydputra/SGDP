@@ -1,5 +1,5 @@
  <!-- Begin Page Content -->
- <div id="content" class="container-md" >
+ <div id="content" class="container-md" style="background-color:#F9FAFA;">
  <div class="row">
      <div class="col-md-3">
   <div class="card shadow ml-3 mr-3">

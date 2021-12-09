@@ -35,6 +35,25 @@ class Login extends CI_Controller
         $this->load->view('mobile/login');
     }
 
+
+    function UpdatePassword()
+    {
+       $username = $this->input->post('npk');
+       $password = md5($this->input->post('password1'));
+       $password2 = md5($this->input->post('password2'));
+       $ceknpk = $this->db->get_where("akun", array('npk'  => $username))->num_rows();
+       if($ceknpk == 0){
+           echo "gagal";
+       }else if($password == $password2){
+            $where = array('npk' => $this->input->post('npk'));
+            $data = array('password' => $password);
+           $data =  $this->Anggota_model->updatePass($where,$data);
+           $this->session->set_flashdata("berhasil","password anda berhasil berubah"); 
+           redirect('Login');
+        }
+        
+    }
+
     function cekLogin()
 	{
 		date_default_timezone_set('Asia/Jakarta');
@@ -43,13 +62,13 @@ class Login extends CI_Controller
 
 		$auth = $this->Login_model->cek_login($username, $password)->num_rows();
        
-        $cekstatus = $this->db->get_where("biodata",array("npk" =>$username))->row();
 		 if($auth > 0){
 			$user = $this->Login_model->cek_login($username, $password)->row();   
-            var_dump($user);
             }
-            if ($user->pass == md5($username))
+           
+            if ($user->password == md5($username))
             {
+                $this->session->set_userdata('npk', $user->npk);
                 redirect("Auth");
             }else {
                 $this->session->set_userdata('id_akun',$user->id_akun);

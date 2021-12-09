@@ -10,46 +10,45 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/') ?>img/icon.png">
-    <!-- <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap.css.map">
+    <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap.css.map">
     <link rel="stylesheet" href="<?= base_url('assets/css/')?>style.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap-grid.css.map"> -->
+    <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap-grid.css.map">
 	<link rel="stylesheet" href="<?= base_url('assets/css/')?>style.css">
     <!-- Jquery CDN --> 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	
+
 	</head>
-	<body style="background-image: url(<?= base_url('assets/img/')?>bg.jpg);" height="100%">
+	<body   style="background-image: url(./assets/img/bg.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
 				
                 <div class="col-md-6 text-center mb-5">
-					<img class="heading-section" src="<?php echo base_url('assets/img/')?>Login.png" alt="brand">
+					<img class="heading-section" src="<?php echo base_url('assets/img/')?>Login.png" width="150" height="150" alt="brand">
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
-		      	<h3 class="mb-4 text-center">LOGIN</h3>
-		      	<form action="<?= base_url('Login/')?>cekLogin" method="post"  class="signin-form">
+		      	<h3 class="mb-4 text-center text-dark"><b>UPDATE PASSWORD</b></h3>
+		      	<form action="<?= base_url('Login/')?>UpdatePassword" method="post"  class="signin-form">
 		      		<div class="form-group">
-					  <input type="text" class="form-control" id="npk" name="npk" placeholder="Masukan Nomor NPK Anda" >
+					  <input type="text" class="form-control text-dark" id="npk" name="npk" placeholder="Masukan Nomor NPK Anda" value="<?= $akun->npk ?>" >
 		      		</div>
 	           		 <div class="form-group">
-						<input id="password" name="password" type="password" class="form-control" placeholder="Masukan Password Anda" >
+						<input id="password" name="password1" type="password" class="form-control text-dark" placeholder="Masukan Password Baru Anda" >
+						<span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+	           		 </div>
+                        <div class="form-group">
+						<input id="password" name="password2" type="password" class="form-control text-dark" placeholder="Masukan Password Baru Anda Kembali" >
 						<span toggle="#password" class="fa fa-fw fa-eye field-icon toggle-password"></span>
 	           		 </div>
 	           		 <div class="form-group">
-	            	<button type="submit" class="form-control btn btn-primary submit px-3">Sign In</button>
+	            	<button type="submit" class="form-control btn btn-primary submit px-3">Update</button>
 	            </div>
 	            <div class="form-group d-md-flex">
-	            	<div class="w-50">
-		            	<label class="checkbox-wrap checkbox-primary">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									</label>
-								</div>
-                    </div>
                 </form>
                 </div>
                     </div>
