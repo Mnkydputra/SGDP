@@ -5,15 +5,19 @@ class Pengumuman extends CI_Controller
 {
     function __construct()
     {
-      parent::__construct();
-      $this->load->library('user_agent');  
-      $id = $this->session->userdata('id_akun');
-        
+        parent::__construct();
+        $this->load->library('user_agent');
+        $id = $this->session->userdata('id_akun');
+        $role_id = $this->session->userdata('role_id');
         if ($id == null || $id == "") {
-        $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
-        redirect('Login');
+            $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
+                redirect('Login');
+            } 
+            if ($role_id != 1){
+                redirect('LogOut');
+            }
     }
-    }
+    
 
 
     function index()

@@ -1,4 +1,4 @@
-$(function()
+    $(function()
     {
         setTimeout("displaytime()",1000);
     })
@@ -9,12 +9,15 @@ $(function()
         setTimeout("displaytime()",1000);       
     }
     $( function() {
-    $( "#datepicker" ).datepicker({
-        dateFormat: 'yy-mm-dd',
-        changeMonth: true,
-        changeYear: true
-      
-    });
-  });
+        $( "#datepicker1" ).datepicker({
+            dateFormat: 'yy-mm-dd',
+            changeMonth: true,
+            changeYear: true
+          
+        });
+      });
+    
+    
+   
 
   

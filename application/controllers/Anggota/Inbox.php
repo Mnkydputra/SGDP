@@ -1,7 +1,7 @@
 <?php
 
-class Course extends CI_Controller{
-    
+class Inbox extends CI_Controller
+{
     function __construct()
     {
         parent::__construct();
@@ -16,21 +16,18 @@ class Course extends CI_Controller{
                 redirect('LogOut');
             }
     }
-   
-    
+
     function index()
     {
-        $data =  array(
-            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-			'url' 				=> $this->uri->segment(2),
+        $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-		);
+            'url'  => $this->uri->segment(2),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+         );
         $this->load->view('mobile/header',$data);
-        $this->load->view('Anggota/course');
-        $this->load->view('mobile/fotter',$data);
+        $this->load->view('Anggota/inbox');
+        $this->load->view('mobile/fotter');
     }
 }
 
-
-?>
 

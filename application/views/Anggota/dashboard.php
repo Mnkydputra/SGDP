@@ -7,16 +7,13 @@
     width: 1650px;
     font-weight:55mm;
   }
-  #time{
-      font-weight: bold;
-  }
 </style>
 <!-- Sticky top -->
         <div style="margin-top:90px; background-color:#F9FAFA;" class="container fixed-top">
             <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>   
             <div class="container-md-3">
-                <div style="border:none; height:30px; padding-top:6px; letter-spacing: 2px;" class="alert alert-secondary" role="alert">
-                <i class='d-flex align-items-center justify-content-center bx bx-time'> <label  id="time"></label> </i>
+                <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-secondary" role="alert">
+                <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
                 </div> 
             </div>
         </div>

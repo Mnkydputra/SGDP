@@ -1,6 +1,6 @@
 <div id="content" class="container-md" style="background-color:#F9FAFA;">
     <div class="row">
-       
+       <div>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="btn btn-dark bg-danger text-dark ps-2 ms-2 my-2 nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true"> <h6>Profil Diri</h6></button>
@@ -8,8 +8,8 @@
             <li class="nav-item" role="presentation">
                 <button class="btn btn-dark bg-info text-dark ps-3 ms-2 my-2 nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false"><h6> Status</h6></button>
             </li>
-            
             </ul>
+    </div>
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
      <div class="row">
@@ -78,6 +78,11 @@
           <td><?= $biodata->imt ?></td>
         </tr>
         <tr>
+          <td>Keterangan IMT</td>
+          <td>:</td>
+          <td><?= $biodata->keterangan ?></td>
+        </tr>
+        <tr>
           <td></td>
           <td></td>
           <td>
@@ -127,71 +132,73 @@
                                   <input type="text" name="no_ktp" id="no_ktp" value="<?= $biodata->ktp?>" class="form-control text-dark" placeholder="">
 
                                     <label for="no_kk">No KK</label>
-                                    <input type="text" name="no_kk" id="no_kk" value="<?= $biodata->kk?>" class="form-control"  placeholder="">
+                                    <input type="text" name="no_kk" id="no_kk" value="<?= $biodata->kk?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="no_hp">No Handphone</label>
-                                    <input type="tel" name="no_hp" id="no_hp" value="<?= $biodata->no_hp?>" class="form-control"  placeholder="">
+                                    <input type="tel" name="no_hp" id="no_hp" value="<?= $biodata->no_hp?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="no_emergency">No Emergency</label>
-                                    <input type="tel" name="no_emergency" id="no_emergency" value="<?= $biodata->no_emergency?>" class="form-control"  placeholder="">
+                                    <input type="tel" name="no_emergency" id="no_emergency" value="<?= $biodata->no_emergency?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="email">Alamat Email</label>
-                                    <input type="email" name="email" id="email" value="<?= $biodata->email?>" class="form-control"  placeholder="">
+                                    <input type="email" name="email" id="email" value="<?= $biodata->email?>" class="form-control text-dark"  placeholder="">
                                     
                                    
                                   </div>    
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                     <h5>Alamat KTP</h5>
                                     <label for="jl_ktp">Nama Jalan & Nomor Rumah</label>
-                                    <input type="text" name="jl_ktp" id="jl_ktp" value="<?= $biodata->jl_ktp?>" class="form-control"  placeholder="">
+                                    <input type="text" name="jl_ktp" id="jl_ktp" value="<?= $biodata->jl_ktp?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="rt_ktp">RT</label>
-                                    <input type="text" name="rt_ktp" id="rt_ktp" value="<?= $biodata->rt_ktp?>" class="form-control"  placeholder="">
+                                    <input type="text" name="rt_ktp" id="rt_ktp" value="<?= $biodata->rt_ktp?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="rw_ktp">RW</label>
-                                    <input type="text" name="rw_ktp" id="rw_ktp" value="<?= $biodata->rw_ktp?>" class="form-control"  placeholder="">
+                                    <input type="text" name="rw_ktp" id="rw_ktp" value="<?= $biodata->rw_ktp?>" class="form-control text-dark"   placeholder="">
 
                                     <label for="kel_ktp">Kelurahan</label>
-                                    <input type="text" name="kel_ktp" id="kel_ktp" value="<?= $biodata->kel_ktp?>" class="form-control"  placeholder="">
+                                    <input type="text" name="kel_ktp" id="kel_ktp" value="<?= $biodata->kel_ktp?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="kec_ktp">Kecamatan</label>
-                                    <input type="text" name="kec_ktp" id="kec_ktp" value="<?= $biodata->kec_ktp?>" class="form-control"  placeholder="">
+                                    <input type="text" name="kec_ktp" id="kec_ktp" value="<?= $biodata->kec_ktp?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="kota_ktp">Kota / Kabupaten</label>
-                                    <input type="text" name="kota_ktp" id="kota_ktp" value="<?= $biodata->kota_ktp?>" class="form-control"  placeholder="">
+                                    <input type="text" name="kota_ktp" id="kota_ktp" value="<?= $biodata->kota_ktp?>" class="form-control text-dark"  placeholder="">
                                   </div>
 
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                     <h5>Alamat Domisili</h5>
                                     <label for="jl_dom">Nama Jalan & Nomor Rumah</label>
-                                    <input type="text" name="jl_dom" id="jl_dom" value="<?= $biodata->jl_dom?>" class="form-control"  placeholder="">
+                                    <input type="text" name="jl_dom" id="jl_dom" value="<?= $biodata->jl_dom?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="rt_dom">RT</label>
-                                    <input type="text" name="rt_dom" id="rt_dom" value="<?= $biodata->rt_dom?>" class="form-control"  placeholder="">
+                                    <input type="text" name="rt_dom" id="rt_dom" value="<?= $biodata->rt_dom?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="rw_dom">RW</label>
-                                    <input type="text" name="rw_dom" id="rw_dom" value="<?= $biodata->rw_dom?>" class="form-control"  placeholder="">
+                                    <input type="text" name="rw_dom" id="rw_dom" value="<?= $biodata->rw_dom?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="kel_dom">Kelurahan</label>
-                                    <input type="text" name="kel_dom" id="kel_dom" value="<?= $biodata->kel_dom?>" class="form-control"  placeholder="">
+                                    <input type="text" name="kel_dom" id="kel_dom" value="<?= $biodata->kel_dom?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="kec_dom">Kecamatan</label>
-                                    <input type="text" name="kec_dom" id="kec_dom" value="<?= $biodata->kec_dom?>" class="form-control"  placeholder="">
+                                    <input type="text" name="kec_dom" id="kec_dom" value="<?= $biodata->kec_dom?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="kota_dom">Kota / Kabupaten</label>
-                                    <input type="text" name="kota_dom" id="kota_dom" value="<?= $biodata->kota_dom?>" class="form-control"  placeholder="">
+                                    <input type="text" name="kota_dom" id="kota_dom" value="<?= $biodata->kota_dom?>" class="form-control text-dark"  placeholder="">
                                   </div>
 
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                     <h5>Postur Tubuh</h5>
                                     <label for="berat_badan">Berat Badan</label>
-                                    <input type="text" name="berat_badan" id="berat_badan" value="<?= $biodata->berat_badan?>" class="form-control"  placeholder="">
+                                    <input type="text" name="berat_badan" id="berat_badan" value="<?= $biodata->berat_badan?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="tinggi_badan">Tinggi Badan</label>
-                                    <input type="text" name="tinggi_badan" id="tinggi_badan" value="<?= $biodata->tinggi_badan?>" class="form-control"  placeholder="">
+                                    <input type="text" name="tinggi_badan" id="tinggi_badan" value="<?= $biodata->tinggi_badan?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="imt">IMT</label>
-                                    <input type="text" readonly="" name="imt" id="imt" value="" class="form-control"  placeholder="">
+                                    <input type="text" readonly="" name="imt" id="imt" value="" class="form-control text-dark"  placeholder="">
+                                    <label for="imt">Keterangan IMT</label>
+                                    <input type="text" readonly="" name="keterangan" id="keterangan" value="" class="form-control text-dark"  placeholder="">
                                   </div>
                               </div>
                     </div>
@@ -229,6 +236,7 @@
         var berat_badan = document.getElementById('berat_badan').value ;
         var tinggi_badan = document.getElementById('tinggi_badan').value ;
         var imt = document.getElementById('imt').value ;
+        var imt = document.getElementById('keterangan').value ;
          
              $.ajax({
                 url : "<?= base_url('Anggota/Profile/BiodataUpdate') ?>",
@@ -269,6 +277,7 @@
                     <td>Jabatan</td>
                     <td>:</td>
                     <td><?= $employee->jabatan?></td>
+                    
                   </tr>
 
                   <tr>
@@ -349,19 +358,28 @@
                               <div class="row">
                                 <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                   <label for="no_kta">No KTA</label>
-                                  <input type="hidden" name="id_karyawan" value="<?= $employee->id_employee?>">
+                                  <input type="hidden" name="id_employe" value="<?= $employee->id_employee?>">
                                   <input type="hidden" name="npk" value="<?= $employee->npk?>">
-                                  <input type="text" name="no_kta" id="no_kta" value="<?= $employee->no_kta?>" class="form-control" placeholder="">
-
+                                  <input type="text" name="no_kta" id="no_kta" value="<?= $employee->no_kta?>" class="form-control text-dark" placeholder="">
+                                  
                                     <label for="ex_kta">Expired KTA</label>
-                                    <input type="text" name="ex_kta" id="datepicker" value="<?= $employee->expired_kta?>" class="form-control"  placeholder="">
-
-                                    <label for="status_kta">Status KTA</label>
-                                    <input class="form-control" list="datalistOptions" name="status_kta" id="status_kta" value="<?= $employee->status_kta?>" placeholder="Aktif / Tidak Aktif">
-                                    <datalist  class="custom-select" name="status_kta" id="datalistOptions"  >
-                                    <option value="Aktif"></option>
-                                    <option value="Tidak Aktif"></option>
-                                    </datalist>
+                                    <input type="text" name="ex_kta" id="datepicker1" value="<?= $employee->expired_kta?>" class="form-control text-dark"  placeholder="">
+                                  
+                                    <label for="ex_kta">Jabatan</label>
+                                    <input type="text" name="jabatan" id="jabatan" value="<?= $employee->jabatan?>" class="form-control text-dark"  placeholder="">
+                                  
+                                    <label for="ex_kta">Area Kerja</label>
+                                    <input type="text" name="area_kerja" id="area_kerja" value="<?= $employee->area_kerja?>" class="form-control text-dark"  placeholder="">
+                                  
+                                    <label for="ex_kta">Wilayah</label>
+                                    <input type="text" name="wilayah" id="wilayah" value="<?= $employee->wilayah?>" class="form-control text-dark"  placeholder="">
+                                  
+                                    <label for="masuk_sigap">Tanggal Masuk Sigap</label>
+                                    <input type="text" name="masuk_sigap" id="datepicker2" value="<?= $employee->tgl_masuk_sigap?>" class="form-control text-dark"  placeholder="">
+                                  
+                                    <label for="masuk_adm">Tanggal Masuk ADM</label>
+                                    <input type="text" name="masuk_adm" id="datepicker3" value="<?= $employee->tgl_masuk_adm?>" class="form-control text-dark"  placeholder="">
+                                    </div>
                                 </div>
                               </div>
                     </div>
@@ -382,11 +400,13 @@
   $(document).ready(function(){
     $("#formEmployee").on('submit',function(event){
       event.preventDefault();
-        var no_kta =      document.getElementById('no_kta').value ;
-        var expired_kta = document.getElementById('datepicker').value ;
-        var status_kta = document.getElementById('status_kta').value ;
-         
-             $.ajax({
+        var no_kta      = document.getElementById('no_kta').value ;
+        var expired_kta = document.getElementById('datepicker').value;
+        var jabatan     = document.getElementById('jabatan').value;
+        var areaKerja   = document.getElmentByID('area_kerja').value;
+        var wilayah     = document.getElementById('wilayah').value;
+        var masukSigap  = ('.')
+              $.ajax({
                 url : "<?= base_url('Anggota/Profile/EmployeeUpdate') ?>",
                 data : new FormData(this),
                 method : "POST",

@@ -1,20 +1,25 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Offset;
 
 class Profile extends CI_Controller{
 
   function __construct()
-  {
-    parent::__construct();
-    $this->load->library('user_agent');
-    $id = $this->session->userdata('id_akun');
+    {
+        parent::__construct();
+        $this->load->library('user_agent');
+        $id = $this->session->userdata('id_akun');
+        $role_id = $this->session->userdata('role_id');
+        if ($id == null || $id == "") {
+            $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
+                redirect('Login');
+            } 
+            if ($role_id != 1){
+                redirect('LogOut');
+            }
+    }
       
-      if ($id == null || $id == "") {
-      $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
-      redirect('Login');
-  }
-      
-  }
+
     
     function index()
     {
@@ -52,21 +57,22 @@ class Profile extends CI_Controller{
         'no_hp'                   => $this->input->post("no_hp"),
         'no_emergency'            => $this->input->post("no_emergency"),
         'email'                   => $this->input->post("email"),
-        'jl_ktp'                  => $this->input->post("jl_ktp"),
+        'jl_ktp'                  => strtoupper($this->input->post("jl_ktp")),
         'rt_ktp'                  => $this->input->post("rt_ktp"),
         'rw_ktp'                  => $this->input->post("rw_ktp"),
-        'kel_ktp'                 => $this->input->post("kel_ktp"),
-        'kec_ktp'                 => $this->input->post("kec_ktp"),
-        'kota_ktp'                => $this->input->post("kota_ktp"),
-        'jl_dom'                  => $this->input->post("jl_dom"),
-        'rt_dom'                  => $this->input->post("rt_dom"),
+        'kel_ktp'                 => strtoupper($this->input->post("kel_ktp")),
+        'kec_ktp'                 => strtoupper($this->input->post("kec_ktp")),
+        'kota_ktp'                => strtoupper($this->input->post("kota_ktp")),
+        'jl_dom'                  => strtoupper($this->input->post("jl_dom")),
+        'rt_dom'                  => strtoupper($this->input->post("rt_dom")),
         'rw_dom'                  => $this->input->post("rw_dom"),
-        'kel_dom'                 => $this->input->post("kel_dom"),
-        'kec_dom'                 => $this->input->post("kec_dom"),
-        'kota_dom'                => $this->input->post("kota_dom"),
+        'kel_dom'                 => strtoupper($this->input->post("kel_dom")),
+        'kec_dom'                 => strtoupper($this->input->post("kec_dom")),
+        'kota_dom'                => strtoupper($this->input->post("kota_dom")),
         'berat_badan'             => $this->input->post("berat_badan"),
         'tinggi_badan'            => $this->input->post("tinggi_badan"),
         'imt'                     => $this->input->post("imt"),
+        'keterangan'              => strtoupper($this->input->post("keterangan")),
 
       );
       //input update karyawan
@@ -80,14 +86,30 @@ class Profile extends CI_Controller{
 
     function EmployeeUpdate()
     {
-      $where = array('id_employee'  => $this->input->post('id_karyawan') );
+      $today = date("Y-m-d");
+      $cektgl = $this->db->get_where('employee',array('id_employee' => $this->session->userdata('id_akun')))->row();
+      $q = $cektgl->expired_kta;
+      $where = array('id_employee'  => $this->input->post('id_employe'));
       //masukan data update karyawan ke array data
       $data = array(
         'no_kta'                       => $this->input->post("no_kta"),
         'expired_kta'                  => $this->input->post("ex_kta"),
-        'status_kta'                   => $this->input->post("status_kta"),
-      
+        'jabatan'                      => $this->input->post("jabatan"),
+        'area_kerja'                   => $this->input->post("area_kerja"),
+        'wilayah'                      => $this->input->post("wilayah"),
+        'tgl_masuk_sigap'              => $this->input->post("masuk_sigap"),
+        'tgl_masuk_adm'                => $this->input->post("masuk_adm"),
       );
+      if($q <= $today)
+      {
+        $this->db->set('status_kta','AKTIF');
+        $this->db->where($where,"employee");
+        $this->db->update('employee');
+      }else if($q >= $today) {
+        $this->db->set('status_kta','TIDAK AKTIF');
+        $this->db->where($where,"employee");
+        $this->db->update('employee');
+      }
       //input update karyawan
       $updateInfouser = $this->Anggota_model->updateFile($data,"employee",$where);
       if($updateInfouser){

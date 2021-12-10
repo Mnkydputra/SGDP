@@ -59,13 +59,10 @@ class Login extends CI_Controller
 		date_default_timezone_set('Asia/Jakarta');
 		$username 	= $this->input->post('npk');
 		$password   = md5($this->input->post('password'));	
-
 		$auth = $this->Login_model->cek_login($username, $password)->num_rows();
-       
-		 if($auth > 0){
+		 if($auth > 0)
+         {
 			$user = $this->Login_model->cek_login($username, $password)->row();   
-            }
-           
             if ($user->password == md5($username))
             {
                 $this->session->set_userdata('npk', $user->npk);
@@ -102,5 +99,6 @@ class Login extends CI_Controller
                         break;
                 }
             }
-    }
+        }   
+    } 
 }
