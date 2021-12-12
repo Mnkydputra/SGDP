@@ -151,11 +151,55 @@
                                     <input type="text" name="jl_ktp" id="jl_ktp" value="<?= $biodata->jl_ktp?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="rt_ktp">RT</label>
-                                    <input type="text" name="rt_ktp" id="rt_ktp" value="<?= $biodata->rt_ktp?>" class="form-control text-dark"  placeholder="">
+                                    <select class="form-control text-dark" name="rt_ktp" id="rt_ktp" >
+                                      <option selected value="<?= $biodata->rt_ktp?>"><?= $biodata->rt_ktp?></option>
+                                      <option value="001">001</option>
+                                      <option value="002">002</option>
+                                      <option value="003">003</option>
+                                      <option value="004">004</option>
+                                      <option value="005">005</option>
+                                      <option value="006">006</option>
+                                      <option value="007">007</option>
+                                      <option value="008">008</option>
+                                      <option value="009">009</option>
+                                      <option value="010">010</option>
+                                      <option value="011">011</option>
+                                      <option value="012">012</option>
+                                      <option value="013">013</option>
+                                      <option value="014">014</option>
+                                      <option value="015">015</option>
+                                      <option value="016">016</option>
+                                      <option value="017">017</option>
+                                      <option value="018">018</option>
+                                      <option value="019">019</option>
+                                      <option value="020">020</option>
+                                    </select>
 
                                     <label for="rw_ktp">RW</label>
-                                    <input type="text" name="rw_ktp" id="rw_ktp" value="<?= $biodata->rw_ktp?>" class="form-control text-dark"   placeholder="">
-                                    
+                                          <select class="form-control text-dark" name="rw_ktp" id="rw_ktp" >
+                                            <option selected value="<?= $biodata->rw_ktp?>"><?= $biodata->rw_ktp?></option>
+                                            <option value="001">001</option>
+                                            <option value="002">002</option>
+                                            <option value="003">003</option>
+                                            <option value="004">004</option>
+                                            <option value="005">005</option>
+                                            <option value="006">006</option>
+                                            <option value="007">007</option>
+                                            <option value="008">008</option>
+                                            <option value="009">009</option>
+                                            <option value="010">010</option>
+                                            <option value="011">011</option>
+                                            <option value="012">012</option>
+                                            <option value="013">013</option>
+                                            <option value="014">014</option>
+                                            <option value="015">015</option>
+                                            <option value="016">016</option>
+                                            <option value="017">017</option>
+                                            <option value="018">018</option>
+                                            <option value="019">019</option>
+                                            <option value="020">020</option>
+                                        </select>
+
                                     <label for="provinsi">Provinsi</label>
                                         <select class="form-control m-b text-dark" name="provinsi_ktp" id="propinsi">
                                         <option selected value="<?= $biodata->provinsi_ktp ?>"><?= $biodata->provinsi_ktp ?></option>
@@ -186,10 +230,55 @@
                                     <input type="text" name="jl_dom" id="jl_dom" value="<?= $biodata->jl_dom?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="rt_dom">RT</label>
-                                    <input type="text" name="rt_dom" id="rt_dom" value="<?= $biodata->rt_dom?>" class="form-control text-dark"  placeholder="">
+                                     <select class="form-control text-dark" name="rt_dom" id="rt_dom" >
+                                      <option selected value="<?= $biodata->rt_dom?>"><?= $biodata->rt_dom?></option>
+                                      <option value="001">001</option>
+                                      <option value="002">002</option>
+                                      <option value="003">003</option>
+                                      <option value="004">004</option>
+                                      <option value="005">005</option>
+                                      <option value="006">006</option>
+                                      <option value="007">007</option>
+                                      <option value="008">008</option>
+                                      <option value="009">009</option>
+                                      <option value="010">010</option>
+                                      <option value="011">011</option>
+                                      <option value="012">012</option>
+                                      <option value="013">013</option>
+                                      <option value="014">014</option>
+                                      <option value="015">015</option>
+                                      <option value="016">016</option>
+                                      <option value="017">017</option>
+                                      <option value="018">018</option>
+                                      <option value="019">019</option>
+                                      <option value="020">020</option>
+                                    </select>
 
                                     <label for="rw_dom">RW</label>
-                                    <input type="text" name="rw_dom" id="rw_dom" value="<?= $biodata->rw_dom?>" class="form-control text-dark"  placeholder="">
+                                    <select class="form-control text-dark" name="rw_dom" id="rw_dom" >
+                                      <option selected value="<?= $biodata->rw_dom?>"><?= $biodata->rw_dom?></option>
+                                      <option value="001">001</option>
+                                      <option value="002">002</option>
+                                      <option value="003">003</option>
+                                      <option value="004">004</option>
+                                      <option value="005">005</option>
+                                      <option value="006">006</option>
+                                      <option value="007">007</option>
+                                      <option value="008">008</option>
+                                      <option value="009">009</option>
+                                      <option value="010">010</option>
+                                      <option value="011">011</option>
+                                      <option value="012">012</option>
+                                      <option value="013">013</option>
+                                      <option value="014">014</option>
+                                      <option value="015">015</option>
+                                      <option value="016">016</option>
+                                      <option value="017">017</option>
+                                      <option value="018">018</option>
+                                      <option value="019">019</option>
+                                      <option value="020">020</option>
+                                    </select>
+
 
                                   <label for="provinsi">Provinsi</label>
                                         <select class="form-control m-b text-dark" name="provinsi_dom" id="propinsi_dom">
