@@ -224,9 +224,9 @@
                                     <input type="text" name="tinggi_badan" id="tinggi_badan" value="<?= $biodata->tinggi_badan?>" class="form-control text-dark"  placeholder="">
 
                                     <label for="imt">IMT</label>
-                                    <input type="text" readonly="" name="imt" id="imt" value="" class="form-control text-dark"  placeholder="">
+                                    <input type="text" readonly="" name="imt" id="imt" value="<?= $biodata->imt?>" class="form-control text-dark"  placeholder="">
                                     <label for="imt">Keterangan IMT</label>
-                                    <input type="text" readonly="" name="keterangan" id="keterangan" value="" class="form-control text-dark"  placeholder="">
+                                    <input type="text" readonly="" name="keterangan" id="keterangan" value="<?= $biodata->keterangan?>" class="form-control text-dark"  placeholder="">
                                   </div>
                               </div>
                     </div>

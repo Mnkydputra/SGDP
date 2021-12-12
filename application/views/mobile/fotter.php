@@ -39,25 +39,13 @@
            mask  :'00.000.000.0-000.000'
         }
         var maskTel = {
-           mask : '0000-0000-0000'
+           mask : '+{62}000-0000-0000'
         }
         var maskEmer = {
-           mask : '0000-0000-0000'
+           mask : '+{62}000-0000-0000'
         }
         var maskKK = {
           mask : '0000-0000-0000-0000'
-        }
-        var rtKtp = {
-            mask : '+{0}00'
-        }
-        var rwKtp = {
-            mask : '{0}00'
-        }
-        var rtDom = {
-            mask : '+{0}00'
-        }
-        var rwDom = {
-            mask : '+{0}00'
         }
         var maskKTA = {
           mask : '00.00.000000'
@@ -67,10 +55,7 @@
         var emer = IMask(no_emerr,maskEmer);
         var kk = IMask(no_kk,maskKK);
         var kta = IMask(no_kta,maskKTA);
-        var rtktp = IMask(rt_ktp,rtKtp);
-        var rwktp = IMask(rw_ktp,rwKtp);
-        var rtdom = IMask(rt_dom,rtDom);
-        var rwdom = IMask(rw_dom,rwDom);
+        
     </script>
 
     <script type="text/javascript">
