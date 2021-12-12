@@ -60,15 +60,17 @@ class Profile extends CI_Controller{
         'jl_ktp'                  => strtoupper($this->input->post("jl_ktp")),
         'rt_ktp'                  => $this->input->post("rt_ktp"),
         'rw_ktp'                  => $this->input->post("rw_ktp"),
-        'kel_ktp'                 => strtoupper($this->input->post("kel_ktp")),
-        'kec_ktp'                 => strtoupper($this->input->post("kec_ktp")),
-        'kota_ktp'                => strtoupper($this->input->post("kota_ktp")),
+        'kel_ktp'                 => strtoupper($this->input->post("kelurahan_ktp")),
+        'kec_ktp'                 => strtoupper($this->input->post("kecamatan_ktp")),
+        'kota_ktp'                => strtoupper($this->input->post("kabupaten_ktp")),
+        'provinsi_ktp'            => strtoupper($this->input->post("provinsi_ktp")),
         'jl_dom'                  => strtoupper($this->input->post("jl_dom")),
-        'rt_dom'                  => strtoupper($this->input->post("rt_dom")),
+        'rt_dom'                  => $this->input->post("rt_dom"),
         'rw_dom'                  => $this->input->post("rw_dom"),
         'kel_dom'                 => strtoupper($this->input->post("kel_dom")),
         'kec_dom'                 => strtoupper($this->input->post("kec_dom")),
         'kota_dom'                => strtoupper($this->input->post("kota_dom")),
+        'provinsi_dom'            => strtoupper($this->input->post("provinsi_dom")),
         'berat_badan'             => $this->input->post("berat_badan"),
         'tinggi_badan'            => $this->input->post("tinggi_badan"),
         'imt'                     => $this->input->post("imt"),
@@ -94,18 +96,18 @@ class Profile extends CI_Controller{
       $data = array(
         'no_kta'                       => $this->input->post("no_kta"),
         'expired_kta'                  => $this->input->post("ex_kta"),
-        'jabatan'                      => $this->input->post("jabatan"),
-        'area_kerja'                   => $this->input->post("area_kerja"),
-        'wilayah'                      => $this->input->post("wilayah"),
+        'jabatan'                      => strtoupper($this->input->post("jabatan")),
+        'area_kerja'                   => strtoupper($this->input->post("area_kerja")),
+        'wilayah'                      => strtoupper($this->input->post("wilayah")),
         'tgl_masuk_sigap'              => $this->input->post("masuk_sigap"),
         'tgl_masuk_adm'                => $this->input->post("masuk_adm"),
       );
-      if($q <= $today)
+      if($q >= $today)
       {
         $this->db->set('status_kta','AKTIF');
         $this->db->where($where,"employee");
         $this->db->update('employee');
-      }else if($q >= $today) {
+      }else if($q <= $today) {
         $this->db->set('status_kta','TIDAK AKTIF');
         $this->db->where($where,"employee");
         $this->db->update('employee');

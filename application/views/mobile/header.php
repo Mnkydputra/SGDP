@@ -32,9 +32,9 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- IMASK CDN -->
 <script src="https://unpkg.com/imask"></script>
+<!-- API LOCATION -->
 <script src="<?= base_url('assets/js/')?>songof.js"></script>
-
-
+        
 </head>
 <body style="background-color:#F9FAFA">
 <!-- HEADER -->

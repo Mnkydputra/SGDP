@@ -10,11 +10,8 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/') ?>img/icon.png">
-    <!-- <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap.css.map">
-    <link rel="stylesheet" href="<?= base_url('assets/css/')?>style.css">
-    <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap.min.css">
-    <link rel="stylesheet" href="<?= base_url('assets/css/')?>bootstrap-grid.css.map"> -->
 	<link rel="stylesheet" href="<?= base_url('assets/css/')?>style.css">
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Jquery CDN --> 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	</head>
@@ -60,6 +57,18 @@
    <script src="<?= base_url('assets/js/')?>bootstrap.min.js"></script>
    <script src="<?= base_url('assets/js/')?>popper.js"></script>
    <script src="<?= base_url('assets/js/')?>main.js"></script>
+
+   <?php if($this->session->flashdata('gagal')){?>
+	<script type="text/javascript">
+		Swal.fire({
+			title: 	'Berhasil!',
+			text: 	'Password Anda : S1g4p123',
+			icon: 	'success',
+			confirmButtonText: 'Cool'
+			})
+	</script>
+	<?php }?>
+
 	</body>
 </html>
 

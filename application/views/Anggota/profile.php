@@ -38,12 +38,12 @@
        <tr>
           <td>Alamat KTP</td>
           <td>:</td>
-          <td>JL: <?= $biodata->jl_ktp ?>, RT:<?= $biodata->rt_ktp ?>/RW:<?= $biodata->rw_ktp ?>. Kel: <?= $biodata->kel_ktp ?> , Kec: <?= $biodata->kec_ktp ?>. Kota/Kabupaten: <?= $biodata->kota_ktp ?> </td>
+          <td>JL: <?= $biodata->jl_ktp ?>, RT:<?= $biodata->rt_ktp ?>/RW:<?= $biodata->rw_ktp ?>. KELURAHAN : <?= $biodata->kel_ktp ?> , KECAMATAN : <?= $biodata->kec_ktp ?>. KOTA / KABUPATEN : <?= $biodata->kota_ktp ?>. PROVINSI : <?= $biodata->provinsi_ktp ?> </td>
         </tr>
         <tr>
           <td>Alamat Domisili</td>
           <td>:</td>
-          <td>JL: <?= $biodata->jl_dom ?>, RT:<?= $biodata->rt_dom ?>/RW:<?= $biodata->rw_dom ?>. Kel: <?= $biodata->kel_dom ?> , Kec: <?= $biodata->kec_dom ?>. Kota/Kabupaten: <?= $biodata->kota_dom ?> </td>
+          <td>JL: <?= $biodata->jl_dom ?>, RT:<?= $biodata->rt_dom ?>/RW:<?= $biodata->rw_dom ?>. KELURAHAN : <?= $biodata->kel_dom ?> , KECAMATAN : <?= $biodata->kec_dom ?>. Kota/Kabupaten : <?= $biodata->kota_dom ?>. PROVINSI : <?= $biodata->provinsi_dom?> </td>
         </tr>
         <tr>
           <td>Alamat Email</td>
@@ -155,15 +155,29 @@
 
                                     <label for="rw_ktp">RW</label>
                                     <input type="text" name="rw_ktp" id="rw_ktp" value="<?= $biodata->rw_ktp?>" class="form-control text-dark"   placeholder="">
+                                    
+                                    <label for="provinsi">Provinsi</label>
+                                        <select class="form-control m-b text-dark" name="provinsi_ktp" id="propinsi">
+                                        <option selected value="<?= $biodata->provinsi_ktp ?>"><?= $biodata->provinsi_ktp ?></option>
+                                      </select>
+                                    </select>
+                                    
+                                    <label for="form_post">Kabupaten / Kota</label>
+                                          <select class="form-control m-b text-dark" name="kabupaten_ktp" id="kabupaten">
+                                             <option selected value="<?= $biodata->kota_ktp ?>"><?= $biodata->kota_ktp ?></option>
+                                           </select>
 
-                                    <label for="kel_ktp">Kelurahan</label>
-                                    <input type="text" name="kel_ktp" id="kel_ktp" value="<?= $biodata->kel_ktp?>" class="form-control text-dark"  placeholder="">
-
-                                    <label for="kec_ktp">Kecamatan</label>
-                                    <input type="text" name="kec_ktp" id="kec_ktp" value="<?= $biodata->kec_ktp?>" class="form-control text-dark"  placeholder="">
-
-                                    <label for="kota_ktp">Kota / Kabupaten</label>
-                                    <input type="text" name="kota_ktp" id="kota_ktp" value="<?= $biodata->kota_ktp?>" class="form-control text-dark"  placeholder="">
+                                    <label for="form_sex">Kecamatan</label>
+                                      <select class="form-control m-b text-dark" name="kecamatan_ktp" id="kecamatan">
+                                         <option selected value="<?= $biodata->kec_ktp ?>"><?= $biodata->kec_ktp ?></option>
+                                     </select>
+                                     
+                                     
+                                    <label for="form_post">Kelurahan / Desa <small>*</small></label>
+                                    <select class="form-control m-b text-dark" name="kelurahan_ktp" id="kelurahan">
+                                      <option selected value="<?= $biodata->kel_ktp ?>"><?= $biodata->kel_ktp ?></option>
+                                    </select>
+                                      
                                   </div>
 
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
@@ -177,15 +191,29 @@
                                     <label for="rw_dom">RW</label>
                                     <input type="text" name="rw_dom" id="rw_dom" value="<?= $biodata->rw_dom?>" class="form-control text-dark"  placeholder="">
 
-                                    <label for="kel_dom">Kelurahan</label>
-                                    <input type="text" name="kel_dom" id="kel_dom" value="<?= $biodata->kel_dom?>" class="form-control text-dark"  placeholder="">
+                                  <label for="provinsi">Provinsi</label>
+                                        <select class="form-control m-b text-dark" name="provinsi_dom" id="propinsi_dom">
+                                        <option selected value="<?= $biodata->provinsi_dom ?>"><?= $biodata->provinsi_dom ?></option>
+                                      </select>
+                                    </select>
+                                    
+                                    <label for="form_post">Kabupaten / Kota</label>
+                                          <select class="form-control m-b text-dark" name="kota_dom" id="kabupaten_dom">
+                                             <option selected value="<?= $biodata->kota_dom ?>"><?= $biodata->kota_dom ?></option>
+                                           </select>
 
-                                    <label for="kec_dom">Kecamatan</label>
-                                    <input type="text" name="kec_dom" id="kec_dom" value="<?= $biodata->kec_dom?>" class="form-control text-dark"  placeholder="">
+                                    <label for="form_sex">Kecamatan</label>
+                                      <select class="form-control m-b text-dark" name="kec_dom" id="kecamatan_dom">
+                                         <option selected value="<?= $biodata->kec_dom ?>"><?= $biodata->kec_dom ?></option>
+                                     </select>
+                                     
+                                     
+                                    <label for="form_post">Kelurahan / Desa <small>*</small></label>
+                                    <select class="form-control m-b text-dark" name="kel_dom" id="kelurahan_dom">
+                                      <option selected value="<?= $biodata->kel_dom ?>"><?= $biodata->kel_dom ?></option>
+                                    </select>
 
-                                    <label for="kota_dom">Kota / Kabupaten</label>
-                                    <input type="text" name="kota_dom" id="kota_dom" value="<?= $biodata->kota_dom?>" class="form-control text-dark"  placeholder="">
-                                  </div>
+                                   </div>
 
                                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
                                     <h5>Postur Tubuh</h5>
@@ -223,16 +251,18 @@
         var jl_ktp = document.getElementById('jl_ktp').value ;
         var rt_ktp = document.getElementById('rt_ktp').value ;
         var rw_ktp = document.getElementById('rw_ktp').value ;
-        var kel_ktp = document.getElementById('kel_ktp').value ;
-        var kec_ktp = document.getElementById('kec_ktp').value ;
-        var kota_ktp = document.getElementById('kota_ktp').value ;
+        var provinsi_ktp = document.getElementById('propinsi').text;
+        var kabupaten_ktp = document.getElementById('kabupaten').text;
+        var kecamatan_ktp = document.getElementById('kecamatan').text;
+        var keluraha_ktp = document.getElementById('kelurahan').text;
         var jl_dom = document.getElementById('jl_dom').value ;
         var rt_dom = document.getElementById('rt_dom').value ;
         var rw_dom = document.getElementById('rw_dom').value ;
         var rw_ktp = document.getElementById('rw_ktp').value ;
-        var kel_dom = document.getElementById('kel_dom').value ;
-        var kec_dom = document.getElementById('kec_dom').value ;
-        var kota_dom = document.getElementById('kota_dom').value ;
+        var propinsiDom = document.getElementById('propinsi_dom').value;
+        var kabupatenDom = document.getElementById('kabupaten_dom').value;
+        var kecamatanDom = document.getElementById('kecamatan_dom').value;
+        var kelurahanDom = document.getElementById('kelurahan_dom').value;
         var berat_badan = document.getElementById('berat_badan').value ;
         var tinggi_badan = document.getElementById('tinggi_badan').value ;
         var imt = document.getElementById('imt').value ;
@@ -370,19 +400,18 @@
                                   
                                     <label for="ex_kta">Area Kerja</label>
                                     <input type="text" name="area_kerja" id="area_kerja" value="<?= $employee->area_kerja?>" class="form-control text-dark"  placeholder="">
-                                  
-                                    <label for="ex_kta">Wilayah</label>
+                                   
+                                     <label for="ex_kta">Wilayah</label>
                                     <input type="text" name="wilayah" id="wilayah" value="<?= $employee->wilayah?>" class="form-control text-dark"  placeholder="">
                                   
                                     <label for="masuk_sigap">Tanggal Masuk Sigap</label>
                                     <input type="text" name="masuk_sigap" id="datepicker2" value="<?= $employee->tgl_masuk_sigap?>" class="form-control text-dark"  placeholder="">
-                                  
+            
                                     <label for="masuk_adm">Tanggal Masuk ADM</label>
                                     <input type="text" name="masuk_adm" id="datepicker3" value="<?= $employee->tgl_masuk_adm?>" class="form-control text-dark"  placeholder="">
                                     </div>
-                                </div>
-                              </div>
-                    </div>
+                                </div>  
+                            </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                     <button type="submit" id="submit" data-bs-dismiss="modal" class="btn btn-primary">Simpan Perubahan</button>
@@ -401,11 +430,12 @@
     $("#formEmployee").on('submit',function(event){
       event.preventDefault();
         var no_kta      = document.getElementById('no_kta').value ;
-        var expired_kta = document.getElementById('datepicker').value;
+        var expired_kta = document.getElementById('datepicker1').value;
+        var masukSigap  = document.getElementById('datepicker2').value;
+        var masukAdm    = document.getElementById('datepicker3').value;
         var jabatan     = document.getElementById('jabatan').value;
-        var areaKerja   = document.getElmentByID('area_kerja').value;
+        var areaKerja   = document.getElementById('area_kerja').value;
         var wilayah     = document.getElementById('wilayah').value;
-        var masukSigap  = ('.')
               $.ajax({
                 url : "<?= base_url('Anggota/Profile/EmployeeUpdate') ?>",
                 data : new FormData(this),
@@ -425,6 +455,7 @@
     })
   })
 </script> 
+
       </div> 
     </div>
 </div>
