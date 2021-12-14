@@ -399,11 +399,6 @@
                     
                   </tr>
 
-                  <tr>
-                    <td>Status Anggota</td>
-                    <td>:</td>
-                    <td><?= $employee->status_anggota?></td>
-                  </tr>
 
                   <tr>
                     <td>Status KTA</td>
@@ -417,11 +412,7 @@
                     <td><?= $employee->area_kerja?></td>
                   </tr>
 
-                  <tr>
-                    <td>Wilayah</td>
-                    <td>:</td>
-                    <td><?= $employee->wilayah?></td>
-                  </tr>
+             
 
                   <tr>
                     <td>Tanggal Masuk Sigap</td>
@@ -485,13 +476,28 @@
                                     <input type="text" name="ex_kta" id="datepicker1" value="<?= $employee->expired_kta?>" class="form-control text-dark"  placeholder="">
                                   
                                     <label for="ex_kta">Jabatan</label>
-                                    <input type="text" name="jabatan" id="jabatan" value="<?= $employee->jabatan?>" class="form-control text-dark"  placeholder="">
-                                  
+                                    <select class="form-control text-dark" name="jabatan" id="jabatan" >
+                                      <option selected value="<?= $employee->jabatan?>"><?= $employee->jabatan?></option>
+                                      <option value="KORLAP">KORLAP</option>
+                                      <option value="DANRU">DANRU</option>
+                                      <option value="PKD">PKD</option>
+                                      <option value="ANGGOTA">ANGGOTA</option>
+                                    </select>
+
                                     <label for="ex_kta">Area Kerja</label>
-                                    <input type="text" name="area_kerja" id="area_kerja" value="<?= $employee->area_kerja?>" class="form-control text-dark"  placeholder="">
-                                   
-                                     <label for="ex_kta">Wilayah</label>
-                                    <input type="text" name="wilayah" id="wilayah" value="<?= $employee->wilayah?>" class="form-control text-dark"  placeholder="">
+                                    <select class="form-control text-dark" name="area_kerja" id="area_kerja" >
+                                      <option selected value="<?= $employee->area_kerja?>"><?= $employee->area_kerja?></option>
+                                      <option value="P1">P1</option>
+                                      <option value="P2">P2</option>
+                                      <option value="P3">P3</option>
+                                      <option value="P4">P4</option>
+                                      <option value="P5">P5</option>
+                                      <option value="HO">HO</option>
+                                      <option value="VLC">VLC</option>
+                                      <option value="PC">PC</option>
+                                      <option value="DORMITORY">DORMITORY</option>
+                                    </select>
+                                    
                                   
                                     <label for="masuk_sigap">Tanggal Masuk Sigap</label>
                                     <input type="text" name="masuk_sigap" id="datepicker2" value="<?= $employee->tgl_masuk_sigap?>" class="form-control text-dark"  placeholder="">
@@ -524,7 +530,6 @@
         var masukAdm    = document.getElementById('datepicker3').value;
         var jabatan     = document.getElementById('jabatan').value;
         var areaKerja   = document.getElementById('area_kerja').value;
-        var wilayah     = document.getElementById('wilayah').value;
               $.ajax({
                 url : "<?= base_url('Anggota/Profile/EmployeeUpdate') ?>",
                 data : new FormData(this),

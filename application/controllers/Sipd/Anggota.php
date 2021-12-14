@@ -84,76 +84,78 @@ class Anggota extends CI_Controller
     $data3 = array();
     $data4 = array();
 
-    if($sheetcount > 1){
-        for ($i=1; $i < $sheetcount; $i++)
-        {
-            $Id                 = $sheetdata[$i][1];
-            $Npk                = $sheetdata[$i][2];
-            $Nama               = $sheetdata[$i][3];
-            $TempatLahir        = $sheetdata[$i][4];
-            $TanggalLahir       = $sheetdata[$i][5];
-            $ÀreaKerja          = $sheetdata[$i][6];
-            $Wilayah            = $sheetdata[$i][7];
-            $Jabatan            = $sheetdata[$i][8];
-            $StatusAnggota      = $sheetdata[$i][9];
-            $TanggalMasukSigap  = $sheetdata[$i][10];
-            $TanggalMasukAdm    = $sheetdata[$i][11];
+        echo '<pre>';
+        print_r($sheetdata);
+    // if($sheetcount > 1){
+    //     for ($i=1; $i < $sheetcount; $i++)
+    //     {
+    //         $Id                 = $sheetdata[$i][1];
+    //         $Npk                = $sheetdata[$i][2];
+    //         $Nama               = $sheetdata[$i][3];
+    //         $TempatLahir        = $sheetdata[$i][4];
+    //         $TanggalLahir       = $sheetdata[$i][5];
+    //         $ÀreaKerja          = $sheetdata[$i][6];
+    //         $Wilayah            = $sheetdata[$i][7];
+    //         $Jabatan            = $sheetdata[$i][8];
+    //         $StatusAnggota      = $sheetdata[$i][9];
+    //         $TanggalMasukSigap  = $sheetdata[$i][10];
+    //         $TanggalMasukAdm    = $sheetdata[$i][11];
 
-            $data[]=array(
-                'id_akun'   => $Id,
-                'npk'       => $Npk,
-                'password'  => md5($Npk),
-                'role_id'   => 1,
-            );
+    //         $data[]=array(
+    //             'id_akun'   => $Id,
+    //             'npk'       => $Npk,
+    //             'password'  => md5($Npk),
+    //             'role_id'   => 1,
+    //         );
 
-            $data1[]=array(
-                'id_berkas' => $Id,
-            );
+    //         $data1[]=array(
+    //             'id_berkas' => $Id,
+    //         );
 
-            $data2[]=array(
-                'id_biodata'    => $Id,
-                'npk'           => $Npk,
-                'nama'          => $Nama,
-                'tempat_lahir'  => $TempatLahir,
-                'tanggal_lahir' => $TanggalLahir,
-            );
+    //         $data2[]=array(
+    //             'id_biodata'    => $Id,
+    //             'npk'           => $Npk,
+    //             'nama'          => $Nama,
+    //             'tempat_lahir'  => $TempatLahir,
+    //             'tanggal_lahir' => $TanggalLahir,
+    //         );
 
-            $data3[]=array(
-                'id_employee'           => $Id,
-                'npk'                   => $Npk,
-                'jabatan'               => $Jabatan,
-                'status_anggota'        => $StatusAnggota,
-                'area_kerja'            => $ÀreaKerja,
-                'wilayah'               => $Wilayah,
-                'tgl_masuk_sigap'       => $TanggalMasukSigap,
-                'tgl_masuk_adm'         => $TanggalMasukAdm,
-            );
+    //         $data3[]=array(
+    //             'id_employee'           => $Id,
+    //             'npk'                   => $Npk,
+    //             'jabatan'               => $Jabatan,
+    //             'status_anggota'        => $StatusAnggota,
+    //             'area_kerja'            => $ÀreaKerja,
+    //             'wilayah'               => $Wilayah,
+    //             'tgl_masuk_sigap'       => $TanggalMasukSigap,
+    //             'tgl_masuk_adm'         => $TanggalMasukAdm,
+    //         );
 
-            $data4[]=array(
-                'id_akun'           => $Id,
-                'id_biodata'        => $Id,
-                'id_employe'        => $Id,
-                'id_berkas'         => $Id,
-            );
-          }
-        }
-        $CekAkun = $this->Sipd_model->cari(array("id_akun" => $Id),"akun")->num_rows();
+    //         $data4[]=array(
+    //             'id_akun'           => $Id,
+    //             'id_biodata'        => $Id,
+    //             'id_employe'        => $Id,
+    //             'id_berkas'         => $Id,
+    //         );
+    //       }
+    //     }
+    //     $CekAkun = $this->Sipd_model->cari(array("id_akun" => $Id),"akun")->num_rows();
 
-        if($CekAkun > 0){
-            $this->session->set_flashdata("Error", "Anggota telah terdaftar");
-            redirect("Sipd/Anggota");
-        }else{
-            $input =  $this->Sipd_model->inputArray("akun", $data);
-            $input =  $this->Sipd_model->inputArray("berkas", $data1);
-            $input =  $this->Sipd_model->inputArray("biodata", $data2);
-            $input =  $this->Sipd_model->inputArray("employee", $data3);
-            $input =  $this->Sipd_model->inputArray("anggota", $data4);
-        }
-        if ($input) {
-            $this->session->set_flashdata("success", "Karyawan tersimpan di data master");
-            redirect("Sipd/Anggota");
-        } else {
-            echo "Gagal";
-        }
+    //     if($CekAkun > 0){
+    //         $this->session->set_flashdata("Error", "Anggota telah terdaftar");
+    //         redirect("Sipd/Anggota");
+    //     }else{
+    //         $input =  $this->Sipd_model->inputArray("akun", $data);
+    //         $input =  $this->Sipd_model->inputArray("berkas", $data1);
+    //         $input =  $this->Sipd_model->inputArray("biodata", $data2);
+    //         $input =  $this->Sipd_model->inputArray("employee", $data3);
+    //         $input =  $this->Sipd_model->inputArray("anggota", $data4);
+    //     }
+    //     if ($input) {
+    //         $this->session->set_flashdata("success", "Karyawan tersimpan di data master");
+    //         redirect("Sipd/Anggota");
+    //     } else {
+    //         echo "Gagal";
+    //     }
     }
 }

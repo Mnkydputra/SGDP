@@ -95,7 +95,7 @@
                 borderColor: [
                     'rgba(54, 162, 235, 1)',
                     
-                ],
+                ],  
                 borderWidth: 3
             }]
         },
