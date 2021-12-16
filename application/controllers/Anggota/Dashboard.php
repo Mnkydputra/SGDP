@@ -27,6 +27,7 @@ class Dashboard extends CI_Controller
     );
     $this->load->view('mobile/header', $data);
     $this->load->view('Anggota/dashboard', $data);
+    // $this->load->view('Anggota/new');
     $this->load->view('mobile/fotter');
   }
 }
