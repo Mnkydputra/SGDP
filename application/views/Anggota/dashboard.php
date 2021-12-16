@@ -155,7 +155,7 @@
 
             ctx.font = '50px Helvetica';
             ctx.fillStyle = '#444';
-            ctx.fillText(needleValue + '%', cx, cy + 5 - 10);
+            ctx.fillText(needleValue, cx, cy + 5 - 10);
             ctx.textAlign = 'center';
             ctx.restore();
         }
@@ -169,15 +169,15 @@
                 legend: {
                     display: false
                 },
-                tooltip: {
-                    yAlign: 'bottom',
-                    displayColors: false,
-                    callbacks: {
-                        label: function(tooltopItem, data, value) {
-                            console.log(tooltopItem);
-                        }
-                    }
-                }
+                // tooltip: {
+                //     yAlign: 'bottom',
+                //     displayColors: false,
+                //     callbacks: {
+                //         label: function(tooltopItem, data, value) {
+                //             console.log(tooltopItem);
+                //         }
+                //     }
+                // }
             }
         },
         plugins: [gaugeNeedle]
