@@ -23,6 +23,7 @@ Class Dashboard Extends CI_Controller
       $anggota = array('role_id' => 1);
       $danru = array('role_id' => 2);
       $korlap = array('role_id' => 3);
+      $sipd = array('role_id' => 4);
     
       $data = array(
         'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
@@ -31,10 +32,8 @@ Class Dashboard Extends CI_Controller
         'anggota'   => $this->Sipd_model->infoDashboard("akun", $anggota)->num_rows(),
         'danru'   => $this->Sipd_model->infoDashboard("akun", $danru)->num_rows(),
         'korlap'   => $this->Sipd_model->infoDashboard("akun", $korlap)->num_rows(),
-        'total'   => $this->Sipd_model->countAll()->result(),
-
-     );
-  
+        'total'   => $this->Sipd_model->countAll()->num_rows(),
+     );    
         $this->load->view('web/header',$data);
         $this->load->view('Sipd/dashboard',$data);
         $this->load->view('web/fotter');

@@ -31,14 +31,7 @@
 	 // Count Anggota beserta sipd 
 	 public function countAll()
 	 {
-		 $query = $this->db->query("SELECT 
-		 id_akun, 
-		 COUNT(*) AS TOTAL, 
-		 COUNT(IF(role_id=1,1,null)),
-		 COUNT(IF(role_id=2,1,null)),
-		 COUNT(IF(role_id=3,1,null)),
-		 COUNT(IF(role_id=4,1,null))
-	 	FROM akun");
+		 $query = $this->db->query("SELECT * FROM `akun` WHERE role_id = 1 AND role_id = 2 AND role_id = 3 AND role_id = 4");
 		 return $query ;
 	 }
 
@@ -216,31 +209,8 @@
 		return $this->db->update('karyawan','employee_karyawan',);
 	}
 
-	//fungsi hapus data taliasih lama
-	public function delTaliasihupload($where)
-	{
-		$this->db->where('id',$where);
-		return $this->db->delete('taliasih');
-	}
 
-	//input data taliasih lama ke table history taliasih
-	public function insertHistoryTaliasih($data)
-	{
-		return $this->db->insert('history_taliasih',$data);
-	}
-
-
-	//join data taliasih dan pkwt untuk di print
- 	public function joinTaliasih1($where)
- 	{
- 		/*$this->db->select('*');
-		$this->db->from('taliasih');
-		$this->db->where('npk_br',$where);
-		$this->db->join('pkwt', 'pkwt.id_karyawan = taliasih.id_karyawan');
-		$query = $this->db->get();
-		return $query ;*/
-		return $this->db->get_where('taliasih',array('id_karyawan' => $where));
- 	}
+	
 
  	//total karyawan yang pkwt per tanggal
  	public function dayPKWT($where)
