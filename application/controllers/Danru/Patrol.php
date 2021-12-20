@@ -4,16 +4,33 @@
 
 class Patrol extends CI_Controller
 {
+    function __construct()
+    {
+        parent::__construct();
+
+        $id = $this->session->userdata('id_akun');
+
+        if ($id == null || $id == "") {
+            $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
+            redirect('Login');
+        }
+    }
     public function index()
     {
-        $this->load->view("Danru/scan");
+        $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'url'  => $this->uri->segment(2),
+        );
+        $this->load->view('mobile/header');
+        $this->load->view("Danru/scan", $data);
+        $this->load->view('mobile/fotter');
     }
 
     public function input()
     {
-        $barcode  = $this->input->post("barcode");
-        $lat = $this->input->post("latitude");
-        $long  = $this->input->post("longitude");
+        $barcode     = $this->input->post("barcode");
+        $lat         = $this->input->post("latitude");
+        $long        = $this->input->post("longitude");
 
         $data =  [
             $barcode,
