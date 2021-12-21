@@ -18,7 +18,8 @@
         </div>
         <div class="graph-wr">
             <!-- <canvas id="myChart"></canvas> -->
-            <video style="width: 350px;margin-top:-10px" id="preview"></video>
+            <p id="cava"></p>
+            <video class="img img-thumbnail" id="preview"></video>
         </div>
     </div>
 </div>
@@ -37,9 +38,9 @@
         navigator.geolocation.getCurrentPosition(function(position) {
             const long = position.coords.longitude;
             const lat = position.coords.latitude;
-            console.log(position.coords.longitude);
-
-            console.log(content);
+            console.log("longitude " + long);
+            console.log("latitude" + lat);
+            // console.log(content);
             $.ajax({
                 url: "<?= base_url('Danru/Patrol/input') ?>",
                 method: "POST",
@@ -47,10 +48,15 @@
                 cache: false,
                 processData: false,
                 success: function(e) {
-                    alert(e)
-                    // window.location = "<?= base_url("Danru/Patrol/scanBarcode") ?>";
+                    // console.log(e);
+                    if (e >= 1) {
+                        window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + e;
+                    } else {
+                        alert(e);
+                    }
                 }
             })
+
         });
     });
 
@@ -64,7 +70,3 @@
         console.error(e);
     });
 </script>
-
-</body>
-
-</html>

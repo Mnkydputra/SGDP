@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 */
 
 $config['base_url'] = 'http://localhost/SGDP/';
-// $config['base_url'] = 'http://192.168.90.33/SGDP/';
+// $config['base_url'] = 'http://192.168.8.197/SGDP/';
 
 /*
 |--------------------------------------------------------------------------

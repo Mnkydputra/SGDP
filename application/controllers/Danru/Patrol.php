@@ -1,6 +1,6 @@
 <?php
 
-
+date_default_timezone_set('Asia/Jakarta');
 
 class Patrol extends CI_Controller
 {
@@ -24,6 +24,8 @@ class Patrol extends CI_Controller
         $this->load->view('mobile/header');
         $this->load->view("Danru/scan", $data);
         $this->load->view('mobile/fotter');
+
+        // $this->load->view("Danru/tes");
     }
 
     public function input()
@@ -32,36 +34,68 @@ class Patrol extends CI_Controller
         $lat         = $this->input->post("latitude");
         $long        = $this->input->post("longitude");
 
-        $data =  [
-            $barcode,
-            $lat,
-            $long
-        ];
-        var_dump($data);
+        $cek_plan = $this->db->get_where('tbl_plan_report', ['longitude' => $long, 'latitude' => $lat]);
+
+
+        if ($cek_plan->num_rows() > 0) {
+            $data = $cek_plan->row();
+            $info = [
+                'plan'  => $data->plan
+            ];
+            echo $data->plan;
+            // redirect('Danru/Patrol/form_report/' . $data->plan);
+        } else {
+            echo "anda diluar plan area kerja";
+        }
     }
 
-    // public function cekTitik()
-    // {
-    //     $latitude = $this->input->post("latitude");
-    //     $longitude = $this->input->post("longitude");
-    //     # code...
-    //     // echo $latitude . "\n";
-    //     // echo $longitude;
-    //     // -6.2193664
-    //     // 106.8269568
 
-    //     if ($latitude != "-6.2193664" && $longitude != "106.8269568") {
-    //         echo "anda sedang di luar titik";
-    //     } else {
-    //         echo "lanjut scan barcode";
-    //     }
-    // }
-
-    // public function scanBarcode()
-    // {
-    //     # code...
-    //     $this->load->view("Danru/scan");
-    // }
+    public function form_report($plan)
+    {
+        # code...
+        $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'url'  => $this->uri->segment(2),
+            'plan'  => $plan
+        );
+        $this->load->view('mobile/header');
+        $this->load->view("Danru/Input_report", $data);
+        $this->load->view('mobile/fotter');
+    }
 
 
+    public function submit()
+    {
+        # code...
+
+        $fle  = $_FILES['file']['name'];
+        if ($fle == null || $fle == "") {
+            echo "file kosong";
+        } else {
+
+            $this->load->library('upload');
+            $config['upload_path']  = './assets/patrol/';
+            $config['allowed_types']  = "jpg|png|jpeg";
+            $this->upload->initialize($config);
+            if (!$this->upload->do_upload('file')) {
+                echo "failed";
+            } else {
+                $data = [
+                    'id_npk'        =>  $this->session->userdata("id_akun"),
+                    'nama'          => $this->session->userdata('nama'),
+                    'lokasi'        => $this->input->post("plan"),
+                    'tanggal'       => date('Y-m-d'),
+                    'jam'           => date('H:i:s'),
+                    'keterangan'    => $this->input->post("keterangan"),
+                    'picture'       => $fle
+                ];
+                $add = $this->Sipd_model->added("tbl_report_patrol", $data);
+                if ($add > 0) {
+                    echo "berhasil simpan data";
+                } else {
+                    echo "failed";
+                }
+            }
+        }
+    }
 }
