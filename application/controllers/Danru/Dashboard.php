@@ -20,8 +20,9 @@ class Dashboard extends CI_Controller
     $data = array(
       'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
       'url'  => $this->uri->segment(2),
+      'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
     );
-    $this->load->view('mobile/header');
+    $this->load->view('mobile/header', $data);
     $this->load->view('Danru/dashboard', $data);
     $this->load->view('mobile/fotter');
   }

@@ -20,33 +20,35 @@ class Patrol extends CI_Controller
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'  => $this->uri->segment(2),
+            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
         );
-        $this->load->view('mobile/header');
+
+        $this->load->view('mobile/header', $data);
         $this->load->view("Danru/scan", $data);
         $this->load->view('mobile/fotter');
 
-        // $this->load->view("Danru/tes");
+        $this->load->view("Danru/tes");
     }
 
     public function input()
     {
-        $barcode     = $this->input->post("barcode");
-        $lat         = $this->input->post("latitude");
-        $long        = $this->input->post("longitude");
+        // $barcode     = $this->input->post("barcode");
+        // $lat         = $this->input->post("latitude");
+        // $long        = $this->input->post("longitude");
 
-        $cek_plan = $this->db->get_where('tbl_plan_report', ['longitude' => $long, 'latitude' => $lat]);
+        // $cek_plan = $this->db->get_where('tbl_plan_report', ['longitude' => $long, 'latitude' => $lat]);
 
 
-        if ($cek_plan->num_rows() > 0) {
-            $data = $cek_plan->row();
-            $info = [
-                'plan'  => $data->plan
-            ];
-            echo $data->plan;
-            // redirect('Danru/Patrol/form_report/' . $data->plan);
-        } else {
-            echo "anda diluar plan area kerja";
-        }
+        // if ($cek_plan->num_rows() > 0) {
+        //     $data = $cek_plan->row();
+        //     $info = [
+        //         'plan'  => $data->plan
+        //     ];
+        //     echo $data->plan;
+        //     // redirect('Danru/Patrol/form_report/' . $data->plan);
+        // } else {
+        //     echo "anda diluar plan area kerja";
+        // }
     }
 
 
@@ -56,9 +58,10 @@ class Patrol extends CI_Controller
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'  => $this->uri->segment(2),
-            'plan'  => $plan
+            'plan'  => $plan,
+            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
         );
-        $this->load->view('mobile/header');
+        $this->load->view('mobile/header', $data);
         $this->load->view("Danru/Input_report", $data);
         $this->load->view('mobile/fotter');
     }

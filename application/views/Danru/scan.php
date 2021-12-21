@@ -17,17 +17,14 @@
             </div>
         </div>
         <div class="graph-wr">
-            <!-- <canvas id="myChart"></canvas> -->
-            <p id="cava"></p>
+
             <video class="img img-thumbnail" id="preview"></video>
         </div>
     </div>
 </div>
 
 
-
-<!-- <p id="barcode"></p>
-<p id="demo"></p> -->
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 <script>
     // barcode
     let scanner = new Instascan.Scanner({
@@ -40,23 +37,35 @@
             const lat = position.coords.latitude;
             console.log("longitude " + long);
             console.log("latitude" + lat);
-            // console.log(content);
-            $.ajax({
-                url: "<?= base_url('Danru/Patrol/input') ?>",
-                method: "POST",
-                data: "barcode=" + content + "&longitude=" + long + "&latitude=" + lat,
-                cache: false,
-                processData: false,
-                success: function(e) {
-                    // console.log(e);
-                    if (e >= 1) {
-                        window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + e;
-                    } else {
-                        alert(e);
-                    }
-                }
-            })
+            //lokasi pertama
+            var posisi_1 = new google.maps.LatLng(-6.1456597, 106.883518);
+            // var posisi_1 = new google.maps.LatLng(-6.1253566, 106.810018);
+            //lokasi dari Vehicle Logistic Center
+            var posisi_vlc = new google.maps.LatLng(lat, long);
 
+            const jarak = (google.maps.geometry.spherical.computeDistanceBetween(posisi_1, posisi_vlc) / 1000).toFixed(1);
+            console.log(jarak);
+            if (jarak <= 0.4) {
+                alert("Lanjut isi dokumentasi");
+                window.location = "<?= base_url("Danru/Patrol/form_report/PLAN_1") ?>";
+                // $.ajax({
+                //     url: "<?= base_url('Danru/Patrol/input') ?>",
+                //     method: "POST",
+                //     data: "barcode=" + content + "&longitude=" + long + "&latitude=" + lat,
+                //     cache: false,
+                //     processData: false,
+                //     success: function(e) {
+                //         // console.log(e);
+                //         if (e >= 1) {
+                //             window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + e;
+                //         } else {
+                //             alert(e);
+                //         }
+                //     }
+                // })
+            } else {
+                alert("titik diluar jangkauan");
+            }
         });
     });
 
