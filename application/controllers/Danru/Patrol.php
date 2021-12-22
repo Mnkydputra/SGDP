@@ -120,7 +120,7 @@ class Patrol extends CI_Controller
                 if ($add > 0) {
                     echo "berhasil simpan data";
                 } else {
-                    echo "failed";
+                    echo "0";
                 }
             }
         }
