@@ -82,9 +82,9 @@
 
                         //lokasi user scan barcode
                         var posisi_user = new google.maps.LatLng(lat, long);
-                        const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(1);
+                        const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
                         console.log(jarak);
-                        if (jarak <= 0.4) {
+                        if (jarak <= 0.08) {
                             Swal.fire({
                                 title: 'Sukses!',
                                 text: 'Lanjut Documentasi',

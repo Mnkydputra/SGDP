@@ -39,9 +39,17 @@
         $("#upload").on('submit', function(e) {
             e.preventDefault();
             if ($("#keterangan").val() == "") {
-                alert("keterangan kosong");
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Keterangan kosong',
+                    icon: 'error',
+                })
             } else if ($("#file").val() == "") {
-                alert('documentasi masih kosong')
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Documentasi Kosong',
+                    icon: 'error',
+                })
             } else {
 
                 $.ajax({
