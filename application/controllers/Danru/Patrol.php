@@ -15,19 +15,43 @@ class Patrol extends CI_Controller
             redirect('Login');
         }
     }
+
+
     public function index()
     {
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'  => $this->uri->segment(2),
             'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'plan'      => $this->db->get("plan_report")->result()
+        );
+
+        $this->load->view('mobile/header', $data);
+        $this->load->view("Danru/pilih_plan", $data);
+        $this->load->view('mobile/fotter');
+    }
+
+    public function getPlan()
+    {
+        # code...
+        $id = $this->input->post("plan_id");
+        redirect('Danru/Patrol/scan_barcode/' . $id);
+    }
+
+    public function scan_barcode($idPlan)
+    {
+        $data = array(
+            'biodata'       => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'url'           => $this->uri->segment(2),
+            'berkas'        => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'plan'          => $this->db->get_where('plan_report', ['id' => $idPlan])->row()
         );
 
         $this->load->view('mobile/header', $data);
         $this->load->view("Danru/scan", $data);
         $this->load->view('mobile/fotter');
 
-        $this->load->view("Danru/tes");
+        // $this->load->view("Danru/tes");
     }
 
     public function input()
@@ -92,7 +116,7 @@ class Patrol extends CI_Controller
                     'keterangan'    => $this->input->post("keterangan"),
                     'picture'       => $fle
                 ];
-                $add = $this->Sipd_model->added("tbl_report_patrol", $data);
+                $add = $this->Sipd_model->added("report_patrol", $data);
                 if ($add > 0) {
                     echo "berhasil simpan data";
                 } else {
