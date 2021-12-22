@@ -32,63 +32,8 @@
 				yearRange: "-100:+10",
 			});
 		});
-    $(document).ready(function() {
-        $("#tinggi_badan, #berat_badan").keyup(function() {
-            var height  = $("#tinggi_badan").val();
-            var weight = $("#berat_badan").val();
-            var bagi  = 100;
-            var floatTinggi = parseFloat(height);
-            var floatBerat  = parseFloat(weight);
-            var imt = (floatBerat / (floatTinggi * floatTinggi)*10000);
-            if (imt > 27) {
-                keterangan = "Gemuk, Kelebihan berat badan tingkat berat";
-            }else if ((imt >= 25.1) & (imt <= 27)){
-                keterangan = "Gemuk, Kelebihan berat badan tingkat ringan";
-            }else if ((imt >= 18.5) & (imt <= 25)){
-                keterangan = "Normal";
-            } else if ((imt >= 17) & (imt <= 18.4)){
-                keterangan = "Kurus, Kekurangan berat badan tingkat ringan";
-            }else {
-                keterangan = "Kurus, Kekurangan berat badan tingkat berat";
-            }
-            $("#imt").val(imt);
-            $("#keterangan").val(keterangan);    
-            });
-        });
-        $(function(){
-        var no_ktp = document.getElementById('no_ktp');
-        var no_telp = document.getElementById('no_hp');
-        var no_emerr = document.getElementById('no_emergency');
-        var no_kk = document.getElementById('no_kk');
-        var no_kta = document.getElementById('no_kta');
-        var rt_ktp = document.getElementById('rt_ktp');
-        var rw_ktp = document.getElementById('rw_ktp');
-        var rt_dom = document.getElementById('rt_dom');
-        var rw_dom = document.getElementById('rw_dom');
-        var maskOptions = {
-          mask: '0000-0000-0000-0000'
-        };
-        var maskNpwp = {
-           mask  :'00.000.000.0-000.000'
-        }
-        var maskTel = {
-           mask : '+{62}000-0000-0000'
-        }
-        var maskEmer = {
-           mask : '+{62}000-0000-0000'
-        }
-        var maskKK = {
-          mask : '0000-0000-0000-0000'
-        }
-        var maskKTA = {
-          mask : '00.00.000000'
-        } 
-        var ktp = IMask(no_ktp, maskOptions);
-        var telp = IMask(no_telp,maskTel);
-        var emer = IMask(no_emerr,maskEmer);
-        var kk = IMask(no_kk,maskKK);
-        var kta = IMask(no_kta,maskKTA);
-        })
+    
+
         // ajax lokasi KTP
 //    var return_first = function() {
 //           var tmp = null;
