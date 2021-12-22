@@ -20,7 +20,7 @@
 	
 
 	</head>
-	<body  style="background-image: url(./assets/img/bg.jpg);">
+	<body  style="background-image: url(<?= base_url('assets/img/')?>bg.jpg);">
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
