@@ -37,8 +37,8 @@
             const long = position.coords.longitude;
             const lat = position.coords.latitude;
             const acc = position.coords.accuracy;
-            console.log("longitude " + long);
             console.log("latitude" + lat);
+            console.log("longitude " + long);
             // console.log(position);
 
             //lokasi plan jaga 

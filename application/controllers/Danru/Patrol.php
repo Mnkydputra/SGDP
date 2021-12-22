@@ -34,8 +34,8 @@ class Patrol extends CI_Controller
     public function getPlan()
     {
         # code...
-        $id = $this->input->post("plan_id");
-        redirect('Danru/Patrol/scan_barcode/' . $id);
+        $id = $this->input->post("tikor");
+        echo $id;
     }
 
     public function scan_barcode($idPlan)
@@ -52,6 +52,17 @@ class Patrol extends CI_Controller
         $this->load->view('mobile/fotter');
 
         // $this->load->view("Danru/tes");
+    }
+
+
+    public function titik()
+    {
+        # code...
+        $id = $this->input->post('titik');
+        $data = [
+            'tikor'   => $this->db->get_where('titik_area', ['id_plan'  => $id])->result(),
+        ];
+        $this->load->view('Danru/titik_plan', $data);
     }
 
     public function input()

@@ -18,13 +18,17 @@
         </div>
         <div class="graph-wr">
 
-            <form onsubmit="return cek()" method="post" action="<?= base_url('Danru/Patrol/getPlan') ?>" id="pilih-form">
+            <form id="formTikor" method="post" action="<?= base_url('Danru/Patrol/getPlan') ?>" id="pilih-form">
                 <select style="border:2px solid #ccc;width:100%;" class="mb-2" name="plan_id" id="plan_id">
                     <option value="">Pilih Plan Patrol</option>
                     <?php foreach ($plan as $pln) : ?>
-                        <option value="<?= $pln->id ?>"><?= $pln->plan  ?></option>
+                        <option value="<?= $pln->id_plan ?>"><?= $pln->plan  ?></option>
                     <?php endforeach ?>
                 </select>
+
+                <div id="dataPLAN" class="form-group">
+
+                </div>
                 <button type="submit" class="btn btn-danger">Show Camera</button>
             </form>
         </div>
@@ -32,17 +36,47 @@
 </div>
 
 <script>
-    function cek() {
-        var divisiId = $("select[name=plan_id] option:selected").val();
-        if (divisiId == null || divisiId == "") {
-            // alert("Pilih Plan");
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Pilih Plan Patroli',
-                icon: 'danger',
-                buttons: ['dangerMode', true]
-            })
-            return false;
-        }
-    }
+    $(function() {
+
+        $('select[name=plan_id]').on('change', function() {
+            var tikor = $(this).children("option:selected").val();
+            if (tikor == null || tikor == "") {
+                document.getElementById('dataPLAN').innerHTML = "";
+            } else {
+                $.ajax({
+                    url: "<?= base_url('Danru/Patrol/titik') ?>",
+                    method: "POST",
+                    data: "titik=" + tikor,
+                    success: function(e) {
+                        // console.log(e);
+                        document.getElementById('dataPLAN').innerHTML = e;
+                    }
+                })
+
+            }
+            // console.log(tikor);
+            //alert(divisiId)
+        });
+
+
+        $("#formTikor").on('submit', function(e) {
+            e.preventDefault();
+            var divisiId = $("select[name=plan_id] option:selected").val();
+            if (divisiId == null || divisiId == "") {
+                // alert("Pilih Plan");
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Pilih Plan Patroli',
+                    icon: 'danger',
+                    buttons: ['dangerMode', true]
+                })
+                return false;
+            } else {
+                $.ajax({
+                    url: "<?= base_url('') ?>",
+                })
+            }
+        })
+
+    })
 </script>
