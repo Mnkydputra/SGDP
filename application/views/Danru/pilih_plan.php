@@ -18,31 +18,124 @@
         </div>
         <div class="graph-wr">
 
-            <form onsubmit="return cek()" method="post" action="<?= base_url('Danru/Patrol/getPlan') ?>" id="pilih-form">
-                <select style="border:2px solid #ccc;width:100%;" class="mb-2" name="plan_id" id="plan_id">
+            <form id="formTikor" data-url="<?= base_url('Danru/Patrol/getPlan') ?>" method="post" action="<?= base_url('Danru/Patrol/getPlan') ?>" id="pilih-form">
+                <select style="border:2px solid #ccc;width:100%" class="mb-2" name="plan_id" id="plan_id">
                     <option value="">Pilih Plan Patrol</option>
                     <?php foreach ($plan as $pln) : ?>
-                        <option value="<?= $pln->id ?>"><?= $pln->plan  ?></option>
+                        <option value="<?= $pln->id_plan ?>"><?= $pln->plan  ?></option>
                     <?php endforeach ?>
                 </select>
-                <button type="submit" class="btn btn-danger">Show Camera</button>
+
+                <div id="dataPLAN" class="form-group">
+                    <!-- isi plan nanti disini -->
+                </div>
             </form>
+
+            <div class="form-group">
+                <video class="img img-thumbnail" id="preview"></video>
+            </div>
         </div>
+
     </div>
 </div>
 
 <script>
-    function cek() {
-        var divisiId = $("select[name=plan_id] option:selected").val();
-        if (divisiId == null || divisiId == "") {
-            // alert("Pilih Plan");
-            Swal.fire({
-                title: 'Attention!',
-                text: 'Pilih Plan Patroli',
-                icon: 'danger',
-                buttons: ['dangerMode', true]
-            })
-            return false;
+    // barcode
+    let scanner = new Instascan.Scanner({
+        video: document.getElementById('preview'),
+        mirror: false,
+        scanPeriod: 5
+    });
+    scanner.addListener('scan', function(content) {
+        // console.log(content);
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var divisiId = $("select[name=plan_id] option:selected").val();
+            if (divisiId == null || divisiId == "") {
+                // alert("Pilih Plan");
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Pilih Plan Patroli',
+                    icon: 'error',
+                })
+            } else {
+                var idTikor = $("select[name=tikor] option:selected").val();
+                console.log(idTikor);
+                const long = position.coords.longitude;
+                const lat = position.coords.latitude;
+                const acc = position.coords.accuracy;
+                console.log("latitude" + lat);
+                console.log("longitude " + long);
+                // console.log(position);
+                $.ajax({
+                    url: $("#formTikor").attr('data-url'),
+                    method: "POST",
+                    data: "tikor=" + idTikor,
+                    success: function(e) {
+                        // console.log(e);
+                        var result = JSON.parse(e);
+                        const latitudeBarcode = result[0].latitude;
+                        const longitudeBarcode = result[0].longitude;
+                        const lokasi = result[0].lokasi;
+
+                        //lokasi plan jaga 
+                        var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+
+                        //lokasi user scan barcode
+                        var posisi_user = new google.maps.LatLng(lat, long);
+                        const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
+                        console.log(jarak);
+                        if (jarak <= 0.08) {
+                            Swal.fire({
+                                title: 'Sukses!',
+                                text: 'Lanjut Documentasi',
+                                icon: 'success',
+                                buttons: ['dangerMode', true]
+                            }).then(function() {
+                                window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
+                            })
+                            // alert("Lanjut isi dokumentasi");
+                        } else {
+                            Swal.fire({
+                                title: 'Attention!',
+                                text: 'Anda di Luar Area',
+                                icon: 'danger',
+                            })
+                        }
+                    }
+                })
+            }
+
+
+        });
+    });
+
+    Instascan.Camera.getCameras().then(function(cameras) {
+        if (cameras.length > 0) {
+            scanner.start(cameras[0]);
+        } else {
+            console.error('No cameras found.');
         }
-    }
+    }).catch(function(e) {
+        console.error(e);
+    });
+    $(function() {
+        $('select[name=plan_id]').on('change', function() {
+            var tikor = $(this).children("option:selected").val();
+            if (tikor == null || tikor == "") {
+                document.querySelector('video').setAttribute("id", "");
+
+                document.getElementById('dataPLAN').innerHTML = "";
+            } else {
+                $.ajax({
+                    url: "<?= base_url('Danru/Patrol/titik') ?>",
+                    method: "POST",
+                    data: "titik=" + tikor,
+                    success: function(e) {
+                        // console.log(e);
+                        document.getElementById('dataPLAN').innerHTML = e;
+                    }
+                })
+            }
+        });
+    })
 </script>

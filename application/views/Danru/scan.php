@@ -23,7 +23,7 @@
 </div>
 
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+
 <script>
     // barcode
     let scanner = new Instascan.Scanner({
@@ -31,14 +31,15 @@
         mirror: false,
         scanPeriod: 5
     });
+
     scanner.addListener('scan', function(content) {
         // console.log(content);
         navigator.geolocation.getCurrentPosition(function(position) {
             const long = position.coords.longitude;
             const lat = position.coords.latitude;
             const acc = position.coords.accuracy;
-            console.log("longitude " + long);
             console.log("latitude" + lat);
+            console.log("longitude " + long);
             // console.log(position);
 
             //lokasi plan jaga 

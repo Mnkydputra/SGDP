@@ -19,7 +19,7 @@
         <div class="graph-wr">
             <!-- <canvas id="myChart"></canvas> -->
             <form action="#" id="upload" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="plan" value="VLC">
+                <input type="hidden" name="plan" value="<?= $plan ?>">
                 <div class="form-group">
                     <textarea placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
@@ -39,9 +39,17 @@
         $("#upload").on('submit', function(e) {
             e.preventDefault();
             if ($("#keterangan").val() == "") {
-                alert("keterangan kosong");
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Keterangan kosong',
+                    icon: 'error',
+                })
             } else if ($("#file").val() == "") {
-                alert('documentasi masih kosong')
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Documentasi Kosong',
+                    icon: 'error',
+                })
             } else {
 
                 $.ajax({
