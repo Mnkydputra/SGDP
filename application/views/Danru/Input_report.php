@@ -19,7 +19,7 @@
         <div class="graph-wr">
             <!-- <canvas id="myChart"></canvas> -->
             <form action="#" id="upload" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="plan" value="<?= $plan ?>">
+                <input type="hidden" name="plan" value="VLC">
                 <div class="form-group">
                     <textarea placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
@@ -28,7 +28,7 @@
                     <input type="file" id="file" name="file" accept="image/*">
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit Patroli</button>
+                <button id="submitBtn" type="submit" class="btn btn-primary">Submit Patroli</button>
             </form>
         </div>
     </div>
@@ -51,9 +51,20 @@
                     processData: false,
                     contentType: false,
                     cache: false,
+                    beforeSend: function() {
+                        $("#submitBtn").attr('disabled', true);
+                    },
+                    complete: function() {
+                        $("#submitBtn").attr('disabled', false);
+                    },
                     success: function(e) {
-                        alert('berhasil');
-                        window.location = "<?= base_url('Danru/Patrol') ?>"
+                        Swal.fire({
+                            title: 'Sukses!',
+                            text: 'Report di Kirim',
+                            icon: 'success',
+                        }).then(function() {
+                            window.location = "<?= base_url('Danru/Patrol') ?>"
+                        })
                     }
                 })
             }

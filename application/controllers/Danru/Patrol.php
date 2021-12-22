@@ -76,13 +76,13 @@ class Patrol extends CI_Controller
     }
 
 
-    public function form_report($plan)
+    public function form_report()
     {
         # code...
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'  => $this->uri->segment(2),
-            'plan'  => $plan,
+            // 'plan'  => $plan,
             'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
         );
         $this->load->view('mobile/header', $data);

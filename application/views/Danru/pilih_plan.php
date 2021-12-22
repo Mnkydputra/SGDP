@@ -25,7 +25,7 @@
                         <option value="<?= $pln->id ?>"><?= $pln->plan  ?></option>
                     <?php endforeach ?>
                 </select>
-                <button class="btn btn-danger">Show Camera</button>
+                <button type="submit" class="btn btn-danger">Show Camera</button>
             </form>
         </div>
     </div>
@@ -33,6 +33,16 @@
 
 <script>
     function cek() {
-
+        var divisiId = $("select[name=plan_id] option:selected").val();
+        if (divisiId == null || divisiId == "") {
+            // alert("Pilih Plan");
+            Swal.fire({
+                title: 'Attention!',
+                text: 'Pilih Plan Patroli',
+                icon: 'danger',
+                buttons: ['dangerMode', true]
+            })
+            return false;
+        }
     }
 </script>

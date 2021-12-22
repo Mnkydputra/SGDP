@@ -50,9 +50,21 @@
             const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(1);
             console.log(jarak);
             if (jarak <= 0.4) {
-                alert("Lanjut isi dokumentasi");
-                window.location = "<?= base_url("Danru/Patrol/form_report/PLAN_1") ?>";
+                Swal.fire({
+                    title: 'Sukses!',
+                    text: 'Lanjut Documentasi',
+                    icon: 'success',
+                    buttons: ['dangerMode', true]
+                }).then(function() {
+                    window.location = "<?= base_url("Danru/Patrol/form_report/") ?>";
+                })
+                // alert("Lanjut isi dokumentasi");
             } else {
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Anda di Luar Area',
+                    icon: 'danger',
+                })
                 alert("titik diluar jangkauan");
             }
         });
