@@ -49,12 +49,12 @@
 
             const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(1);
             console.log(jarak);
-            // if (jarak <= 0.4) {
-            //     alert("Lanjut isi dokumentasi");
-            //     window.location = "<?= base_url("Danru/Patrol/form_report/PLAN_1") ?>";
-            // } else {
-            //     alert("titik diluar jangkauan");
-            // }
+            if (jarak <= 0.4) {
+                alert("Lanjut isi dokumentasi");
+                window.location = "<?= base_url("Danru/Patrol/form_report/PLAN_1") ?>";
+            } else {
+                alert("titik diluar jangkauan");
+            }
         });
     });
 
