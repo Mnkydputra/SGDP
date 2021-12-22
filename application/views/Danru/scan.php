@@ -23,7 +23,7 @@
 </div>
 
 
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+
 <script>
     // barcode
     let scanner = new Instascan.Scanner({
@@ -31,6 +31,7 @@
         mirror: false,
         scanPeriod: 5
     });
+
     scanner.addListener('scan', function(content) {
         // console.log(content);
         navigator.geolocation.getCurrentPosition(function(position) {

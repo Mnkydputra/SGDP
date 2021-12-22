@@ -36,6 +36,11 @@
     <!-- API LOCATION -->
     <script src="<?= base_url('assets/js/') ?>songof.js"></script>
     <script type="text/javascript" src="<?= base_url('assets/js/') ?>instascan.min.js"></script>
+
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
+
+
+
 </head>
 
 <body style="background-color:#F9FAFA">

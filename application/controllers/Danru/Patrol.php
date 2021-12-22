@@ -35,23 +35,22 @@ class Patrol extends CI_Controller
     {
         # code...
         $id = $this->input->post("tikor");
-        echo $id;
+        $data = $this->db->get_where('titik_area', ['id' => $id])->result();
+        echo json_encode($data);
     }
 
-    public function scan_barcode($idPlan)
+    public function scan_barcode($idTikor)
     {
         $data = array(
             'biodata'       => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'           => $this->uri->segment(2),
             'berkas'        => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-            'plan'          => $this->db->get_where('plan_report', ['id' => $idPlan])->row()
+            'plan'          => $this->db->get_where('titik_area', ['id' => $idTikor])->row()
         );
 
         $this->load->view('mobile/header', $data);
         $this->load->view("Danru/scan", $data);
         $this->load->view('mobile/fotter');
-
-        // $this->load->view("Danru/tes");
     }
 
 

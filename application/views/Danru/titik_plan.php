@@ -3,3 +3,10 @@
         <option value="<?= $tk->id ?>"><?= $tk->lokasi ?></option>
     <?php endforeach ?>
 </select>
+<script>
+    $(function() {
+        $('select[name=tikor]').on('change', function() {
+            console.log("tes")
+        })
+    })
+</script>
