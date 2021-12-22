@@ -60,60 +60,52 @@
             } else {
                 var idTikor = $("select[name=tikor] option:selected").val();
                 console.log(idTikor);
-                // $.ajax({
-                //     url: $("#formTikor").attr('data-url'),
-                //     method: "POST",
-                //     data: "tikor=" + idTikor,
-                //     success: function(e) {
-                //         // console.log(e);
-                //         var result = JSON.parse(e);
-                //         // console.log(result[0].id);
+                const long = position.coords.longitude;
+                const lat = position.coords.latitude;
+                const acc = position.coords.accuracy;
+                console.log("latitude" + lat);
+                console.log("longitude " + long);
+                // console.log(position);
+                $.ajax({
+                    url: $("#formTikor").attr('data-url'),
+                    method: "POST",
+                    data: "tikor=" + idTikor,
+                    success: function(e) {
+                        // console.log(e);
+                        var result = JSON.parse(e);
+                        const latitudeBarcode = result[0].latitude;
+                        const longitudeBarcode = result[0].longitude;
+                        const lokasi = result[0].lokasi;
 
-                //         const latitudeBarcode = result[0].latitude;
-                //         const longitudeBarcode = result[0].longitude;
-                //         //munculkan kamera 
-                //         let scanner = new Instascan.Scanner({
-                //             video: document.getElementById('preview'),
-                //             mirror: true,
-                //             scanPeriod: 5
-                //         });
-                //     }
-                // })
+                        //lokasi plan jaga 
+                        var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+
+                        //lokasi user scan barcode
+                        var posisi_user = new google.maps.LatLng(lat, long);
+                        const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(1);
+                        console.log(jarak);
+                        if (jarak <= 0.4) {
+                            Swal.fire({
+                                title: 'Sukses!',
+                                text: 'Lanjut Documentasi',
+                                icon: 'success',
+                                buttons: ['dangerMode', true]
+                            }).then(function() {
+                                window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
+                            })
+                            // alert("Lanjut isi dokumentasi");
+                        } else {
+                            Swal.fire({
+                                title: 'Attention!',
+                                text: 'Anda di Luar Area',
+                                icon: 'danger',
+                            })
+                        }
+                    }
+                })
             }
 
-            // const long = position.coords.longitude;
-            // const lat = position.coords.latitude;
-            // const acc = position.coords.accuracy;
-            // console.log("latitude" + lat);
-            // console.log("longitude " + long);
-            // // console.log(position);
 
-            // //lokasi plan jaga 
-            // var plan = new google.maps.LatLng();
-
-            // //lokasi user scan barcode
-            // var posisi_user = new google.maps.LatLng(lat, long);
-
-            // const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(1);
-            // console.log(jarak);
-            // if (jarak <= 0.4) {
-            //     Swal.fire({
-            //         title: 'Sukses!',
-            //         text: 'Lanjut Documentasi',
-            //         icon: 'success',
-            //         buttons: ['dangerMode', true]
-            //     }).then(function() {
-            //         window.location = "<?= base_url("Danru/Patrol/form_report/") ?>";
-            //     })
-            //     // alert("Lanjut isi dokumentasi");
-            // } else {
-            //     Swal.fire({
-            //         title: 'Attention!',
-            //         text: 'Anda di Luar Area',
-            //         icon: 'danger',
-            //     })
-            //     alert("titik diluar jangkauan");
-            // }
         });
     });
 

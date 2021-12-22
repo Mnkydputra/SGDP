@@ -19,7 +19,7 @@
         <div class="graph-wr">
             <!-- <canvas id="myChart"></canvas> -->
             <form action="#" id="upload" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="plan" value="VLC">
+                <input type="hidden" name="plan" value="<?= $plan ?>">
                 <div class="form-group">
                     <textarea placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
