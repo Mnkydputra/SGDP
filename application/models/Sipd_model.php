@@ -511,10 +511,20 @@ class Sipd_model extends CI_Model
 
 	//input
 
+	// 
 	public function added($data, $table)
 	{
 		# code...
 		$this->db->insert($data, $table);
+		return $this->db->affected_rows();
+	}
+
+	// delete
+	public function deleted($where, $table)
+	{
+		# code..
+		$this->db->where($where);
+		$this->db->delete($table);
 		return $this->db->affected_rows();
 	}
 
