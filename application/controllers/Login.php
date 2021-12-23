@@ -13,28 +13,8 @@ class Login extends CI_Controller
 
     function index()
     {
-    
-        if($this->agent->platform() == 'Android'){
-            redirect('Login/mobile');
-        }else if ($this->agent->platform() == 'iOS'){
-            redirect('Login/mobile');
-        }else{
-            redirect('Login/web');
-        }
+        $this->load->view('login');
     }
-
-    function web()
-    {
-         
-        $this->load->view('web/login');
-    }
-
-    function mobile()
-    {
-        
-        $this->load->view('mobile/login');
-    }
-
 
     function UpdatePassword()
     {
@@ -65,6 +45,7 @@ class Login extends CI_Controller
 			$user = $this->Login_model->cek_login($username, $password)->row();   
             if ($user->password == md5($username))
             {
+                $this->session->set_flashdata('update','update password anda');
                 $this->session->set_userdata('npk', $user->npk);
                 redirect("Auth");
             }else {
@@ -84,7 +65,7 @@ class Login extends CI_Controller
                         redirect('Korlap/Dashboard');
                         break;
                     case '4': 
-                        redirect('SIPD/Dashboard');
+                        redirect('Sipd/Dashboard');
                         break;
                     case '5':
                         redirect('PIC/Dashboard');
@@ -99,10 +80,9 @@ class Login extends CI_Controller
                         break;
                 }
             }
-        }else{
-            $this->session->set_flashdata("gagal","Akun Anda Belum Terdaftar");
-            redirect("Login");
-            
-        }
-    } 
+        }else if($auth == 0){
+            $this->session->set_flashdata('nonuser',"NPK Belum Terdaftar");
+            redirect('Login');  
+        } 
+    }
 }

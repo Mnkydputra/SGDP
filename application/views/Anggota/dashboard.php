@@ -22,76 +22,96 @@
 <div style="margin-top:100px; padding-top:40mm; background-color:#F9FAFA;" class="container-md mt-5">
     <div class="row">
         <div class="container-md-3">
-            <div style="background-color:#6f9390; font-size:12px; font-weight:solid" class=" alert alert" role="alert">
-                <label class="text-white  d-flex align-items-center justify-content-center"><i class='bx bx-calendar '> APEL BERSAMA | 15 JANUARI 2022 | 07:00</i></label>
+            <div style="background-color:#6f9390; height:50px;" class=" alert alert" role="alert">
+                     <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
+                         <i class='bx bx-calendar'>APEL BERSAMA | 15 JANUARI 2022 | 07:00</i></label>
             </div>
+                <!-- Modal -->
+            <div class="modal fade" id="pengumuman" tabindex="-1" aria-labelledby="pengumumanLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pengumumanLabel"><b>APEL BERSAMA ADM</b></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-sm-3">
+                    <div>
+                    <span >Masak sayur diaduk semalaman
+                            Mengaduknya pakai hati
+                            Salam sapa tak lupa kuucapkan
+                            Jangan lupa APEL Bersama besok pagi!!!
+                    </span>
+                    </div>
+                    <h5> Aturan Peserta APEL :</h5>
+                    <div>
+                        <ul>
+                            <li>Simak materinya</li>
+                            <li>Duduk siap</li>
+                            <li>Menyalakan kamera</li>
+                            <li>Format nama zoom "Area_Nama_NPK" contoh "P4_Alfa_123456"</li>
+                        </ul>
+                    </div>
+                    <h5><b>Aturan penggunaan seragam:</b></h5>
+                    <div>
+                        <ul style="list-style-type: none;">
+                            <li>Semua anggota menggunakan seragam lama</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5>Via Zoom</h5>
+                        <ul>
+                            <li>Meeting ID: 884 324 6264</li>
+                            <li>Passcode: 12345</li>
+                            <li><a href="https://us02web.zoom.us/j/8843246264?pwd=NFY2SHIvSlR4emNqaTZHaGxVZFJ0QT09">JOIN US</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p>Jangan lupa meriahkan yaa.. </p>
+                    </div>
+                    <div>
+                        <p><b>Salam Sahabat</b></p>
+                    </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!--  -->
         </div>
         <div class="graph-wr">
             <canvas id="myChart"></canvas>
         </div>
     </div>
     <div class="row">
-        <div class="container-md3">
-            <div>
-                <canvas id="halfChart" width="400" height="400"></canvas>
+        <div class="container-md-3">
+            <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-danger" role="alert">
+                <i class='d-flex align-items-center justify-content-center'> <label style="font-weight:bold;">INDEKS MASSA TUBUH</label> </i>
+            </div>
+            <div >
+                <canvas style="margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
             </div>
         </div>
     </div>
 </div>
 
 <script>
-    // var ctv = document.getElementById("halfChart");
-    // var halfChart = new Chart(ctv, {
-    //     type: 'doughnut',
-    //     data: {
-    //         labels: ["UnderWeight", "Normal", "OverWeight", "Obese"],
-    //         datasets: [{
-    //             label: '# of Votes',
-    //             data: [100, 100, 100, 100],
-    //             backgroundColor: [
-    //                 'rgba(255, 99, 132, 1)',
-    //                 'rgba(54, 162, 235, 1)',
-    //                 'rgba(255, 206, 86, 1)',
-    //                 'rgba(75, 192, 192, 1)'
-    //             ],
-    //             borderColor: [
-    //                 'rgba(255,99,132,1)',
-    //                 'rgba(54, 162, 235, 1)',
-    //                 'rgba(255, 206, 86, 1)',
-    //                 'rgba(75, 192, 192, 1)'
-    //             ],
-    //             needleValue: 30,
-    //             borderColor: 'black',
-    //             borderWidth: 2,
-    //             cutout: '95%',
-    //             circumference: 180,
-    //             rotation: 270,
-    //             borderRadius: 2
-    //         }]
-    //     },
-    //     options: {
-    //         rotation: 1 * Math.PI,
-    //         circumference: 1 * Math.PI,
-    //         responsive: true,
-    //         plugins: {
-    //             display: false,
-    //         }
-    //     }
-    // });
-    // setup 
     const data = {
         labels: ["UnderWeight", "Normal", "OverWeight", "Obese"],
         datasets: [{
-            label: 'Weekly Sales',
-            data: [10, 18, 25, 27],
+            label: 'Indeks Massa Tubuh',
+            data: [11,11,11,11],
             backgroundColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)'
+                'rgba(3, 167, 255)',
+                'rgba(5, 145, 0)',
+                'rgba(255, 128, 0)',
+                'rgba(255, 0, 0)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
+                'sdadas',
                 'rgba(54, 162, 235, 1)',
                 'rgba(255, 206, 86, 1)',
                 'rgba(75, 192, 192, 1)'
@@ -99,7 +119,7 @@
             needleValue: <?= $biodata->imt ?>,
             borderColor: 'white',
             borderWidth: 2,
-            cutout: '95%',
+            cutout: '25%',
             circumference: 180,
             rotation: 270,
             borderRadius: 5
@@ -141,7 +161,7 @@
             ctx.rotate(angle);
             ctx.beginPath();
             ctx.moveTo(0, -2);
-            ctx.lineTo(180, 0);
+            ctx.lineTo(140, 0);
             // ctx.lineTo(height + ctx.canvas.offsetTop - 70, 0);
             ctx.lineTo(0, 2);
             ctx.fillStyle = '#444';
@@ -167,17 +187,16 @@
         options: {
             plugins: {
                 legend: {
-                    display: false
+                    display: false,
+                    render: 'lables',
+                    arc: true,
+                    position: 'border'
                 },
-                // tooltip: {
-                //     yAlign: 'bottom',
-                //     displayColors: false,
-                //     callbacks: {
-                //         label: function(tooltopItem, data, value) {
-                //             console.log(tooltopItem);
-                //         }
-                //     }
-                // }
+                 labels: {
+                    render: 'lables',
+                    arc: true,
+                    position: 'border'
+                },
             }
         },
         plugins: [gaugeNeedle]
