@@ -104,6 +104,8 @@ class Patrol extends CI_Controller
     public function submit()
     {
         # code...
+        $id  = $this->session->userdata("id_akun") ;
+        $idPTRL = "PTRL" . date('dis') . $id ;
             $this->load->library('upload');
             $config['upload_path']  = './assets/patrol/';
             $config['allowed_types']  = "jpg|png|jpeg";
@@ -115,7 +117,7 @@ class Patrol extends CI_Controller
                         $this->upload->display_errors();  
                     else {
                         $upload_berkas = [
-                            'id_patroli'  => 'PTR3' ,
+                            'id_patroli'   => $idPTRL ,
                             'picture'      => $filename  
                         ];
                         $this->Sipd_model->added("documentasi_patroli", $upload_berkas);
@@ -124,7 +126,7 @@ class Patrol extends CI_Controller
             }
                 $data = [
                     'id_npk'        => $this->session->userdata("id_akun"),
-                    'id_patroli'    => 'PTR3' ,
+                    'id_patroli'    => $idPTRL ,
                     'nama'          => $this->session->userdata('nama'),
                     'lokasi'        => $this->input->post("plan"),
                     'tanggal'       => date('Y-m-d'),
