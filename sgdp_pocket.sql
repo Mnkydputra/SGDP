@@ -133,11 +133,11 @@ CREATE TABLE `documentasi_patroli` (
   `id_patroli` varchar(100) DEFAULT NULL,
   `picture` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `documentasi_patroli` */
 
-insert  into `documentasi_patroli`(`id`,`id_patroli`,`picture`) values (7,'PTR3','sql1.png'),(8,'PTR3','sql2.png'),(9,'PTR3','sql3.png');
+insert  into `documentasi_patroli`(`id`,`id_patroli`,`picture`) values (16,'PTRL230219AGT-103311','5.png'),(17,'PTRL230219AGT-103311','view.jpg'),(18,'PTRL230219AGT-103311','adada.jpg'),(19,'PTRL230917AGT-103311','functionmysql.jpg'),(20,'PTRL230917AGT-103311','adada.jpg'),(21,'PTRL230917AGT-103311','rt.jpg');
 
 /*Table structure for table `employee` */
 
@@ -211,13 +211,12 @@ CREATE TABLE `report_patrol` (
   `tanggal` date DEFAULT NULL,
   `jam` time DEFAULT NULL,
   `keterangan` text DEFAULT NULL,
-  `picture` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `report_patrol` */
 
-insert  into `report_patrol`(`id`,`id_npk`,`id_patroli`,`nama`,`lokasi`,`tanggal`,`jam`,`keterangan`,`picture`) values (8,'AGT-103311','PTR3','TONI SUTONO','POSKO','2021-12-23','10:35:09','Kondisi aman ',NULL);
+insert  into `report_patrol`(`id`,`id_npk`,`id_patroli`,`nama`,`lokasi`,`tanggal`,`jam`,`keterangan`) values (11,'AGT-103311','PTRL230219AGT-103311','TONI SUTONO','POSKO','2021-12-23','11:02:21','Kondisi aman ndan'),(12,'AGT-103311','PTRL230917AGT-103311','TONI SUTONO','POSKO','2021-12-23','11:09:18','Kondisi aman');
 
 /*Table structure for table `sipd` */
 
