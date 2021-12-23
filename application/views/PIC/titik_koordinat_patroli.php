@@ -25,7 +25,7 @@
                         <td><?= $tkr->longitude ?></td>
                         <td>
                             <a href="javascript:hapusTikor('<?= $tkr->id  ?>')" class="btn btn-danger btn-sm">hapus</a>
-                            <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-danger mt-2 mb-2">Tambah Data</button>
+                            <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-sm btn-success mt-2 mb-2">edit</button>
 
                         </td>
                     </tr>
