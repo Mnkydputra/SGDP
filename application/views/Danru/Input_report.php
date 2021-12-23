@@ -21,15 +21,19 @@
             <form action="#" id="upload" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="plan" value="<?= $plan ?>">
                 <div class="form-group">
-                    <textarea placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
+                    <textarea cols="42" placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
-
-                <div class="form-group">
-                    <input type="file" id="file" name="file" accept="image/*">
-                </div>
-
-                <button id="submitBtn" type="submit" class="btn btn-primary">Submit Patroli</button>
+                <?php for ($i=1; $i <=3 ; $i++) :?>
+                    <!-- <label>Documentasi</label> -->
+                    <input type="file" id="file<?= $i ?>" name="file<?= $i ?>" accept="image/*">
+                <?php endfor;?>
+                <button id="submitBtn" style="width:100%" type="submit" class="mb-4 mt-3 btn btn-danger">Submit Patroli</button>   
             </form>
+                <div id="infoTunggu" class="alert  alert-info mt-2" style="display:none">
+                   <center>
+                   <label>tunggu proses upload selesai</label>
+                   </center>
+                </div>
         </div>
     </div>
 </div>
@@ -44,10 +48,22 @@
                     text: 'Keterangan kosong',
                     icon: 'error',
                 })
-            } else if ($("#file").val() == "") {
+            } else if ($("#file1").val() == "") {
                 Swal.fire({
                     title: 'Attention!',
-                    text: 'Documentasi Kosong',
+                    text: 'Isi gambar Selfie',
+                    icon: 'error',
+                })
+            } else if ($("#file2").val() == "") {
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Documentasi Area Kosong',
+                    icon: 'error',
+                })
+            } else if ($("#file3").val() == "") {
+                Swal.fire({
+                    title: 'Attention!',
+                    text: 'Documentasi Area Kosong',
                     icon: 'error',
                 })
             } else {
@@ -61,11 +77,14 @@
                     cache: false,
                     beforeSend: function() {
                         $("#submitBtn").attr('disabled', true);
+                        document.getElementById('infoTunggu').style.display= "block";
                     },
                     complete: function() {
                         $("#submitBtn").attr('disabled', false);
+                        document.getElementById('infoTunggu').style.display= "none";
                     },
                     success: function(e) {
+                        // console.log(e);
                         Swal.fire({
                             title: 'Sukses!',
                             text: 'Report di Kirim',

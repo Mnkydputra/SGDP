@@ -79,12 +79,13 @@
 
                         //lokasi plan jaga 
                         var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+                        // var plan = new google.maps.LatLng(-6.145800, 106.885018);
 
                         //lokasi user scan barcode
                         var posisi_user = new google.maps.LatLng(lat, long);
                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
                         console.log(jarak);
-                        if (jarak <= 0.08) {
+                        if (jarak <= 0.05 ) {
                             Swal.fire({
                                 title: 'Sukses!',
                                 text: 'Lanjut Documentasi',
@@ -104,8 +105,6 @@
                     }
                 })
             }
-
-
         });
     });
 

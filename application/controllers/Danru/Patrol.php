@@ -104,27 +104,32 @@ class Patrol extends CI_Controller
     public function submit()
     {
         # code...
-
-        $fle  = $_FILES['file']['name'];
-        if ($fle == null || $fle == "") {
-            echo "file kosong";
-        } else {
-
             $this->load->library('upload');
             $config['upload_path']  = './assets/patrol/';
             $config['allowed_types']  = "jpg|png|jpeg";
             $this->upload->initialize($config);
-            if (!$this->upload->do_upload('file')) {
-                echo "failed";
-            } else {
+            for ($i=1; $i <=3 ; $i++) { 
+                if(!empty($_FILES['file'.$i]['name'])){
+                    $filename = $_FILES['file'.$i]['name'] ;
+                    if(!$this->upload->do_upload('file'.$i))
+                        $this->upload->display_errors();  
+                    else {
+                        $upload_berkas = [
+                            'id_patroli'  => 'PTR3' ,
+                            'picture'      => $filename  
+                        ];
+                        $this->Sipd_model->added("documentasi_patroli", $upload_berkas);
+                    }
+                }
+            }
                 $data = [
-                    'id_npk'        =>  $this->session->userdata("id_akun"),
+                    'id_npk'        => $this->session->userdata("id_akun"),
+                    'id_patroli'    => 'PTR3' ,
                     'nama'          => $this->session->userdata('nama'),
                     'lokasi'        => $this->input->post("plan"),
                     'tanggal'       => date('Y-m-d'),
                     'jam'           => date('H:i:s'),
                     'keterangan'    => $this->input->post("keterangan"),
-                    'picture'       => $fle
                 ];
                 $add = $this->Sipd_model->added("report_patrol", $data);
                 if ($add > 0) {
@@ -132,7 +137,5 @@ class Patrol extends CI_Controller
                 } else {
                     echo "0";
                 }
-            }
-        }
     }
 }
