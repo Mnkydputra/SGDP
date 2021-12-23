@@ -23,7 +23,11 @@
     <div class="row">
         <div class="container-md-3">
             <div style="background-color:#6f9390; height:50px;" class=" alert alert" role="alert">
+<<<<<<< HEAD
                      <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
+=======
+                     <label style="background-color:#6f9390; font-size:15px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
+>>>>>>> ab447720c628456264f3b1e22b8ea32d0d6643d0
                          <i class='bx bx-calendar'>APEL BERSAMA | 15 JANUARI 2022 | 07:00</i></label>
             </div>
                 <!-- Modal -->
@@ -91,10 +95,25 @@
             <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-danger" role="alert">
                 <i class='d-flex align-items-center justify-content-center'> <label style="font-weight:bold;">INDEKS MASSA TUBUH</label> </i>
             </div>
+<<<<<<< HEAD
             <div >
                 <canvas style="margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
+=======
+            <div>
+                <canvas style="display: block;
+                    box-sizing: border-box;
+                    height: 366px;
+                    width: 366px;
+                    position: absolute;
+                    margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
+>>>>>>> ab447720c628456264f3b1e22b8ea32d0d6643d0
             </div>
         </div>
+
+
+
+
+        
     </div>
 </div>
 
@@ -197,6 +216,10 @@
                     arc: true,
                     position: 'border'
                 },
+<<<<<<< HEAD
+=======
+                
+>>>>>>> ab447720c628456264f3b1e22b8ea32d0d6643d0
             }
         },
         plugins: [gaugeNeedle]

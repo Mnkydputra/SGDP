@@ -54,7 +54,6 @@
           <a class="nav-link" href="<?= base_url('Sipd/')?>Anggota">Anggota</a>
         </li>
       </ul> 
-      
           <div class="d-flex" style="display: none; list-style:none;"> 
                       <li class="nav-item dropdown" style="list-style:none; ">
                         <a class="nav-link dropdown-toggle" href="#" id="navProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">

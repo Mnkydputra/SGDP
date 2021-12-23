@@ -29,7 +29,11 @@
 		}
 	</style>
 	</head>
+<<<<<<< HEAD:application/views/login.php
 	<body>
+=======
+	<body  style="background-image: url(<?= base_url('assets/img/')?>bg.jpg);">
+>>>>>>> ab447720c628456264f3b1e22b8ea32d0d6643d0:application/views/web/login.php
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
