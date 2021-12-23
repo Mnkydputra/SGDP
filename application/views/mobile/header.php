@@ -33,6 +33,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- IMASK CDN -->
     <script src="https://unpkg.com/imask"></script>
+    <script src="<?= base_url('assets/dist/')?>jquery-qrcode.js"></script>
     <!-- API LOCATION -->
     <script src="<?= base_url('assets/js/') ?>songof.js"></script>
     <script type="text/javascript" src="<?= base_url('assets/js/') ?>instascan.min.js"></script>
