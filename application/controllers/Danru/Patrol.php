@@ -19,24 +19,24 @@ class Patrol extends CI_Controller
 
     public function index()
     {
+
+        $area = $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row();
+
+        // echo $area->area_kerja;
+        // $t = $this->db->get_where('titik_area', ['id_plan' => $area->area_kerja])->result();
+        // var_dump($t);
+
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-            'url'  => $this->uri->segment(2),
-            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-            'plan'      => $this->db->get("plan_report")->result()
+            'url'        => $this->uri->segment(2),
+            'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $area->area_kerja])->result(),
+            'plan'       => $this->db->get("plan_report")->result()
         );
 
         $this->load->view('mobile/header', $data);
         $this->load->view("Danru/pilih_plan", $data);
         $this->load->view('mobile/fotter');
-    }
-
-    public function getPlan()
-    {
-        # code...
-        $id = $this->input->post("tikor");
-        $data = $this->db->get_where('titik_area', ['id' => $id])->result();
-        echo json_encode($data);
     }
 
     public function scan_barcode($idTikor)
@@ -104,40 +104,40 @@ class Patrol extends CI_Controller
     public function submit()
     {
         # code...
-        $id  = $this->session->userdata("id_akun") ;
-        $idPTRL = "PTRL" . date('dis') . $id ;
-            $this->load->library('upload');
-            $config['upload_path']  = './assets/patrol/';
-            $config['allowed_types']  = "jpg|png|jpeg";
-            $this->upload->initialize($config);
-            for ($i=1; $i <=3 ; $i++) { 
-                if(!empty($_FILES['file'.$i]['name'])){
-                    $filename = $_FILES['file'.$i]['name'] ;
-                    if(!$this->upload->do_upload('file'.$i))
-                        $this->upload->display_errors();  
-                    else {
-                        $upload_berkas = [
-                            'id_patroli'   => $idPTRL ,
-                            'picture'      => $filename  
-                        ];
-                        $this->Sipd_model->added("documentasi_patroli", $upload_berkas);
-                    }
+        $id  = $this->session->userdata("id_akun");
+        $idPTRL = "PTRL" . date('dis') . $id;
+        $this->load->library('upload');
+        $config['upload_path']  = './assets/patrol/';
+        $config['allowed_types']  = "jpg|png|jpeg";
+        $this->upload->initialize($config);
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_FILES['file' . $i]['name'])) {
+                $filename = $_FILES['file' . $i]['name'];
+                if (!$this->upload->do_upload('file' . $i))
+                    $this->upload->display_errors();
+                else {
+                    $upload_berkas = [
+                        'id_patroli'   => $idPTRL,
+                        'picture'      => $filename
+                    ];
+                    $this->Sipd_model->added("documentasi_patroli", $upload_berkas);
                 }
             }
-                $data = [
-                    'id_npk'        => $this->session->userdata("id_akun"),
-                    'id_patroli'    => $idPTRL ,
-                    'nama'          => $this->session->userdata('nama'),
-                    'lokasi'        => $this->input->post("plan"),
-                    'tanggal'       => date('Y-m-d'),
-                    'jam'           => date('H:i:s'),
-                    'keterangan'    => $this->input->post("keterangan"),
-                ];
-                $add = $this->Sipd_model->added("report_patrol", $data);
-                if ($add > 0) {
-                    echo "berhasil simpan data";
-                } else {
-                    echo "0";
-                }
+        }
+        $data = [
+            'id_npk'        => $this->session->userdata("id_akun"),
+            'id_patroli'    => $idPTRL,
+            'nama'          => $this->session->userdata('nama'),
+            'lokasi'        => $this->input->post("plan"),
+            'tanggal'       => date('Y-m-d'),
+            'jam'           => date('H:i:s'),
+            'keterangan'    => $this->input->post("keterangan"),
+        ];
+        $add = $this->Sipd_model->added("report_patrol", $data);
+        if ($add > 0) {
+            echo "berhasil simpan data";
+        } else {
+            echo "0";
+        }
     }
 }
