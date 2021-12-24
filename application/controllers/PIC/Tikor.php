@@ -7,6 +7,22 @@ class Tikor extends CI_Controller
 
   function index()
   {
+
+    $query = $this->db->query("select max(id) as hasil from titik_area  ");
+    $p = $query->row();
+
+    $ticket = $p->hasil;
+    // echo $query->num_rows();
+    if ($query->num_rows() > 0) {
+      $nkode =  substr($ticket, 4);
+      $kode = (int) $nkode;
+      $kode = $kode + 1;
+      $d = "VLC-" . $kode;
+      // echo  $data['id_titik'];
+    } else {
+      $d = "VLC-1";
+    }
+
     $anggota = array('role_id' => 1);
     $danru = array('role_id' => 2);
     $korlap = array('role_id' => 3);
@@ -17,7 +33,8 @@ class Tikor extends CI_Controller
       'url'  => $this->uri->segment(2),
       'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
       'total'   => $this->Sipd_model->countAll()->num_rows(),
-      'tikor'   => $this->Sipd_model->getData("titik_area")->result()
+      'tikor'   => $this->Sipd_model->getData("titik_area")->result(),
+      'id_titik'  => $d
     );
     $this->load->view('web/header', $data);
     $this->load->view('PIC/titik_koordinat_patroli', $data);
@@ -31,8 +48,10 @@ class Tikor extends CI_Controller
     $long   = $this->input->post('longitude');
     $lokasi = $this->input->post("lokasi");
     $idplan = $this->input->post("id_plan");
+    $id = $this->input->post("id2");
 
     $data_plan = [
+      'id'       => $id,
       'id_plan'  =>  $idplan,
       'lokasi'   => $lokasi,
       'latitude' => $lat,

@@ -39,6 +39,14 @@ class Patrol extends CI_Controller
         $this->load->view('mobile/fotter');
     }
 
+    public function getPlan()
+    {
+        # code...
+        $id = $this->input->post("tikor");
+        $data = $this->db->get_where('titik_area', ['id' => $id])->result();
+        echo json_encode($data);
+    }
+
     public function scan_barcode($idTikor)
     {
         $data = array(

@@ -14,7 +14,6 @@
                 </tr>
             </thead>
             <tbody>
-
                 <?php $no = 1;
                 foreach ($tikor as $tkr) : ?>
                     <tr>
@@ -46,7 +45,7 @@
             </div>
             <div class="modal-body">
                 <form action="#" method="post" id="formADDTikor" data-upload="<?= base_url('PIC/Tikor/tambah_titik') ?>" data-refresh="<?= base_url('PIC/Tikor') ?>">
-
+                    <input type="text" value="<?= $id_titik ?>" name="id2">
                     <select name="id_plan" id="id_plan" class="text-dark  form-control">
                         <option value="">Pilih Area Kerja</option>
                         <option value="VLC">ADM VLC</option>
