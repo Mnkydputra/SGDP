@@ -59,12 +59,12 @@
                 })
             } else {
                 var idTikor = $("select[name=tikor] option:selected").val();
-                console.log(idTikor);
+                // console.log(idTikor);
                 const long = position.coords.longitude;
                 const lat = position.coords.latitude;
                 const acc = position.coords.accuracy;
-                console.log("latitude" + lat);
-                console.log("longitude " + long);
+                console.log("latitude user" + lat);
+                console.log("longitude user " + long);
                 // console.log(position);
                 $.ajax({
                     url: $("#formTikor").attr('data-url'),
@@ -77,7 +77,7 @@
                         const longitudeBarcode = result[0].longitude;
                         const lokasi = result[0].lokasi;
 
-                        //lokasi plan jaga 
+                        // //lokasi plan jaga 
                         var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
                         // var plan = new google.maps.LatLng(-6.145800, 106.885018);
 
@@ -85,23 +85,23 @@
                         var posisi_user = new google.maps.LatLng(lat, long);
                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
                         console.log(jarak);
-                        if (jarak <= 0.04 ) {
-                            Swal.fire({
-                                title: 'Sukses!',
-                                text: 'Lanjut Documentasi',
-                                icon: 'success',
-                                buttons: ['dangerMode', true]
-                            }).then(function() {
-                                window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
-                            })
-                            // alert("Lanjut isi dokumentasi");
-                        } else {
-                            Swal.fire({
-                                title: 'Attention!',
-                                text: 'Anda di Luar Area',
-                                icon: 'danger',
-                            })
-                        }
+                        // if (jarak <= 0.04 ) {
+                        //     Swal.fire({
+                        //         title: 'Sukses!',
+                        //         text: 'Lanjut Documentasi',
+                        //         icon: 'success',
+                        //         buttons: ['dangerMode', true]
+                        //     }).then(function() {
+                        //         window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
+                        //     })
+                        //     // alert("Lanjut isi dokumentasi");
+                        // } else {
+                        //     Swal.fire({
+                        //         title: 'Attention!',
+                        //         text: 'Anda di Luar Area',
+                        //         icon: 'danger',
+                        //     })
+                        // }
                     }
                 })
             }

@@ -528,6 +528,16 @@ class Sipd_model extends CI_Model
 		return $this->db->affected_rows();
 	}
 
+
+	public function update($table, $data, $where)
+	{
+		$this->db->where($where);
+		$this->db->update($table, $data);
+		return $this->db->affected_rows();
+		# code...
+	}
+
+
 	//cari  npk di select option 
 	public function cariNPK($where, $column)
 	{

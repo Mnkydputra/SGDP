@@ -50,10 +50,10 @@ class Tikor extends CI_Controller
   public function update_titik()
   {
     # code...
-    $lat    = $this->input->post('latitude');
-    $long   = $this->input->post('longitude');
-    $lokasi = $this->input->post("lokasi");
-    $idplan = $this->input->post("id_plan");
+    $lat    = $this->input->post('latitude2');
+    $long   = $this->input->post('longitude2');
+    $lokasi = $this->input->post("lokasi2");
+    $idplan = $this->input->post("id_plan2");
 
     $data_plan = [
       'id_plan'  =>  $idplan,
@@ -61,18 +61,13 @@ class Tikor extends CI_Controller
       'latitude' => $lat,
       'longitude' => $long
     ];
-
     $where = ['id'  => $this->input->post('id')];
-
-    var_dump($data_plan);
-    var_dump($where);
-
-    // $save = $this->Sipd_model->added("titik_area", $data_plan);
-    // if ($save > 0) {
-    //   echo "sukses";
-    // } else {
-    //   echo "fail";
-    // }
+    $update = $this->Sipd_model->update("titik_area", $data_plan, $where);
+    if ($update > 0) {
+      echo "sukses";
+    } else {
+      echo "fail";
+    }
   }
 
 

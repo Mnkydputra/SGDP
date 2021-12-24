@@ -320,6 +320,81 @@ $(function(){
                     data : new FormData(this),
                     processData : false  ,
                     contentType : false ,
+                    beforeSend  : function(){
+                        document.getElementById("infoSave").style.display = "block";
+                    },
+                    complete : function(e){
+                        document.getElementById("infoSave").style.display = "none";
+                    },
+                    success : function(e){
+                        if(e == "sukses"){
+                            Swal.fire({
+                                icon : 'success' ,
+                                info : 'Attention' ,
+                                text : 'Berhasil'
+                            }).then(function(){
+                                window.location.href= $("#formADDTikor").attr('data-refresh') ;
+                            })
+                        }else{
+                            Swal.fire({
+                                icon : 'warning' ,
+                                info : 'Ulang Pendaftaran' ,
+                                text : 'Terjadi kesalahan'
+                            }).then(function(){
+                                window.location.href= $("#formADDTikor").attr('data-refresh') ;
+                            })
+                        }                        
+                    }
+                })
+            }
+        })
+
+       
+
+        //update data titik koordinat 
+        $("#updateTitik").on('submit', function(e) {
+            e.preventDefault();
+            const id = $("select[name=id_plan2] option:selected").val();
+            const lokasi = $("#lokasi2").val();
+            const lat = $("#latitude2").val();
+            const long = $("#longitude2").val();
+            if(id == null || id == ""){
+                Swal.fire({
+                    icon : 'error' ,
+                    info : 'Attention' ,
+                    text : 'Pilih Area Kerja'
+                });
+            }else if(lokasi == null || lokasi == ""){
+                Swal.fire({
+                    icon : 'error' ,
+                    info : 'Attention' ,
+                    text : 'Lokasi harap di isi'
+                });
+            }else if(lat == null || lat == ""){
+                Swal.fire({
+                    icon : 'error' ,
+                    info : 'Attention' ,
+                    text : 'Latitude harap di isi'
+                });
+            }else if(long == null || long == ""){
+                Swal.fire({
+                    icon : 'error' ,
+                    info : 'Attention' ,
+                    text : 'Longitude harap di isi'
+                });
+            }else {
+                $.ajax({
+                    url : $("#updateTitik").attr('data-update') ,
+                    method : "POST" ,
+                    data : new FormData(this),
+                    processData : false  ,
+                    contentType : false ,
+                    beforeSend  : function(){
+                        document.getElementById("infoSave2").style.display = "block";
+                    },
+                    complete : function(e){
+                        document.getElementById("infoSave2").style.display = "none";
+                    },
                     success : function(e){
                         if(e == "sukses"){
                             Swal.fire({
@@ -364,8 +439,6 @@ $(function(){
                     success : function(e){
                         Swal.fire(
                             'Deleted!',
-                            'Your file has been deleted.' + e,
-                            'success'
                         ).then(function(){
                             window.location.href = $("#formADDTikor").attr('data-refresh');
                         })
@@ -374,3 +447,18 @@ $(function(){
             }
           })
     }
+
+
+    $(document).ready(function() {
+        // Untuk sunting modal titik area 
+        $('#edit-data').on('show.bs.modal', function(event) {
+            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
+            var modal = $(this);
+            // Isi nilai pada field
+            modal.find('#id').attr("value", div.data('id'));
+            modal.find('#lokasi2').attr("value", div.data('lokasi'));
+            modal.find('#longitude2').attr("value", div.data('long'));
+            modal.find('#latitude2').attr("value", div.data('lat'));
+            modal.find('#id_plan2').attr("value", div.data('area'));
+        });
+    });

@@ -25,7 +25,7 @@
                         <td><?= $tkr->longitude ?></td>
                         <td>
                             <a href="javascript:hapusTikor('<?= $tkr->id  ?>')" class="btn btn-danger btn-sm">hapus</a>
-                            <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-sm btn-success mt-2 mb-2">edit</button>
+                            <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-area="<?= $tkr->id_plan ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-sm btn-success mt-2 mb-2">edit</button>
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -125,6 +125,10 @@
                         <label for="">Longitude</label>
                         <input type="text" class="form-control form-control-sm text-dark" name="longitude2" id="longitude2">
                     </div>
+
+                    <div class="alert alert-danger" id="infoSave2">
+                        <label for="">memperbarui harap tunggu . . . </label>
+                    </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -137,24 +141,5 @@
 <!-- end of modal tambah -->
 <!-- Modal Ubah -->
 <script>
-    $(document).ready(function() {
-        // Untuk sunting
-        $('#edit-data').on('show.bs.modal', function(event) {
-            var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
-            var modal = $(this)
-            // Isi nilai pada field
-            modal.find('#id').attr("value", div.data('id'));
-            modal.find('#lokasi2').attr("value", div.data('lokasi'));
-            modal.find('#longitude2').attr("value", div.data('long'));
-            modal.find('#latitude2').attr("value", div.data('lat'));
-        });
 
-        //update data titik koordinat 
-        $("#updateTitik").on('submit', function(e) {
-            e.preventDefault();
-
-        })
-
-
-    });
 </script>
