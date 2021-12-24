@@ -91,7 +91,7 @@
                         var posisi_user = new google.maps.LatLng(lat, long);
                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
                         console.log(jarak);
-                        if (jarak <= 0.04) {
+                        if (jarak <= 0.02) {
                             Swal.fire({
                                 title: 'Sukses!',
                                 text: 'Lanjut Documentasi',
@@ -114,7 +114,7 @@
 
     Instascan.Camera.getCameras().then(function(cameras) {
         if (cameras.length > 0) {
-            scanner.start(cameras[0]);
+            scanner.start(cameras[1]);
         } else {
             console.error('No cameras found.');
         }
