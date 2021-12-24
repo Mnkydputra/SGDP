@@ -276,6 +276,11 @@
     
  
 $(function(){
+
+
+    
+    
+
     //tambah data titik koordinat patroli 
     $("#formADDTikor").on('submit',function(e){
         e.preventDefault();
@@ -287,7 +292,7 @@ $(function(){
                 Swal.fire({
                     icon : 'error' ,
                     info : 'Attention' ,
-                    text : 'Pilih Plan ID'
+                    text : 'Pilih Area Kerja'
                 });
             }else if(lokasi == null || lokasi == ""){
                 Swal.fire({
@@ -337,17 +342,6 @@ $(function(){
                 })
             }
         })
-        
-        // // Untuk sunting
-        // $('#edit-data').on('show.bs.modal', function (event) {
-        //     var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
-        //     var modal          = $(this)
-        //     // Isi nilai pada field
-        //     modal.find('#id').attr("value",div.data('id'));
-        //     modal.find('#nama').attr("value",div.data('nama'));
-        //     modal.find('#alamat').html(div.data('alamat'));
-        //     modal.find('#pekerjaan').attr("value",div.data('pekerjaan'));
-        // });
     })
     // 
     

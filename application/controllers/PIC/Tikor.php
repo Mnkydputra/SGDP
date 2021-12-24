@@ -47,6 +47,34 @@ class Tikor extends CI_Controller
     }
   }
 
+  public function update_titik()
+  {
+    # code...
+    $lat    = $this->input->post('latitude');
+    $long   = $this->input->post('longitude');
+    $lokasi = $this->input->post("lokasi");
+    $idplan = $this->input->post("id_plan");
+
+    $data_plan = [
+      'id_plan'  =>  $idplan,
+      'lokasi'   => $lokasi,
+      'latitude' => $lat,
+      'longitude' => $long
+    ];
+
+    $where = ['id'  => $this->input->post('id')];
+
+    var_dump($data_plan);
+    var_dump($where);
+
+    // $save = $this->Sipd_model->added("titik_area", $data_plan);
+    // if ($save > 0) {
+    //   echo "sukses";
+    // } else {
+    //   echo "fail";
+    // }
+  }
+
 
   public function delete()
   {

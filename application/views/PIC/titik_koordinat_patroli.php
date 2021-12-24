@@ -2,11 +2,11 @@
 <div class="bg-tikor col-lg-11 container-fluid mt-5">
     <button data-bs-toggle="modal" data-bs-target="#modalAddTitik" class="btn-add btn btn-danger mt-2 mb-2">Tambah Data</button>
     <div class="row">
-        <table class="table" id="infoTitik" data-delete="<?= base_url('PIC/Tikor/delete') ?>">
+        <table class="table table-bordered table-striped" id="infoTitik" data-delete="<?= base_url('PIC/Tikor/delete') ?>">
             <thead>
                 <tr>
                     <td>No</td>
-                    <td>ID PLAN</td>
+                    <td>Area Kerja</td>
                     <td>Lokasi</td>
                     <td>Longitude</td>
                     <td>Latitude</td>
@@ -26,7 +26,6 @@
                         <td>
                             <a href="javascript:hapusTikor('<?= $tkr->id  ?>')" class="btn btn-danger btn-sm">hapus</a>
                             <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-sm btn-success mt-2 mb-2">edit</button>
-
                         </td>
                     </tr>
                 <?php endforeach ?>
@@ -37,8 +36,8 @@
 
 <br>
 
-<!-- Modal -->
-<div class="modal fade" id="modalAddTitik" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal tambah data -->
+<div class="modal fade" id="modalAddTitik" data-keyboard="false" data-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -62,7 +61,7 @@
                     </select>
                     <div class="form-group">
                         <label for="">Lokasi Patroli</label>
-                        <input name="lokasi" type="text" class="form-control form-btn form-control-sm text-dark" id="lokasi2">
+                        <input name="lokasi" type="text" class="form-control form-btn form-control-sm text-dark" id="lokasi">
                     </div>
 
                     <div class="form-group">
@@ -73,6 +72,9 @@
                     <div class="form-group">
                         <label for="">Longitude</label>
                         <input type="text" class="form-control form-control-sm text-dark" name="longitude" id="longitude">
+                    </div>
+                    <div class="alert alert-danger" id="infoSave">
+                        <label for="">sedang menyimpan harap tunggu . . . </label>
                     </div>
             </div>
             <div class="modal-footer">
@@ -86,17 +88,16 @@
 <!-- end of modal tambah -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="edit-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal edit data-->
+<div class="modal fade" data-keyboard="false" data-backdrop="static" id="edit-data" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Tambah Titik</h5>
+                <!-- <h5 class="modal-title" id="exampleModalLabel">Tambah Titik</h5> -->
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="#" method="post" id="formADDTikor" data-upload="<?= base_url('PIC/Tikor/tambah_titik') ?>" data-refresh="<?= base_url('PIC/Tikor') ?>">
-
+                <form action="#" method="post" id="updateTitik" data-update="<?= base_url('PIC/Tikor/update_titik') ?>" data-refresh="<?= base_url('PIC/Tikor') ?>">
                     <input type="hidden" name="id" id="id">
                     <select name="id_plan2" id="id_plan2" class="text-dark  form-control">
                         <option value="">Pilih Area Kerja</option>
@@ -141,12 +142,19 @@
         $('#edit-data').on('show.bs.modal', function(event) {
             var div = $(event.relatedTarget) // Tombol dimana modal di tampilkan
             var modal = $(this)
-
             // Isi nilai pada field
             modal.find('#id').attr("value", div.data('id'));
             modal.find('#lokasi2').attr("value", div.data('lokasi'));
             modal.find('#longitude2').attr("value", div.data('long'));
             modal.find('#latitude2').attr("value", div.data('lat'));
         });
+
+        //update data titik koordinat 
+        $("#updateTitik").on('submit', function(e) {
+            e.preventDefault();
+
+        })
+
+
     });
 </script>
