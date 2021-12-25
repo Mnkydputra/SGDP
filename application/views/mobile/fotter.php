@@ -10,11 +10,21 @@
             padding-top:10px;
             padding-right:20px; padding-left:20px;" id="navbot1" class="navbar text-dark fixed-bottom roundedmurry navbar-light">
             <div class="container-fluid">
+<<<<<<< HEAD
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center"><b>HOME</b></p></a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center"><b>INBOX</b></p></a>
                 <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-fade-up bx-rotate-90 bx-md'></i><br><p id="navbot" class="text-center"><b>ABSEN</b></p></a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Course"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center"><b>COURSE</b></p></a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center"><b>PROFILE</b></p></a>
+=======
+
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center">Home</p></a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center">Inbox</p></a>
+                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i class='bx bx-qr-scan bx-md'></i><br><p id="navbot" class="text-center">Absen</p></a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Course"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center">Course</p> </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center">Profile</p></a>
+
+>>>>>>> 7a73ed2fbb73ad96d01f4785dd51025086d207e0
             </div>
         </nav>
     </div>
@@ -28,11 +38,23 @@
             padding-top:10px;
             padding-right:20px; padding-left:20px;" id="navbot1" class="navbar text-dark fixed-bottom roundedmurry navbar-light">
             <div class="container-fluid">
+<<<<<<< HEAD
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center"><b>HOME</b></p></a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center"><b>INBOX</b></p></a>
                 <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i  style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red"  class='bx bx-qr bx-md'></i><br><p id="navbot" class="text-center"><b>ABSEN</b></p></a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/')?>"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center"><b>COURSE</b></p></a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center"><b>PROFILE</b></p></a>
+=======
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center">Home</p></a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center">Inbox</p></a>
+                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i class='bx bx-qr-scan bx-md'></i><br><p id="navbot" class="text-center">Absen</p></a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/')?>"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center">Course</p> </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center">Profile</p></a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/') ?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br>
+                    <p id="navbot" class="text-center">Home</p>
+                </a>
+               
+>>>>>>> 7a73ed2fbb73ad96d01f4785dd51025086d207e0
             </div>
         </nav>
     </div>
@@ -56,6 +78,10 @@
                     </nav>
                 </div>
         <?php } ?>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7a73ed2fbb73ad96d01f4785dd51025086d207e0
 
 <!-- END FOTTER -->
 

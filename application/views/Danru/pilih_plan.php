@@ -19,15 +19,21 @@
         <div class="graph-wr">
 
             <form id="formTikor" data-url="<?= base_url('Danru/Patrol/getPlan') ?>" method="post" action="<?= base_url('Danru/Patrol/getPlan') ?>" id="pilih-form">
-                <select style="border:2px solid #ccc;width:100%" class="mb-2" name="plan_id" id="plan_id">
+                <!-- <select style="border:2px solid #ccc;width:100%" class="mb-2" name="plan_id" id="plan_id">
                     <option value="">Pilih Plan Patrol</option>
                     <?php foreach ($plan as $pln) : ?>
                         <option value="<?= $pln->id_plan ?>"><?= $pln->plan  ?></option>
                     <?php endforeach ?>
-                </select>
+                </select> -->
 
                 <div id="dataPLAN" class="form-group">
                     <!-- isi plan nanti disini -->
+                    <select name="tikor" style="border:2px solid #ccc;width:100%;" id="tikor">
+                        <option value="">Pilih Lokasi</option>
+                        <?php foreach ($tikor as $tk) : ?>
+                            <option value="<?= $tk->id ?>"><?= $tk->lokasi ?></option>
+                        <?php endforeach ?>
+                    </select>
                 </div>
             </form>
 
@@ -49,7 +55,7 @@
     scanner.addListener('scan', function(content) {
         // console.log(content);
         navigator.geolocation.getCurrentPosition(function(position) {
-            var divisiId = $("select[name=plan_id] option:selected").val();
+            var divisiId = $("select[name=tikor] option:selected").val();
             if (divisiId == null || divisiId == "") {
                 // alert("Pilih Plan");
                 Swal.fire({
@@ -59,12 +65,12 @@
                 })
             } else {
                 var idTikor = $("select[name=tikor] option:selected").val();
-                console.log(idTikor);
+                // console.log(idTikor);
                 const long = position.coords.longitude;
                 const lat = position.coords.latitude;
                 const acc = position.coords.accuracy;
-                console.log("latitude" + lat);
-                console.log("longitude " + long);
+                console.log("latitude user" + lat);
+                console.log("longitude user " + long);
                 // console.log(position);
                 $.ajax({
                     url: $("#formTikor").attr('data-url'),
@@ -77,35 +83,32 @@
                         const longitudeBarcode = result[0].longitude;
                         const lokasi = result[0].lokasi;
 
-                        //lokasi plan jaga 
+                        // //lokasi plan jaga 
                         var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+                        // var plan = new google.maps.LatLng(-6.145800, 106.885018);
 
                         //lokasi user scan barcode
                         var posisi_user = new google.maps.LatLng(lat, long);
                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
                         console.log(jarak);
-                        if (jarak <= 0.08) {
+                        if (jarak <= 0.04) {
                             Swal.fire({
                                 title: 'Sukses!',
                                 text: 'Lanjut Documentasi',
-                                icon: 'success',
-                                buttons: ['dangerMode', true]
+                                icon: "success",
                             }).then(function() {
                                 window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
                             })
-                            // alert("Lanjut isi dokumentasi");
                         } else {
                             Swal.fire({
                                 title: 'Attention!',
                                 text: 'Anda di Luar Area',
-                                icon: 'danger',
+                                icon: 'error',
                             })
                         }
                     }
                 })
             }
-
-
         });
     });
 
