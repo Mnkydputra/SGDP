@@ -33,7 +33,6 @@
 			});
 		});
     
-
         // ajax lokasi KTP
 //    var return_first = function() {
 //           var tmp = null;

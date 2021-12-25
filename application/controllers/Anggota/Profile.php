@@ -23,17 +23,121 @@ class Profile extends CI_Controller{
     
     function index()
     {
-      
-      $data = array(
-        'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-        'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
-        'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-        'url'  => $this->uri->segment(2),
-     );
-  
-        $this->load->view('mobile/header',$data);
-        $this->load->view('Anggota/profile',$data);
-        $this->load->view('mobile/fotter');
+      $data1 = $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row();
+      $area = $data1->area_kerja; 
+      switch ($area) {
+        case 'P1':
+           $data = array(
+            'biodata'   => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee'  => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),            
+            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p1")->result(),
+            'url'       => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P2':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p2")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P3':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p3")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P4':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p4")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P5':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p5")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'PC':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_pc")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'HO':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_ho")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'VLC':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_vlc")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'DOR':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_dor")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Anggota/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;        
+        default:
+          # code...
+          break;
+      }        
     }
 
     function Foto()
@@ -98,7 +202,6 @@ class Profile extends CI_Controller{
         'expired_kta'                  => $this->input->post("ex_kta"),
         'jabatan'                      => strtoupper($this->input->post("jabatan")),
         'area_kerja'                   => strtoupper($this->input->post("area_kerja")),
-        'wilayah'                      => strtoupper($this->input->post("wilayah")),
         'tgl_masuk_sigap'              => $this->input->post("masuk_sigap"),
         'tgl_masuk_adm'                => $this->input->post("masuk_adm"),
       );
