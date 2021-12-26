@@ -22,7 +22,7 @@ class Auth extends CI_Controller
         $data =array(
             'akun' => $this->db->get_where('akun', array('npk' => $this->session->userdata('npk')))->row(),
         );
-        $this->load->view('mobile/Auth',$data);
+        $this->load->view('Auth',$data);
     }
 }
 

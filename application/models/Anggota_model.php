@@ -18,8 +18,24 @@
      return $this->db->get_where($table,array('id_karyawan' => $npk));
    }
 
+   // cek kahidaran
+   public function cek_kehadiran($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_vlc');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
 
-
+   //cari data berdasarkan inputan 
+	public function cari($where, $table)
+	{
+		return $this->db->get_where($table, $where);
+	}
 
   // lupa password user
    public function LupaPassword($where,$data)

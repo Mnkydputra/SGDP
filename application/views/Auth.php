@@ -17,10 +17,19 @@
 	<link rel="stylesheet" href="<?= base_url('assets/css/')?>style.css">
     <!-- Jquery CDN --> 
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-	
-
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<style>
+		body{
+		background-image: url(<?= base_url('assets/img/')?>bckground.jpg);
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		width: 100%;
+		height: 100%;
+		}
+	</style>
 	</head>
-	<body   style="background-image: url(./assets/img/bg.jpg);">
+	<body>
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -59,6 +68,17 @@
    <script src="<?= base_url('assets/js/')?>bootstrap.min.js"></script>
    <script src="<?= base_url('assets/js/')?>popper.js"></script>
    <script src="<?= base_url('assets/js/')?>main.js"></script>
+   <?php if($this->session->flashdata('update')){?>
+	<script type="text/javascript">
+		Swal.fire({
+			icon : "warning",
+			title : "PASSWORD!!",
+			text : "Mohon Perbarui Password Anda!!",
+			dangerMode :[true,"OK"]
+		})
+	</script>
+
+<?php }?>
 	</body>
 </html>
 
