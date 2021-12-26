@@ -133,11 +133,11 @@ CREATE TABLE `documentasi_patroli` (
   `id_patroli` varchar(100) DEFAULT NULL,
   `picture` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `documentasi_patroli` */
 
-insert  into `documentasi_patroli`(`id`,`id_patroli`,`picture`) values (16,'PTRL230219AGT-103311','5.png'),(17,'PTRL230219AGT-103311','view.jpg'),(18,'PTRL230219AGT-103311','adada.jpg'),(19,'PTRL230917AGT-103311','functionmysql.jpg'),(20,'PTRL230917AGT-103311','adada.jpg'),(21,'PTRL230917AGT-103311','rt.jpg'),(22,'PTRL245052AGT-225823','hijab-logo-vector-26808848.jpg'),(23,'PTRL245052AGT-225823','err.jpg'),(24,'PTRL245052AGT-225823','mhs01.jpg');
+insert  into `documentasi_patroli`(`id`,`id_patroli`,`picture`) values (25,'PTRL261857AGT-225823','sample pjpp2.png'),(26,'PTRL261857AGT-225823','ere.jpg'),(27,'PTRL261857AGT-225823','sdsddsd.jpg');
 
 /*Table structure for table `employee` */
 
@@ -208,15 +208,16 @@ CREATE TABLE `report_patrol` (
   `id_patroli` varchar(100) DEFAULT NULL,
   `nama` varchar(100) DEFAULT NULL,
   `lokasi` varchar(100) DEFAULT NULL,
+  `area_kerja` varchar(100) DEFAULT NULL,
   `tanggal` date DEFAULT NULL,
   `jam` time DEFAULT NULL,
   `keterangan` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `report_patrol` */
 
-insert  into `report_patrol`(`id`,`id_npk`,`id_patroli`,`nama`,`lokasi`,`tanggal`,`jam`,`keterangan`) values (11,'AGT-103311','PTRL230219AGT-103311','TONI SUTONO','POSKO','2021-12-23','11:02:21','Kondisi aman ndan'),(12,'AGT-103311','PTRL230917AGT-103311','TONI SUTONO','POSKO','2021-12-23','11:09:18','Kondisi aman'),(13,'AGT-225823','PTRL245052AGT-225823','TRISTIYONO','POSKO','2021-12-24','09:50:56','situasi terkini');
+insert  into `report_patrol`(`id`,`id_npk`,`id_patroli`,`nama`,`lokasi`,`area_kerja`,`tanggal`,`jam`,`keterangan`) values (14,'AGT-225823','PTRL261857AGT-225823','TRISTIYONO','LODAN DALAM','VLC','2021-12-26','08:19:01','kondisi aman terkendali');
 
 /*Table structure for table `sipd` */
 
@@ -251,6 +252,7 @@ DROP TABLE IF EXISTS `titik_area`;
 
 CREATE TABLE `titik_area` (
   `id` varchar(60) NOT NULL,
+  `id_akun` varchar(60) DEFAULT NULL,
   `id_plan` varchar(20) DEFAULT NULL,
   `lokasi` varchar(100) DEFAULT NULL,
   `longitude` varchar(100) DEFAULT NULL,
@@ -260,7 +262,7 @@ CREATE TABLE `titik_area` (
 
 /*Data for the table `titik_area` */
 
-insert  into `titik_area`(`id`,`id_plan`,`lokasi`,`longitude`,`latitude`) values ('VLC-1','VLC','POSKO','106.885588','-6.145698'),('VLC-2','VLC','LOBI','106.885231','-6.145950'),('VLC-3','VLC','LANTAI 2','106.885207','-6.145956'),('VLC-4','VLC','OFFICE HRD','106.885119','-6.146143'),('VLC-5','VLC','RECEIVING','106.884996','-6.146030'),('VLC-6','VLC','GENSET','106.884596','-6.146005'),('VLC-7','VLC','RND','106.884960','-6.146843'),('VLC-8','VLC','SHIFING LINE','106.884885','-6.146215');
+insert  into `titik_area`(`id`,`id_akun`,`id_plan`,`lokasi`,`longitude`,`latitude`) values ('ADM0001','AGT-227462','VLC','Gerbang Depan','106.885588','-6.145698'),('ADM0002','AGT-227462','HO','Gedung 1','106.812298','-6.126058'),('ADM0003','AGT-227462','VLC','LOBI','106.885231','-6.145950'),('ADM0004','AGT-227462','VLC','LANTAI 2','106.885207','-6.145956'),('ADM0005','AGT-227462','VLC','OFFICE HRD','106.885119','-6.146143'),('ADM0006','AGT-227462','VLC','RECEIVING','106.884996','-6.146030'),('ADM0007','AGT-227462','VLC','GENSET','106.884596','-6.146005'),('ADM0008','AGT-227462','VLC','RND','106.884960','-6.146843'),('ADM0009','AGT-227462','VLC','SHIFING LINE','106.884885','-6.146215'),('ADM0010','AGT-227462','VLC','LODAN DALAM','106.812298','-6.126058');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

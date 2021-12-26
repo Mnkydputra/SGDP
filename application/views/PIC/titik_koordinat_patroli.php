@@ -2,7 +2,7 @@
 <div class="bg-tikor col-lg-11 container-fluid mt-5">
     <button data-bs-toggle="modal" data-bs-target="#modalAddTitik" class="btn-add btn btn-danger mt-2 mb-2">Tambah Data</button>
     <div class="row">
-        <table class="table table-bordered table-striped" id="infoTitik" data-delete="<?= base_url('PIC/Tikor/delete') ?>">
+        <table class="table table-bordered table-striped" id="infoTitik" data-delete="<?= base_url('PIC/Tikor/delete') ?>" id="table_id">
             <thead>
                 <tr>
                     <td>No</td>
@@ -45,7 +45,7 @@
             </div>
             <div class="modal-body">
                 <form action="#" method="post" id="formADDTikor" data-upload="<?= base_url('PIC/Tikor/tambah_titik') ?>" data-refresh="<?= base_url('PIC/Tikor') ?>">
-                    <input type="text" value="<?= $id_titik ?>" name="id2">
+                    <input type="hidden" value="<?= $id_titik ?>" name="id2">
                     <select name="id_plan" id="id_plan" class="text-dark  form-control">
                         <option value="">Pilih Area Kerja</option>
                         <option value="VLC">ADM VLC</option>
@@ -60,17 +60,17 @@
                     </select>
                     <div class="form-group">
                         <label for="">Lokasi Patroli</label>
-                        <input name="lokasi" type="text" class="form-control form-btn form-control-sm text-dark" id="lokasi">
+                        <input name="lokasi" type="text" autocomplete="off" class="form-control form-btn form-control-sm text-dark" id="lokasi">
                     </div>
 
                     <div class="form-group">
                         <label for="">Latitude</label>
-                        <input type="text" class="form-control form-control-sm text-dark" name="latitude" id="latitude">
+                        <input type="text" autocomplete="off" class="form-control form-control-sm text-dark" name="latitude" id="latitude">
                     </div>
 
                     <div class="form-group">
                         <label for="">Longitude</label>
-                        <input type="text" class="form-control form-control-sm text-dark" name="longitude" id="longitude">
+                        <input type="text" autocomplete="off" class="form-control form-control-sm text-dark" name="longitude" id="longitude">
                     </div>
                     <div class="alert alert-danger" id="infoSave">
                         <label for="">sedang menyimpan harap tunggu . . . </label>
