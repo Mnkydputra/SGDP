@@ -13,35 +13,9 @@ class Login extends CI_Controller
 
     function index()
     {
-<<<<<<< HEAD
         $this->load->view('login');
     }
 
-=======
-
-        if ($this->agent->platform() == 'Android') {
-            redirect('Login/mobile');
-        } else if ($this->agent->platform() == 'iOS') {
-            redirect('Login/mobile');
-        } else {
-            redirect('Login/web');
-        }
-    }
-
-    function web()
-    {
-
-        $this->load->view('web/login');
-    }
-
-    function mobile()
-    {
-
-        $this->load->view('mobile/login');
-    }
-
-
->>>>>>> 7a73ed2fbb73ad96d01f4785dd51025086d207e0
     function UpdatePassword()
     {
         $username = $this->input->post('npk');
@@ -60,19 +34,6 @@ class Login extends CI_Controller
     }
 
     function cekLogin()
-<<<<<<< HEAD
-	{
-		date_default_timezone_set('Asia/Jakarta');
-		$username 	= $this->input->post('npk');
-		$password   = md5($this->input->post('password'));	
-		$auth = $this->db->get_where("akun",array("npk" => $username))->num_rows();
-         if($auth > 0)
-         {
-			$user = $this->Login_model->cek_login($username, $password)->row();   
-            if ($user->password == md5($username))
-            {
-                $this->session->set_flashdata('update','update password anda');
-=======
     {
         date_default_timezone_set('Asia/Jakarta');
         $username     = $this->input->post('npk');
@@ -81,7 +42,7 @@ class Login extends CI_Controller
         if ($auth > 0) {
             $user = $this->Login_model->cek_login($username, $password)->row();
             if ($user->password == md5($username)) {
->>>>>>> 7a73ed2fbb73ad96d01f4785dd51025086d207e0
+                $this->session->set_flashdata('update', 'update password anda');
                 $this->session->set_userdata('npk', $user->npk);
                 redirect("Auth");
             } else {
@@ -99,13 +60,8 @@ class Login extends CI_Controller
                     case '3':
                         redirect('Korlap/Dashboard');
                         break;
-<<<<<<< HEAD
-                    case '4': 
-                        redirect('Sipd/Dashboard');
-=======
                     case '4':
-                        redirect('SIPD/Dashboard');
->>>>>>> 7a73ed2fbb73ad96d01f4785dd51025086d207e0
+                        redirect('Sipd/Dashboard');
                         break;
                     case '5':
                         redirect('PIC/Dashboard');
@@ -120,18 +76,9 @@ class Login extends CI_Controller
                         break;
                 }
             }
-<<<<<<< HEAD
-        }else if($auth == 0){
-            $this->session->set_flashdata('nonuser',"NPK Belum Terdaftar");
-            redirect('Login');  
-        } 
-    }
-}
-=======
-        } else {
-            $this->session->set_flashdata("gagal", "Akun Anda Belum Terdaftar");
-            redirect("Login");
+        } else if ($auth == 0) {
+            $this->session->set_flashdata('nonuser', "NPK Belum Terdaftar");
+            redirect('Login');
         }
     }
 }
->>>>>>> 7a73ed2fbb73ad96d01f4785dd51025086d207e0

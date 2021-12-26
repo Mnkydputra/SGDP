@@ -48,14 +48,17 @@ class Tikor extends CI_Controller
     $long   = $this->input->post('longitude');
     $lokasi = $this->input->post("lokasi");
     $idplan = $this->input->post("id_plan");
+    $titikBarcode = $this->input->post("titik_barcode");
     $id = $this->input->post("id2");
 
     $data_plan = [
       'id'       => $id,
+      'id_akun'   => $this->session->userdata('id_akun'),
       'id_plan'  =>  $idplan,
       'lokasi'   => $lokasi,
       'latitude' => $lat,
-      'longitude' => $long
+      'longitude' => $long,
+      'titik_barcode'   => $titikBarcode
     ];
 
     $save = $this->Sipd_model->added("titik_area", $data_plan);

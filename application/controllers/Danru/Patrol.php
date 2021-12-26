@@ -94,13 +94,14 @@ class Patrol extends CI_Controller
     }
 
 
-    public function form_report($lokasi)
+    public function form_report($id)
     {
         # code...
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-            'url'  => $this->uri->segment(2),
-            'plan'  => $lokasi,
+            'url'        => $this->uri->segment(2),
+            'area'       => $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row(),
+            'plan'       => $this->db->get_where('titik_area', ['id' => $id])->row(),
             'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
         );
         $this->load->view('mobile/header', $data);
@@ -137,6 +138,7 @@ class Patrol extends CI_Controller
             'id_patroli'    => $idPTRL,
             'nama'          => $this->session->userdata('nama'),
             'lokasi'        => $this->input->post("plan"),
+            'area_kerja'    => $this->input->post("area_kerja"),
             'tanggal'       => date('Y-m-d'),
             'jam'           => date('H:i:s'),
             'keterangan'    => $this->input->post("keterangan"),

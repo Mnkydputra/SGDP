@@ -19,21 +19,22 @@
         <div class="graph-wr">
             <!-- <canvas id="myChart"></canvas> -->
             <form action="#" id="upload" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="plan" value="<?= $plan ?>">
+                <input type="hidden" name="plan" value="<?= $plan->lokasi ?>">
                 <div class="form-group">
+                    <input type="hidden" name="area_kerja" value="<?= $area->area_kerja ?>">
                     <textarea cols="42" placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
-                <?php for ($i=1; $i <=3 ; $i++) :?>
+                <?php for ($i = 1; $i <= 3; $i++) : ?>
                     <!-- <label>Documentasi</label> -->
                     <input type="file" id="file<?= $i ?>" name="file<?= $i ?>" accept="image/*">
-                <?php endfor;?>
-                <button id="submitBtn" style="width:100%" type="submit" class="mb-4 mt-3 btn btn-danger">Submit Patroli</button>   
+                <?php endfor; ?>
+                <button id="submitBtn" style="width:100%" type="submit" class="mb-4 mt-3 btn btn-danger">Submit Patroli</button>
             </form>
-                <div id="infoTunggu" class="alert  alert-info mt-2" style="display:none">
-                   <center>
-                   <label>tunggu proses upload selesai</label>
-                   </center>
-                </div>
+            <div id="infoTunggu" class="alert  alert-info mt-2" style="display:none">
+                <center>
+                    <label>tunggu proses upload selesai</label>
+                </center>
+            </div>
         </div>
     </div>
 </div>
@@ -77,11 +78,11 @@
                     cache: false,
                     beforeSend: function() {
                         $("#submitBtn").attr('disabled', true);
-                        document.getElementById('infoTunggu').style.display= "block";
+                        document.getElementById('infoTunggu').style.display = "block";
                     },
                     complete: function() {
                         $("#submitBtn").attr('disabled', false);
-                        document.getElementById('infoTunggu').style.display= "none";
+                        document.getElementById('infoTunggu').style.display = "none";
                     },
                     success: function(e) {
                         // console.log(e);
