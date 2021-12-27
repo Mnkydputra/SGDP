@@ -446,12 +446,12 @@
              <div class="tab-pane fade" id="absensi" role="tabpanel" aria-labelledby="absensi-tab">
               <div class="row">
                   <div class="col-sm-2">
-                           <table id="table_id" class="display">
+                           <table id="table_id" class="display responsive">
                             <thead>
                                 <tr>
                                     <th>CLock In</th>
                                     <th>Date In</th>
-                                     <th>Clock Out</th>
+                                    <th>Clock Out</th>
                                     <th>Date Out</th>
                                     <th>Over Time</th>
                                 </tr>

@@ -45,15 +45,22 @@
       $tgl = date('Y-m-d');
       $validasi = 1;
       $jam = date('H:i:s');
+      $jam2 = date('H')+7;
       $cek_kehadiran = $this->Anggota_model->cek_kehadiran($id_absen,$validasi);
       $area = $cek_id->area_kerja;
       $validasi1 = $cek_kehadiran->validasi_kehadiran;
+      $validasi2 = $cek_kehadiran->in_time;
+
       switch($cek_id->area_kerja)
       {
         case 'P1':
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -63,6 +70,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -85,7 +94,11 @@
 
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -95,6 +108,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -118,7 +133,11 @@
 
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -128,6 +147,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -151,7 +172,11 @@
 
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -161,6 +186,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -184,7 +211,11 @@
 
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -194,6 +225,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -217,7 +250,11 @@
 
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -227,6 +264,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -249,16 +288,22 @@
         case 'VLC':
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
                       );
-                       $UpdateInfo = $this->Anggota_model->updateFile($data1,"absen_vlc",$where);
+                       $UpdateInfo = $this->Anggota_model->updateFile($data1,"absen_vlc",$id_absen);
                        if($UpdateInfo){
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -282,7 +327,11 @@
 
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -292,6 +341,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
@@ -315,7 +366,11 @@
 
             if($cek_id != null){
                   if($validasi1 == 1){
-                      $data1 = array(
+                    if($validasi2 <= $jam2){
+                        $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
+                        redirect('Absen');
+                    }else{
+                        $data1 = array(
                         'out_time'  => $jam,
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
@@ -325,6 +380,8 @@
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
                        }
+                    }
+                      
                   }else{
                       $data = array(
                       'id_absen' => $id_absen,
