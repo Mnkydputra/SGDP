@@ -100,4 +100,15 @@ class Tikor extends CI_Controller
     $del = $this->Sipd_model->deleted(['id' => $id], 'titik_area');
     echo $del;
   }
+
+
+  function qr($kodeqr)
+  {
+    // if ($kodeqr) {
+    //   $filename = 'qr/' . $kodeqr;
+    //   if (!file_exists($filename)) {
+
+    //   }
+    // }
+  }
 }

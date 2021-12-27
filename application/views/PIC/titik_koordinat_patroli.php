@@ -25,6 +25,7 @@
                         <td>
                             <a href="javascript:hapusTikor('<?= $tkr->id  ?>')" class="btn btn-danger btn-sm">hapus</a>
                             <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-area="<?= $tkr->id_plan ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-sm btn-success mt-2 mb-2">edit</button>
+                            <a href="<?= base_url('assets/patrol/qrcode/barcode.png') ?>" class="btn btn-primary btn-sm">cetak qrcode</a>
                         </td>
                     </tr>
                 <?php endforeach ?>

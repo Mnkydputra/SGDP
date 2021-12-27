@@ -17,21 +17,15 @@ class Patrol extends CI_Controller
     }
 
 
-    public function index()
+    public function urutan($urutan)
     {
 
         $area = $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row();
-
-        // echo $area->area_kerja;
-        // $t = $this->db->get_where('titik_area', ['id_plan' => $area->area_kerja])->result();
-        // var_dump($t);
-
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'        => $this->uri->segment(2),
             'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-            'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $area->area_kerja])->result(),
-            'plan'       => $this->db->get("plan_report")->result()
+            'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $area->area_kerja, 'urutan' => $urutan])->result(),
         );
 
         $this->load->view('mobile/header', $data);

@@ -31,7 +31,7 @@
                      <select name="tikor" style="border:2px solid #ccc;width:100%;" id="tikor">
                          <option value="">Pilih Lokasi</option>
                          <?php foreach ($tikor as $tk) : ?>
-                             <option value="<?= $tk->id ?>"><?= $tk->lokasi ?></option>
+                             <option value="<?= $tk->id ?>"><?= $tk->urutan . ". " . $tk->lokasi  ?> </option>
                          <?php endforeach ?>
                      </select>
                  </div>
@@ -50,7 +50,7 @@
      let scanner = new Instascan.Scanner({
          video: document.getElementById('preview'),
          mirror: true,
-         scanPeriod: 5
+         scanPeriod: 15
      });
      scanner.addListener('scan', function(content) {
          // console.log(content);
@@ -94,7 +94,7 @@
                          var posisi_user = new google.maps.LatLng(lat, long);
                          const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
                          console.log(jarak);
-                         if (jarak <= 0.07) {
+                         if (jarak <= 0.03) {
                              Swal.fire({
                                  title: 'Sukses!',
                                  text: 'Lanjut Documentasi',

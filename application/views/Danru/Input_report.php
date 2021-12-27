@@ -22,6 +22,7 @@
                 <input type="hidden" name="plan" value="<?= $plan->lokasi ?>">
                 <div class="form-group">
                     <input type="hidden" name="area_kerja" value="<?= $area->area_kerja ?>">
+                    <input type="hidden" id="urutan" name="urutan" value="<?= $plan->urutan ?>">
                     <textarea cols="42" placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
                 <?php for ($i = 1; $i <= 3; $i++) : ?>
@@ -86,12 +87,14 @@
                     },
                     success: function(e) {
                         // console.log(e);
+                        const urut = document.getElementById('urutan').value;
+                        const hasil = parseInt(urut) + 1;
                         Swal.fire({
                             title: 'Sukses!',
                             text: 'Report di Kirim',
                             icon: 'success',
                         }).then(function() {
-                            window.location = "<?= base_url('Danru/Patrol') ?>"
+                            window.location = "<?= base_url('Danru/Patrol/urutan/') ?>" + hasil
                         })
                     }
                 })
