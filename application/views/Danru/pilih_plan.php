@@ -29,11 +29,15 @@
                  <div id="dataPLAN" class="form-group">
                      <!-- isi plan nanti disini -->
                      <!-- <select name="tikor" style="border:2px solid #ccc;width:100%;" id="tikor">
-                         <option value="">Pilih Lokasi</option>
                          <?php foreach ($tikor as $tk) : ?>
-                             <option value="<?= $tk->id ?>"><?= $tk->urutan . ". " . $tk->lokasi  ?> </option>
+                             <option selected value="<?= $tk->id ?>"><?= $tk->urutan . ". " . $tk->lokasi  ?> </option>
                          <?php endforeach ?>
                      </select> -->
+                     <div class="alert-danger text-center">
+                         <?php foreach ($tikor as $tk) : ?>
+                             <label for="" class="">Titik Selanjutnya ke <?= $tk->lokasi ?></label>
+                         <?php endforeach ?>
+                     </div>
                      <input type="hidden" id="tikor" value="<?= $tk->id ?>" name="tikor">
                  </div>
              </form>
@@ -54,7 +58,12 @@
          scanPeriod: 15
      });
      scanner.addListener('scan', function(content) {
-         // console.log(content);
+         //  console.log(content);
+         const txt = content.split(",", 2);
+         const lo = txt[0];
+         const la = txt[1];
+         console.log(lo);
+         console.log(la);
          navigator.geolocation.getCurrentPosition(function(position) {
              var divisiId = $("select[name=tikor] option:selected").val();
              //  if (divisiId == null || divisiId == "") {
@@ -71,8 +80,8 @@
              const lat = position.coords.latitude;
              const long = position.coords.longitude;
              const acc = position.coords.accuracy;
-             console.log("lat user" + lat);
-             console.log("long user " + long);
+             //  console.log("lat user" + lat);
+             //  console.log("long user " + long);
              // console.log(position);
              $.ajax({
                  url: $("#formTikor").attr('data-url'),
@@ -84,8 +93,8 @@
                      const latitudeBarcode = result[0].latitude;
                      const longitudeBarcode = result[0].longitude;
                      const lokasi = result[0].id;
-                     console.log("lat barcode " + latitudeBarcode);
-                     console.log("long barcode " + longitudeBarcode);
+                     //  console.log("lat barcode " + latitudeBarcode);
+                     //  console.log("long barcode " + longitudeBarcode);
 
                      //lokasi titik barcode disimpan 
                      var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
