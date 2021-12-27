@@ -34,19 +34,25 @@
                          <?php endforeach ?>
                      </select> -->
                      <div class="alert-danger text-center">
-                         <?php foreach ($tikor as $tk) : ?>
-                             <label for="" class="">Titik Selanjutnya ke <?= $tk->lokasi ?></label>
-                         <?php endforeach ?>
+                         <?php if ($tikor->num_rows() > 0) { ?>
+                             <?php foreach ($tikor->result() as $tk) : ?>
+                                 <label for="" class="">Patroli ke <?= $tk->lokasi ?></label>
+                             <?php endforeach ?>
+                             <input type="hidden" id="tikor" value="<?= $tk->id ?>" name="tikor">
+                         <?php } else { ?>
+                             <div class="alert alert-danger">
+                                 <label for="">Patroli Selesai</label>
+                                 <a href="<?= base_url('Danru/Patrol/urutan/1') ?>" class="">kembali ke titik awal</a>
+                             </div>
+                             <input type="hidden" id="tikor" value="0" name="tikor">
+                         <?php } ?>
                      </div>
-                     <input type="hidden" id="tikor" value="<?= $tk->id ?>" name="tikor">
                  </div>
              </form>
-
              <div class="form-group">
                  <video class="img img-thumbnail" id="preview"></video>
              </div>
          </div>
-
      </div>
  </div>
 
