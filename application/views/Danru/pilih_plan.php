@@ -28,12 +28,13 @@
 
                  <div id="dataPLAN" class="form-group">
                      <!-- isi plan nanti disini -->
-                     <select name="tikor" style="border:2px solid #ccc;width:100%;" id="tikor">
+                     <!-- <select name="tikor" style="border:2px solid #ccc;width:100%;" id="tikor">
                          <option value="">Pilih Lokasi</option>
                          <?php foreach ($tikor as $tk) : ?>
                              <option value="<?= $tk->id ?>"><?= $tk->urutan . ". " . $tk->lokasi  ?> </option>
                          <?php endforeach ?>
-                     </select>
+                     </select> -->
+                     <input type="hidden" id="tikor" value="<?= $tk->id ?>" name="tikor">
                  </div>
              </form>
 
@@ -56,62 +57,63 @@
          // console.log(content);
          navigator.geolocation.getCurrentPosition(function(position) {
              var divisiId = $("select[name=tikor] option:selected").val();
-             if (divisiId == null || divisiId == "") {
-                 // alert("Pilih Plan");
-                 Swal.fire({
-                     title: 'Attention!',
-                     text: 'Pilih Plan Patroli',
-                     icon: 'error',
-                 })
-             } else {
-                 var idTikor = $("select[name=tikor] option:selected").val();
-                 // console.log(idTikor);
-                 const lat = position.coords.latitude;
-                 const long = position.coords.longitude;
-                 const acc = position.coords.accuracy;
-                 console.log("lat user" + lat);
-                 console.log("long user " + long);
-                 // console.log(position);
-                 $.ajax({
-                     url: $("#formTikor").attr('data-url'),
-                     method: "POST",
-                     data: "tikor=" + idTikor,
-                     success: function(e) {
-                         // console.log(e);
-                         var result = JSON.parse(e);
-                         const latitudeBarcode = result[0].latitude;
-                         const longitudeBarcode = result[0].longitude;
-                         const lokasi = result[0].id;
-                         console.log("lat barcode " + latitudeBarcode);
-                         console.log("long barcode " + longitudeBarcode);
+             //  if (divisiId == null || divisiId == "") {
+             //      // alert("Pilih Plan");
+             //      Swal.fire({
+             //          title: 'Attention!',
+             //          text: 'Pilih Plan Patroli',
+             //          icon: 'error',
+             //      })
+             //  } else {
+             //  var idTikor = $("select[name=tikor] option:selected").val();
+             var idTikor = $("#tikor").val();
+             // console.log(idTikor);
+             const lat = position.coords.latitude;
+             const long = position.coords.longitude;
+             const acc = position.coords.accuracy;
+             console.log("lat user" + lat);
+             console.log("long user " + long);
+             // console.log(position);
+             $.ajax({
+                 url: $("#formTikor").attr('data-url'),
+                 method: "POST",
+                 data: "tikor=" + idTikor,
+                 success: function(e) {
+                     // console.log(e);
+                     var result = JSON.parse(e);
+                     const latitudeBarcode = result[0].latitude;
+                     const longitudeBarcode = result[0].longitude;
+                     const lokasi = result[0].id;
+                     console.log("lat barcode " + latitudeBarcode);
+                     console.log("long barcode " + longitudeBarcode);
 
-                         //lokasi titik barcode disimpan 
-                         var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
-                         // var plan = new google.maps.LatLng(-6.145800, 106.885018);
+                     //lokasi titik barcode disimpan 
+                     var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+                     // var plan = new google.maps.LatLng(-6.145800, 106.885018);
 
 
-                         //lokasi perangkat user 
-                         var posisi_user = new google.maps.LatLng(lat, long);
-                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
-                         console.log(jarak);
-                         if (jarak <= 0.03) {
-                             Swal.fire({
-                                 title: 'Sukses!',
-                                 text: 'Lanjut Documentasi',
-                                 icon: "success",
-                             }).then(function() {
-                                 window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
-                             })
-                         } else {
-                             Swal.fire({
-                                 title: 'Attention!',
-                                 text: 'Anda di Luar Area',
-                                 icon: 'error',
-                             })
-                         }
+                     //lokasi perangkat user 
+                     var posisi_user = new google.maps.LatLng(lat, long);
+                     const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
+                     console.log(jarak);
+                     if (jarak <= 0.03) {
+                         Swal.fire({
+                             title: 'Sukses!',
+                             text: 'Lanjut Documentasi',
+                             icon: "success",
+                         }).then(function() {
+                             window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
+                         })
+                     } else {
+                         Swal.fire({
+                             title: 'Attention!',
+                             text: 'Anda di Luar Area',
+                             icon: 'error',
+                         })
                      }
-                 })
-             }
+                 }
+             })
+             //  }
          });
      });
 
