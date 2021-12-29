@@ -8,27 +8,131 @@ class Profile extends CI_Controller{
     parent::__construct();
 
     $id = $this->session->userdata('id_akun');
-      
+       $role_id = $this->session->userdata('role_id');
       if ($id == null || $id == "") {
       $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
       redirect('Login');
-  }
+    }
       
   }
     
     function index()
     {
-      
-      $data = array(
-        'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-        'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
-        'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-        'url'  => $this->uri->segment(2),
-     );
-  
-        $this->load->view('mobile/header',$data);
-        $this->load->view('Anggota/profile',$data);
-        $this->load->view('mobile/fotter');
+      $data1 = $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row();
+      $area = $data1->area_kerja; 
+      switch ($area) {
+        case 'P1':
+           $data = array(
+            'biodata'   => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee'  => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),            
+            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p1")->result(),
+            'url'       => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P2':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p2")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P3':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p3")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P4':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p4")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'P5':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_p5")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'PC':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_pc")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'HO':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_ho")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'VLC':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_vlc")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;
+          case 'DOR':
+           $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+            'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'absen'			=> $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')),"absen_dor")->result(),
+            'url'  => $this->uri->segment(2),
+          );
+             $this->load->view('mobile/header',$data);
+             $this->load->view('Danru/profile',$data);
+             $this->load->view('mobile/fotter');
+          break;        
+        default:
+          # code...
+          break;
+      }        
     }
 
     function Foto()
@@ -37,7 +141,7 @@ class Profile extends CI_Controller{
          'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row()
        );
         $this->load->view('mobile/header',$data);
-        $this->load->view('Anggota/Foto',$data);
+        $this->load->view('Danru/Foto',$data);
         $this->load->view('mobile/fotter');
     }
 
@@ -80,14 +184,31 @@ class Profile extends CI_Controller{
 
     function EmployeeUpdate()
     {
-      $where = array('id_employee'  => $this->input->post('id_karyawan') );
+      $today = date("Y-m-d");
+      $cektgl = $this->db->get_where('employee',array('id_employee' => $this->session->userdata('id_akun')))->row();
+      $q = $cektgl->expired_kta;
+      $where = array('id_employee'  => $this->input->post('id_employe'));
       //masukan data update karyawan ke array data
       $data = array(
+      
         'no_kta'                       => $this->input->post("no_kta"),
         'expired_kta'                  => $this->input->post("ex_kta"),
-        'status_kta'                   => $this->input->post("status_kta"),
+        'jabatan'                      => strtoupper($this->input->post("jabatan")),
+        'area_kerja'                   => strtoupper($this->input->post("area_kerja")),
+        'tgl_masuk_sigap'              => $this->input->post("masuk_sigap"),
+        'tgl_masuk_adm'                => $this->input->post("masuk_adm"),
       
       );
+       if($q >= $today)
+      {
+        $this->db->set('status_kta','AKTIF');
+        $this->db->where($where,"employee");
+        $this->db->update('employee');
+      }else if($q <= $today) {
+        $this->db->set('status_kta','TIDAK AKTIF');
+        $this->db->where($where,"employee");
+        $this->db->update('employee');
+      }
       //input update karyawan
       $updateInfouser = $this->Anggota_model->updateFile($data,"employee",$where);
       if($updateInfouser){
