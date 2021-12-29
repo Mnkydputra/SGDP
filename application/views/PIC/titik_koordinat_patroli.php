@@ -7,6 +7,7 @@
                 <tr>
                     <td>No</td>
                     <td>Area Kerja</td>
+                    <td>Urutan</td>
                     <td>Lokasi</td>
                     <td>Longitude</td>
                     <td>Latitude</td>
@@ -19,6 +20,7 @@
                     <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $tkr->id_plan ?></td>
+                        <td><?= $tkr->urutan ?></td>
                         <td><?= $tkr->lokasi ?></td>
                         <td><?= $tkr->latitude ?></td>
                         <td><?= $tkr->longitude ?></td>
