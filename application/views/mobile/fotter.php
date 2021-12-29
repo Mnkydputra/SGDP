@@ -1,4 +1,3 @@
-
 <!-- FOTTER -->
 <?php if ($this->session->userdata('role_id') == 1) { ?>
     <div class="container-md">
@@ -10,19 +9,21 @@
             padding-top:10px;
             padding-right:20px; padding-left:20px;" id="navbot1" class="navbar text-dark fixed-bottom roundedmurry navbar-light">
             <div class="container-fluid">
-<<<<<<< HEAD
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center"><b>HOME</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center"><b>INBOX</b></p></a>
-                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-fade-up bx-rotate-90 bx-md'></i><br><p id="navbot" class="text-center"><b>ABSEN</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Course"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center"><b>COURSE</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center"><b>PROFILE</b></p></a>
-=======
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center"><b>Home</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center"><b>Inbox</b></p></a>
-                <a style="margin-top:-20px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i style="background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-fade-up bx-rotate-90 bx-md'></i><br><p id="navbot" class="text-center"><b>Absen</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Course"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center"><b>Course</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center"><b>Profile</b></p></a>
->>>>>>> adb119175259c4998bee005522b162c882adb713
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>HOME</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>INBOX</b></p>
+                </a>
+                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen') ?>"><i style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-fade-up bx-rotate-90 bx-md'></i><br>
+                    <p id="navbot" class="text-center"><b>ABSEN</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Course"><i class='bx bxs-food-menu bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>COURSE</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>PROFILE</b></p>
+                </a>
             </div>
         </nav>
     </div>
@@ -36,19 +37,21 @@
             padding-top:10px;
             padding-right:20px; padding-left:20px;" id="navbot1" class="navbar text-dark fixed-bottom roundedmurry navbar-light">
             <div class="container-fluid">
-<<<<<<< HEAD
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center"><b>HOME</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center"><b>INBOX</b></p></a>
-                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i  style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red"  class='bx bx-qr bx-md'></i><br><p id="navbot" class="text-center"><b>ABSEN</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/')?>"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center"><b>COURSE</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center"><b>PROFILE</b></p></a>
-=======
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center"><b>Home</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center"><b>Inbox</b></p></a>
-                <a style="margin-top:-20px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i style="background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red"  class='bx bx-qr bx-md'></i><br><p id="navbot" class="text-center"><b>Absen</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Course"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center"><b>Course</b></p></a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/')?>Profile"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center"><b>Profile</b></p></a>
->>>>>>> adb119175259c4998bee005522b162c882adb713
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/') ?>Dashboard"><i class='bx bxs-home-heart bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>HOME</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/') ?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>INBOX</b></p>
+                </a>
+                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen') ?>"><i style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-md'></i><br>
+                    <p id="navbot" class="text-center"><b>ABSEN</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/') ?>"><i class='bx bxs-food-menu bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>COURSE</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/') ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>PROFILE</b></p>
+                </a>
             </div>
         </nav>
     </div>
@@ -62,41 +65,43 @@
                     height:60px;
                     padding-top:10px;
                     padding-right:20px; padding-left:20px;" id="navbot1" class="navbar text-dark fixed-bottom roundedmurry navbar-light">
-                    <div class="container-fluid">
-                        <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/')?>"><i class='bx bxs-home-heart bx-sm'></i><br><p id="navbot" class="text-center"><b>Home</b></p></a>
-                        <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/')?>"><i class='bx bxs-inbox bx-sm'></i><br><p id="navbot" class="text-center"><b>Inbox</b></p></a>
-                        <a style="margin-top:-20px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen')?>"><i  style="background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red"  class='bx bx-qr bx-md'></i><br><p id="navbot" class="text-center"><b>Absen</b></p></a>
-                        <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/')?>"><i class='bx bxs-food-menu bx-sm'></i><br><p id="navbot" class="text-center"><b>Course</b></p> </a>
-                        <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/')?>"><i class='bx bxs-user bx-sm'></i><br><p id="navbot" class="text-center"><b>Profile</b></p></a>
-                    </div>
-                    </nav>
-                </div>
-        <?php } ?>
+            <div class="container-fluid">
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/') ?>"><i class='bx bxs-home-heart bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>Home</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/') ?>"><i class='bx bxs-inbox bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>Inbox</b></p>
+                </a>
+                <a style="margin-top:-20px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen') ?>"><i style="background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-md'></i><br>
+                    <p id="navbot" class="text-center"><b>Absen</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/') ?>"><i class='bx bxs-food-menu bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>Course</b></p>
+                </a>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/') ?>"><i class='bx bxs-user bx-sm'></i><br>
+                    <p id="navbot" class="text-center"><b>Profile</b></p>
+                </a>
+            </div>
+        </nav>
+    </div>
+<?php } ?>
 
 <!-- END FOTTER -->
 
 </body>
 
 <script>
-<<<<<<< HEAD
-    $(function(){
-    $(document).ready(function () {
-                    $("#table_id").DataTable({
-                        responsive:{
-                            breakpoints:[
-                                {name: 'fablet',  width: 731},
-                            ]
-                        },
-                    });
-                });
-=======
     $(function() {
         $(document).ready(function() {
             $("#table_id").DataTable({
-                responsive: true,
+                responsive: {
+                    breakpoints: [{
+                        name: 'fablet',
+                        width: 731
+                    }, ]
+                },
             });
         });
->>>>>>> adb119175259c4998bee005522b162c882adb713
     })
 </script>
 
