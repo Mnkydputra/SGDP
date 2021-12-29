@@ -7,12 +7,15 @@ class Patrol extends CI_Controller
     function __construct()
     {
         parent::__construct();
-
+        $this->load->library('user_agent');
         $id = $this->session->userdata('id_akun');
-
+        $role_id = $this->session->userdata('role_id');
         if ($id == null || $id == "") {
             $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
             redirect('Login');
+        }
+        if ($role_id != 2) {
+            redirect('LogOut');
         }
     }
 
@@ -27,7 +30,6 @@ class Patrol extends CI_Controller
             'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
             'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $area->area_kerja, 'urutan' => $urutan]),
         );
-
         $this->load->view('mobile/header', $data);
         $this->load->view("Danru/pilih_plan", $data);
         $this->load->view('mobile/fotter');
@@ -35,7 +37,6 @@ class Patrol extends CI_Controller
 
     public function getPlan()
     {
-        # code...
         $id = $this->input->post("tikor");
         $data = $this->db->get_where('titik_area', ['id' => $id])->result();
         echo json_encode($data);
@@ -55,20 +56,8 @@ class Patrol extends CI_Controller
         $this->load->view('mobile/fotter');
     }
 
-
-    public function titik()
-    {
-        # code...
-        $id = $this->input->post('titik');
-        $data = [
-            'tikor'   => $this->db->get_where('titik_area', ['id_plan'  => $id])->result(),
-        ];
-        $this->load->view('Danru/titik_plan', $data);
-    }
-
     public function form_report($id)
     {
-        # code...
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'        => $this->uri->segment(2),
@@ -84,22 +73,25 @@ class Patrol extends CI_Controller
 
     public function submit()
     {
-        # code...
         $id  = $this->session->userdata("id_akun");
         $idPTRL = "PTRL" . date('dis') . $id;
         $this->load->library('upload');
         $config['upload_path']  = './assets/patrol/';
-        $config['allowed_types']  = "jpg|png|jpeg";
-        $this->upload->initialize($config);
         for ($i = 1; $i <= 3; $i++) {
+            $config['allowed_types']  = "jpg|png|jpeg";
             if (!empty($_FILES['file' . $i]['name'])) {
+
                 $filename = $_FILES['file' . $i]['name'];
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                $files = md5(date('s') . $filename) . '.' . $ext;
+                $config['file_name'] = $files;
+                $this->upload->initialize($config);
                 if (!$this->upload->do_upload('file' . $i))
                     $this->upload->display_errors();
                 else {
                     $upload_berkas = [
                         'id_patroli'   => $idPTRL,
-                        'picture'      => $filename
+                        'picture'      => $files
                     ];
                     $this->Sipd_model->added("documentasi_patroli", $upload_berkas);
                 }

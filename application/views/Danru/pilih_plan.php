@@ -19,20 +19,8 @@
          <div class="graph-wr">
 
              <form id="formTikor" data-url="<?= base_url('Danru/Patrol/getPlan') ?>" method="post" action="<?= base_url('Danru/Patrol/getPlan') ?>" id="pilih-form">
-                 <!-- <select style="border:2px solid #ccc;width:100%" class="mb-2" name="plan_id" id="plan_id">
-                    <option value="">Pilih Plan Patrol</option>
-                    <?php foreach ($plan as $pln) : ?>
-                        <option value="<?= $pln->id_plan ?>"><?= $pln->plan  ?></option>
-                    <?php endforeach ?>
-                </select> -->
-
                  <div id="dataPLAN" class="form-group">
                      <!-- isi plan nanti disini -->
-                     <!-- <select name="tikor" style="border:2px solid #ccc;width:100%;" id="tikor">
-                         <?php foreach ($tikor as $tk) : ?>
-                             <option selected value="<?= $tk->id ?>"><?= $tk->urutan . ". " . $tk->lokasi  ?> </option>
-                         <?php endforeach ?>
-                     </select> -->
                      <div class="alert-danger text-center">
                          <?php if ($tikor->num_rows() > 0) { ?>
                              <?php foreach ($tikor->result() as $tk) : ?>
@@ -68,18 +56,14 @@
          const txt = content.split(",", 2);
          const lo = txt[0];
          const la = txt[1];
-         console.log(lo);
-         console.log(la);
          navigator.geolocation.getCurrentPosition(function(position) {
              var divisiId = $("select[name=tikor] option:selected").val();
              var idTikor = $("#tikor").val();
-             // console.log(idTikor);
              const lat = position.coords.latitude;
              const long = position.coords.longitude;
              const acc = position.coords.accuracy;
              //  console.log("lat user" + lat);
              //  console.log("long user " + long);
-             // console.log(position);
              $.ajax({
                  url: $("#formTikor").attr('data-url'),
                  method: "POST",
@@ -95,8 +79,6 @@
 
                      //lokasi titik barcode disimpan 
                      var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
-                     // var plan = new google.maps.LatLng(-6.145800, 106.885018);
-
 
                      //lokasi perangkat user 
                      var posisi_user = new google.maps.LatLng(lat, long);
@@ -131,23 +113,4 @@
      }).catch(function(e) {
          console.error(e);
      });
-     $(function() {
-         $('select[name=plan_id]').on('change', function() {
-             var tikor = $(this).children("option:selected").val();
-             if (tikor == null || tikor == "") {
-                 document.querySelector('video').setAttribute("id", "");
-                 document.getElementById('dataPLAN').innerHTML = "";
-             } else {
-                 $.ajax({
-                     url: "<?= base_url('Danru/Patrol/titik') ?>",
-                     method: "POST",
-                     data: "titik=" + tikor,
-                     success: function(e) {
-                         // console.log(e);
-                         document.getElementById('dataPLAN').innerHTML = e;
-                     }
-                 })
-             }
-         });
-     })
  </script>

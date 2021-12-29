@@ -38,22 +38,20 @@ class Report_Patroli extends CI_Controller
         $this->load->view('web/header', $data);
         $this->load->view('PIC/report_Patroli', $data);
         $this->load->view('web/fotter');
-        # code...
     }
 
 
     public function reportHarian(Type $var = null)
     {
-        # code...
-
         $day = $this->input->post("day");
         $area = $this->input->post("area_kerja1");
 
         $result = $this->db->get_where('report_patrol', ['tanggal' => $day, 'area_kerja' => $area]);
-
         $data = [
             'patrol'  =>  $result,
-            'area'    => $area
+            'area'    => $area,
+            'tgl1'    => $day,
+            'tgl2'     => ""
         ];
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
@@ -64,19 +62,19 @@ class Report_Patroli extends CI_Controller
 
     public function reportPeriodik(Type $var = null)
     {
-        # code...
-
         $day = $this->input->post("day2");
         $day2 = $this->input->post("day3");
-        $area = $this->input->post("area");
+        $area = $this->input->post("area2");
 
         $this->db->where('tanggal >=', $day);
         $this->db->where('tanggal <=', $day2);
+        $this->db->where('area_kerja', $area);
         $result = $this->db->get('report_patrol');
-
         $data = [
             'patrol'  =>  $result,
-            'area'    => $area
+            'area'    => $area,
+            'tgl1'    => $day,
+            'tgl2'     => $day2
         ];
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
