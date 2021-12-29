@@ -11,7 +11,7 @@
 
 <body>
 
-
+    <img src="./assets/img/Login.png" class="img-logo">
     <?php
 
     if ($patrol->num_rows() > 0) { ?>

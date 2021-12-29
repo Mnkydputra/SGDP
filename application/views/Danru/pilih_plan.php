@@ -136,7 +136,6 @@
              var tikor = $(this).children("option:selected").val();
              if (tikor == null || tikor == "") {
                  document.querySelector('video').setAttribute("id", "");
-
                  document.getElementById('dataPLAN').innerHTML = "";
              } else {
                  $.ajax({
