@@ -42,14 +42,39 @@ class Report_Patroli extends CI_Controller
     }
 
 
-    public function patrolPDF(Type $var = null)
+    public function reportHarian(Type $var = null)
     {
-
         # code...
 
+        $day = $this->input->post("day");
+        $area = $this->input->post("area_kerja1");
+
+        $result = $this->db->get_where('report_patrol', ['tanggal' => $day, 'area_kerja' => $area]);
 
         $data = [
-            'patrol'  => $this->db->get_where('report_patrol', ['tanggal' => "2021-12-23"])
+            'patrol'  =>  $result
+        ];
+        $mpdf = new \Mpdf\Mpdf();
+        $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
+        $mpdf->WriteHTML($data);
+        $mpdf->Output();
+    }
+
+
+    public function reportPeriodik(Type $var = null)
+    {
+        # code...
+
+        $day = $this->input->post("day2");
+        $day2 = $this->input->post("day3");
+        $area = $this->input->post("area");
+
+        $this->db->where('tanggal >=', $day);
+        $this->db->where('tanggal <=', $day2);
+        $result = $this->db->get('report_patrol');
+
+        $data = [
+            'patrol'  =>  $result
         ];
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);

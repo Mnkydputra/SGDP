@@ -11,31 +11,53 @@
 
 <body>
 
-    <table border="1">
-        <thead>
+
+    <?php
+
+    if ($patrol->num_rows() > 0) { ?>
+
+        <table style="font-size: 40px;border:2px solid #000">
+            <!-- <thead>
             <tr>
                 <th>Nama - NPK </th>
                 <th>Tanggal & Jam</th>
                 <th>Lokasi</th>
-                <th>Documentasi</th>
+                <th>Gambar 1</th>
+                <th>Gambar 2</th>
+                <th>Gambar 3</th>
             </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($patrol->result() as $ptr) : ?>
-                <?php $d = $this->db->get_where('documentasi_patroli', ['id_patroli' => $ptr->id_patroli]) ?>
-                <tr>
-                    <td><?= $ptr->nama . " - " . $ptr->id_npk  ?></td>
+        </thead> -->
+            <tbody>
+                <?php foreach ($patrol->result() as $ptr) : ?>
+                    <?php $d = $this->db->get_where('documentasi_patroli', ['id_patroli' => $ptr->id_patroli]) ?>
+                    <tr>
+                        <td style="background-color: red;color:#fff" align="center" colspan="3">Area : <?= $ptr->area_kerja ?> || Lokasi : <?= $ptr->lokasi . ' || ' . $ptr->tanggal . ' ' . $ptr->jam ?></td>
+                    </tr>
+                    <tr>
+                        <!-- <td><?= $ptr->nama . " - " . $ptr->id_npk  ?></td>
                     <td><?= $ptr->tanggal . ' ' . $ptr->jam  ?></td>
-                    <td><?= $ptr->lokasi  ?></td>
-                    <td>
+                    <td><?= $ptr->lokasi  ?></td> -->
                         <?php foreach ($d->result() as $cd) : ?>
-                            <img class="img-report" height="250px" src="<?= base_url() ?>/assets/patrol/<?= $cd->picture ?>">
+                            <td align="center">
+                                <img class="img-report" height="450px" src="<?= base_url() ?>/assets/patrol/<?= $cd->picture ?>">
+                            </td>
                         <?php endforeach ?>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    <?php } else { ?>
+        <table>
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <h1>Hasil Tidak Ditemukan</h1>
                     </td>
                 </tr>
-            <?php endforeach ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
+    <?php } ?>
+
 
 </body>
 

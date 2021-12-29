@@ -66,28 +66,6 @@ class Patrol extends CI_Controller
         $this->load->view('Danru/titik_plan', $data);
     }
 
-    public function input()
-    {
-        // $barcode     = $this->input->post("barcode");
-        // $lat         = $this->input->post("latitude");
-        // $long        = $this->input->post("longitude");
-
-        // $cek_plan = $this->db->get_where('tbl_plan_report', ['longitude' => $long, 'latitude' => $lat]);
-
-
-        // if ($cek_plan->num_rows() > 0) {
-        //     $data = $cek_plan->row();
-        //     $info = [
-        //         'plan'  => $data->plan
-        //     ];
-        //     echo $data->plan;
-        //     // redirect('Danru/Patrol/form_report/' . $data->plan);
-        // } else {
-        //     echo "anda diluar plan area kerja";
-        // }
-    }
-
-
     public function form_report($id)
     {
         # code...

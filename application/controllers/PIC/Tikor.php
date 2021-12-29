@@ -35,6 +35,8 @@ class Tikor extends CI_Controller
       'url'  => $this->uri->segment(2),
       'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
       'total'   => $this->Sipd_model->countAll()->num_rows(),
+
+      //ambil berdasarkan area kerja  
       'tikor'   => $this->Sipd_model->getData("titik_area")->result(),
       'id_titik'  => $d
     );
@@ -50,7 +52,7 @@ class Tikor extends CI_Controller
     $long   = $this->input->post('longitude');
     $lokasi = $this->input->post("lokasi");
     $idplan = $this->input->post("id_plan");
-    $id = $this->input->post("id2");
+    $id     = $this->input->post("id2");
 
     $data_plan = [
       'id'        => $id,

@@ -42,7 +42,7 @@
                          <?php } else { ?>
                              <div class="alert alert-danger">
                                  <label for="">Patroli Selesai</label>
-                                 <a href="<?= base_url('Danru/Patrol/urutan/1') ?>" class="">kembali ke titik awal</a>
+                                 <a href="<?= base_url('Danru/Patrol/urutan/1') ?>" class="">klik disini untuk kembali ke titik awal</a>
                              </div>
                              <input type="hidden" id="tikor" value="0" name="tikor">
                          <?php } ?>
@@ -61,7 +61,7 @@
      let scanner = new Instascan.Scanner({
          video: document.getElementById('preview'),
          mirror: true,
-         scanPeriod: 15
+         scanPeriod: 5
      });
      scanner.addListener('scan', function(content) {
          //  console.log(content);
@@ -72,15 +72,6 @@
          console.log(la);
          navigator.geolocation.getCurrentPosition(function(position) {
              var divisiId = $("select[name=tikor] option:selected").val();
-             //  if (divisiId == null || divisiId == "") {
-             //      // alert("Pilih Plan");
-             //      Swal.fire({
-             //          title: 'Attention!',
-             //          text: 'Pilih Plan Patroli',
-             //          icon: 'error',
-             //      })
-             //  } else {
-             //  var idTikor = $("select[name=tikor] option:selected").val();
              var idTikor = $("#tikor").val();
              // console.log(idTikor);
              const lat = position.coords.latitude;
@@ -128,7 +119,6 @@
                      }
                  }
              })
-             //  }
          });
      });
 
