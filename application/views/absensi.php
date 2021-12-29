@@ -10,42 +10,35 @@
       </div>
   </div>
 
-  <div style="margin-top:100px; padding-top:40mm; background-color:#F9FAFA;"class="container-md mt-5 " >
-                  <!-- <div class="row">
-                      <div class="container-md-3">
-                        <div id="myQRCode" class="d-flex align-items-center justify-content-center">
-                          <img style="display: none;" src="<?= base_url('assets/img/')?>anton.png" id="img-buffer">
-                        </div>
-                      </div>    
-                  </div> -->
-                  <div class="row">
+  <div style="margin-top:100px; padding-top:25mm; background-color:#F9FAFA;"class="container-md mt-5 " >
+                <div class="row">
+                  <div class="container-md-3">
+                      <div class="btn-group btn-group-toggle md-3" data-toggle="buttons">
+                        <label class="btn btn-primary btn-sm">
+                          <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
+                        </label>
+                        <label class="btn btn-secondary btn-sm">
+                          <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
+                        </label>
+                      </div>
+                      </div>
+                  </div>
+                <div class="row">
+                  <div class="container-md-3">
                         <form id="formAbsen" data-url="<?= base_url('Absen/getPlan') ?>" method="post" action="<?= base_url('Absen/getPlan') ?>" id="pilih-form">
-                         <input type="text" name="id_absen" value="<?= $biodata->id_biodata?>" id="id_absen"><?= $biodata->id_biodata ?>
-                         <input type="text" name="npk" value="<?= $biodata->npk?>" id="npk"><?= $biodata->npk ?>
-                        <select style="border:2px solid #ccc;width:100%" class="mb-2" name="AreaKerja" id="AreaKerja">
-                                  <option value="<?=  $employe->area_kerja  ?>"> <?= $employe->area_kerja ?> </option>
+                         <input hidden type="text" name="id_absen" value="<?= $biodata->id_biodata?>" id="id_absen">
+                         <input hidden type="text" name="npk" value="<?= $biodata->npk?>" id="npk">
+                         <select hidden style="border:2px solid #ccc;width:100%" class="mb-2" name="AreaKerja" id="AreaKerja">
+                                  <option hidden value="<?=  $employe->area_kerja  ?>"> </option>
                           </select>
-                      </form>
-
-                      <form action="<?= base_url('Absen/getPlan') ?>" method="post" >
-                        <div class="form-control">
-
-                        </div>
                       </form>
                       <div class="form-group">
                           <video style="border-radius:25px; width:320; height:240;"  class="img-thumbnail" id="preview" ></video>
                       </div>
                   </div>
-                <div class="btn-group btn-group-toggle md-3" data-toggle="buttons">
-                  <label class="btn btn-primary active">
-                    <input type="radio" name="options" value="1" autocomplete="off" checked> Front Camera
-                  </label>
-                  <label class="btn btn-secondary">
-                    <input type="radio" name="options" value="2" autocomplete="off"> Back Camera
-                  </label>
-                  </div> 
+                </div>
+                
   </div>
-<br><br>
 
         <?php if($this->session->flashdata('AbsenMasuk')){ ?>
           <script type="text/javascript">
@@ -74,7 +67,16 @@
               dangerMode : [true , "Ok"]
             })
           </script>
-        <?php } ?>
+        <?php }else if($this->session->flashdata('AndaTelahAbsen')) { ?>
+          <script type="text/javascript">
+            Swal.fire({
+              icon : "warning",
+              title : "Perhatian",
+              text : "Anda Telah Absen Masuk, Silahkan Absen Pada Jam Pulang",
+              dangerMode : [true , "Ok"]
+            })
+          </script>
+        <?php } ?> 
 
 
       <script type="text/javascript">
