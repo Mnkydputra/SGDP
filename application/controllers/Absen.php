@@ -45,12 +45,12 @@
       $tgl = date('Y-m-d');
       $validasi = 1;
       $jam = date('H:i:s');
-      $jam2 = date('H')+7;
+      
       $cek_kehadiran = $this->Anggota_model->cek_kehadiran($id_absen,$validasi);
       $area = $cek_id->area_kerja;
       $validasi1 = $cek_kehadiran->validasi_kehadiran;
-      $validasi2 = $cek_kehadiran->in_time;
-
+      $validasi2 = date('H:i:s',strtotime($cek_kehadiran->in_time));
+      $jam2 = date('H:i:s',strtotime("+7 hours", $jam)); 
       switch($cek_id->area_kerja)
       {
         case 'P1':
@@ -288,7 +288,7 @@
         case 'VLC':
             if($cek_id != null){
                   if($validasi1 == 1){
-                    if($validasi2 <= $jam2){
+                    if($validasi2 >= $jam2){
                         $this->session->set_flashdata("AndaTelahAbsen","Berhasil");    
                         redirect('Absen');
                     }else{
@@ -297,7 +297,8 @@
                         'out_date'  => $tgl,
                         'validasi_kehadiran' => 2,
                       );
-                       $UpdateInfo = $this->Anggota_model->updateFile($data1,"absen_vlc",$id_absen);
+                      var_dump($data1);
+                       $UpdateInfo = $this->Anggota_model->updateFile($data1,"absen_vlc",$where);
                        if($UpdateInfo){
                           $this->session->set_flashdata("AbsenPulang","Berhasil");
                           redirect('Absen');
