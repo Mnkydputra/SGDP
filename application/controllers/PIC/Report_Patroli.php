@@ -52,7 +52,8 @@ class Report_Patroli extends CI_Controller
         $result = $this->db->get_where('report_patrol', ['tanggal' => $day, 'area_kerja' => $area]);
 
         $data = [
-            'patrol'  =>  $result
+            'patrol'  =>  $result,
+            'area'    => $area
         ];
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
@@ -74,7 +75,8 @@ class Report_Patroli extends CI_Controller
         $result = $this->db->get('report_patrol');
 
         $data = [
-            'patrol'  =>  $result
+            'patrol'  =>  $result,
+            'area'    => $area
         ];
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
