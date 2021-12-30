@@ -15,11 +15,11 @@
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Inbox"><i class='bx bxs-inbox bx-sm'></i><br>
                     <p id="navbot" class="text-center"><b>INBOX</b></p>
                 </a>
-                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen') ?>"><i style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-fade-up bx-rotate-90 bx-md'></i><br>
+                <a style="margin-top:-30px;" class="navbar-expand-md nostyle text-center" href="<?= base_url('Absen') ?>"><i style="position:absolute; margin-left:-23px; top:-50%; width:50px; height:50px; background:#F5F2EB; border-radius:50%; border: 4px solid #ff0000; box-shadow: -7px -7px 10px #cbced1, -7px -7px 10px #F5F2EB; color:red" class='bx bx-qr bx-md'></i><br>
                     <p id="navbot" class="text-center"><b>ABSEN</b></p>
                 </a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Course"><i class='bx bxs-food-menu bx-sm'></i><br>
-                    <p id="navbot" class="text-center"><b>COURSE</b></p>
+                    <p id="navbot" class="text-center"><b>COURSE</b></p>    
                 </a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
                     <p id="navbot" class="text-center"><b>PROFILE</b></p>

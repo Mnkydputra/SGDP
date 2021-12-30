@@ -37,8 +37,12 @@ class Login extends CI_Controller
     {
         date_default_timezone_set('Asia/Jakarta');
         $username     = $this->input->post('npk');
-        $password   = md5($this->input->post('password'));
+        $password     = md5($this->input->post('password'));
+        
         $auth = $this->db->get_where("akun", array("npk" => $username))->num_rows();
+        
+        var_dump($auth);
+        
         if ($auth > 0) {
             $user = $this->Login_model->cek_login($username, $password)->row();
             if ($user->password == md5($username)) {

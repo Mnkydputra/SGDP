@@ -282,11 +282,12 @@ class Profile extends CI_Controller
         break;
       case 'VLC':
         $tbl = "absen_vlc";
+      
         break;
     }
     $data = [
       'absen' => $absen,
-      'bulan' => $bln,
+      'bulan' => 12,
       'tabel' => $tbl
     ];
     $this->load->view("anggota/showAbsen", $data);
