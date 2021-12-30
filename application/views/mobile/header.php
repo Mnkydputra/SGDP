@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.css.map">
+    
     <!-- DatePicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- Jquery CDN -->
@@ -31,6 +32,10 @@
     <!-- END CDN Bootstrap -->
     <!-- SWEET ALERT -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- DATATABLES -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <!-- IMASK CDN -->
     <script src="https://unpkg.com/imask"></script>
     <script src="<?= base_url('assets/dist/')?>jquery-qrcode.js"></script>

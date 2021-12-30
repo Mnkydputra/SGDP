@@ -1,18 +1,19 @@
-<?php
+  <?php
 
-class Absen extends CI_Controller
-{
-  function __construct()
+  class Absen extends CI_Controller
   {
-    parent::__construct();
-    $this->load->library('user_agent');
-    $id = $this->session->userdata('id_akun');
-    $role_id = $this->session->userdata('role_id');
-    if ($id == null || $id == "") {
-      $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
-      redirect('Login');
+    function __construct()
+    {
+      parent::__construct();
+      $this->load->library('user_agent');
+      date_default_timezone_set('Asia/Jakarta');
+      $id = $this->session->userdata('id_akun');
+      $role_id = $this->session->userdata('role_id');
+      if ($id == null || $id == "") {
+        $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
+        redirect('Login');
+      }
     }
-  }
 
   function index()
   {

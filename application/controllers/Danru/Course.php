@@ -1,8 +1,7 @@
 <?php
 
-
-class Pengumuman extends CI_Controller
-{
+class Course extends CI_Controller{
+    
     function __construct()
     {
         parent::__construct();
@@ -13,24 +12,25 @@ class Pengumuman extends CI_Controller
             $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
                 redirect('Login');
             } 
-            if ($role_id != 1){
+            if ($role_id != 2){
                 redirect('LogOut');
             }
     }
+   
     
-
-
     function index()
     {
-        $data = array(
-            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-            'url'  => $this->uri->segment(2),
+        $data =  array(
             'berkas'    => $this->db->get_where('berkas',array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-        );
+			'url' 				=> $this->uri->segment(2),
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+		);
         $this->load->view('mobile/header',$data);
-        $this->load->view('Anggota/pengumuman');
-        $this->load->view('mobile/fotter');
+        $this->load->view('Danru/course');
+        $this->load->view('mobile/fotter',$data);
     }
 }
 
+
 ?>
+
