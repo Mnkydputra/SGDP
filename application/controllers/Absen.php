@@ -16,15 +16,13 @@ class Absen extends CI_Controller
 
   function index()
   {
-     $data = array(
-        'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-        'url'  => $this->uri->segment(2),
-        'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-      );
-      $this->load->view('mobile/header',$data);
-      $this->load->view('absensi',$data);
-      $this->load->view('mobile/fotter');
+    $data = array(
+      'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+      'url'  => $this->uri->segment(2),
+      'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+    );
+    $this->load->view('mobile/header', $data);
+    $this->load->view('absensi', $data);
+    $this->load->view('mobile/fotter');
   }
-
 }
-?>
