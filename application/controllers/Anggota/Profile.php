@@ -264,31 +264,24 @@ class Profile extends CI_Controller
     switch ($area) {
       case 'P1':
         $tbl = "absen_p1";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_p1")->result();
         break;
       case 'P2':
         $tbl = "absen_p2";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_p2")->result();
         break;
       case 'P3':
         $tbl = "absen_p3";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_p3")->result();
         break;
       case 'P4':
         $tbl = "absen_p4";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_p4")->result();
         break;
       case 'P5':
         $tbl = "absen_p5";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_p5")->result();
         break;
       case 'PC':
         $tbl = "absen_pc";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_pc")->result();
         break;
       case 'VLC':
         $tbl = "absen_vlc";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_vlc")->result();
         break;
     }
     $data = [
