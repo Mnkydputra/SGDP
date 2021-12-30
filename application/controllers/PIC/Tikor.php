@@ -8,6 +8,10 @@ class Tikor extends CI_Controller
   function index()
   {
 
+    // $source = '2012-07-31';
+    // $date = new DateTime($source);
+    // echo $date->format('d.m.y') . "<br>"; // 31.07.2012
+
     $query = $this->db->query("select max(id) as hasil from titik_area  ");
     $p = $query->row();
 
