@@ -43,7 +43,7 @@
          </div>
      </div>
  </div>
-
+ <!-- 9E*@JM&PD[Y5 -->
  <script>
      // barcode
      let scanner = new Instascan.Scanner({
