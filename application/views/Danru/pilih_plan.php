@@ -67,37 +67,45 @@
              $.ajax({
                  url: $("#formTikor").attr('data-url'),
                  method: "POST",
-                 data: "tikor=" + idTikor,
+                 data: "tikor=" + idTikor + '&barcode=' + content,
                  success: function(e) {
-                     // console.log(e);
-                     var result = JSON.parse(e);
-                     const latitudeBarcode = result[0].latitude;
-                     const longitudeBarcode = result[0].longitude;
-                     const lokasi = result[0].id;
-                     //  console.log("lat barcode " + latitudeBarcode);
-                     //  console.log("long barcode " + longitudeBarcode);
-
-                     //lokasi titik barcode disimpan 
-                     var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
-
-                     //lokasi perangkat user 
-                     var posisi_user = new google.maps.LatLng(lat, long);
-                     const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
-                     console.log(jarak);
-                     if (jarak <= 0.03) {
-                         Swal.fire({
-                             title: 'Sukses!',
-                             text: 'Lanjut Documentasi',
-                             icon: "success",
-                         }).then(function() {
-                             window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
-                         })
-                     } else {
+                     if (e == 0) {
                          Swal.fire({
                              title: 'Attention!',
-                             text: 'Anda di Luar Area',
+                             text: 'Barcode Invalid',
                              icon: 'error',
                          })
+                     } else {
+                         // console.log(e);
+                         var result = JSON.parse(e);
+                         const latitudeBarcode = result[0].latitude;
+                         const longitudeBarcode = result[0].longitude;
+                         const lokasi = result[0].id;
+                         //  console.log("lat barcode " + latitudeBarcode);
+                         //  console.log("long barcode " + longitudeBarcode);
+
+                         //lokasi titik barcode disimpan 
+                         var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+
+                         //lokasi perangkat user 
+                         var posisi_user = new google.maps.LatLng(lat, long);
+                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
+                         console.log(jarak);
+                         if (jarak <= 0.04) {
+                             Swal.fire({
+                                 title: 'Sukses!',
+                                 text: 'Lanjut Documentasi',
+                                 icon: "success",
+                             }).then(function() {
+                                 window.location = "<?= base_url("Danru/Patrol/form_report/") ?>" + lokasi;
+                             })
+                         } else {
+                             Swal.fire({
+                                 title: 'Attention!',
+                                 text: 'Anda di Luar Area',
+                                 icon: 'error',
+                             })
+                         }
                      }
                  }
              })

@@ -38,8 +38,15 @@ class Patrol extends CI_Controller
     public function getPlan()
     {
         $id = $this->input->post("tikor");
-        $data = $this->db->get_where('titik_area', ['id' => $id])->result();
-        echo json_encode($data);
+        $qrcode = $this->input->post("barcode");
+        $cek  = $this->db->get_where('titik_area', ['titik_koordinat' => $qrcode]);
+
+        if ($cek->num_rows() > 0) {
+            $data = $this->db->get_where('titik_area', ['id' => $id])->result();
+            echo json_encode($data);
+        } else {
+            echo "0";
+        }
     }
 
     public function scan_barcode($idTikor)

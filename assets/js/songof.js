@@ -459,5 +459,6 @@ $(function(){
             modal.find('#longitude2').attr("value", div.data('long'));
             modal.find('#latitude2').attr("value", div.data('lat'));
             modal.find('#id_plan2').attr("value", div.data('area'));
+            modal.find('#urutan2').attr("value", div.data('urutan'));
         });
     });
