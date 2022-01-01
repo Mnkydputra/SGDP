@@ -19,36 +19,6 @@ class Patrol extends CI_Controller
         }
     }
 
-    public function index(Type $var = null)
-    {
-        # code...
-        $this->load->view('Danru/tester');
-        // titik barcode
-        // $lat1 = -6.145698;
-        // $lon1 = 106.885588;
-
-
-        // //titik berdiri user
-        // $lat2 = -6.145614;
-        // $lon2 = 106.885447;
-        // $unit = "K";
-
-        // $theta = $lon1 - $lon2;
-        // $dist = sin(deg2rad($lat1)) * sin(deg2rad($lat2)) +  cos(deg2rad($lat1)) * cos(deg2rad($lat2)) * cos(deg2rad($theta));
-        // $dist = acos($dist);
-        // $dist = rad2deg($dist);
-        // $miles = $dist * 60 * 1.1515;
-        // $unit = strtoupper($unit);
-
-        // if ($unit == "K") {
-        //     $p = $miles * 1.609344;
-        //     echo number_format($p, 2, ".", "");
-        // } else if ($unit == "N") {
-        //     $p = $miles * 0.8684;
-        // } else {
-        //     $p =  $miles;
-        // }
-    }
 
     public function urutan($urutan)
     {
