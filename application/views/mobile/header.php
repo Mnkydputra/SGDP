@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.css.map">
-    
+
     <!-- DatePicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- Jquery CDN -->
@@ -38,14 +38,15 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <!-- IMASK CDN -->
     <script src="https://unpkg.com/imask"></script>
-    <script src="<?= base_url('assets/dist/')?>jquery-qrcode.js"></script>
+    <script src="<?= base_url('assets/dist/') ?>jquery-qrcode.js"></script>
     <!-- API LOCATION -->
     <script src="<?= base_url('assets/js/') ?>songof.js"></script>
     <script type="text/javascript" src="<?= base_url('assets/js/') ?>instascan.min.js"></script>
 
     <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false&libraries=geometry"></script>
 
-
+    <script src=" <?= base_url('assets/js/') ?>geo-min.js" type="text/javascript" charset="utf-8">
+    </script>
 
 </head>
 
