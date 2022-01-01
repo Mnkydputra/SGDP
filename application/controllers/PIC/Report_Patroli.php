@@ -6,7 +6,6 @@ class Report_Patroli extends CI_Controller
     function __construct()
     {
         parent::__construct();
-
         $id = $this->session->userdata('id_akun');
         $role_id = $this->session->userdata('role_id');
         if ($id == null || $id == "") {
@@ -25,7 +24,6 @@ class Report_Patroli extends CI_Controller
         $danru = array('role_id' => 2);
         $korlap = array('role_id' => 3);
         $sipd = array('role_id' => 4);
-
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'  => $this->uri->segment(2),
@@ -36,7 +34,7 @@ class Report_Patroli extends CI_Controller
             'total'   => $this->Sipd_model->countAll()->num_rows(),
         );
         $this->load->view('web/header', $data);
-        $this->load->view('PIC/report_Patroli', $data);
+        $this->load->view('PIC/report_patroli', $data);
         $this->load->view('web/fotter');
     }
 
@@ -45,8 +43,8 @@ class Report_Patroli extends CI_Controller
     {
         $day = $this->input->post("day");
         $area = $this->input->post("area_kerja1");
-
         $result = $this->db->get_where('report_patrol', ['tanggal' => $day, 'area_kerja' => $area]);
+
         $data = [
             'patrol'  =>  $result,
             'area'    => $area,
@@ -56,7 +54,7 @@ class Report_Patroli extends CI_Controller
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
         $mpdf->WriteHTML($data);
-        $mpdf->Output();
+        $mpdf->Output("Report Patroli " . $area . ".pdf", 'I');
     }
 
 
@@ -68,8 +66,8 @@ class Report_Patroli extends CI_Controller
 
         $this->db->where('tanggal >=', $day);
         $this->db->where('tanggal <=', $day2);
-        $this->db->where('area_kerja', $area);
         $result = $this->db->get('report_patrol');
+
         $data = [
             'patrol'  =>  $result,
             'area'    => $area,
@@ -79,6 +77,6 @@ class Report_Patroli extends CI_Controller
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
         $mpdf->WriteHTML($data);
-        $mpdf->Output();
+        $mpdf->Output("Report Patroli " . $area . ".pdf", 'I');
     }
 }

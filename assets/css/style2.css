@@ -3,6 +3,22 @@
 	display: none;
 }
 
-img {
-	width: 20px;
+.img-report {
+    height: 450px;
+    width : 450px;
+}
+
+
+tr .title-td {
+    background  : red;   
+    color : #fff;
+    font-size : 25px;
+}
+
+.img-logo {
+    display:flex;
+    position:relative;
+    margin-top:-70px;
+    margin-left:270px;
+    width:100px
 }
