@@ -62,11 +62,25 @@
           <div class="d-flex" style="display: none; list-style:none;">
             <li class="nav-item dropdown" style="list-style:none; ">
               <a class="nav-link dropdown-toggle" href="#" id="navProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar" height=55px; width=55px;>
+                <?php if ($berkas->foto == null) { ?>
+                  <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/img/icon-header.png') ?>" alt="avatar" height=55px; width=55px;>
+                <?php } else { ?>
+                  <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar" height=55px; width=55px;>
+                <?php } ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navProfile">
                 <li>
-                  <a class="dropdown-item" aria-current="page" href="<?= base_url('Anggota/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php if ($this->session->userdata('role_id') == 1) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Anggota/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 2) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Danru/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 3) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Korlap/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 4) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Sipd/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 5) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('PIC/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } ?>
                 </li>
                 <li>
                   <hr class="dropdown-divider  ">

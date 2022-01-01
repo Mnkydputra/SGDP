@@ -17,10 +17,8 @@ class Report_Patroli extends CI_Controller
         }
     }
 
-
     public function index()
     {
-
         $anggota = array('role_id' => 1);
         $danru = array('role_id' => 2);
         $korlap = array('role_id' => 3);

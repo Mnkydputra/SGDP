@@ -59,7 +59,12 @@
                     <img style="background-color:#F9FAFA;  border-style:none;" class="img-thumbnail" src="<?= base_url('assets/img/') ?>Group_2.png" alt="brand" width=156; height=67;>
                 </a>
                 <a style="border-style:none" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar" height=67px; width=67px;>
+                    <?php if ($berkas->foto == null) { ?>
+                        <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/img/icon-header.png') ?>" alt="avatar" height=67px; width=67px;>
+                    <?php } else { ?>
+                        <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar" height=67px; width=67px;>
+                    <?php } ?>
+
                 </a>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul style="float:right;" class="navbar-nav px-1 mx-3">
