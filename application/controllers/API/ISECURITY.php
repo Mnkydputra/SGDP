@@ -13,15 +13,12 @@ class ISECURITY extends RestController
     {
         // Construct the parent class
         parent::__construct();
-        // $this->load->model('Api_model');
     }
 
     //ambil biodata anggota
     public function biodata_get()
     {
         $id = $this->get('id');
-        $url = $this->uri->segment(3);
-
         $where = ['id_biodata' => $id];
         $data = $this->Api_Model->getData("biodata", $where);
         if ($data->num_rows() > 0) {
