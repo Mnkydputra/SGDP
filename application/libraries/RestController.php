@@ -2,7 +2,7 @@
 
 namespace chriskacerguis\RestServer;
 
-require APPPATH . 'libraries\Format.php';
+require_once(APPPATH . 'libraries/Format.php');
 
 use Exception;
 use stdClass;
