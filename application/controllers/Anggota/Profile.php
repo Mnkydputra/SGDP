@@ -32,7 +32,7 @@ class Profile extends CI_Controller
           'biodata'   => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
           'employee'  => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-          'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p1")->result(),
+          'absen'     => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p1")->result(),
           'url'       => $this->uri->segment(2),
         );
         $this->load->view('mobile/header', $data);
