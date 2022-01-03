@@ -77,11 +77,11 @@ class Profile extends CI_Controller
         break;
       case 'P5':
         $data = array(
-          'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-          'employee' => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
-          'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-          'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p5")->result(),
-          'url'  => $this->uri->segment(2),
+          'biodata'      => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+          'employee'     => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+          'berkas'       => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+          'absen'        => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p5")->result(),
+          'url'          => $this->uri->segment(2),
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('Anggota/profile', $data);
@@ -180,7 +180,6 @@ class Profile extends CI_Controller
       'tinggi_badan'            => $this->input->post("tinggi_badan"),
       'imt'                     => $this->input->post("imt"),
       'keterangan'              => strtoupper($this->input->post("keterangan")),
-
     );
     //input update karyawan
     $UpdateInfo = $this->Anggota_model->updateFile($data, "biodata", $where);
