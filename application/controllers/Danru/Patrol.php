@@ -30,7 +30,6 @@ class Patrol extends CI_Controller
         } else {
             $ak = $area->area_kerja;
         }
-        
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'        => $this->uri->segment(2),
