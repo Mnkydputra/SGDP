@@ -24,11 +24,18 @@ class Patrol extends CI_Controller
     {
 
         $area = $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row();
+        $ak =  "";
+        if ($area->area_kerja == "P4") {
+            $ak = $area->area_kerja . "-" . $area->sub_area;
+        } else {
+            $ak = $area->area_kerja;
+        }
+        
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'        => $this->uri->segment(2),
             'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-            'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $area->area_kerja, 'urutan' => $urutan]),
+            'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $ak, 'urutan' => $urutan]),
         );
         $this->load->view('mobile/header', $data);
         $this->load->view("Danru/pilih_plan", $data);
