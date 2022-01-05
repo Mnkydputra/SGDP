@@ -20,7 +20,8 @@
                     <option value="P1">PLAN 1</option>
                     <option value="P2">PLAN 2</option>
                     <option value="P3">PLAN 3</option>
-                    <option value="P4">PLAN 4</option>
+                    <option value="P4-ASSY1">PLAN 4 ASSY 1</option>
+                    <option value="P4-ASSY2">PLAN 4 ASSY 2</option>
                     <option value="P5">PLAN 5</option>
                 </select>
 
