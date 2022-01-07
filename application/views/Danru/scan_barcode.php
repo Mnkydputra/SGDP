@@ -53,7 +53,7 @@
                  document.getElementById("showLokasi").innerHTML = "";
                  Instascan.Camera.getCameras().then(function(cameras) {
                      if (cameras.length > 0) {
-                         scanner.start(cameras[2]);
+                         scanner.start(cameras[3]);
                      } else {
                          console.error('No cameras found.');
                      }
@@ -81,6 +81,12 @@
                  })
              }
          });
+
+         //pilih lokasi titik patroli 
+         $('select[name=titik').on('change', function() {
+             var idLokasi = $("select[name=titik] option:selected").val();
+             console.log(idLokasi);
+         })
      })
      // end
 
@@ -96,66 +102,66 @@
          const txt = content.split(",", 2);
          const lo = txt[0];
          const la = txt[1];
-         navigator.geolocation.getCurrentPosition(function(position) {
-             var idPLAN = $("select[name=titik] option:selected").val();
-             var idTikor = $("#tikor").val();
-             const lat = position.coords.latitude;
-             const long = position.coords.longitude;
-             const acc = position.coords.accuracy;
-             //  console.log("lat user" + lat);
-             //  console.log("long user " + long);
-             $.ajax({
-                 url: $("#formTikor").attr('data-url'),
-                 method: "POST",
-                 data: "tikor=" + idTikor + '&barcode=' + content,
-                 success: function(e) {
+         //  navigator.geolocation.getCurrentPosition(function(position) {
+         //      var idPLAN = $("select[name=titik] option:selected").val();
+         //      var idTikor = $("#tikor").val();
+         //      const lat = position.coords.latitude;
+         //      const long = position.coords.longitude;
+         //      const acc = position.coords.accuracy;
+         //      //  console.log("lat user" + lat);
+         //      //  console.log("long user " + long);
+         //      $.ajax({
+         //          url: $("#formTikor").attr('data-url'),
+         //          method: "POST",
+         //          data: "tikor=" + idTikor + '&barcode=' + content,
+         //          success: function(e) {
 
-                     if (e == "OK") {
-                         Swal.fire({
-                             title: 'Attention!',
-                             text: 'Area Sudah Di Lewati',
-                             icon: 'error',
-                         })
-                     } else if (e == 0) {
-                         Swal.fire({
-                             title: 'Attention!',
-                             text: 'Barcode Invalid',
-                             icon: 'error',
-                         })
-                     } else {
-                         // console.log(e);
-                         var result = JSON.parse(e);
-                         const latitudeBarcode = result[0].latitude;
-                         const longitudeBarcode = result[0].longitude;
-                         const lokasi = result[0].id;
-                         //  console.log("lat barcode " + latitudeBarcode);
-                         //  console.log("long barcode " + longitudeBarcode);
+         //              if (e == "OK") {
+         //                  Swal.fire({
+         //                      title: 'Attention!',
+         //                      text: 'Area Sudah Di Lewati',
+         //                      icon: 'error',
+         //                  })
+         //              } else if (e == 0) {
+         //                  Swal.fire({
+         //                      title: 'Attention!',
+         //                      text: 'Barcode Invalid',
+         //                      icon: 'error',
+         //                  })
+         //              } else {
+         //                  // console.log(e);
+         //                  var result = JSON.parse(e);
+         //                  const latitudeBarcode = result[0].latitude;
+         //                  const longitudeBarcode = result[0].longitude;
+         //                  const lokasi = result[0].id;
+         //                  //  console.log("lat barcode " + latitudeBarcode);
+         //                  //  console.log("long barcode " + longitudeBarcode);
 
-                         //lokasi titik barcode disimpan 
-                         var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+         //                  //lokasi titik barcode disimpan 
+         //                  var plan = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
 
-                         //lokasi perangkat user 
-                         var posisi_user = new google.maps.LatLng(lat, long);
-                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
-                         console.log(jarak);
-                         if (jarak <= 0.04) {
-                             Swal.fire({
-                                 title: 'Sukses!',
-                                 text: 'Lanjut Documentasi',
-                                 icon: "success",
-                             }).then(function() {
-                                 window.location = "<?= base_url("Danru/Patrol/input_report/") ?>" + idPLAN;
-                             })
-                         } else {
-                             Swal.fire({
-                                 title: 'Attention!',
-                                 text: 'Anda di Luar Area',
-                                 icon: 'error',
-                             })
-                         }
-                     }
-                 }
-             })
-         });
+         //                  //lokasi perangkat user 
+         //                  var posisi_user = new google.maps.LatLng(lat, long);
+         //                  const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
+         //                  console.log(jarak);
+         //                  if (jarak <= 0.04) {
+         //                      Swal.fire({
+         //                          title: 'Sukses!',
+         //                          text: 'Lanjut Documentasi',
+         //                          icon: "success",
+         //                      }).then(function() {
+         //                          window.location = "<?= base_url("Danru/Patrol/input_report/") ?>" + idPLAN;
+         //                      })
+         //                  } else {
+         //                      Swal.fire({
+         //                          title: 'Attention!',
+         //                          text: 'Anda di Luar Area',
+         //                          icon: 'error',
+         //                      })
+         //                  }
+         //              }
+         //          }
+         //      })
+         // });
      });
  </script>

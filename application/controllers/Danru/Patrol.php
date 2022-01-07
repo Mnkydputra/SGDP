@@ -31,6 +31,7 @@ class Patrol extends CI_Controller
         $this->load->view('mobile/fotter');
     }
 
+    //munculkan pilihan titik patroli 
     public function getIDPLAN()
     {
         # code...
@@ -41,35 +42,12 @@ class Patrol extends CI_Controller
         $this->load->view("Danru/pilih_titik", $data);
     }
 
-
-
-    // public function urutan($urutan)
-    // {
-    //     $area = $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row();
-    //     $ak =  "";
-    //     if ($area->area_kerja == "P4") {
-    //         $ak = $area->area_kerja . "-" . $area->sub_area;
-    //     } else {
-    //         $ak = $area->area_kerja;
-    //     }
-    //     $data = array(
-    //         'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-    //         'url'        => $this->uri->segment(2),
-    //         'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-    //         'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $ak, 'urutan' => $urutan]),
-    //     );
-    //     $this->load->view('mobile/header', $data);
-    //     $this->load->view("Danru/pilih_plan", $data);
-    //     $this->load->view('mobile/fotter');
-    // }
-
     public function getPlan()
     {
+
         $id = $this->input->post("tikor");
         $qrcode = $this->input->post("barcode");
         $cek  = $this->db->get_where('titik_area', ['titik_koordinat' => $qrcode]);
-
-
 
         if ($cek->num_rows() > 0) {
             $t = $cek->row();
@@ -143,7 +121,6 @@ class Patrol extends CI_Controller
             echo "0";
         }
     }
-
 
     public function input_report($id)
     {
