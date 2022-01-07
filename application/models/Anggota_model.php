@@ -57,7 +57,6 @@ class Anggota_model extends CI_Model
       return $this->db->update('employe_karyawan', $data, $where);
    }
 
-   // Update Pasangan dan Anak
    public function update($data, $table, $where)
    {
       $this->db->where($where);

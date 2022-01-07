@@ -19,27 +19,49 @@ class Patrol extends CI_Controller
         }
     }
 
-
-    public function urutan($urutan)
+    public function index()
     {
-
-        $area = $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row();
-        $ak =  "";
-        if ($area->area_kerja == "P4") {
-            $ak = $area->area_kerja . "-" . $area->sub_area;
-        } else {
-            $ak = $area->area_kerja;
-        }
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'        => $this->uri->segment(2),
             'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-            'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $ak, 'urutan' => $urutan]),
         );
         $this->load->view('mobile/header', $data);
-        $this->load->view("Danru/pilih_plan", $data);
+        $this->load->view("Danru/scan_barcode", $data);
         $this->load->view('mobile/fotter');
     }
+
+    public function getIDPLAN()
+    {
+        # code...
+        $id_plan  = $this->input->post("id_plan");
+        $data  = [
+            'data'  => $this->Anggota_model->cari(['id_plan' => $id_plan], "titik_area")->result()
+        ];
+        $this->load->view("Danru/pilih_titik", $data);
+    }
+
+
+
+    // public function urutan($urutan)
+    // {
+    //     $area = $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row();
+    //     $ak =  "";
+    //     if ($area->area_kerja == "P4") {
+    //         $ak = $area->area_kerja . "-" . $area->sub_area;
+    //     } else {
+    //         $ak = $area->area_kerja;
+    //     }
+    //     $data = array(
+    //         'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+    //         'url'        => $this->uri->segment(2),
+    //         'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+    //         'tikor'      => $this->db->get_where('titik_area', ['id_plan' => $ak, 'urutan' => $urutan]),
+    //     );
+    //     $this->load->view('mobile/header', $data);
+    //     $this->load->view("Danru/pilih_plan", $data);
+    //     $this->load->view('mobile/fotter');
+    // }
 
     public function getPlan()
     {
@@ -47,42 +69,34 @@ class Patrol extends CI_Controller
         $qrcode = $this->input->post("barcode");
         $cek  = $this->db->get_where('titik_area', ['titik_koordinat' => $qrcode]);
 
+
+
         if ($cek->num_rows() > 0) {
-            $data = $this->db->get_where('titik_area', ['id' => $id])->result();
-            echo json_encode($data);
+            $t = $cek->row();
+            if ($t->status == "NOK") {
+                $data = $this->db->get_where('titik_area', ['id' => $id])->result();
+                echo json_encode($data);
+            } else {
+                //jika status ok maka tandanya titik sudah di lewati 
+                echo "OK";
+            }
         } else {
             echo "0";
         }
     }
 
-    public function scan_barcode($idTikor)
-    {
-        $data = array(
-            'biodata'       => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-            'url'           => $this->uri->segment(2),
-            'berkas'        => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-            'plan'          => $this->db->get_where('titik_area', ['id' => $idTikor])->row()
-        );
-
-        $this->load->view('mobile/header', $data);
-        $this->load->view("Danru/scan", $data);
-        $this->load->view('mobile/fotter');
-    }
-
-    public function form_report($id)
-    {
-        $data = array(
-            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-            'url'        => $this->uri->segment(2),
-            'area'       => $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row(),
-            'plan'       => $this->db->get_where('titik_area', ['id' => $id])->row(),
-            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-        );
-        $this->load->view('mobile/header', $data);
-        $this->load->view("Danru/Input_report", $data);
-        $this->load->view('mobile/fotter');
-    }
-
+    // public function scan_barcode($idTikor)
+    // {
+    //     $data = array(
+    //         'biodata'       => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+    //         'url'           => $this->uri->segment(2),
+    //         'berkas'        => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+    //         'plan'          => $this->db->get_where('titik_area', ['id' => $idTikor])->row()
+    //     );
+    //     $this->load->view('mobile/header', $data);
+    //     $this->load->view("Danru/scan", $data);
+    //     $this->load->view('mobile/fotter');
+    // }
 
     public function submit()
     {
@@ -90,7 +104,7 @@ class Patrol extends CI_Controller
         $idPTRL = "PTRL" . date('dis') . $id;
         $this->load->library('upload');
         $config['upload_path']  = './assets/patrol/';
-        for ($i = 1; $i <= 3; $i++) {
+        for ($i = 1; $i <= 2; $i++) {
             $config['allowed_types']  = "jpg|png|jpeg";
             if (!empty($_FILES['file' . $i]['name'])) {
 
@@ -120,11 +134,28 @@ class Patrol extends CI_Controller
             'jam'           => date('H:i:s'),
             'keterangan'    => $this->input->post("keterangan"),
         ];
+
+        $this->Anggota_model->update(['status' => "OK"], "titik_area", ['id' => $this->input->post("idLokasi")]);
         $add = $this->Sipd_model->added("report_patrol", $data);
         if ($add > 0) {
             echo "berhasil simpan data";
         } else {
             echo "0";
         }
+    }
+
+
+    public function input_report($id)
+    {
+        $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'url'        => $this->uri->segment(2),
+            'area'       => $this->db->get_where('employee', ['npk' => $this->session->userdata('npk')])->row(),
+            'plan'       => $this->db->get_where('titik_area', ['id' => $id])->row(),
+            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+        );
+        $this->load->view('mobile/header', $data);
+        $this->load->view("Danru/Input_report", $data);
+        $this->load->view('mobile/fotter');
     }
 }
