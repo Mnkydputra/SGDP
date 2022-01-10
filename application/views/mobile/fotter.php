@@ -21,7 +21,7 @@
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Course"><i class='bx bxs-food-menu bx-sm'></i><br>
                     <p id="navbot" class="text-center"><b>Course</b></p>
                 </a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url() ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
                     <p id="navbot" class="text-center"><b>Profile</b></p>
                 </a>
             </div>
@@ -49,7 +49,7 @@
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('#/') ?>"><i class='bx bxs-food-menu bx-sm'></i><br>
                     <p id="navbot" class="text-center"><b>Course</b></p>
                 </a>
-                <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Danru/') ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
+                <a class="navbar-expand-md nostyle text-center" href="<?= base_url() ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
                     <p id="navbot" class="text-center"><b>Profile</b></p>
                 </a>
             </div>
