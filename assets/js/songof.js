@@ -275,11 +275,6 @@
     
  
 $(function(){
-
-
-    
-    
-
     //tambah data titik koordinat patroli 
     $("#formADDTikor").on('submit',function(e){
         e.preventDefault();
@@ -419,7 +414,7 @@ $(function(){
     })
     // 
     
-    //fungsi hapus 
+    //fungsi hapus  titik koordinat
     function hapusTikor(id){
         Swal.fire({
             title: 'Hapus Titik?',
@@ -446,6 +441,9 @@ $(function(){
             }
           })
     }
+
+
+    
 
 
     $(document).ready(function() {

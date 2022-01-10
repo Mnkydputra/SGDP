@@ -19,7 +19,7 @@
                     <p id="navbot" class="text-center"><b>Absen</b></p>
                 </a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Course"><i class='bx bxs-food-menu bx-sm'></i><br>
-                    <p id="navbot" class="text-center"><b>Course</b></p>    
+                    <p id="navbot" class="text-center"><b>Course</b></p>
                 </a>
                 <a class="navbar-expand-md nostyle text-center" href="<?= base_url('Anggota/') ?>Profile"><i class='bx bxs-user bx-sm'></i><br>
                     <p id="navbot" class="text-center"><b>Profile</b></p>
@@ -139,7 +139,7 @@
     var kk = IMask(no_kk, maskKK);
     var kta = IMask(no_kta, maskKTA);
 </script>
-
+<script src="<?= base_url('assets/') ?>js/dd.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $("#tinggi_badan, #berat_badan").keyup(function() {

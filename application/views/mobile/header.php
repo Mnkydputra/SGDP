@@ -10,13 +10,14 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/') ?>img/icon.png">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.css.map">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
+    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style2.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.css.map">
-
+    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
     <!-- DatePicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- Jquery CDN -->

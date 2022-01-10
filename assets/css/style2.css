@@ -4,21 +4,48 @@
 }
 
 .img-report {
-    height: 450px;
-    width : 450px;
+	height: 450px;
+	width: 450px;
+	transform: rotate(90deg);
 }
 
-
 tr .title-td {
-    background  : red;   
-    color : #fff;
-    font-size : 25px;
+	background: red;
+	color: #fff;
+	font-size: 25px;
 }
 
 .img-logo {
-    display:flex;
-    position:relative;
-    margin-top:-70px;
-    margin-left:270px;
-    width:100px
+	display: flex;
+	position: relative;
+	margin-top: -70px;
+	margin-left: 270px;
+	width: 100px;
+}
+
+.fingerprint {
+	width: 100%;
+	height: 58px;
+	position: absolute;
+	display: flex;
+	/* border: solid 3px #082d3d; */
+}
+
+.fingerprint.scanning::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 8px;
+	background-image: linear-gradient(
+		to bottom,
+		rgba(57, 59, 59, 0),
+		rgba(24, 154, 214, 0.8)
+	);
+	animation: scanning 0.7s linear infinite;
+}
+
+@keyframes scanning {
+	100% {
+		transform: translate(0, 52px);
+	}
 }
