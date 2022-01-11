@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <input type="hidden" name="area_kerja" value="<?= $area->area_kerja ?>">
                     <input type="hidden" id="urutan" name="urutan" value="<?= $plan->urutan ?>">
-                    <input type="text" id="idLokasi" name="idLokasi" value="<?= $plan->id ?>">
+                    <input type="hidden" id="idLokasi" name="idLokasi" value="<?= $plan->id ?>">
                     <textarea cols="42" placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
                 <?php for ($i = 1; $i <= 2; $i++) : ?>

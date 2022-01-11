@@ -39,6 +39,28 @@ class Patrol extends CI_Controller
         $this->load->view('mobile/fotter');
     }
 
+
+    public function scanRFID()
+    {
+        $data = array(
+            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'url'        => $this->uri->segment(2),
+            'berkas'     => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+        );
+        $this->load->view('mobile/header', $data);
+        $this->load->view("Danru/scan_rfid", $data);
+        $this->load->view('mobile/fotter');
+    }
+
+    public function input_id()
+    {
+        $id = $this->input->post("id_card");
+        if ($id != 1) {
+            $this->session->set_flashdata("fail", "gagal");
+            redirect('Danru/Patrol/scanRFID');
+        }
+    }
+
     //munculkan pilihan lokasi patroli berdasarkan area yang di pilih
     public function getIDPLAN()
     {
