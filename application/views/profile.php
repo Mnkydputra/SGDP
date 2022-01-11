@@ -326,13 +326,6 @@
                       <option selected value="<?= $biodata->kel_dom ?>"><?= $biodata->kel_dom ?></option>
                     </select>
 
-                    <script>
-                      $(function() {
-                        //api domisili
-
-                      })
-                    </script>
-
                   </div>
 
                   <div class="col-md-3 border border-3 rounded-3 border border-dark py-3 mb-2">
@@ -376,15 +369,15 @@
             var provinsi_ktp = $("select[name=provinsi_ktp] option:selected").text();
             var kabupaten_ktp = $("select[name=kabupaten_ktp] option:selected").text();
             var kecamatan_ktp = $("select[name=kecamatan_ktp] option:selected").text();
-            var keluraha_ktp = $("select[name=kelurahan_ktp] option:selected").text();
+            var keluraha_ktp = $("select[name=kel_dom] option:selected").text();
             var jl_dom = document.getElementById('jl_dom').value;
             var rt_dom = document.getElementById('rt_dom').value;
             var rw_dom = document.getElementById('rw_dom').value;
             var rw_ktp = document.getElementById('rw_ktp').value;
-            var propinsiDom = document.getElementById('propinsi_dom').value;
-            var kabupatenDom = document.getElementById('kabupaten_dom').value;
-            var kecamatanDom = document.getElementById('kecamatan_dom').value;
-            var kelurahanDom = document.getElementById('kelurahan_dom').value;
+            var propinsiDom = $("select[name=provinsi_dom] option:selected").text();
+            var kabupatenDom = $("select[name=kota_dom] option:selected").text();
+            var kecamatanDom = $("select[name=kec_dom] option:selected").text();
+            var kelurahanDom = $("select[name=provinsi_dom] option:selected").text();
             var berat_badan = document.getElementById('berat_badan').value;
             var tinggi_badan = document.getElementById('tinggi_badan').value;
             var imt = document.getElementById('imt').value;
