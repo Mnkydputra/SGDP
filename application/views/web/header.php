@@ -35,7 +35,7 @@
   <!-- IMASK CDN -->
   <script src="https://unpkg.com/imask"></script>
   <script src="<?= base_url('assets/js/') ?>songof.js"></script>
-
+  <script src="http://api.iksgroup.co.id/apijs/lokasiapi.js"></script>
 
 
   <title>SGDP | POCKET</title>

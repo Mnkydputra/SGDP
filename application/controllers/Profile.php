@@ -17,12 +17,12 @@ class Profile extends CI_Controller
     }
   }
 
-
-
   function index()
   {
     $data1 = $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row();
     $area = $data1->area_kerja;
+    $region = new Dekiakbar\IndonesiaRegionsPhpClient\Region();
+    $provinsi = $region->getAllProvince('pos');
     switch ($area) {
       case 'P1':
         $data = array(
@@ -31,6 +31,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p1")->result(),
           'url'       => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -43,6 +44,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p2")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -55,6 +57,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p3")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -67,6 +70,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p4")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -79,6 +83,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p5")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -91,6 +96,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_pc")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -103,6 +109,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_ho")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -115,6 +122,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_vlc")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);
@@ -127,6 +135,7 @@ class Profile extends CI_Controller
           'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
           'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_dor")->result(),
           'url'  => $this->uri->segment(2),
+          'provinsi'  => $provinsi
         );
         $this->load->view('mobile/header', $data);
         $this->load->view('profile', $data);

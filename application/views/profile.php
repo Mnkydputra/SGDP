@@ -212,7 +212,11 @@
                     <label for="form_post">Provinsi</label>
                     <select class="form-control m-b text-dark" name="provinsi_ktp" id="propinsi">
                       <!-- kosong data propinsi -->
-                      <option selected value="<?= $biodata->provinsi_ktp ?>"><?= $biodata->provinsi_ktp ?></option>
+                      <option selected value="<?= $biodata->provinsi_ktp ?>">
+                        <?= $biodata->provinsi_ktp ?></option>
+                      <?php for ($i = 0; $i < count($provinsi->list); $i++) { ?>
+                        <option value="<?= $provinsi->list[$i]->kode ?>"><?= $provinsi->list[$i]->nama ?></option>
+                      <?php } ?>
                     </select>
 
 
@@ -233,6 +237,9 @@
                     <select class="form-control m-b text-dark" name="kelurahan_ktp" id="kelurahan">
                       <option selected value="<?= $biodata->kel_ktp ?>"><?= $biodata->kel_ktp ?></option>
                     </select>
+                    <script>
+
+                    </script>
 
                   </div>
 
@@ -297,6 +304,9 @@
                       <option value="<?= $biodata->provinsi_dom ?>">
                         <?= $biodata->provinsi_dom ?>
                       </option>
+                      <?php for ($i = 0; $i < count($provinsi->list); $i++) { ?>
+                        <option value="<?= $provinsi->list[$i]->kode ?>"><?= $provinsi->list[$i]->nama ?></option>
+                      <?php } ?>
                     </select>
                     </select>
 
@@ -315,6 +325,13 @@
                     <select class="form-control m-b text-dark" name="kel_dom" id="kelurahan_dom">
                       <option selected value="<?= $biodata->kel_dom ?>"><?= $biodata->kel_dom ?></option>
                     </select>
+
+                    <script>
+                      $(function() {
+                        //api domisili
+
+                      })
+                    </script>
 
                   </div>
 
@@ -477,7 +494,30 @@
             <div id="report_absen">
               <!-- show tanggal disini -->
             </div>
-
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Provinsi</label>
+              <div class="col-sm-6">
+                <select id="provinsi" class="form-control" name="provinsi"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Kabupaten</label>
+              <div class="col-sm-6">
+                <select id="kabupaten" class="form-control" name="kabupaten"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Kecamatan</label>
+              <div class="col-sm-6">
+                <select id="kecamatan" class="form-control" name="kecamatan"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-3">Kelurahan</label>
+              <div class="col-sm-6">
+                <select id="kelurahan" class="form-control" name="kelurahan"></select>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -603,174 +643,137 @@
     })
 
 
-    var urlProvinsi = "https://ibnux.github.io/data-indonesia/provinsi.json";
-    var urlKabupaten = "https://ibnux.github.io/data-indonesia/kabupaten/";
-    var urlKecamatan = "https://ibnux.github.io/data-indonesia/kecamatan/";
-    var urlKelurahan = "https://ibnux.github.io/data-indonesia/kelurahan/";
-
+    // api wilayah
     function clearOptions(id) {
       console.log("on clearOptions :" + id);
-      //$('#' + id).val(null);
-      //$('#' + id).empty().trigger('change');
+      $('#' + id).val(null);
+      $('#' + id).empty().trigger('change');
     }
-
-    console.log('Load Provinsi...');
-    $.getJSON(urlProvinsi, function(res) {
-      res = $.map(res, function(obj) {
-        obj.text = obj.nama;
-        return obj;
-      });
-      data = [{
-        id: "",
-        nama: "- Pilih Provinsi -",
-        text: ""
-      }].concat(res);
-
-      //implemen data ke select provinsi
-      $("#propinsi").select2({
-        dropdownAutoWidth: true,
-        width: '100%',
-        data: data,
-        dropdownParent: $('#ModalBiodata')
+    $(function() {
+      $('select[name=provinsi_ktp').on('change', function() {
+        var id = $("select[name=provinsi_ktp] option:selected").val();
+        $.ajax({
+          url: "<?= base_url('Wilayah/kota') ?>",
+          method: "POST",
+          data: 'provinsi_id=' + id,
+          success: function(e) {
+            //console.log(id);
+            var select1 = $('#kabupaten');
+            var result = JSON.parse(e);
+            for (var i = 0; i < result.length; i++) {
+              var added = document.createElement('option');
+              added.value = result[i].kode;
+              added.innerHTML = result[i].nama;
+              select1.append(added);
+            }
+          }
+        })
       })
-    });
 
-    var selectProv = $('#propinsi');
-    $(selectProv).change(function() {
-      var value = $(selectProv).val();
-      clearOptions('kabupaten');
-
-      if (value) {
-        console.log("on change selectProv");
-        var text = $('#propinsi :selected').text();
-        console.log("value = " + value + " / " + "text = " + text);
-        console.log('Load Kabupaten di ' + text + '...')
-        $.getJSON(urlKabupaten + value + ".json", function(res) {
-          res = $.map(res, function(obj) {
-            obj.text = obj.nama
-            return obj;
-          });
-          data = [{
-            id: "",
-            nama: "- Pilih Kabupaten -",
-            text: ""
-          }].concat(res);
-          //implemen data ke select provinsi
-          $("#kabupaten").select2({
-            dropdownAutoWidth: true,
-            width: '100%',
-            data: data
-          })
+      $('select[name=kabupaten_ktp').on('change', function() {
+        var id = $("select[name=kabupaten_ktp] option:selected").val();
+        $.ajax({
+          url: "<?= base_url('Wilayah/kecamatan') ?>",
+          method: "POST",
+          data: 'kota_id=' + id,
+          success: function(e) {
+            var select1 = $('#kecamatan');
+            var result = JSON.parse(e);
+            clearOptions('kecamatan');
+            for (var i = 0; i < result.length; i++) {
+              var added = document.createElement('option');
+              added.value = result[i].kode;
+              added.innerHTML = result[i].nama;
+              select1.append(added);
+            }
+          }
         })
-      }
-    });
+      })
 
-    var selectKab = $('#kabupaten');
-    $(selectKab).change(function() {
-      var value = $(selectKab).val();
-      clearOptions('kecamatan');
-      if (value) {
-        console.log("on change selectKab");
-        var text = $('#kabupaten :selected').text();
-        console.log("value = " + value + " / " + "text = " + text);
-        console.log('Load Kecamatan di ' + text + '...')
-        $.getJSON(urlKecamatan + value + ".json", function(res) {
-          res = $.map(res, function(obj) {
-            obj.text = obj.nama
-            return obj;
-          });
-          data = [{
-            id: "",
-            nama: "- Pilih Kecamatan -",
-            text: ""
-          }].concat(res);
 
-          //implemen data ke select provinsi
-          $("#kecamatan").select2({
-            dropdownAutoWidth: true,
-            width: '100%',
-            data: data
-          })
+      $('select[name=kecamatan_ktp').on('change', function() {
+        var id = $("select[name=kecamatan_ktp] option:selected").val();
+        $.ajax({
+          url: "<?= base_url('Wilayah/desa') ?>",
+          method: "POST",
+          data: 'kecamatan_id=' + id,
+          success: function(e) {
+            var select1 = $('#kelurahan');
+            var result = JSON.parse(e);
+            clearOptions('kelurahan');
+            for (var i = 0; i < result.length; i++) {
+              var added = document.createElement('option');
+              added.value = result[i].kode;
+              added.innerHTML = result[i].nama;
+              select1.append(added);
+            }
+          }
         })
-      }
-    });
-
-    var selectKec = $('#kecamatan');
-    $(selectKec).change(function() {
-      var value = $(selectKec).val();
-      clearOptions('select2-kelurahan');
-      if (value) {
-        console.log("on change selectKec");
-        var text = $('#kecamatan :selected').text();
-        console.log("value = " + value + " / " + "text = " + text);
-        console.log('Load Kelurahan di ' + text + '...')
-        $.getJSON(urlKelurahan + value + ".json", function(res) {
-          res = $.map(res, function(obj) {
-            obj.text = obj.nama
-            return obj;
-          });
-
-          data = [{
-            id: "",
-            nama: "- Pilih Kelurahan -",
-            text: "- Pilih Kelurahan -"
-          }].concat(res);
-
-          //implemen data ke select provinsi
-          $("#kelurahan").select2({
-            dropdownAutoWidth: true,
-            width: '100%',
-            data: data
-          })
-        })
-      }
-    });
-
-    var selectKel = $('#kelurahan');
-    $(selectKel).change(function() {
-      var value = $(selectKel).val();
-
-      if (value) {
-        console.log("on change selectKel");
-        var text = $('#kelurahan :selected').text();
-        console.log("value = " + value + " / " + "text = " + text);
-      }
-    });
-
-
-
-    // api wilayah untuk domisili 
-    console.log('Load Provinsi API Domisili...');
-    $.getJSON(urlProvinsi, function(res) {
-      res = $.map(res, function(obj) {
-        obj.text = obj.nama;
-        return obj;
-      });
-      data = [{
-        id: "",
-        nama: "- Pilih Provinsi -",
-        text: ""
-      }].concat(res);
-
-      //implemen data ke select provinsi
-
-      console.log(res);
-      var total = res.length;
-      for (var i = 1; i <= total; i++) {
-        var added = document.createElement('option');
-        var select1 = $('#propinsi_dom');
-        added.value = res[i].nama;
-        added.innerHTML = res[i].nama;
-        select1.append(added);
-      }
-
-
-
-    });
-
-
-    $('select[name=provinsi_dom').on('change', function() {
-
+      })
     })
+    // end of api wilayah ktp
+
+
+    // api domisili
+    $('select[name=provinsi_dom').on('change', function() {
+      var id = $("select[name=provinsi_dom] option:selected").val();
+      $.ajax({
+        url: "<?= base_url('Wilayah/kota') ?>",
+        method: "POST",
+        data: 'provinsi_id=' + id,
+        success: function(e) {
+          //console.log(id);
+          var select1 = $('#kabupaten_dom');
+          var result = JSON.parse(e);
+          for (var i = 0; i < result.length; i++) {
+            var added = document.createElement('option');
+            added.value = result[i].kode;
+            added.innerHTML = result[i].nama;
+            select1.append(added);
+          }
+        }
+      })
+    })
+
+    $('select[name=kota_dom').on('change', function() {
+      var id = $("select[name=kota_dom] option:selected").val();
+      $.ajax({
+        url: "<?= base_url('Wilayah/kecamatan') ?>",
+        method: "POST",
+        data: 'kota_id=' + id,
+        success: function(e) {
+          var select1 = $('#kecamatan_dom');
+          var result = JSON.parse(e);
+          clearOptions('kecamatan_dom');
+          for (var i = 0; i < result.length; i++) {
+            var added = document.createElement('option');
+            added.value = result[i].kode;
+            added.innerHTML = result[i].nama;
+            select1.append(added);
+          }
+        }
+      })
+    })
+
+    $('select[name=kec_dom').on('change', function() {
+      var id = $("select[name=kec_dom] option:selected").val();
+      $.ajax({
+        url: "<?= base_url('Wilayah/desa') ?>",
+        method: "POST",
+        data: 'kecamatan_id=' + id,
+        success: function(e) {
+          var select1 = $('#kelurahan_dom');
+          var result = JSON.parse(e);
+          clearOptions('kelurahan_dom');
+          for (var i = 0; i < result.length; i++) {
+            var added = document.createElement('option');
+            added.value = result[i].kode;
+            added.innerHTML = result[i].nama;
+            select1.append(added);
+          }
+        }
+      })
+    })
+
     // end of api domisili 
   </script>
