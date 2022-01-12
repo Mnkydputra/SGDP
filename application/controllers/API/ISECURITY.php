@@ -2,10 +2,9 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 
-require_once(APPPATH . './libraries/RestController.php');
-
+// require './libraries/RestController.php' ;
+require_once(APPPATH.'./libraries/RestController.php');
 use chriskacerguis\RestServer\RestController;
-// use chriskacerguis\RestServer\Format;
 
 class ISECURITY extends RestController
 {
@@ -13,12 +12,15 @@ class ISECURITY extends RestController
     {
         // Construct the parent class
         parent::__construct();
+        // $this->load->model('Api_model');
     }
 
     //ambil biodata anggota
     public function biodata_get()
     {
         $id = $this->get('id');
+        $url = $this->uri->segment(3);
+
         $where = ['id_biodata' => $id];
         $data = $this->Api_Model->getData("biodata", $where);
         if ($data->num_rows() > 0) {
@@ -83,6 +85,9 @@ class ISECURITY extends RestController
         }
     }
 
+
+
+
     //ambil data employee 
     public function employe_get()
     {
@@ -145,12 +150,15 @@ class ISECURITY extends RestController
                 'status'  => 'ok'
             ], 200);
         } else {
+
             $this->response([
                 'status' => false,
                 'message' => 'Tidak ada data'
             ], 404);
         }
     }
+
+
 
     //
 }

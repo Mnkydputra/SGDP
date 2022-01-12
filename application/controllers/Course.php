@@ -12,6 +12,7 @@ class Course extends CI_Controller{
             $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
                 redirect('Login');
             } 
+            
     }
    
     
@@ -27,6 +28,7 @@ class Course extends CI_Controller{
         $this->load->view('mobile/fotter',$data);
     }
 }
+
 
 ?>
 

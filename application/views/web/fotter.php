@@ -11,8 +11,6 @@
                });
            });
        })
-
-       var render = createwidgetlokasi("provinsi", "kabupaten", "kecamatan", "kelurahan");
    </script>
    </body>
 

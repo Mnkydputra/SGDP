@@ -8,10 +8,6 @@ class Tikor extends CI_Controller
   function index()
   {
 
-    // $source = '2012-07-31';
-    // $date = new DateTime($source);
-    // echo $date->format('d.m.y') . "<br>"; // 31.07.2012
-
     $query = $this->db->query("select max(id) as hasil from titik_area  ");
     $p = $query->row();
 
@@ -57,7 +53,6 @@ class Tikor extends CI_Controller
     $lokasi = $this->input->post("lokasi");
     $idplan = $this->input->post("id_plan");
     $id     = $this->input->post("id2");
-    $urutan = $this->input->post("urutan");
 
     $data_plan = [
       'id'        => $id,
@@ -66,8 +61,6 @@ class Tikor extends CI_Controller
       'lokasi'    => $lokasi,
       'latitude'  => $lat,
       'longitude' => $long,
-      'titik_koordinat' => $lat . "," . $long,
-      'urutan'   => $urutan
     ];
 
     $save = $this->Sipd_model->added("titik_area", $data_plan);
@@ -85,13 +78,12 @@ class Tikor extends CI_Controller
     $long   = $this->input->post('longitude2');
     $lokasi = $this->input->post("lokasi2");
     $idplan = $this->input->post("id_plan2");
-    $urutan = $this->input->post("urutan2");
+
     $data_plan = [
       'id_plan'  =>  $idplan,
       'lokasi'   => $lokasi,
       'latitude' => $lat,
-      'longitude' => $long,
-      'urutan'   => $urutan
+      'longitude' => $long
     ];
     $where = ['id'  => $this->input->post('id')];
     $update = $this->Sipd_model->update("titik_area", $data_plan, $where);

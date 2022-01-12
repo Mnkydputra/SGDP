@@ -2,8 +2,8 @@
 
 namespace chriskacerguis\RestServer;
 
-require_once(APPPATH . 'libraries/Format.php');
-
+require_once(APPPATH.'libraries/Format.php');
+//require_once(APPPATH.'./libraries/RestController.php');
 use Exception;
 use stdClass;
 

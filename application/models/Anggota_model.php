@@ -19,11 +19,119 @@ class Anggota_model extends CI_Model
    }
 
    // cek kahidaran
-   public function cek_kehadiran($id_absen, $validasi)
+   public function cek_VLC($id_absen, $validasi)
    {
       $query_str =
          $this->db->where('id_absen', $id_absen)
          ->where('validasi_kehadiran', $validasi)->get('absen_vlc');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_P1($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_p1');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_P2($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_p2');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_P3($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_p3');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_P4($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_p4');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_P5($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_p5');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_PC($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_pc');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_DOR($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_dor');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_HO($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_ho');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_KORLAP($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_korlap');
       if ($query_str->num_rows() > 0) {
          return $query_str->row();
       } else {
@@ -57,6 +165,7 @@ class Anggota_model extends CI_Model
       return $this->db->update('employe_karyawan', $data, $where);
    }
 
+   // Update Pasangan dan Anak
    public function update($data, $table, $where)
    {
       $this->db->where($where);

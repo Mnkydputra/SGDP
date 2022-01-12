@@ -24,7 +24,7 @@
         <div class="container-md-3">
             <div style="background-color:#6f9390; height:50px;" class=" alert alert" role="alert">
                      <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
-                         <i class='bx bx-calendar'>APEL BERSAMA | 15 JANUARI 2022 | 07:00</i></label>
+                         <i class='bx bx-calendar'>APEL BERSAMA | 18 JANUARI 2022 | 07:00</i></label>
             </div>
                 <!-- Modal -->
             <div class="modal fade" id="pengumuman" tabindex="-1" aria-labelledby="pengumumanLabel" aria-hidden="true">
@@ -82,9 +82,9 @@
             </div>
             <!--  -->
         </div>
-        <div class="graph-wr">
-            <canvas id="myChart"></canvas>
-        </div>
+        <!--<div class="graph-wr">-->
+        <!--    <canvas id="myChart"></canvas>-->
+        <!--</div>-->
     </div>
     <div class="row">
         <div class="container-md-3">

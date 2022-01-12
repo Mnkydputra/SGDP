@@ -11,7 +11,7 @@
 
              <form id="form2" action="" enctype="multipart/form-data" method="post">
                <div class="form-group">
-                 <input type="submit" name="upload" id="submit" value="Upload" class="btn btn-primary btn-sm mt-2 mb-5">
+                 <input type="submit" name="upload" id="submit" value="Upload" class="btn btn-primary btn-sm mt-2 mb-2">
                  <img height="256" width="256" class="img-thumbnail" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>">
                </div>
                <div class="form-control">
@@ -61,7 +61,7 @@
          })
        } else {
          $.ajax({
-           url: "<?= base_url('Anggota/Profile/UpdateFoto') ?>",
+           url: "<?= base_url('Profile/UpdateFoto') ?>",
            method: "POST",
            data: new FormData(this),
            processData: false,
@@ -81,7 +81,7 @@
                icon: "success",
                title: "Berhasil"
              }).then(function() {
-               window.location.href = "<?= base_url("Anggota/Profile/Foto") ?>";
+               window.location.href = "<?= base_url("Profile/Foto") ?>";
              })
            }
          })

@@ -26,7 +26,7 @@
                         <td><?= $tkr->longitude ?></td>
                         <td>
                             <a href="javascript:hapusTikor('<?= $tkr->id  ?>')" class="btn btn-danger btn-sm">hapus</a>
-                            <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-urutan="<?= $tkr->urutan ?>" data-area="<?= $tkr->id_plan ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-sm btn-success mt-2 mb-2">edit</button>
+                            <button data-id="<?= $tkr->id ?>" data-area="<?= $tkr->id_plan ?>" data-lokasi="<?= $tkr->lokasi ?>" data-lat="<?= $tkr->latitude ?>" data-long="<?= $tkr->longitude ?>" data-area="<?= $tkr->id_plan ?>" data-bs-toggle="modal" data-bs-target="#edit-data" class="btn-add btn btn-sm btn-success mt-2 mb-2">edit</button>
                             <a href="<?= base_url('assets/patrol/qrcode/' . $tkr->id_plan . '-' . $tkr->lokasi . '.png') ?>" class="btn btn-primary btn-sm">cetak qrcode</a>
                         </td>
                     </tr>
@@ -58,18 +58,12 @@
                         <option value="P1">PLAN 1</option>
                         <option value="P2">PLAN 2</option>
                         <option value="P3">PLAN 3</option>
-                        <option value="P4-ASSY1">PLAN 4 ASSY 1</option>
-                        <option value="P4-ASSY2">PLAN 4 ASSY 2</option>
+                        <option value="P4">PLAN 4</option>
                         <option value="P5">PLAN 5</option>
                     </select>
                     <div class="form-group">
                         <label for="">Lokasi Patroli</label>
                         <input name="lokasi" type="text" autocomplete="off" class="form-control form-btn form-control-sm text-dark" id="lokasi">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Urutan Patroli</label>
-                        <input name="urutan" type="number" autocomplete="off" class="form-control form-btn form-control-sm text-dark" id="urutan">
                     </div>
 
                     <div class="form-group">
@@ -116,18 +110,12 @@
                         <option value="P1">PLAN 1</option>
                         <option value="P2">PLAN 2</option>
                         <option value="P3">PLAN 3</option>
-                        <option value="P4-ASSY1">PLAN 4 ASSY 1</option>
-                        <option value="P4-ASSY2">PLAN 4 ASSY 2</option>
+                        <option value="P4">PLAN 4</option>
                         <option value="P5">PLAN 5</option>
                     </select>
                     <div class="form-group">
                         <label for="">Lokasi Patroli</label>
                         <input name="lokasi2" type="text" class="form-control form-btn form-control-sm text-dark" id="lokasi2">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="">Urutan Patroli</label>
-                        <input name="urutan2" type="number" autocomplete="off" class="form-control form-btn form-control-sm text-dark" id="urutan2">
                     </div>
 
                     <div class="form-group">

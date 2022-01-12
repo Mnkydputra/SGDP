@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
-    <title>SGDP | POCKET</title>
+    <title>I - SECURITY</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="icon" type="image/png" href="../assets/img/icons/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    
+    
 
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/') ?>img/icon.png">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.css.map">
@@ -16,8 +18,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style2.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.css.map">
-    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
-    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
+
     <!-- DatePicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
     <!-- Jquery CDN -->
@@ -48,9 +49,14 @@
 
     <script src=" <?= base_url('assets/js/') ?>geo-min.js" type="text/javascript" charset="utf-8">
     </script>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" /> -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+   <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
+   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
+   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
 </head>
+
 
 <body style="background-color:#F9FAFA">
     <!-- HEADER -->
@@ -62,16 +68,16 @@
                 </a>
                 <a style="border-style:none" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <?php if ($berkas->foto == null) { ?>
-                        <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/img/icon-header.png') ?>" alt="avatar" height=67px; width=67px;>
+                        <img style="border:solid; color:#cbced1;" class="rounded-circle float-end" src="<?= base_url('assets/img/icon-header.png') ?>" alt="avatar"  width=76; height=76; >
                     <?php } else { ?>
-                        <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar" height=67px; width=67px;>
+                        <img style="border:solid; color:#cbced1;" class="rounded-circle float-end" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar"  width=76; height=76;>
                     <?php } ?>
 
                 </a>
                 <div class="collapse navbar-collapse " id="navbarSupportedContent">
                     <ul style="float:right;" class="navbar-nav px-1 mx-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="<?= base_url('Anggota/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                            <a class="nav-link active" aria-current="page" href="<?= base_url('Profile/') ?>Foto"><span>Foto Profil</span></a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="<?= base_url('LogOut') ?>"><span>Keluar</span></a>

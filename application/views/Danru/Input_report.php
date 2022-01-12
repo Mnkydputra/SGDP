@@ -95,7 +95,7 @@
                             text: 'Report di Kirim',
                             icon: 'success',
                         }).then(function() {
-                            window.location = "<?= base_url('Danru/Patrol/urutan/') ?>" + hasil
+                            window.location = "<?= base_url('Danru/Patrol/') ?>"
                         })
                     }
                 })
