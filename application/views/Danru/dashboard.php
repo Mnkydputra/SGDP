@@ -1,18 +1,24 @@
-<style>
-    .graph-wr {
-        height: 350px;
-        max-height: 600px;
-        max-width: 100%;
-        position: relative;
-        width: 1650px;
-        font-weight: 55mm;
-    }
-</style>
+
 <!-- Sticky top -->
 <div style="margin-top:90px; background-color:#F9FAFA;" class="container fixed-top">
-    <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>
+    <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>   
     <div class="container-md-3">
         <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-secondary" role="alert">
+<<<<<<< HEAD
+        <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+        </div>
+        <a style="" class="btn btn-danger btn-sm mb-2" href="<?= base_url('Danru/Patrol/') ?>">
+                <span class="bx bx-street-view"></span> I - PATROL
+            </a>
+        <div style="background-color:#6f9390; height:50px;" class="alert alert" role="alert">
+            <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" 
+            class="text-white  d-flex align-items-center justify-content-center">
+                <i class='bx bx-calendar'> APEL BERSAMA | 18 JANUARI 2022 | 07:00 </i>
+            </label>
+        </div>
+        <div style="background-color:#F9FAFA" >
+            <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px; " class="alert alert-danger" role="alert">
+=======
             <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
         </div>
     </div>
@@ -92,19 +98,18 @@
     <div class="row">
         <div class="container-md-3">
             <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-danger" role="alert">
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
                 <i class='d-flex align-items-center justify-content-center'> <label style="font-weight:bold;">INDEKS MASSA TUBUH</label> </i>
             </div>
             <div >
                 <canvas style="margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
             </div>
         </div>
-
-
-
-
-        
     </div>
 </div>
+<!-- End Sticky Top -->
+
+
 
 <script>
     const data = {
@@ -215,88 +220,4 @@
         document.getElementById('halfChart'),
         config
     );
-</script>
-
-<script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: ['Kemampuan', 'Kedisiplinan', 'Kepribadian', 'Kinerja', 'Kepemimpinan'],
-            datasets: [{
-                label: 'Kemampuan',
-                data: [5],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kedisiplinan',
-                data: [5, 4],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kepribadian',
-                data: [5, 4, 4],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kinerja',
-                data: [5, 4, 4, 3],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kepemimpinan',
-                data: [5, 4, 4, 3, 2],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    display: false,
-                },
-            },
-            plugins: {
-                legend: {
-                    display: false,
-                    weight: 700
-                }
-            },
-
-        }
-    });
 </script>

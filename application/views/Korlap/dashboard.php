@@ -1,3 +1,19 @@
+<<<<<<< HEAD
+<div style="margin-top:90px; background-color:#F9FAFA;" class="container fixed-top">
+    <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>   
+    <div class="container-md-3">
+        <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-secondary" role="alert">
+        <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+        </div> 
+        <div style="background-color:#6f9390; height:50px;" class="alert alert" role="alert">
+            <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" 
+            class="text-white  d-flex align-items-center justify-content-center">
+                <i class='bx bx-calendar'> APEL BERSAMA | 18 JANUARI 2022 | 07:00 </i>
+            </label>
+        </div>
+        <div style="background-color:#F9FAFA" >
+            <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px; " class="alert alert-danger" role="alert">
+=======
 <style>
     .graph-wr {
         height: 350px;
@@ -89,17 +105,21 @@
     <div class="row">
         <div class="container-md-3">
             <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-danger" role="alert">
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
                 <i class='d-flex align-items-center justify-content-center'> <label style="font-weight:bold;">INDEKS MASSA TUBUH</label> </i>
             </div>
             <div >
                 <canvas style="margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
             </div>
         </div>
+<<<<<<< HEAD
+=======
 
 
 
 
         
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
     </div>
 </div>
 
@@ -212,6 +232,8 @@
         document.getElementById('halfChart'),
         config
     );
+<<<<<<< HEAD
+=======
 </script>
 
 <script>
@@ -296,4 +318,5 @@
 
         }
     });
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
 </script>

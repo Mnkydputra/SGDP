@@ -118,7 +118,8 @@ class Report_Patroli extends CI_Controller
             'tgl1'    => $day,
             'tgl2'     => $day2
         ];
-        $mpdf = new \Mpdf\Mpdf();
+        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
+        // $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
         $data = $this->load->view('PIC/report_patroli_v2', $data,  TRUE);
         $mpdf->WriteHTML($data);
         $mpdf->Output("Report Patroli " . $area . ".pdf", 'I');

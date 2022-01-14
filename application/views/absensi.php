@@ -25,6 +25,12 @@
                                   <option hidden value="<?=  $employe->area_kerja  ?>"> </option>
                           </select>
                            <input hidden style="border:2px solid #ccc;width:100%" class="mb-2" name="Jabatan" id="Jabatan" value="<?=  $employe->jabatan  ?>">
+<<<<<<< HEAD
+                            <select hidden  style="border:2px solid #ccc;width:100%" class="mb-2" name="Wilayah" id="Wilayah">
+                                  <option hidden value="<?= $employe->wilayah ?>"></option>
+                          </select>
+=======
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
                       </form>
                       <div class="form-group ms-3 ps-4">
                           <video width="250" class="img-thumbnail" id="preview" ></video>
@@ -33,6 +39,17 @@
                 </div>
                 
   </div>
+<<<<<<< HEAD
+     <script type="text/javascript">
+        let scanner = new Instascan.Scanner({
+          video: document.getElementById('preview'),
+          mirror:false,
+          scanPeriod: 3
+          });
+        scanner.addListener('scan', function (content) { 
+          navigator.geolocation.getCurrentPosition(function(position) {
+                  var Jabatan = document.getElementById('Jabatan').value;
+=======
       <script type="text/javascript">
         let scanner = new Instascan.Scanner({
           video: document.getElementById('preview'),
@@ -42,11 +59,15 @@
         scanner.addListener('scan', function (content) { 
           navigator.geolocation.getCurrentPosition(function(position) {
             var Jabatan = document.getElementById('Jabatan').value;
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
                   var idTikor = $("select[name=AreaKerja] option:selected").val();
                   const long = position.coords.longitude;
                   const lat = position.coords.latitude;
                   const acc = position.coords.accuracy;
+<<<<<<< HEAD
+=======
                  
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
             $.ajax({
               url: $("#formAbsen").attr('data-url'),
               method: "POST",
@@ -57,6 +78,141 @@
                 const longitudeBarcode = result[0].longtitude;
                 var Koma = ", ";
                 const db = latitudeBarcode + Koma + longitudeBarcode ;
+<<<<<<< HEAD
+                const text = content.split(",",2);
+                          const la = text[0];
+                          const lo = text[1];
+                    if(Jabatan == "KORLAP"){
+                    var willl = $("select[name=Wilayah] option:selected").val();
+                    $.ajax({
+                      url: "<?= base_url('Absen/getlatitude')?>",
+                      method: "POST",
+                      data : "latitude=" + la,
+                      success : function(response){
+                          var raa = JSON.parse(response); 
+                          const latitude = raa[0].wilayah;
+                          console.log(latitude);
+                          if(latitude == willl ){
+                              $.ajax({
+                                url: "<?= base_url("Absen/input/")?>" + id_absen,
+                                method: "POST",
+                                contentTYpe: false,
+                                processData: true,
+                                cache: false,
+                                success : function(response){
+                                    if(response == "AndaTelahAbsen" ){
+                                          Swal.fire({
+                                            icon : "warning",
+                                            title : "Perhatian",
+                                            text : "Anda Telah Absen Masuk, Silahkan Absen Pada Jam Pulang",
+                                            dangerMode : [true , "Ok"]
+                                          }).then(function(){
+                                              window.location.href="<?= base_url('Profile')?>"
+                                          })
+                                    }else  if(response == "AbsenPulang"){
+                                          Swal.fire({
+                                            icon : "success",
+                                            title : "Berhasil",
+                                            text : "Absen Pulang Berhasil",
+                                            dangerMode : [true , "Ok"]
+                                          }).then(function(){
+                                              window.location.href="<?= base_url('Profile')?>"
+                                          })
+                                    }else if(response == "AbsenMasuk"){
+                                          Swal.fire({
+                                            icon : "success",
+                                            title : "Berhasil",
+                                            text : "Absen Masuk Berhasil",
+                                            dangerMode : [true , "Ok"]
+                                          }).then(function(){
+                                              window.location.href="<?= base_url('Profile')?>"
+                                          })
+                                  }else{
+                                      Swal.fire({
+                                            icon : "error",
+                                            title : "Perhatian",
+                                            text : "Anda Gagal Absen Silahkan Hubungi PIC Anda",
+                                            dangerMode : [true , "Ok"]
+                                                  })
+                                          }
+                                        }   
+                                     })  
+                          }else{
+                            Swal.fire({
+                            icon : "warning",
+                            title : "Perhatian",
+                            text : "Anda Tidak Bisa Absen Di Luar Wilayah Anda",
+                            dangerMode : [true , "Ok"]
+                                  })
+                          }
+                        }
+                      });
+                    }else if(content == db ){
+                        var id_absen = document.getElementById('id_absen').value;
+                        var npk = document.getElementById('npk').value;
+                        var barcode = new google.maps.LatLng(latitudeBarcode, longitudeBarcode);
+                        // lokasi handphone
+                        var posisi_user = new google.maps.LatLng(lat, long);
+                        const jarak = (google.maps.geometry.spherical.computeDistanceBetween(barcode, posisi_user)/ 1000).toFixed(2); 
+                        if(jarak <= 0.05){
+                              $.ajax({
+                                      url: "<?= base_url("Absen/input/")?>" + id_absen,
+                                      methode: "POST",
+                                      contentTYpe: false,
+                                      processData: true,
+                                      cache: false,
+                                      success : function(response){
+                                              if(response == "AndaTelahAbsen" ){
+                                                    Swal.fire({
+                                                      icon : "warning",
+                                                      title : "Perhatian",
+                                                      text : "Anda Telah Absen Masuk, Silahkan Absen Pada Jam Pulang",
+                                                      dangerMode : [true , "Ok"]
+                                                    }).then(function(){
+                                                        window.location.href="<?= base_url('Profile')?>"
+                                                    })
+                                              }else  if(response == "AbsenPulang"){
+                                                    Swal.fire({
+                                                      icon : "success",
+                                                      title : "Berhasil",
+                                                      text : "Absen Pulang Berhasil",
+                                                      dangerMode : [true , "Ok"]
+                                                    }).then(function(){
+                                                        window.location.href="<?= base_url('Profile')?>"
+                                                    })
+                                              }else if(response == "AbsenMasuk"){
+                                                    Swal.fire({
+                                                      icon : "success",
+                                                      title : "Berhasil",
+                                                      text : "Absen Masuk Berhasil",
+                                                      dangerMode : [true , "Ok"]
+                                                    }).then(function(){
+                                                        window.location.href="<?= base_url('Profile')?>"
+                                                    })
+                                              }else{
+                                                  Swal.fire({
+                                                        icon : "error",
+                                                        title : "Perhatian",
+                                                        text : "Anda Gagal Absen Silahkan Hubungi PIC Anda",
+                                                        dangerMode : [true , "Ok"]
+                                                      })
+                                              }
+                                            }   
+                                        });           
+                                  }else{
+                                      Swal.fire({
+                                      icon : "warning",
+                                      title : "Perhatian",
+                                      text : "Anda Diluar Area Absen",
+                                      dangerMode : [true , "Ok"]
+                                    })
+                                  }
+                                }
+                  }
+                })
+              })
+            });
+=======
                
                if(Jabatan == "KORLAP"){
                     var id_absen = document.getElementById('id_absen').value;
@@ -178,6 +334,7 @@
                     })
                   }); 
                 });
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
 
         Instascan.Camera.getCameras().then(function (cameras) {
         if (cameras.length > 0) {

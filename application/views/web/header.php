@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="google-site-verification" content="kT6HzKD1Qm2Fp0Uh24SdjRoIMmLMmM2amx8pd11VSqM" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
@@ -40,9 +40,19 @@
   <!-- IMASK CDN -->
   <script src="https://unpkg.com/imask"></script>
   <script src="<?= base_url('assets/js/') ?>songof.js"></script>
+<<<<<<< HEAD
+
+
+
+=======
   <!-- akhir dari Bagian js -->
   <script src="https://maps.googleapis.com/maps/api/js?
+<<<<<<< HEAD
 key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah" async defer></script>
+=======
+key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah"></script>
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
+>>>>>>> 7e3abdd484fdd0325050df572c6a228a2957b4ad
   <title>I - SECURITY</title>
 </head>
 

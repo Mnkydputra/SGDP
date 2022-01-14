@@ -5,7 +5,7 @@
     <title>I - SECURITY</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="google-site-verification" content="kT6HzKD1Qm2Fp0Uh24SdjRoIMmLMmM2amx8pd11VSqM" />
     <link rel="icon" type="image/png" href="../assets/img/icons/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
@@ -13,11 +13,13 @@
     
 
     <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/') ?>img/icon.png">
-    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.css.map">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style2.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
+<<<<<<< HEAD
+=======
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.css.map">
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
 
     <!-- DatePicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -35,11 +37,15 @@
     <!-- SWEET ALERT -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- DATATABLES -->
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">-->
+    <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">-->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <!-- IMASK CDN -->
+<<<<<<< HEAD
+    <script src="https://unpkg.com/imask@6.2.2/dist/imask.js"></script>
+=======
     <script src="https://unpkg.com/imask"></script>
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
     <script src="<?= base_url('assets/dist/') ?>jquery-qrcode.js"></script>
     <!-- API LOCATION -->
     <script src="<?= base_url('assets/js/') ?>songof.js"></script>
@@ -49,7 +55,10 @@
 
     <script src=" <?= base_url('assets/js/') ?>geo-min.js" type="text/javascript" charset="utf-8">
     </script>
+<<<<<<< HEAD
+=======
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />

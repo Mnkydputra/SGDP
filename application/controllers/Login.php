@@ -65,16 +65,22 @@ class Login extends CI_Controller
                         redirect('Korlap/Dashboard');
                         break;
                     case '4':
-                        redirect('Sipd/Dashboard');
+                        redirect('Pkd/Dashboard');
                         break;
                     case '5':
-                        redirect('PIC/Dashboard');
+                        redirect('Sipd/Dashboard');
                         break;
                     case '6':
-                        redirect('SPV/Dashboard');
+                        redirect('PIC/Dashboard');
                         break;
                     case '7':
+                        redirect('SPV/Dashboard');
+                        break;
+                    case '8':
                         redirect('MGT/Dashboard');
+                        break;
+                    case '9':
+                        redirect('Superadmin/Dashboard');
                         break;
                     default:
                         break;
