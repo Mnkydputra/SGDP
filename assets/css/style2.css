@@ -8,19 +8,40 @@
 	width: 450px;
 	transform: rotate(90deg);
 }
+.table-info {
+	width: 100%;
+}
 
+.h-info {
+	background-color: rgb(194, 15, 15);
+	color: #fff;
+}
+.table-info tr td {
+	border: 1px solid #000;
+}
 tr .title-td {
 	background: red;
 	color: #fff;
 	font-size: 25px;
 }
+.img-patrol {
+	width: 260px;
+	height: 160px;
+	float: left;
+}
+
+.table-info tr {
+	border: 1px solid #000;
+	margin: 0px;
+}
 
 .img-logo {
+	height: 20px;
 	display: flex;
 	position: relative;
 	margin-top: -70px;
+	width: 20%;
 	margin-left: 270px;
-	width: 100px;
 }
 
 .fingerprint {

@@ -1,17 +1,17 @@
    <!-- FOTTER -->
    <!-- DATATABLES -->
 
-   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+
    <!-- END OF FOTTER -->
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
    <script>
        $(function() {
-           $(document).ready(function() {
-               $("#table_id").DataTable({
-                   responsive: true,
-               });
-           });
+           $("#table_id").DataTable()
        })
    </script>
+
    </body>
 
    </html>

@@ -68,13 +68,10 @@
         'use strict';
         let json = new Function(`return ${document.getElementById('json_data').innerHTML}`)();
         /*  new MsDropdown("#json_dropdown", {
-
               byJson: {
 
                   data: json, selectedIndex:1
-
               }
-
           })*/
         MsDropdown.make("#json_dropdown", {
             byJson: {
@@ -178,7 +175,7 @@
                         var posisi_user = new google.maps.LatLng(lat, long);
                         const jarak = (google.maps.geometry.spherical.computeDistanceBetween(plan, posisi_user) / 1000).toFixed(2);
                         console.log(jarak);
-                        if (jarak <= 0.07) {
+                        if (jarak <= 0.09) {
                             Swal.fire({
                                 title: 'Sukses!',
                                 text: 'Lanjut Documentasi ' + jarak,
