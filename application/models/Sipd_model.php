@@ -548,4 +548,26 @@ class Sipd_model extends CI_Model
 		$this->db->or_like("npk", $where);
 		return $this->db->get()->result_array();
 	}
+
+	//ambil titik koordinat model pic 
+	public function patrolReporting($npk)
+	{
+		if ($npk == "WIL1") {
+			$this->db->where("id_plan", "P4-ASSY1");
+			$this->db->or_where("id_plan", "P4-ASSY2");
+		} else if ($npk == "WIL2") {
+			$this->db->where("id_plan", "HO");
+			$this->db->or_where("id_plan", "P1");
+			$this->db->or_where("id_plan", "VLC");
+		} else if ($npk == "WIL3") {
+			$this->db->where("id_plan", "PC");
+			$this->db->or_where("id_plan", "P2");
+			$this->db->or_where("id_plan", "P3");
+			$this->db->or_where("id_plan", "DOR");
+		} else if ($npk == "WIL4") {
+			$this->db->where("id_plan", "P5");
+		}
+
+		return $this->db->get("titik_area");
+	}
 }

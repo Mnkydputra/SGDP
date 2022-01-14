@@ -23,7 +23,7 @@
                     <th class="align-center" colspan="<?= $jarak->d + 8 ?>">Januari </th>
                 </tr>
                 <tr>
-                    <th>Area VLC</th>
+                    <th>ALL AREA WILAYAH 1 </th>
                     <?php
                     for ($i = ($jarak->d); $i <= ($jarak->d + 7); $i++) { ?>
                         <th> <?= $i ?></th>
@@ -32,7 +32,7 @@
                 <tbody>
                     <?php foreach ($titik->result() as $d) : ?>
                         <tr>
-                            <td><?= $d->lokasi ?></td>
+                            <td><?= $d->id_plan . " - " . $d->lokasi ?></td>
                             <?php
                             //buat perulangan untuk mencari 
                             for ($j = $jarak->d; $j <= ($jarak->d + 7); $j++) {
@@ -71,13 +71,13 @@
     function wilayah() {
         //looad wilayah 2 
         var locations_wil2 = [
-            <?php foreach ($titik->result() as $d) { ?>['<h5> <?= $d->id_plan . " : " . $d->lokasi ?></h5>', <?= $d->titik_koordinat ?>],
+            <?php foreach ($maps->result() as $d) { ?>['<h5> <?= $d->id_plan . " : " . $d->lokasi ?></h5>', <?= $d->titik_koordinat ?>],
             <?php } ?>
         ];
         var infowindow = new google.maps.InfoWindow();
         var options = {
-            zoom: 18,
-            center: new google.maps.LatLng(-6.146517, 106.884907), //tengah peta 
+            zoom: 15,
+            center: new google.maps.LatLng(<?= $center ?>), //tengah peta 
             mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 

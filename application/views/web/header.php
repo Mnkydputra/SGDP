@@ -42,7 +42,7 @@
   <script src="<?= base_url('assets/js/') ?>songof.js"></script>
   <!-- akhir dari Bagian js -->
   <script src="https://maps.googleapis.com/maps/api/js?
-key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah"></script>
+key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah" async defer></script>
   <title>I - SECURITY</title>
 </head>
 
