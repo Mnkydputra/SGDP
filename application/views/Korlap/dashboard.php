@@ -21,7 +21,6 @@
     </div>
 </div>
 
-
 <script>
     const data = {
         labels: ["UnderWeight", "Normal", "OverWeight", "Obese"],
@@ -131,88 +130,4 @@
         document.getElementById('halfChart'),
         config
     );
-</script>
-
-<script>
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, {
-        type: 'radar',
-        data: {
-            labels: ['Kemampuan', 'Kedisiplinan', 'Kepribadian', 'Kinerja', 'Kepemimpinan'],
-            datasets: [{
-                label: 'Kemampuan',
-                data: [5],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kedisiplinan',
-                data: [5, 4],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kepribadian',
-                data: [5, 4, 4],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kinerja',
-                data: [5, 4, 4, 3],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }, {
-                label: 'Kepemimpinan',
-                data: [5, 4, 4, 3, 2],
-                pointBackgroundColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-
-                ],
-                borderWidth: 3
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: false,
-                    display: false,
-                },
-            },
-            plugins: {
-                legend: {
-                    display: false,
-                    weight: 700
-                }
-            },
-
-        }
-    });
 </script>

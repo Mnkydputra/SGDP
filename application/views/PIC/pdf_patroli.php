@@ -1,64 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Report Patroli Area <?= $area ?> </title>
-    <link rel="stylesheet" href="/assets/css/style2.css">
-</head>
-
-<body>
-
-    <img src="./assets/img/Login.png" class="img-logo">
-    <?php
-
-    if ($patrol->num_rows() > 0) { ?>
-
-        <table style="font-size: 40px;border:2px solid #000">
-            <!-- <thead>
-            <tr>
-                <th>Nama - NPK </th>
-                <th>Tanggal & Jam</th>
-                <th>Lokasi</th>
-                <th>Gambar 1</th>
-                <th>Gambar 2</th>
-                <th>Gambar 3</th>
-            </tr>
-        </thead> -->
-            <tbody>
-                <?php foreach ($patrol->result() as $ptr) : ?>
-                    <?php $d = $this->db->get_where('documentasi_patroli', ['id_patroli' => $ptr->id_patroli]) ?>
-                    <tr>
-                        <td style="background-color: red;color:#fff" align="center" colspan="3">Area : <?= $ptr->area_kerja ?> || Lokasi : <?= $ptr->lokasi . ' || ' . $ptr->tanggal . ' ' . $ptr->jam ?></td>
-                    </tr>
-                    <tr>
-                        <!-- <td><?= $ptr->nama . " - " . $ptr->id_npk  ?></td>
-                    <td><?= $ptr->tanggal . ' ' . $ptr->jam  ?></td>
-                    <td><?= $ptr->lokasi  ?></td> -->
-                        <?php foreach ($d->result() as $cd) : ?>
-                            <td align="center">
-                                <img class="img-report" height="450px" src="<?= base_url() ?>/assets/patrol/<?= $cd->picture ?>">
-                            </td>
-                        <?php endforeach ?>
-                    </tr>
-                <?php endforeach ?>
-            </tbody>
-        </table>
-    <?php } else { ?>
-        <table>
-            <tbody>
-                <tr>
-                    <td align="center">
-                        <h1>Hasil Tidak Ditemukan</h1>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    <?php } ?>
-
-
-</body>
-
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Patroli Area <?= $area ?> </title>
+    <link rel="stylesheet" href="/assets/css/style2.css">
+    
+</head>
+
+<body>
+    <img src="./assets/img/Login.png" class="img-logo" style="display:flex;position:relative;margin-top:-70px;margin-left:300px;width:100px">
+    <?php
+    if ($patrol->num_rows() > 0) { ?>
+        <table>
+            <tr>
+                <td>Area Patroli</td>
+                <td>:</td>
+                <td> <?= $area ?></td>
+            </tr>
+            <tr>
+                <td>Tanggal Penarikan</td>
+                <td>:</td>
+                <?php if ($tgl2 == null) { ?>
+                    <td> <?= $tgl1 ?></td>
+                <?php } else { ?>
+                    <td> <?= $tgl1 . ' - ' . $tgl2 ?></td>
+                <?php } ?>
+            </tr>
+        </table>
+
+        <table style="font-size: 12px;border:2px solid #000;width:100%">
+            <tbody>
+                <?php foreach ($patrol->result() as $ptr) : ?>
+                    <?php $d = $this->db->get_where('documentasi_patroli', ['id_patroli' => $ptr->id_patroli]) ?>
+                    <tr>
+                        <td class="title-td" colspan="3">Lokasi : <?= $ptr->lokasi . ' || ' . $ptr->tanggal . ' ' . $ptr->jam  . ' || Keterangan : ' . $ptr->keterangan ?> </td>
+                    </tr>
+                    <tr>
+                        <?php foreach ($d->result() as $cd) : ?>
+                            <td align="center" style="border:3px solid #000">
+                                <img  class="img-report" src="<?= base_url() ?>/assets/patrol/<?= $cd->picture ?>">
+                            </td>
+                        <?php endforeach ?>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    <?php } else { ?>
+        <hr>
+        <table width="100%">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <h1 style="color:red">No Data Found</h1>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    <?php } ?>
+
+
+</body>
+
 </html>

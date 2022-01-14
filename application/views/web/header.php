@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="google-site-verification" content="kT6HzKD1Qm2Fp0Uh24SdjRoIMmLMmM2amx8pd11VSqM" />
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
@@ -38,7 +38,7 @@
 
 
 
-  <title>SGDP | POCKET</title>
+  <title>I - SECURITY</title>
 </head>
 
 <body style="background-color:#e3e3e1; margin:0;">
@@ -46,7 +46,7 @@
   <div class="container-fluid">
     <nav style="height:60px; padding-top:0; background-color: #f2f2e9;" class="navbar navbar-expand-lg navbar-light  fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#"><img src="<?= base_url('assets/img/') ?>Group_2.png" alt="brand"></a>
+        <a class="navbar-brand" href="#"><img height="40px" src="<?= base_url('assets/img/') ?>Group_2.png" alt="brand"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -62,11 +62,25 @@
           <div class="d-flex" style="display: none; list-style:none;">
             <li class="nav-item dropdown" style="list-style:none; ">
               <a class="nav-link dropdown-toggle" href="#" id="navProfile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar" height=55px; width=55px;>
+                <?php if ($berkas->foto == null) { ?>
+                  <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/img/icon-header.png') ?>" alt="avatar" height=55px; width=55px;>
+                <?php } else { ?>
+                  <img style="border:solid; color:#cbced1" class="img-thumbnail rounded-pill mt-2" src="<?= base_url('assets/berkas/Poto/') . $berkas->foto ?>" alt="avatar" height=55px; width=55px;>
+                <?php } ?>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navProfile">
                 <li>
-                  <a class="dropdown-item" aria-current="page" href="<?= base_url('Anggota/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php if ($this->session->userdata('role_id') == 1) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Anggota/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 2) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Danru/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 3) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Korlap/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 4) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Sipd/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } else if ($this->session->userdata('role_id') == 5) { ?>
+                    <a class="dropdown-item" aria-current="page" href="<?= base_url('PIC/Profile/') ?>Foto"><span>Foto Profil</span></a>
+                  <?php } ?>
                 </li>
                 <li>
                   <hr class="dropdown-divider  ">

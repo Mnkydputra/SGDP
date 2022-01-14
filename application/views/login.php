@@ -35,14 +35,14 @@
 			<div class="row justify-content-center">
 				
                 <div class="col-md-6 text-center mb-5">
-					<img class="heading-section" src="<?php echo base_url('assets/img/')?>Login.png" alt="brand">
+					<img class="heading-section" width="125" height="125" src="<?php echo base_url('assets/img/')?>Login.png" alt="brand">
 				</div>
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6 col-lg-4">
 					<div class="login-wrap p-0">
 		      	<h3 class="mb-4 text-center">LOGIN</h3>
-		      	<form action="<?= base_url('Login/')?>cekLogin" method="post"  class="signin-form">
+		      	<form action="<?=  base_url('Login/')?>cekLogin" method="post"  class="signin-form">
 		      		<div class="form-group">
 					  <input type="text" class="form-control" id="npk" name="npk" placeholder="Masukan Nomor NPK Anda" >
 		      		</div>
@@ -101,6 +101,18 @@
 		})
 	</script>
 <?php } ?>
+
+<?php if($this->session->flashdata('salahPass')){?>
+	<script type="text/javascript">
+		Swal.fire({
+			icon : "error",
+			title : "Perhatian",
+			text : "Password Salah",
+			dangerMode :[true,"OK"]
+		})
+	</script>
+
+<?php }?>
 
 
 <?php if($this->session->flashdata('berhasil')){?>

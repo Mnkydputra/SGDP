@@ -21,11 +21,12 @@
             <form action="#" id="upload" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="plan" value="<?= $plan->lokasi ?>">
                 <div class="form-group">
-                    <input type="hidden" name="area_kerja" value="<?= $area->area_kerja ?>">
+                    <input type="hidden" name="area_kerja" value="<?= $plan->id_plan ?>">
                     <input type="hidden" id="urutan" name="urutan" value="<?= $plan->urutan ?>">
+                    <input type="hidden" id="idLokasi" name="idLokasi" value="<?= $plan->id ?>">
                     <textarea cols="42" placeholder="Keterangan Kondisi" name="keterangan" id="keterangan"></textarea>
                 </div>
-                <?php for ($i = 1; $i <= 3; $i++) : ?>
+                <?php for ($i = 1; $i <= 2; $i++) : ?>
                     <!-- <label>Documentasi</label> -->
                     <input type="file" id="file<?= $i ?>" name="file<?= $i ?>" accept="image/*">
                 <?php endfor; ?>
@@ -94,7 +95,7 @@
                             text: 'Report di Kirim',
                             icon: 'success',
                         }).then(function() {
-                            window.location = "<?= base_url('Danru/Patrol/urutan/') ?>" + hasil
+                            window.location = "<?= base_url('Danru/Patrol/') ?>"
                         })
                     }
                 })

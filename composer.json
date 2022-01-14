@@ -15,7 +15,8 @@
 		"ext-gd": "*",
 		"phpoffice/phpspreadsheet": "^1.20",
 		"mpdf/mpdf": "^8.0",
-		"grei/tanggalmerah": "^1.0"
+		"grei/tanggalmerah": "^1.0",
+		"dekiakbar/indonesia-regions-php-client": "^1.2"
 	},
 	"suggest": {
 		"paragonie/random_compat": "Provides better randomness in PHP 5.x"

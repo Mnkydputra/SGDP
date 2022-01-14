@@ -36,7 +36,7 @@ class Report_Patroli extends CI_Controller
             'total'   => $this->Sipd_model->countAll()->num_rows(),
         );
         $this->load->view('web/header', $data);
-        $this->load->view('PIC/report_Patroli', $data);
+        $this->load->view('PIC/report_patroli', $data);
         $this->load->view('web/fotter');
         # code...
     }
@@ -48,17 +48,19 @@ class Report_Patroli extends CI_Controller
 
         $day = $this->input->post("day");
         $area = $this->input->post("area_kerja1");
-
+        $this->db->where('area_kerja',$area);
         $result = $this->db->get_where('report_patrol', ['tanggal' => $day, 'area_kerja' => $area]);
 
         $data = [
             'patrol'  =>  $result,
-            'area'    => $area
+            'area'    => $area ,
+            'tgl1'    => $day,
+            'tgl2'     => ""
         ];
         $mpdf = new \Mpdf\Mpdf();
         $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
         $mpdf->WriteHTML($data);
-        $mpdf->Output();
+        $mpdf->Output("Report Patroli " . $area . ".pdf" , 'I');
     }
 
 
@@ -68,19 +70,22 @@ class Report_Patroli extends CI_Controller
 
         $day = $this->input->post("day2");
         $day2 = $this->input->post("day3");
-        $area = $this->input->post("area");
-
+        $area = $this->input->post("area2");
+        $this->db->where('area_kerja',$area);
         $this->db->where('tanggal >=', $day);
         $this->db->where('tanggal <=', $day2);
         $result = $this->db->get('report_patrol');
 
         $data = [
             'patrol'  =>  $result,
-            'area'    => $area
+            'area'    => $area ,
+            'tgl1'    => $day,
+            'tgl2'     => $day2
         ];
-        $mpdf = new \Mpdf\Mpdf();
-        $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
+        $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
+        // $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
+        $data = $this->load->view('PIC/report_patroli_v2', $data,  TRUE);
         $mpdf->WriteHTML($data);
-        $mpdf->Output();
+        $mpdf->Output("Report Patroli " . $area . ".pdf", 'I');
     }
 }

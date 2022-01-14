@@ -453,6 +453,7 @@
         <div class="row">
           <div class="col-sm-2">
             <select name="bulan" id="bulan">
+              <option value="">Pilih Bulan</option>
               <option value="01">Januari</option>
               <option value="02">Februari</option>
               <option value="03">Maret</option>
@@ -578,31 +579,20 @@
     $(function() {
       $('select[name=bulan]').on('change', function() {
         var bulan = $(this).children("option:selected").val();
-        $.ajax({
-          url: "<?= base_url('Anggota/Profile/showAbsensi') ?>",
-          method: "POST",
-          data: "bulan=" + bulan,
-          success: function(e) {
-            // console.log(e);
-            document.getElementById('report_absen').innerHTML = e;
-          }
-        })
+        if (bulan == null || bulan == "") {
+          document.getElementById('report_absen').innerHTML = "";
+        } else {
+          $.ajax({
+            url: "<?= base_url('Anggota/Profile/showAbsensi') ?>",
+            method: "POST",
+            data: "bulan=" + bulan,
+            success: function(e) {
+              // console.log(e);
+              document.getElementById('report_absen').innerHTML = e;
+            }
+          })
 
-
-        // if (tikor == null || tikor == "") {
-        //   document.querySelector('video').setAttribute("id", "");
-        //   document.getElementById('dataPLAN').innerHTML = "";
-        // } else {
-        //   $.ajax({
-        //     url: "<?= base_url('Danru/Patrol/titik') ?>",
-        //     method: "POST",
-        //     data: "titik=" + tikor,
-        //     success: function(e) {
-        //       // console.log(e);
-        //       document.getElementById('dataPLAN').innerHTML = e;
-        //     }
-        //   })
-        // }
+        }
       });
     })
   </script>

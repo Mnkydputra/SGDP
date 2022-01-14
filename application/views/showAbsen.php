@@ -1,18 +1,17 @@
- 
 <div style="padding-bottom:65px;" class="content">
  <div class="container-md-3">
- <table  id="table_id" class="table-responsive-md table table border-dark">
-     <thead>
-         <tr>
+<table id="table_id"  class="table-responsive-md table table border-dark">
+    <thead>
+        <tr>
              <th>No</th>
              <th>Tanggal</th>
              <th>IN</th>      
              <th>Out</th>
              <th>OT</th>
-         </tr>
-     </thead>
-     <tbody>
-         <?php
+        </tr>
+    </thead>
+    <tbody>
+        <?php
             if ($absen) {
                 $no = 1;
                 $t = new Grei\TanggalMerah();
@@ -60,8 +59,7 @@
             ?>
 
 
-
-     </tbody>
- </table>
- </div>
-</div> 
+    </tbody>
+</table>
+</div>
+</div>
