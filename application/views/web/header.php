@@ -13,12 +13,12 @@
   <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets/') ?>img/icon.png">
   <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
   <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style2.css">
+  <link rel="stylesheet" href="<?= base_url('assets/css/font-awesome-4.7.0/css/') ?>font-awesome.min.css">
   <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
   <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.min.css">
   <!-- DatePicker -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">
+  <!-- Jquery CDN -->
   <!-- Jquery CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
   <!-- Chart -->
@@ -28,20 +28,31 @@
   <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
   <!-- CDN Bootstrap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css" />
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+
+
   <!-- END CDN Bootstrap -->
   <!-- SWEET ALERT -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- IMASK CDN -->
   <script src="https://unpkg.com/imask"></script>
   <script src="<?= base_url('assets/js/') ?>songof.js"></script>
+<<<<<<< HEAD
 
 
 
+=======
+  <!-- akhir dari Bagian js -->
+  <script src="https://maps.googleapis.com/maps/api/js?
+key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah"></script>
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
   <title>I - SECURITY</title>
 </head>
 
-<body style="background-color:#e3e3e1; margin:0;">
+<body style="background-color:#e3e3e1; margin:0;" onload="wilayah()">
   <!-- Header -->
   <div class="container-fluid">
     <nav style="height:60px; padding-top:0; background-color: #f2f2e9;" class="navbar navbar-expand-lg navbar-light  fixed-top">
@@ -90,7 +101,6 @@
                 </li>
               </ul>
             </li>
-
           </div>
         </div>
       </div>

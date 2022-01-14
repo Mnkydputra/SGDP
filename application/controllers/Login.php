@@ -35,7 +35,7 @@ class Login extends CI_Controller
 
     function cekLogin()
     {
-        date_default_timezone_set('Asia/Jakarta');
+          date_default_timezone_set('Asia/Jakarta');
         $username     = $this->input->post('npk');
         $password   = md5($this->input->post('password'));
         $auth = $this->db->get_where("akun", array("npk" => $username))->num_rows();

@@ -371,7 +371,11 @@
             var provinsi_ktp = $("select[name=provinsi_ktp] option:selected").text();
             var kabupaten_ktp = $("select[name=kabupaten_ktp] option:selected").text();
             var kecamatan_ktp = $("select[name=kecamatan_ktp] option:selected").text();
+<<<<<<< HEAD
             var keluraha_ktp =  $("select[name=kelurahan_ktp] option:selected").text();
+=======
+            var keluraha_ktp =  $("select[name=kel_dom] option:selected").text();
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
             var jl_dom = document.getElementById('jl_dom').value;
             var rt_dom = document.getElementById('rt_dom').value;
             var rw_dom = document.getElementById('rw_dom').value;
@@ -379,7 +383,11 @@
             var propinsiDom = $("select[name=provinsi_dom] option:selected").text();
             var kabupatenDom = $("select[name=kota_dom] option:selected").text();
             var kecamatanDom = $("select[name=kec_dom] option:selected").text();
+<<<<<<< HEAD
             var kelurahanDom = $("select[name=kel_dom] option:selected").text();
+=======
+            var kelurahanDom = $("select[name=provinsi_dom] option:selected").text();
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
             var berat_badan = document.getElementById('berat_badan').value;
             var tinggi_badan = document.getElementById('tinggi_badan').value;
             var imt = document.getElementById('imt').value;
@@ -514,9 +522,34 @@
                     <label for="ex_kta">Expired KTA</label>
                     <input type="text" name="ex_kta" id="datepicker1" value="<?= $employee->expired_kta ?>" class="form-control text-dark" placeholder="">
 
+<<<<<<< HEAD
                     
 
                     
+=======
+                    <label for="ex_kta">Jabatan</label>
+                    <select class="form-control text-dark" name="jabatan" id="jabatan">
+                      <option selected value="<?= $employee->jabatan ?>"><?= $employee->jabatan ?></option>
+                      <option value="KORLAP">KORLAP</option>
+                      <option value="DANRU">DANRU</option>
+                      <option value="PKD">PKD</option>
+                      <option value="ANGGOTA">ANGGOTA</option>
+                    </select>
+
+                    <label for="ex_kta">Area Kerja</label>
+                    <select class="form-control text-dark" name="area_kerja" id="area_kerja">
+                      <option selected value="<?= $employee->area_kerja ?>"><?= $employee->area_kerja ?></option>
+                      <option value="P1">P1</option>
+                      <option value="P2">P2</option>
+                      <option value="P3">P3</option>
+                      <option value="P4">P4</option>
+                      <option value="P5">P5</option>
+                      <option value="HO">HO</option>
+                      <option value="VLC">VLC</option>
+                      <option value="PC">PC</option>
+                      <option value="DORMITORY">DORMITORY</option>
+                    </select>
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
 
 
                     <label for="masuk_sigap">Tanggal Masuk Sigap</label>
@@ -551,7 +584,12 @@
             var expired_kta = document.getElementById('datepicker1').value;
             var masukSigap = document.getElementById('datepicker2').value;
             var masukAdm = document.getElementById('datepicker3').value;
+<<<<<<< HEAD
            
+=======
+            var jabatan = document.getElementById('jabatan').value;
+            var areaKerja = document.getElementById('area_kerja').value;
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
             $.ajax({
               url: "<?= base_url('Profile/EmployeeUpdate') ?>",
               data: new FormData(this),

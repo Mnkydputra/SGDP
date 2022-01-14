@@ -3,6 +3,70 @@
 	display: none;
 }
 
-img {
-	width: 20px;
+.img-report {
+	height: 450px;
+	width: 450px;
+	transform: rotate(90deg);
+}
+.table-info {
+	width: 100%;
+}
+
+.h-info {
+	background-color: rgb(194, 15, 15);
+	color: #fff;
+}
+.table-info tr td {
+	border: 1px solid #000;
+}
+tr .title-td {
+	background: red;
+	color: #fff;
+	font-size: 25px;
+}
+.img-patrol {
+	width: 260px;
+	height: 160px;
+	float: left;
+}
+
+.table-info tr {
+	border: 1px solid #000;
+	margin: 0px;
+}
+
+.img-logo {
+	height: 20px;
+	display: flex;
+	position: relative;
+	margin-top: -70px;
+	width: 20%;
+	margin-left: 270px;
+}
+
+.fingerprint {
+	width: 100%;
+	height: 58px;
+	position: absolute;
+	display: flex;
+	/* border: solid 3px #082d3d; */
+}
+
+.fingerprint.scanning::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 8px;
+	background-image: linear-gradient(
+		to bottom,
+		rgba(57, 59, 59, 0),
+		rgba(24, 154, 214, 0.8)
+	);
+	animation: scanning 0.7s linear infinite;
+}
+
+@keyframes scanning {
+	100% {
+		transform: translate(0, 52px);
+	}
 }

@@ -16,6 +16,10 @@
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>style2.css">
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap.min.css">
+<<<<<<< HEAD
+=======
+    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.css.map">
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
 
     <!-- DatePicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
@@ -37,7 +41,11 @@
     <!--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css">-->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
     <!-- IMASK CDN -->
+<<<<<<< HEAD
     <script src="https://unpkg.com/imask@6.2.2/dist/imask.js"></script>
+=======
+    <script src="https://unpkg.com/imask"></script>
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
     <script src="<?= base_url('assets/dist/') ?>jquery-qrcode.js"></script>
     <!-- API LOCATION -->
     <script src="<?= base_url('assets/js/') ?>songof.js"></script>
@@ -47,6 +55,10 @@
 
     <script src=" <?= base_url('assets/js/') ?>geo-min.js" type="text/javascript" charset="utf-8">
     </script>
+<<<<<<< HEAD
+=======
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+>>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
    <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
    <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
