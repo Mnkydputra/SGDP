@@ -17,7 +17,7 @@
         <table style="width: 100%;border:1px solid #000" class="table-info">
             <tbody>
                 <tr>
-                    <td colspan="3" class="h-info" align="center" style="">I-Patrol Information</td>
+                    <td colspan="3" class="h-info" align="center">I-Patrol Information</td>
                 </tr>
                 <tr>
                     <td>Area</td>

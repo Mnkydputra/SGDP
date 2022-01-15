@@ -17,6 +17,8 @@ class Patrol extends CI_Controller
         if ($role_id != 2) {
             redirect('LogOut');
         }
+
+        $this->load->library('upload');
     }
 
     public function index()

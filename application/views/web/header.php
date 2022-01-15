@@ -76,17 +76,7 @@ key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah" async defer></scri
               </a>
               <ul class="dropdown-menu" aria-labelledby="navProfile">
                 <li>
-                  <?php if ($this->session->userdata('role_id') == 1) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Anggota/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 2) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Danru/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 3) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Korlap/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 4) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Sipd/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 5) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('PIC/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } ?>
+                  <a class="dropdown-item" aria-current="page" href="<?= base_url('Profile/') ?>Foto"><span>Foto Profil</span></a>
                 </li>
                 <li>
                   <hr class="dropdown-divider  ">

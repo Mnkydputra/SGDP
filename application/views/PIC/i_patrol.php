@@ -1,39 +1,46 @@
 </br></br>
+</br></br>
+</br></br>
+</br></br>
 <!--- Bagian Judul-->
 <div class="container" style="margin-top:10px;background:#fff">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Wilayah 2 </div>
+            <div class="panel panel-default mb-5">
+                <div class="panel-heading text-center"></div>
                 <div class="panel-body">
-                    <div id="wilayah2" style="width: 100%; height: 600px;"></div>
+                    <div id="wilayah2" style="width: 100%; height: 450px;"></div>
                 </div>
             </div>
-            <table id="table_id2" class="mt-3 table table-bordered table-striped small" style="width: 100%;">
+            <table id="example" class="mt-5 table table-bordered table-striped small" style="width: 100%;">
                 <?php
                 $tanggal =  date('Y-m-d'); //date('Y-m-d');
-                $minggu_lalu = date('Y-m-d', strtotime('-1 week', strtotime($tanggal)));
+                $minggu_lalu = date('Y-m-d', strtotime('+1 week', strtotime($tanggal)));
                 $n = new DateTime($tanggal);
                 $n2 = new DateTime($minggu_lalu);
                 $jarak = $n->diff($n2);
                 ?>
-                <tr align="center">
-                    <th class="align-center" colspan="<?= $jarak->d + 8 ?>">Januari </th>
-                </tr>
-                <tr>
-                    <th>ALL AREA WILAYAH 1 </th>
-                    <?php
-                    for ($i = ($jarak->d); $i <= ($jarak->d + 7); $i++) { ?>
-                        <th> <?= $i ?></th>
-                    <?php } ?>
-                </tr>
+                <thead>
+                    <tr align="center">
+                        <th class="align-center" colspan="<?= $jarak->d + 8 ?>">Januari </th>
+                    </tr>
+                    <tr>
+                        <th>AREA</th>
+                        <th>Lokasi</th>
+                        <?php
+                        for ($i = ($jarak->d + 1); $i <= ($jarak->d + 8); $i++) { ?>
+                            <th> <?= $i ?></th>
+                        <?php } ?>
+                    </tr>
+                </thead>
                 <tbody>
                     <?php foreach ($titik->result() as $d) : ?>
                         <tr>
                             <td><?= $d->id_plan . " - " . $d->lokasi ?></td>
+                            <td><?= $d->id_plan . " - " . $d->lokasi ?></td>
                             <?php
                             //buat perulangan untuk mencari 
-                            for ($j = $jarak->d; $j <= ($jarak->d + 7); $j++) {
+                            for ($j =  ($jarak->d + 1); $j <= ($jarak->d + 8); $j++) {
                                 if ($j < 9) {
                                     $j = "0" . $j;
                                 } else {
@@ -66,6 +73,10 @@
 
 
 <script>
+    $(function() {
+        $('#example').DataTable();
+    })
+
     function wilayah() {
         //looad wilayah 2 
         var locations_wil2 = [

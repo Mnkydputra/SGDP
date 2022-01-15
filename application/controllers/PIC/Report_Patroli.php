@@ -26,33 +26,38 @@ class Report_Patroli extends CI_Controller
         $korlap = array('role_id' => 3);
         $sipd = array('role_id' => 4);
 
-        $wil = "WIL2";
+        $wil = "WIL3";
 
         switch ($wil) {
             case "WIL1":
+                $iw  = "WILAYAH 1";
                 $titik_tengah = "-6.1306783, 106.882644";
                 break;
             case "WIL2":
+                $iw  = "WILAYAH 2";
                 $titik_tengah = "-6.1393022, 106.885883";
                 break;
             case "WIL3":
                 $titik_tengah = "-6.338437, 107.173250";
+                $iw  = "WILAYAH 3";
                 break;
             case "WIL4":
                 $titik_tengah = "-6.416361, 107.336929";
+                $iw  = "WILAYAH 4";
                 break;
         }
 
         $d = $this->Sipd_model->patrolReporting($wil);
         $data = array(
-            'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
-            'url'  => $this->uri->segment(2),
-            'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-            'total'   => $this->Sipd_model->countAll()->num_rows(),
-            // 'titik'  => $this->db->get_where('titik_area', ['id_plan' => "VLC"]),
-            'titik'  => $d,
-            'maps'      => $d,
-            'center'        => $titik_tengah
+            'biodata'       => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+            'url'           => $this->uri->segment(2),
+            'berkas'        => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+            'total'         => $this->Sipd_model->countAll()->num_rows(),
+            // 'titik'      => $this->db->get_where('titik_area', ['id_plan' => "VLC"]),
+            'titik'         => $d,
+            'maps'          => $d,
+            'center'        => $titik_tengah,
+            'iw'            => $iw
         );
         $this->load->view('web/header', $data);
         // $this->load->view('PIC/report_patroli', $data);
