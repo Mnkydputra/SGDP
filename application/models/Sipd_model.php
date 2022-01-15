@@ -549,7 +549,7 @@ class Sipd_model extends CI_Model
 		return $this->db->get()->result_array();
 	}
 
-	//ambil titik koordinat model pic 
+	//ambil titik koordinat berdasarkan wilayah PIC 
 	public function patrolReporting($npk)
 	{
 		if ($npk == "WIL1") {

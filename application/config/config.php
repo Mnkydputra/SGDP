@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 
-$config['base_url'] = 'https://isecuritydaihatsu.com/';
+$config['base_url'] = 'http://localhost/SGDP/';
 /*
 |--------------------------------------------------------------------------
 | Index File

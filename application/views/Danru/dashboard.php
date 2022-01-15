@@ -1,108 +1,24 @@
-
 <!-- Sticky top -->
 <div style="margin-top:90px; background-color:#F9FAFA;" class="container fixed-top">
-    <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>   
+    <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>
     <div class="container-md-3">
         <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-secondary" role="alert">
-<<<<<<< HEAD
-        <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+            <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
         </div>
         <a style="" class="btn btn-danger btn-sm mb-2" href="<?= base_url('Danru/Patrol/') ?>">
-                <span class="bx bx-street-view"></span> I - PATROL
-            </a>
+            <span class="bx bx-street-view"></span> I - PATROL
+        </a>
         <div style="background-color:#6f9390; height:50px;" class="alert alert" role="alert">
-            <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" 
-            class="text-white  d-flex align-items-center justify-content-center">
+            <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button" data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
                 <i class='bx bx-calendar'> APEL BERSAMA | 18 JANUARI 2022 | 07:00 </i>
             </label>
         </div>
-        <div style="background-color:#F9FAFA" >
+        <div style="background-color:#F9FAFA">
             <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px; " class="alert alert-danger" role="alert">
-=======
-            <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
-        </div>
-    </div>
-</div>
-<!-- End Sticky Top -->
-
-<div style="margin-top:100px; padding-top:40mm; background-color:#F9FAFA;" class="container-md mt-5">
-    <div class="row">
-        <div class="container-md-3">
-            <a style="" class="btn btn-danger btn-sm mb-2" href="<?= base_url('Danru/Patrol/') ?>">
-                <span class="bx bx-street-view"></span> I - PATROL
-            </a>
-            <div style="background-color:#6f9390; height:50px;" class=" alert alert" role="alert">
-                     <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
-                         <i class='bx bx-calendar'>APEL BERSAMA | 18 JANUARI 2022 | 07:00</i></label>
-            </div>
-                <!-- Modal -->
-            <div class="modal fade" id="pengumuman" tabindex="-1" aria-labelledby="pengumumanLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="pengumumanLabel"><b>APEL BERSAMA ADM</b></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="container-sm-3">
-                    <div>
-                    <span >Masak sayur diaduk semalaman
-                            Mengaduknya pakai hati
-                            Salam sapa tak lupa kuucapkan
-                            Jangan lupa APEL Bersama besok pagi!!!
-                    </span>
-                    </div>
-                    <h5> Aturan Peserta APEL :</h5>
-                    <div>
-                        <ul>
-                            <li>Simak materinya</li>
-                            <li>Duduk siap</li>
-                            <li>Menyalakan kamera</li>
-                            <li>Format nama zoom "Area_Nama_NPK" contoh "P4_Alfa_123456"</li>
-                        </ul>
-                    </div>
-                    <h5><b>Aturan penggunaan seragam:</b></h5>
-                    <div>
-                        <ul style="list-style-type: none;">
-                            <li>Semua anggota menggunakan seragam lama</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Via Zoom</h5>
-                        <ul>
-                            <li>Meeting ID: 884 324 6264</li>
-                            <li>Passcode: 12345</li>
-                            <li><a href="https://us02web.zoom.us/j/8843246264?pwd=NFY2SHIvSlR4emNqaTZHaGxVZFJ0QT09">JOIN US</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p>Jangan lupa meriahkan yaa.. </p>
-                    </div>
-                    <div>
-                        <p><b>Salam Sahabat</b></p>
-                    </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                </div>
-                </div>
-            </div>
-            </div>
-            <!--  -->
-        </div>
-        <!--<div class="graph-wr">-->
-        <!--    <canvas id="myChart"></canvas>-->
-        <!--</div>-->
-    </div>
-    <div class="row">
-        <div class="container-md-3">
-            <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-danger" role="alert">
->>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
                 <i class='d-flex align-items-center justify-content-center'> <label style="font-weight:bold;">INDEKS MASSA TUBUH</label> </i>
             </div>
-            <div >
-                <canvas style="margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
+            <div>
+                <canvas style="margin-top: -70px;" id="halfChart" width="400" height="400"></canvas>
             </div>
         </div>
     </div>
@@ -116,7 +32,7 @@
         labels: ["UnderWeight", "Normal", "OverWeight", "Obese"],
         datasets: [{
             label: 'Indeks Massa Tubuh',
-            data: [11,11,11,11],
+            data: [11, 11, 11, 11],
             backgroundColor: [
                 'rgba(3, 167, 255)',
                 'rgba(5, 145, 0)',
@@ -205,7 +121,7 @@
                     arc: true,
                     position: 'border'
                 },
-                 labels: {
+                labels: {
                     render: 'lables',
                     arc: true,
                     position: 'border'

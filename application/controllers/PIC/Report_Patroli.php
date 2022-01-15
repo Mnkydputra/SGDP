@@ -13,7 +13,7 @@ class Report_Patroli extends CI_Controller
             $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
             redirect('Login');
         }
-        if ($role_id != 5) {
+        if ($role_id != 6) {
             redirect('LogOut');
         }
     }

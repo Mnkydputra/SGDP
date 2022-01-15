@@ -1,8 +1,6 @@
-<br>
-
-</br></br></br></br>
+</br></br>
 <!--- Bagian Judul-->
-<div class="container" style="margin-top:10px">
+<div class="container" style="margin-top:10px;background:#fff">
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">

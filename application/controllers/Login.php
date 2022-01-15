@@ -35,7 +35,7 @@ class Login extends CI_Controller
 
     function cekLogin()
     {
-          date_default_timezone_set('Asia/Jakarta');
+        date_default_timezone_set('Asia/Jakarta');
         $username     = $this->input->post('npk');
         $password   = md5($this->input->post('password'));
         $auth = $this->db->get_where("akun", array("npk" => $username))->num_rows();
@@ -46,10 +46,10 @@ class Login extends CI_Controller
                 $this->session->set_flashdata('update', 'update password anda');
                 $this->session->set_userdata('npk', $user->npk);
                 redirect("Auth");
-            }else if($user->password != $password){
-                    $this->session->set_flashdata('salahPass', "NPK Belum Terdaftar");
-                    redirect('Login');
-            }else {
+            } else if ($user->password != $password) {
+                $this->session->set_flashdata('salahPass', "NPK Belum Terdaftar");
+                redirect('Login');
+            } else {
                 $this->session->set_userdata('id_akun', $user->id_akun);
                 $this->session->set_userdata('npk', $user->npk);
                 $this->session->set_userdata('role_id', $user->role_id);

@@ -40,19 +40,10 @@
   <!-- IMASK CDN -->
   <script src="https://unpkg.com/imask"></script>
   <script src="<?= base_url('assets/js/') ?>songof.js"></script>
-<<<<<<< HEAD
 
-
-
-=======
   <!-- akhir dari Bagian js -->
   <script src="https://maps.googleapis.com/maps/api/js?
-<<<<<<< HEAD
 key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah" async defer></script>
-=======
-key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah"></script>
->>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
->>>>>>> 7e3abdd484fdd0325050df572c6a228a2957b4ad
   <title>I - SECURITY</title>
 </head>
 
