@@ -113,6 +113,21 @@ class Patrol extends CI_Controller
     }
 
 
+    public function compress($file)
+    {
+        # code...
+        $this->load->library('image_lib', 'upload');
+        $this->image_lib->initialize(array(
+            'image_library' => 'gd2', //library yang kita gunakan
+            'source_image' => './assets/patrol/' . $file,
+            'maintain_ratio' => FALSE,
+            'create_thumb' => FALSE,
+            'width' => 600,
+            'height' => 450
+        ));
+        $this->image_lib->resize();
+    }
+
 
     //input gambar area hasil patroli
     public function submit()
@@ -133,6 +148,7 @@ class Patrol extends CI_Controller
                 if (!$this->upload->do_upload('file' . $i))
                     $this->upload->display_errors();
                 else {
+                    $this->compress($files);
                     $upload_berkas = [
                         'id_patroli'   => $idPTRL,
                         'picture'      => $files

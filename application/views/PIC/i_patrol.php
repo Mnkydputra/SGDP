@@ -1,7 +1,5 @@
 </br></br>
 </br></br>
-</br></br>
-</br></br>
 <!--- Bagian Judul-->
 <div class="container" style="margin-top:10px;background:#fff">
     <div class="row">
@@ -9,9 +7,24 @@
             <div class="panel panel-default mb-5">
                 <div class="panel-heading text-center"></div>
                 <div class="panel-body">
-                    <div id="wilayah2" style="width: 100%; height: 450px;"></div>
+                    <!-- <div id="wilayah2" style="width: 100%; height: 450px;"></div> -->
                 </div>
             </div>
+            <form action="<?= base_url('PIC/Report_Patroli/tarikExcel')  ?>" method="post">
+                <select name="area_patrol" id="" class="form-control text-dark">
+                    <option value="P1">PLAN 1 </option>
+                    <option value="P2">PLAN 2</option>
+                    <option value="P3">PLAN 3</option>
+                    <option value="P4-ASSY1">PLAN 4 - ASSY 1</option>
+                    <option value="P4-ASSY2">PLAN 4 - ASSY 2</option>
+                    <option value="P5">PLAN 5</option>
+                    <option value="VLC">VLC</option>
+                    <option value="HO">HEAD OFFICE</option>
+                    <option value="DOR">DORMITORY</option>
+                    <option value="PC">PART CENTER</option>
+                </select>
+                <button type="submit" name="reportExcel" class="mt-1 mb-2 btn btn-primary">Tarik Excel</button>
+            </form>
             <table id="example" class="mt-5 table table-bordered table-striped small" style="width: 100%;">
                 <?php
                 $tanggal =  date('Y-m-d'); //date('Y-m-d');
@@ -33,9 +46,9 @@
                         <?php } ?>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody style="border: 1px solid #000;">
                     <?php foreach ($titik->result() as $d) : ?>
-                        <tr>
+                        <tr align="left">
                             <td><?= $d->id_plan . " - " . $d->lokasi ?></td>
                             <td><?= $d->id_plan . " - " . $d->lokasi ?></td>
                             <?php
@@ -74,7 +87,7 @@
 
 <script>
     $(function() {
-        $('#example').DataTable();
+        $("#example").DataTable();
     })
 
     function wilayah() {

@@ -1,4 +1,10 @@
 <?php
+require FCPATH . 'vendor/autoload.php';
+
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+
 
 
 class Report_Patroli extends CI_Controller
@@ -63,6 +69,44 @@ class Report_Patroli extends CI_Controller
         // $this->load->view('PIC/report_patroli', $data);
         $this->load->view('PIC/i_patrol', $data);
         $this->load->view('web/fotter');
+    }
+
+    public function tarikExcel()
+    {
+        $wil = "WIL2";
+        switch ($wil) {
+            case "WIL1":
+                $iw  = "WILAYAH 1";
+                $titik_tengah = "-6.1306783, 106.882644";
+                break;
+            case "WIL2":
+                $iw  = "WILAYAH 2";
+                $titik_tengah = "-6.1393022, 106.885883";
+                break;
+            case "WIL3":
+                $titik_tengah = "-6.338437, 107.173250";
+                $iw  = "WILAYAH 3";
+                break;
+            case "WIL4":
+                $titik_tengah = "-6.416361, 107.336929";
+                $iw  = "WILAYAH 4";
+                break;
+        }
+
+        $area = $this->input->post("area_patrol");
+        // $d = $this->Sipd_model->patrolReporting($wil);
+        $d = $this->db->get_where("titik_area", ['id_plan' => $area]);
+        $this->db->order_by("lokasi", 'asc');
+        $data = array(
+            'titik'         => $d,
+            'maps'          => $d,
+            'center'        => $titik_tengah,
+            'iw'            => $iw
+        );
+        $filename = 'laporan-patrol';
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=" . $filename . ".xls");
+        $this->load->view("PIC/report_excel_patrol", $data);
     }
 
     public function download()
