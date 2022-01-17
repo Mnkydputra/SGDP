@@ -4,6 +4,19 @@
 <div class="container" style="margin-top:10px;background:#fff">
     <div class="row">
         <div class="col-md-12">
+            <div class="mt-5 container col-lg-8">
+
+                <div class="card">
+                    <div class="card-header">
+                        Grafik Patroli per Tanggal 13 Januari 2020
+                    </div>
+                    <div class="card-body">
+                        <div>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="panel panel-default mb-5">
                 <div class="panel-heading text-center"></div>
                 <div class="panel-body">
@@ -87,8 +100,44 @@
 
 <script>
     $(function() {
-        $("#example").DataTable();
+        $("#example").DataTable({
+            fixedHeader: true,
+            responsive: true,
+        });
     })
+
+    const labels = [
+        'Head Office',
+        'Dormitori',
+        'Part Center',
+        'VLC',
+        'Plan 1 ',
+        'Plan 2',
+        'Plan 3',
+        'Plan 4 - ASSY 1',
+        'Plan 4 - ASSY 2',
+        'Plan 5',
+    ];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Jumlah Patroli',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45, 20, 30, 45],
+        }]
+    };
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
 
     function wilayah() {
         //looad wilayah 2 

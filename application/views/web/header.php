@@ -33,7 +33,7 @@
 
   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
 
-
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- END CDN Bootstrap -->
   <!-- SWEET ALERT -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -27,6 +27,26 @@ class Report_Patroli extends CI_Controller
 
     public function index(Type $var = null)
     {
+
+        //hitung jumlah lokasi yang di lewati : total area patroli 
+        // $VLCArea  = $this->db->get_where("titik_area", ['id_plan'  => "VLC"])->num_rows();
+        // $vlcPatroli = $this->db->get_where("report_patrol", ['area_kerja'  => "VLC", 'tanggal' => '2022-01-13 '])->num_rows();
+
+        // echo $vlcPatroli / $VLCArea;
+
+        // $data  = [
+        //     'vlc_area'  => $vlcPatroli / $VLCArea,
+        //     'ho_area'  => $vlcPatroli / $VLCArea,
+        //     'pc_area'  => $vlcPatroli / $VLCArea,
+        //     'vlc_area'  => $vlcPatroli / $VLCArea,
+        //     'vlc_area'  => $vlcPatroli / $VLCArea,
+        //     'vlc_area'  => $vlcPatroli / $VLCArea,
+        //     'vlc_area'  => $vlcPatroli / $VLCArea,
+        //     'vlc_area'  => $vlcPatroli / $VLCArea,
+        // ];
+
+        // $this->load->view("PIC/grafik_patroli", $data);
+
         $anggota = array('role_id' => 1);
         $danru = array('role_id' => 2);
         $korlap = array('role_id' => 3);
@@ -145,7 +165,7 @@ class Report_Patroli extends CI_Controller
             'tgl2'     => ""
         ];
         $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
-        $data = $this->load->view('PIC/report_patroli_v2', $data,  TRUE);
+        $data = $this->load->view('PIC/report_pdf_patrol', $data,  TRUE);
         $mpdf->WriteHTML($data);
         $mpdf->Output("Report Patroli " . $area . ".pdf", 'I');
     }
@@ -169,7 +189,7 @@ class Report_Patroli extends CI_Controller
         ];
         $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
         // $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
-        $data = $this->load->view('PIC/report_patroli_v2', $data,  TRUE);
+        $data = $this->load->view('PIC/report_pdf_patrol', $data,  TRUE);
         $mpdf->WriteHTML($data);
         $mpdf->Output("Report Patroli " . $area . ".pdf", 'I');
     }
