@@ -83,7 +83,6 @@
             </div>
         </nav>
     </div>
-<<<<<<< HEAD
 <?php } else if ($this->session->userdata('role_id') == 4) { ?>
     <div class="container-md">
         <nav style="background-color:#F5F2EB;
@@ -112,8 +111,6 @@
             </div>
         </nav>
     </div>
-=======
->>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
 <?php } ?>
 
 <!-- END FOTTER -->

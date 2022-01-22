@@ -18,158 +18,64 @@ class Anggota_model extends CI_Model
       return $this->db->get_where($table, array('id_karyawan' => $npk));
    }
 
-   // cek kahidaran
-   public function cek_VLC($id_absen, $validasi)
+    public function cek_wil1($id_absen,$tgl,$validasi)
    {
       $query_str =
          $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_vlc');
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
+         ->where('out_date', $tgl)->get('absen_wil1');
+         if ($query_str->num_rows() > 1) {
+            return false;
+         }else {
+              $query_2 = $this->db->where('id_absen', $id_absen)
+            ->where('validasi_kehadiran',$validasi)->get('absen_wil1');
+            return $query_2->row();
+         }
+    }
 
-<<<<<<< HEAD
-   public function cek_wil1($id_absen, $validasi)
+    public function cek_wil2($id_absen,$tgl,$validasi)
    {
-      $query_str =
+       $query_str =
          $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_wil1');
-=======
-   public function cek_P1($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_p1');
->>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
+         ->where('out_date', $tgl)->get('absen_wil2');
+         if ($query_str->num_rows() > 1) {
+            return false;
+         }else {
+              $query_2 = $this->db->where('id_absen', $id_absen)
+            ->where('validasi_kehadiran',$validasi)->get('absen_wil2');
+            return $query_2->row();
+         }
+    }
 
-<<<<<<< HEAD
-   public function cek_wil2($id_absen, $validasi)
+    public function cek_wil3($id_absen,$tgl,$validasi)
    {
       $query_str =
          $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_wil2');
-=======
-   public function cek_P2($id_absen, $validasi)
+         ->where('out_date', $tgl)->get('absen_wil3');
+         if ($query_str->num_rows() > 1) {
+            return false;
+         }else {
+              $query_2 = $this->db->where('id_absen', $id_absen)
+            ->where('validasi_kehadiran',$validasi)->get('absen_wil3');
+            return $query_2->row();
+         }
+    }
+    
+    public function cek_wil4($id_absen,$tgl,$validasi)
    {
-      $query_str =
+       $query_str =
          $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_p2');
->>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
+         ->where('out_date', $tgl)->get('absen_wil4');
+         if ($query_str->num_rows() > 1) {
+            return false;
+         }else {
+              $query_2 = $this->db->where('id_absen', $id_absen)
+            ->where('validasi_kehadiran',$validasi)->get('absen_wil4');
+            return $query_2->row();
+         }
+    }
 
-<<<<<<< HEAD
-   public function cek_wil3($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_wil3');
-=======
-   public function cek_P3($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_p3');
->>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
+  
 
-<<<<<<< HEAD
-   public function cek_wil4($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_wil4');
-=======
-   public function cek_P4($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_p4');
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
-
-   public function cek_P5($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_p5');
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
-
-   public function cek_PC($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_pc');
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
-
-   public function cek_DOR($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_dor');
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
-
-   public function cek_HO($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_ho');
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
-
-   public function cek_KORLAP($id_absen, $validasi)
-   {
-      $query_str =
-         $this->db->where('id_absen', $id_absen)
-         ->where('validasi_kehadiran', $validasi)->get('absen_korlap');
->>>>>>> fda584628a4dda7fca0d47966193e261410e3aa6
-      if ($query_str->num_rows() > 0) {
-         return $query_str->row();
-      } else {
-         return false;
-      }
-   }
 
    //cari data berdasarkan inputan 
    public function cari($where, $table)

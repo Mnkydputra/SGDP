@@ -13,7 +13,7 @@ Class Dashboard Extends CI_Controller
          $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
             redirect('Login');
         } 
-        if ($role_id != 4){
+        if ($role_id != 5){
             redirect('LogOut');
         }
   }

@@ -174,6 +174,26 @@ class Sipd_model extends CI_Model
 		}
 	}
 
+	public function uploadfile4($filename)
+ 	{
+ 		$this->load->library('upload');
+ 		$config['upload_path']		= './assets/upload/status_karyawan';
+ 		$config['allowed_types']	='xlsx';
+ 		$config['max_size']			='12048';
+ 		$config['overwrite']		=true ;
+ 		$config['file_name']		= $filename;
+
+ 		$this->upload->initialize($config);
+ 			if ($this->upload->do_upload('file')) {
+ 				//jik berhasil
+ 				$return = array('result' => 'success' , 'file'	=> $this->upload->data() , 'error' => '');
+ 				return $return;
+ 			}else{
+ 				$return = array('result' => 'gagal' , 'file' => '' , 'error' => $this->upload->display_errors());
+ 				return $return;
+ 			}
+ 	}
+
 
 	//tambah file pkwt / taliasih yang di upload ke database
 	public function tambah($table, $data)
