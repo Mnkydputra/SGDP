@@ -1,26 +1,28 @@
-
 <!-- Sticky top -->
 <div style="margin-top:90px; background-color:#F9FAFA;" class="container fixed-top">
-    <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>   
+    <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>
     <div class="container-md-3">
         <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-secondary" role="alert">
+<<<<<<< HEAD
         <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+=======
+            <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
         </div>
         <a style="" class="btn btn-danger btn-sm mb-2" href="<?= base_url('Danru/Patrol/') ?>">
-                <span class="bx bx-street-view"></span> I - PATROL
-            </a>
+            <span class="bx bx-street-view"></span> I - PATROL
+        </a>
         <div style="background-color:#6f9390; height:50px;" class="alert alert" role="alert">
-            <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button"  data-bs-toggle="modal" data-bs-target="#pengumuman" 
-            class="text-white  d-flex align-items-center justify-content-center">
+            <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button" data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
                 <i class='bx bx-calendar'> APEL BERSAMA | 18 JANUARI 2022 | 07:00 </i>
             </label>
         </div>
-        <div style="background-color:#F9FAFA" >
+        <div style="background-color:#F9FAFA">
             <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px; " class="alert alert-danger" role="alert">
                 <i class='d-flex align-items-center justify-content-center'> <label style="font-weight:bold;">INDEKS MASSA TUBUH</label> </i>
             </div>
-            <div >
-                <canvas style="margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
+            <div>
+                <canvas style="margin-top: -70px;" id="halfChart" width="400" height="400"></canvas>
             </div>
         </div>
     </div>
@@ -34,7 +36,7 @@
         labels: ["UnderWeight", "Normal", "OverWeight", "Obese"],
         datasets: [{
             label: 'Indeks Massa Tubuh',
-            data: [11,11,11,11],
+            data: [11, 11, 11, 11],
             backgroundColor: [
                 'rgba(3, 167, 255)',
                 'rgba(5, 145, 0)',
@@ -123,7 +125,7 @@
                     arc: true,
                     position: 'border'
                 },
-                 labels: {
+                labels: {
                     render: 'lables',
                     arc: true,
                     position: 'border'

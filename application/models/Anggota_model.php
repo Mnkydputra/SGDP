@@ -22,6 +22,7 @@ class Anggota_model extends CI_Model
    {
       $query_str =
          $this->db->where('id_absen', $id_absen)
+<<<<<<< HEAD
          ->where('out_date', $tgl)->get('absen_wil1');
          if ($query_str->num_rows() > 1) {
             return false;
@@ -76,6 +77,63 @@ class Anggota_model extends CI_Model
 
   
 
+=======
+         ->where('validasi_kehadiran', $validasi)->get('absen_vlc');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_wil1($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_wil1');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_wil2($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_wil2');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_wil3($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_wil3');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+
+   public function cek_wil4($id_absen, $validasi)
+   {
+      $query_str =
+         $this->db->where('id_absen', $id_absen)
+         ->where('validasi_kehadiran', $validasi)->get('absen_wil4');
+      if ($query_str->num_rows() > 0) {
+         return $query_str->row();
+      } else {
+         return false;
+      }
+   }
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
 
    //cari data berdasarkan inputan 
    public function cari($where, $table)

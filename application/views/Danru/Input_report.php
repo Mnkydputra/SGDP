@@ -87,9 +87,7 @@
                         document.getElementById('infoTunggu').style.display = "none";
                     },
                     success: function(e) {
-                        // console.log(e);
-                        const urut = document.getElementById('urutan').value;
-                        const hasil = parseInt(urut) + 1;
+                        //console.log(e);
                         Swal.fire({
                             title: 'Sukses!',
                             text: 'Report di Kirim',

@@ -36,8 +36,14 @@
   <script src="https://unpkg.com/imask"></script>
   <script src="<?= base_url('assets/js/') ?>songof.js"></script>
 
+<<<<<<< HEAD
 
 
+=======
+  <!-- akhir dari Bagian js -->
+  <script src="https://maps.googleapis.com/maps/api/js?
+key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah" async defer></script>
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
   <title>I - SECURITY</title>
 </head>
 
@@ -70,17 +76,7 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navProfile">
                 <li>
-                  <?php if ($this->session->userdata('role_id') == 1) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Anggota/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 2) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Danru/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 3) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Korlap/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 4) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('Sipd/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } else if ($this->session->userdata('role_id') == 5) { ?>
-                    <a class="dropdown-item" aria-current="page" href="<?= base_url('PIC/Profile/') ?>Foto"><span>Foto Profil</span></a>
-                  <?php } ?>
+                  <a class="dropdown-item" aria-current="page" href="<?= base_url('Profile/') ?>Foto"><span>Foto Profil</span></a>
                 </li>
                 <li>
                   <hr class="dropdown-divider  ">

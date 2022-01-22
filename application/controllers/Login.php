@@ -46,10 +46,10 @@ class Login extends CI_Controller
                 $this->session->set_flashdata('update', 'update password anda');
                 $this->session->set_userdata('npk', $user->npk);
                 redirect("Auth");
-            }else if($user->password != $password){
-                    $this->session->set_flashdata('salahPass', "NPK Belum Terdaftar");
-                    redirect('Login');
-            }else {
+            } else if ($user->password != $password) {
+                $this->session->set_flashdata('salahPass', "NPK Belum Terdaftar");
+                redirect('Login');
+            } else {
                 $this->session->set_userdata('id_akun', $user->id_akun);
                 $this->session->set_userdata('npk', $user->npk);
                 $this->session->set_userdata('role_id', $user->role_id);

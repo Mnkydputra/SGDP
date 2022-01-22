@@ -78,7 +78,11 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
+<<<<<<< HEAD
 	'database' => 'i_security',
+=======
+	'database' => 'sgdp_pocket',
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

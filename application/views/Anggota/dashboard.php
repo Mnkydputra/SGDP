@@ -3,6 +3,7 @@
     <div class="container-md-3">
 
         <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-secondary" role="alert">
+<<<<<<< HEAD
 
         <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
 
@@ -24,17 +25,34 @@
 
             <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px; " class="alert alert-danger" role="alert">
 
+=======
+            <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+        </div>
+        <div style="background-color:#6f9390; height:50px;" class="alert alert" role="alert">
+            <label style="background-color:#6f9390; font-size:13px; font-weight:solid" type="button" data-bs-toggle="modal" data-bs-target="#pengumuman" class="text-white  d-flex align-items-center justify-content-center">
+                <i class='bx bx-calendar'> APEL BERSAMA | 18 JANUARI 2022 | 07:00 </i>
+            </label>
+        </div>
+        <div style="background-color:#F9FAFA">
+            <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px; " class="alert alert-danger" role="alert">
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 <i class='d-flex align-items-center justify-content-center'> <label style="font-weight:bold;">INDEKS MASSA TUBUH</label> </i>
 
             </div>
+<<<<<<< HEAD
 
             <div >
 
                 <canvas style="margin-top: -70px;"  id="halfChart" width="400" height="400"></canvas>
 
+=======
+            <div>
+                <canvas style="margin-top: -70px;" id="halfChart" width="400" height="400"></canvas>
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
             </div>
 
         </div>
+<<<<<<< HEAD
 
     </div>
 
@@ -42,6 +60,11 @@
 
 
 
+
+=======
+    </div>
+</div>
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
 
 
 <script>
@@ -53,9 +76,13 @@
         datasets: [{
 
             label: 'Indeks Massa Tubuh',
+<<<<<<< HEAD
 
             data: [11,11,11,11],
 
+=======
+            data: [11, 11, 11, 11],
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
             backgroundColor: [
 
                 'rgba(3, 167, 255)',
@@ -98,10 +125,13 @@
 
     };
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
     //const gauge needle block
 
     const gaugeNeedle = {
@@ -155,11 +185,14 @@
             const cy = chart._metasets[0].data[0].y;
 
             console.log(ctx.canvas.offsetTop);
+<<<<<<< HEAD
 
 
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
             //needle translate
 
             ctx.translate(cx, cy);
@@ -191,9 +224,12 @@
             ctx.fill();
 
             ctx.restore();
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
             ctx.font = '50px Helvetica';
 
             ctx.fillStyle = '#444';
@@ -231,9 +267,13 @@
                     position: 'border'
 
                 },
+<<<<<<< HEAD
 
                  labels: {
 
+=======
+                labels: {
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                     render: 'lables',
 
                     arc: true,
@@ -249,9 +289,12 @@
         plugins: [gaugeNeedle]
 
     };
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
     // render init block
 
     const me = new Chart(
@@ -307,17 +350,23 @@
                 pointBackgroundColor: [
 
                     'rgba(54, 162, 235, 1)',
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderColor: [
 
                     'rgba(54, 162, 235, 1)',
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderWidth: 3
@@ -331,17 +380,23 @@
                 pointBackgroundColor: [
 
                     'rgba(54, 162, 235, 1)',
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderColor: [
 
                     'rgba(54, 162, 235, 1)',
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderWidth: 3
@@ -353,19 +408,26 @@
                 data: [5, 4, 4, 3],
 
                 pointBackgroundColor: [
+<<<<<<< HEAD
 
                     'rgba(54, 162, 235, 1)',
 
 
 
+=======
+                    'rgba(54, 162, 235, 1)'
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderColor: [
 
                     'rgba(54, 162, 235, 1)',
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderWidth: 3
@@ -379,17 +441,23 @@
                 pointBackgroundColor: [
 
                     'rgba(54, 162, 235, 1)',
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderColor: [
 
                     'rgba(54, 162, 235, 1)',
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
                 ],
 
                 borderWidth: 3
@@ -423,11 +491,17 @@
                 }
 
             },
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
         }
 
     });
+<<<<<<< HEAD
 
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
 </script>

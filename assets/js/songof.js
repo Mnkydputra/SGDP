@@ -210,7 +210,10 @@ $(document).ready(function () {
 		modal.find("#id_plan2").attr("value", div.data("area"));
 	});
 });
+<<<<<<< HEAD
 
 // api wilayah sample
 
 // end tes sample
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
