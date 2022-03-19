@@ -71,21 +71,13 @@
                 <?php foreach ($patrol->result() as $ptr) : ?>
 
                     <?php $d = $this->db->get_where('documentasi_patroli', ['id_patroli' => $ptr->id_patroli]) ?>
-
                     <tr>
-
                         <td class="title-td" colspan="3">Lokasi : <?= $ptr->lokasi . ' || ' . $ptr->tanggal . ' ' . $ptr->jam  . ' || Keterangan : ' . $ptr->keterangan ?> </td>
-
                     </tr>
-
                     <tr>
-
                         <?php foreach ($d->result() as $cd) : ?>
-
                             <td align="center" style="border:3px solid #000">
-
                                 <img  class="img-report" src="<?= base_url() ?>/assets/patrol/<?= $cd->picture ?>">
-
                             </td>
 
                         <?php endforeach ?>

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 /*
 | -------------------------------------------------------------------------
@@ -56,4 +56,15 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 //routing api 
-$route['getAPI']  = 'sgdp_api/SGDP' ;
+$route['getAPI']  = 'API/SGDP';
+
+//routing absensi
+$route['api/barcode_absen'] = 'API/Absensi/barcode';
+$route['api/barcodeKorlap'] = 'API/Absensi/cekBarcodeKorlap';
+$route['api/barcodeAnggota'] = 'API/Absensi/cekBarcodeAnggota';
+$route['api/input_absen'] = 'API/Absensi/inputAbsensi';
+$route['api/ambil_absen'] = 'API/Absensi/showAbsensi';
+
+
+//routing cek user
+$route['api/cekAkun']   = 'API/ISECURITY/cekUser';

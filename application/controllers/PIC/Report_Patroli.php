@@ -9,50 +9,30 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 class Report_Patroli extends CI_Controller
 {
-    function __construct()
-    {
-        parent::__construct();
-
-        $id = $this->session->userdata('id_akun');
-        $role_id = $this->session->userdata('role_id');
-        if ($id == null || $id == "") {
-            $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
-            redirect('Login');
-        }
-        if ($role_id != 6) {
-            redirect('LogOut');
-        }
-    }
+    // function __construct()
+    // {
+    //     parent::__construct();
+    //     $id = $this->session->userdata('id_akun');
+    //     $role_id = $this->session->userdata('role_id');
+    //     if ($id == null || $id == "") {
+    //         $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
+    //         redirect('Login');
+    //     }
+    //     if ($role_id != 6) {
+    //         redirect('LogOut');
+    //     }
+    // }
 
 
     public function index(Type $var = null)
     {
-
-        //hitung jumlah lokasi yang di lewati : total area patroli 
-        // $VLCArea  = $this->db->get_where("titik_area", ['id_plan'  => "VLC"])->num_rows();
-        // $vlcPatroli = $this->db->get_where("report_patrol", ['area_kerja'  => "VLC", 'tanggal' => '2022-01-13 '])->num_rows();
-
-        // echo $vlcPatroli / $VLCArea;
-
-        // $data  = [
-        //     'vlc_area'  => $vlcPatroli / $VLCArea,
-        //     'ho_area'  => $vlcPatroli / $VLCArea,
-        //     'pc_area'  => $vlcPatroli / $VLCArea,
-        //     'vlc_area'  => $vlcPatroli / $VLCArea,
-        //     'vlc_area'  => $vlcPatroli / $VLCArea,
-        //     'vlc_area'  => $vlcPatroli / $VLCArea,
-        //     'vlc_area'  => $vlcPatroli / $VLCArea,
-        //     'vlc_area'  => $vlcPatroli / $VLCArea,
-        // ];
-
-        // $this->load->view("PIC/grafik_patroli", $data);
 
         $anggota = array('role_id' => 1);
         $danru = array('role_id' => 2);
         $korlap = array('role_id' => 3);
         $sipd = array('role_id' => 4);
 
-        $wil = "WIL3";
+        $wil = "WIL2";
 
         switch ($wil) {
             case "WIL1":
@@ -79,21 +59,25 @@ class Report_Patroli extends CI_Controller
             'url'           => $this->uri->segment(2),
             'berkas'        => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
             'total'         => $this->Sipd_model->countAll()->num_rows(),
-            // 'titik'      => $this->db->get_where('titik_area', ['id_plan' => "VLC"]),
+            'titik'      => $this->db->get_where('titik_area', ['id_plan' => "VLC"]),
             'titik'         => $d,
             'maps'          => $d,
             'center'        => $titik_tengah,
-            'iw'            => $iw
+            'iw'            => $iw,
         );
         $this->load->view('web/header', $data);
-        // $this->load->view('PIC/report_patroli', $data);
+        // $this->load->view('PIC/grafik_patroli', $data);
         $this->load->view('PIC/i_patrol', $data);
+        // $this->load->view('PIC/report_excel_patrol', $data);
+
         $this->load->view('web/fotter');
     }
 
-    public function tarikExcel()
+
+    public function gmaps()
     {
         $wil = "WIL2";
+
         switch ($wil) {
             case "WIL1":
                 $iw  = "WILAYAH 1";
@@ -113,21 +97,51 @@ class Report_Patroli extends CI_Controller
                 break;
         }
 
-        $area = $this->input->post("area_patrol");
-        // $d = $this->Sipd_model->patrolReporting($wil);
+        $d = $this->Sipd_model->patrolReporting($wil);
+        $data = [
+            'titik' => $d,
+            'tengah' => $titik_tengah
+        ];
+        $this->load->view("PIC/gmaps", $data);
+    }
+
+
+    public function tarikExcel()
+    {
+        // $area = $this->input->post("area_patrol");
+        $area = "VLC";
         $d = $this->db->get_where("titik_area", ['id_plan' => $area]);
-        $this->db->order_by("lokasi", 'asc');
+        // $this->db->order_by("urutan", 'asc');
         $data = array(
             'titik'         => $d,
-            'maps'          => $d,
-            'center'        => $titik_tengah,
-            'iw'            => $iw
+            'area'           => $area
         );
-        $filename = 'laporan-patrol';
+        $filename = 'laporan-patrol-' . $area;
         header("Content-type: application/vnd-ms-excel");
         header("Content-Disposition: attachment; filename=" . $filename . ".xls");
-        $this->load->view("PIC/report_excel_patrol", $data);
+        $this->load->view("PIC/excel_patrol_v2", $data);
+        $this->load->view('PIC/dashboard_excel_patrol', $data);
+        // $this->load->view("PIC/dashboard2");
     }
+
+
+    public function showPatroli()
+    {
+        // $area = $this->input->post("area");
+        // $bulan = $this->input->post("bulan");
+        $area = "HO";
+        $bulan = "02";
+
+        $data = array(
+            'area'          => $area,
+            'bulan'         => $bulan,
+            'data'          => $this->db->get_where("durasi_patroli", ['area' => $area])->result()
+        );
+        // $this->load->view('web/header', $data);
+        $this->load->view("PIC/dashboard_patroli_excel", $data);
+        // $this->load->view('web/fotter');
+    }
+
 
     public function download()
     {

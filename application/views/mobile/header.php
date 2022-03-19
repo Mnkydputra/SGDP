@@ -49,9 +49,23 @@
     </script>
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
+    <!-- scan barcode  -->
+    <!-- <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script> -->
+    <script type="text/javascript" src="<?= base_url('assets/js/') ?>Zxing.min.js"></script>
+    <!--  end -->
+
+    <!-- jquery confirm -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <!-- end jquery confirm -->
+    <style>
+        /* #rfidcard {
+            position: absolute;
+            width: 0;
+            opacity: 0;
+        } */
+    </style>
 </head>
 
 

@@ -181,43 +181,25 @@
         $("#tinggi_badan, #berat_badan").keyup(function() {
 
             var height = $("#tinggi_badan").val();
-
             var weight = $("#berat_badan").val();
-
             var bagi = 100;
-
             var floatTinggi = parseFloat(height);
-
             var floatBerat = parseFloat(weight);
-
             var imt = (floatBerat / (floatTinggi * floatTinggi) * 10000);
 
             if (imt > 27) {
-
                 keterangan = "Gemuk, Kelebihan berat badan tingkat berat";
-
             } else if ((imt >= 25.1) & (imt <= 27)) {
-
                 keterangan = "Gemuk, Kelebihan berat badan tingkat ringan";
-
             } else if ((imt >= 18.5) & (imt <= 25)) {
-
                 keterangan = "Normal";
-
             } else if ((imt >= 17) & (imt <= 18.4)) {
-
                 keterangan = "Kurus, Kekurangan berat badan tingkat ringan";
-
             } else {
-
                 keterangan = "Kurus, Kekurangan berat badan tingkat berat";
-
             }
-
             $("#imt").val(imt);
-
             $("#keterangan").val(keterangan);
-
         });
 
     });

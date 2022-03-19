@@ -30,9 +30,9 @@
                 <?php } ?>
             </tr>
         </thead>
-        <tbody style="border: 1px solid #000;">
+        <tbody align='center' style="border: 1px solid #000;">
             <?php foreach ($titik->result() as $d) : ?>
-                <tr align='center'>
+                <tr style="border: 1px solid #000;">
                     <td><?= $d->id_plan  ?></td>
                     <td><?= $d->lokasi ?></td>
                     <?php
@@ -46,7 +46,7 @@
                         $where = ['lokasi' => $d->lokasi, 'area_kerja' => $d->id_plan, 'tanggal' => date('Y-m-') . $j];
                         //ambil jam patroli 
                         //lalu show di tabel berdasarkan tanggal
-                        $re = $this->db->get_where("report_patrol", $where);
+                        $re = $this->db->get_where("hasil_patroli", $where);
                         if ($re->num_rows() == 0) {
                             echo "<td  style='color:red'> x </td>";
                         } else {

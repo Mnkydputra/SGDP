@@ -171,4 +171,28 @@ class Anggota_model extends CI_Model
       # code...
       return $this->db->query('SELECT * FROM  ' . $table . '  WHERE id_absen = "' . $id . '" AND in_date LIKE "%' .  $date . '%"');
    }
+
+
+   //ambil absen kemarin
+   public function absenKemarin($npk, $tgl, $wilayah)
+   {
+      $query = array();
+      switch ($wilayah) {
+         case 'WIL1':
+            $query = $this->db->get_where("absen_wil1", ['in_date' => $tgl, 'npk' => $npk]);
+            break;
+         case 'WIL2':
+            $query = $this->db->get_where("absen_wil2", ['in_date' => $tgl, 'npk' => $npk]);
+            break;
+         case 'WIL3':
+            $query = $this->db->get_where("absen_wil3", ['in_date' => $tgl, 'npk' => $npk]);
+            break;
+         case 'WIL4':
+            $query = $this->db->get_where("absen_wil4", ['in_date' => $tgl, 'npk' => $npk]);
+            break;
+         default:
+            break;
+      }
+      return $query;
+   }
 }

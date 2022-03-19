@@ -15,4 +15,10 @@ class Api_Model extends CI_Model
         $query =  $this->db->update($table, $data);
         return $query;
     }
+
+
+    //ambil data user
+
+
+    
 }

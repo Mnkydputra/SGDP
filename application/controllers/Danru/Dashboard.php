@@ -1,10 +1,11 @@
 <?php
 
 
+date_default_timezone_set('Asia/Jakarta');
 class Dashboard extends CI_Controller
 {
 
-  function __construct()
+  public function __construct()
   {
     parent::__construct();
     $this->load->library('user_agent');
@@ -20,9 +21,9 @@ class Dashboard extends CI_Controller
   }
 
 
-
-  function index()
+  public function index()
   {
+    date_default_timezone_set('Asia/Jakarta');
     $data = array(
       'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
       'url'  => $this->uri->segment(2),

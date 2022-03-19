@@ -5,10 +5,9 @@
     <div class="row">
         <div class="col-md-12">
             <div class="mt-5 container col-lg-8">
-
                 <div class="card">
                     <div class="card-header">
-                        Grafik Patroli per Tanggal 13 Januari 2020
+                        Grafik Patroli per Tanggal 23 Januari 2020 <?= $vlc ?>
                     </div>
                     <div class="card-body">
                         <div>
@@ -16,124 +15,77 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="panel panel-default mb-5">
-                <div class="panel-heading text-center"></div>
-                <div class="panel-body">
-                    <!-- <div id="wilayah2" style="width: 100%; height: 450px;"></div> -->
+
+                <div class="card">
+                    <div class="card-body">
+                        <div>
+                            <div id="wilayah2"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <form action="<?= base_url('PIC/Report_Patroli/tarikExcel')  ?>" method="post">
-                <select name="area_patrol" id="" class="form-control text-dark">
-                    <option value="P1">PLAN 1 </option>
-                    <option value="P2">PLAN 2</option>
-                    <option value="P3">PLAN 3</option>
-                    <option value="P4-ASSY1">PLAN 4 - ASSY 1</option>
-                    <option value="P4-ASSY2">PLAN 4 - ASSY 2</option>
-                    <option value="P5">PLAN 5</option>
-                    <option value="VLC">VLC</option>
-                    <option value="HO">HEAD OFFICE</option>
-                    <option value="DOR">DORMITORY</option>
-                    <option value="PC">PART CENTER</option>
-                </select>
-                <button type="submit" name="reportExcel" class="mt-1 mb-2 btn btn-primary">Tarik Excel</button>
-            </form>
-            <table id="example" class="mt-5 table table-bordered table-striped small" style="width: 100%;">
-                <?php
-                $tanggal =  date('Y-m-d'); //date('Y-m-d');
-                $minggu_lalu = date('Y-m-d', strtotime('+1 week', strtotime($tanggal)));
-                $n = new DateTime($tanggal);
-                $n2 = new DateTime($minggu_lalu);
-                $jarak = $n->diff($n2);
-                ?>
-                <thead>
-                    <tr align="center">
-                        <th class="align-center" colspan="<?= $jarak->d + 8 ?>">Januari </th>
-                    </tr>
-                    <tr>
-                        <th>AREA</th>
-                        <th>Lokasi</th>
-                        <?php
-                        for ($i = ($jarak->d + 1); $i <= ($jarak->d + 8); $i++) { ?>
-                            <th> <?= $i ?></th>
-                        <?php } ?>
-                    </tr>
-                </thead>
-                <tbody style="border: 1px solid #000;">
-                    <?php foreach ($titik->result() as $d) : ?>
-                        <tr align="left">
-                            <td><?= $d->id_plan . " - " . $d->lokasi ?></td>
-                            <td><?= $d->id_plan . " - " . $d->lokasi ?></td>
-                            <?php
-                            //buat perulangan untuk mencari 
-                            for ($j =  ($jarak->d + 1); $j <= ($jarak->d + 8); $j++) {
-                                if ($j < 9) {
-                                    $j = "0" . $j;
-                                } else {
-                                    $j = $j;
-                                }
-                                $where = ['lokasi' => $d->lokasi, 'area_kerja' => $d->id_plan, 'tanggal' => date('Y-m-') . $j];
-                                //ambil jam patroli 
-                                //lalu show di tabel berdasarkan tanggal
-                                $re = $this->db->get_where("report_patrol", $where);
-                                if ($re->num_rows() == 0) {
-                                    echo "<td> - </td>";
-                                } else {
-                                    echo "<td>";
-                                    foreach ($re->result() as $a) {
-                                        echo " <i class='bx bx-time'> " .  $a->jam .  "<br>";
-                                    } ?>
-                                    </td>
-                            <?php }
-                            }
-                            ?>
-                        </tr>
-                    <?php endforeach ?>
-                </tbody>
-            </table>
         </div>
     </div>
 </div>
 </div>
 
 
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCnjlDXASsyIUKAd1QANakIHIM8jjWWyNU" type="text/javascript"></script>
 <script>
     $(function() {
-        $("#example").DataTable({
-            fixedHeader: true,
-            responsive: true,
+        $('#example').DataTable({
+            scrollY: "500px",
+            scrollX: true,
+            scrollCollapse: true,
+            paging: true,
+            fixedColumns: {
+                left: 2,
+                // right: 1
+            }
         });
     })
 
-    const labels = [
-        'Head Office',
-        'Dormitori',
-        'Part Center',
-        'VLC',
-        'Plan 1 ',
-        'Plan 2',
-        'Plan 3',
-        'Plan 4 - ASSY 1',
-        'Plan 4 - ASSY 2',
-        'Plan 5',
-    ];
-
     const data = {
-        labels: labels,
+        labels: [
+            'Head Office ',
+            'Dormitori ',
+            'Part Center ',
+            'VLC ',
+            'Plan 1 ',
+            'Plan 2',
+            'Plan 3',
+            'Plan 4 - ASSY 1 ',
+            'Plan 4 - ASSY 2 ',
+            'Plan 5 ',
+        ],
         datasets: [{
-            label: 'Jumlah Patroli',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
-            data: [0, 10, 5, 2, 20, 30, 45, 20, 30, 45],
+            label: 'Grafik Patroli',
+            data: [Math.floor(<?= $ho ?>), Math.floor(<?= $dor ?>), Math.floor(<?= $pc ?>), Math.floor(<?= $pc ?>), Math.floor(<?= $vlc ?>), Math.floor(<?= $p1 ?>), Math.floor(<?= $p2 ?>), Math.floor(<?= $p3 ?>), Math.floor(<?= $p4A1 ?>), Math.floor(<?= $p4A2 ?>), Math.floor(<?= $p5 ?>)],
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
         }]
     };
     const config = {
         type: 'line',
         data: data,
-        options: {}
+        options: {
+            // animations: {
+            //     tension: {
+            //         duration: 1000,
+            //         easing: 'linear',
+            //         from: 1,
+            //         to: 0,
+            //         loop: true
+            //     }
+            // },
+            scales: {
+                y: { // defining min and max so hiding the dataset does not change scale range
+                    min: 0,
+                    max: 6
+                }
+            }
+        }
     };
-
     const myChart = new Chart(
         document.getElementById('myChart'),
         config

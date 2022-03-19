@@ -3,7 +3,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
 // require './libraries/RestController.php' ;
-require_once(APPPATH.'./libraries/RestController.php');
+require_once(APPPATH . './libraries/RestController.php');
+
 use chriskacerguis\RestServer\RestController;
 
 class ISECURITY extends RestController
@@ -160,5 +161,24 @@ class ISECURITY extends RestController
 
 
 
-    //
+    //API untuk cek user dan login 
+    public function cekUser_post()
+    {
+        $npk         = $this->input->post("npk");
+        $password    = $this->input->post("password");
+        $where       = ['npk' => $npk, 'password'    =>  md5($password)];
+        $data        = $this->Api_Model->getData("akun", $where);
+        if ($data->num_rows() > 0) {
+            $this->response([
+                'result'  => $data->result(),
+                'status'  => 'ok'
+            ], 200);
+        } else {
+
+            $this->response([
+                'status' => false,
+                'message' => 'Tidak ada data'
+            ], 404);
+        }
+    }
 }

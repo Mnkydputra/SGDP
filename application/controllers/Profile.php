@@ -27,32 +27,17 @@ class Profile extends CI_Controller
     $provinsi = $region->getAllProvince('pos');
     $data2 = "";
     switch ($area) {
-      case 'P1':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p1")->result();
+      case 'WIL 1':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil1")->result();
         break;
-      case 'P2':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p2")->result();
+      case 'WIL 2':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil2")->result();
         break;
-      case 'P3':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p3")->result();
+      case 'WIL 3':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil3")->result();
         break;
-      case 'P4':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p4")->result();
-        break;
-      case 'P5':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p5")->result();
-        break;
-      case 'PC':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_pc")->result();
-        break;
-      case 'HO':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_ho")->result();
-        break;
-      case 'VLC':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_vlc")->result();
-        break;
-      case 'DOR':
-        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_dor")->result();
+      case 'WIL 4':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil4")->result();
         break;
       default:
         echo "EROR!";
@@ -62,7 +47,7 @@ class Profile extends CI_Controller
       'biodata'   => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
       'employee'  => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
       'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
-      'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p1")->result(),
+      'absen'      => $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil1")->result(),
       'url'       => $this->uri->segment(2),
       'provinsi'  => $provinsi,
       'absen'     => $data2

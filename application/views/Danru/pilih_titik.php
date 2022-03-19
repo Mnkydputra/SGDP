@@ -9,7 +9,7 @@
  </select>
 
  <?php if ($terlewati->num_rows() == $data->num_rows()) { ?>
-     <a id="infoUpdate" data-refresh="<?= base_url('Danru/Patrol') ?>" data-url="<?= base_url("Danru/Patrol/updateStatus/" . $area) ?>" href='javascript:reset("<?= $area ?>")' class="btn btn-sm btn-danger">Kirim Hasil Patroli</a>
+     <a id="infoUpdate" data-refresh="<?= base_url('Danru/Patrol') ?>" data-url="<?= base_url("Danru/Patrol/updateStatus/") ?>" href='javascript:reset()' class="btn btn-sm btn-danger">Kirim Hasil Patroli</a>
  <?php } else { ?>
      <!--<label class="text-danger small"><i><?= $terlewati->num_rows() . " titik sudah dilewati" ?></i></label>-->
  <?php } ?>

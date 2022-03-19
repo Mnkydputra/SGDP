@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="<?= base_url('assets/css/') ?>bootstrap-grid.min.css">
   <!-- DatePicker -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/fixedcolumns/4.0.1/css/fixedColumns.dataTables.min.css">
   <!-- Jquery CDN -->
   <!-- Jquery CDN -->
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
@@ -29,9 +30,10 @@
   <!-- CDN Bootstrap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
 
   <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/fixedcolumns/4.0.1/js/dataTables.fixedColumns.min.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <!-- END CDN Bootstrap -->
@@ -40,10 +42,10 @@
   <!-- IMASK CDN -->
   <script src="https://unpkg.com/imask"></script>
   <script src="<?= base_url('assets/js/') ?>songof.js"></script>
-
-  <!-- akhir dari Bagian js -->
-  <script src="https://maps.googleapis.com/maps/api/js?
-key=AIzaSyDEXhY3KsVSOmsH1h-birHZci4j_NSVFH8&callback=wilayah" async defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js" integrity="sha512-TW5s0IT/IppJtu76UbysrBH9Hy/5X41OTAbQuffZFU6lQ1rdcLHzpU5BzVvr/YFykoiMYZVWlr/PX1mDcfM9Qg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- zxing scanner -->
+  <!-- <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script> -->
+  <script type="text/javascript" src="<?= base_url('assets/js/') ?>Zxing.min.js"></script>
   <title>I - SECURITY</title>
 </head>
 

@@ -591,7 +591,6 @@
               document.getElementById('report_absen').innerHTML = e;
             }
           })
-
         }
       });
     })

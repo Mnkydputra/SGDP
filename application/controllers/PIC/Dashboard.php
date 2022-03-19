@@ -38,4 +38,15 @@ class Dashboard extends CI_Controller
     $this->load->view('Sipd/dashboard', $data);
     $this->load->view('web/fotter');
   }
+
+
+  public function excel()
+  {
+    # code...
+    $area = "P2";
+    $data = [
+      'area'  =>  $area
+    ];
+    $this->load->view("PIC/dashboard_excel_patrol", $data);
+  }
 }
