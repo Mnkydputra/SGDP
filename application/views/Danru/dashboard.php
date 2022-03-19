@@ -3,7 +3,11 @@
     <p>Welcome <br> <b> <?= $biodata->nama ?> </b></p>
     <div class="container-md-3">
         <div style="border:none; height:30px; padding-top:6px;  letter-spacing: 2px;" class="alert alert-secondary" role="alert">
+<<<<<<< HEAD
+        <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+=======
             <i class='d-flex align-items-center justify-content-center bx bx-time'> <label style="font-weight:bold;" id="time"></label> </i>
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
         </div>
         <a style="" class="btn btn-danger btn-sm mb-2" href="<?= base_url('Danru/Patrol/') ?>">
             <span class="bx bx-street-view"></span> I - PATROL

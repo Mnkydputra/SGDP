@@ -47,9 +47,17 @@
 
     <script src=" <?= base_url('assets/js/') ?>geo-min.js" type="text/javascript" charset="utf-8">
     </script>
+<<<<<<< HEAD
+   <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
+   <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
+   <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+=======
     <link rel="stylesheet" href="<?= base_url('assets/css/') ?>dd.css?v=4.0">
     <link rel="stylesheet" type="text/css" href="<?= base_url('assets/css/') ?>flags.css?v=1.0" />
 
+<<<<<<< HEAD
     <!-- scan barcode  -->
     <!-- <script type="text/javascript" src="https://unpkg.com/@zxing/library@latest"></script> -->
     <script type="text/javascript" src="<?= base_url('assets/js/') ?>Zxing.min.js"></script>
@@ -66,6 +74,9 @@
             opacity: 0;
         } */
     </style>
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
+>>>>>>> bb78d4d63d06fc5214e377effe63f2dfbfeb91a5
 </head>
 
 

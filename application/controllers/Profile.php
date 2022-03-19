@@ -1,5 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
 
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
 use Dekiakbar\IndonesiaRegionsPhpClient\Region;
 use PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Offset;
 
@@ -16,19 +19,49 @@ class Profile extends CI_Controller
       $this->session->set_flashdata('info', 'sessi berakhir silahkan login kembali');
       redirect('Login');
     }
+<<<<<<< HEAD
+   
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
   }
 
 
   function index()
   {
     $data1 = $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row();
-    $area = $data1->area_kerja;
+    $area = $data1->wilayah;
     $region = new Dekiakbar\IndonesiaRegionsPhpClient\Region();
     $provinsi = $region->getAllProvince('pos');
     $data2 = "";
     switch ($area) {
+<<<<<<< HEAD
       case 'WIL 1':
         $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil1")->result();
+=======
+<<<<<<< HEAD
+      case 'WIL1':
+             $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil1")->result();
+        break;
+      case 'WIL2':
+             $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil2")->result();
+=======
+      case 'P1':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p1")->result();
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
+        break;
+      case 'WIL3':
+             $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil3")->result();
+        break;
+<<<<<<< HEAD
+      case 'WIL4':
+             $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil4")->result();
+=======
+      case 'P3':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p3")->result();
+        break;
+      case 'P4':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_p4")->result();
+>>>>>>> bb78d4d63d06fc5214e377effe63f2dfbfeb91a5
         break;
       case 'WIL 2':
         $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil2")->result();
@@ -36,13 +69,35 @@ class Profile extends CI_Controller
       case 'WIL 3':
         $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil3")->result();
         break;
+<<<<<<< HEAD
       case 'WIL 4':
         $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_wil4")->result();
+=======
+      case 'VLC':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_vlc")->result();
+        break;
+      case 'DOR':
+        $data2  = $this->Anggota_model->cari(array("id_absen" => $this->session->userdata('id_akun')), "absen_dor")->result();
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
+>>>>>>> bb78d4d63d06fc5214e377effe63f2dfbfeb91a5
         break;
       default:
         echo "EROR!";
         break;
     }
+<<<<<<< HEAD
+       $data = array(
+          'biodata'   => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
+          'employee'  => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
+          'berkas'    => $this->db->get_where('berkas', array('id_berkas' => $this->session->userdata('id_akun')))->row(),
+          'url'       => $this->uri->segment(2),
+          'provinsi'  => $provinsi,
+          'absen'     => $data2
+        );
+        $this->load->view('mobile/header', $data);
+        $this->load->view('profile', $data);
+        $this->load->view('mobile/fotter');
+=======
     $data = array(
       'biodata'   => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
       'employee'  => $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row(),
@@ -55,6 +110,7 @@ class Profile extends CI_Controller
     $this->load->view('mobile/header', $data);
     $this->load->view('profile', $data);
     $this->load->view('mobile/fotter');
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
   }
 
   function Foto()
@@ -117,7 +173,11 @@ class Profile extends CI_Controller
     $data = array(
       'no_kta'                       => $this->input->post("no_kta"),
       'expired_kta'                  => $this->input->post("ex_kta"),
+<<<<<<< HEAD
+     
+=======
 
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
       'tgl_masuk_sigap'              => $this->input->post("masuk_sigap"),
       'tgl_masuk_adm'                => $this->input->post("masuk_adm"),
     );
@@ -169,12 +229,21 @@ class Profile extends CI_Controller
   public function showAbsensi()
   {
     $data1 = $this->db->get_where('employee', array('id_employee' => $this->session->userdata('id_akun')))->row();
-    $area = $data1->area_kerja;
+    $area = $data1->wilayah;
     $absen = "";
     $year = date('Y') . '-' . $this->input->post("bulan");
     $bln = $this->input->post("bulan");
     $date = $year;
     switch ($area) {
+<<<<<<< HEAD
+      case 'WIL1':
+        $tbl = "absen_wil1";
+        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_wil1")->result();
+        break;
+      case 'WIL2':
+        $tbl = "absen_wil2";
+        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_wil2")->result();
+=======
       case 'P1':
         $tbl = "absen_p1";
         $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_p1")->result();
@@ -202,14 +271,21 @@ class Profile extends CI_Controller
       case 'VLC':
         $tbl = "absen_vlc";
         $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_vlc")->result();
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
         break;
-      case 'HO':
-        $tbl = "absen_ho";
-        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_ho")->result();
+      case 'WIL3':
+        $tbl = 'absen_wil3';
+        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_wil3")->result();
         break;
+<<<<<<< HEAD
+      case 'WIL4':
+        $tbl = "absen_wil4";
+        $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_wil4")->result();
+=======
       case 'DOR':
         $tbl = "absen_dor";
         $absen = $this->Anggota_model->getAbsensi($this->session->userdata('id_akun'), $date, "absen_dor")->result();
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
         break;
     }
     $data = [

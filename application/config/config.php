@@ -24,8 +24,15 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 
+<<<<<<< HEAD
+$config['base_url'] = 'http://localhost/SGDP';
+=======
 $config['base_url'] = 'http://localhost/SGDP/';
+<<<<<<< HEAD
 // $config['base_url'] = 'http://192.168.8.197/SGDP/';
+=======
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
+>>>>>>> bb78d4d63d06fc5214e377effe63f2dfbfeb91a5
 /*
 |--------------------------------------------------------------------------
 | Index File

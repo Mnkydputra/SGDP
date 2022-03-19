@@ -24,13 +24,15 @@ class Report_Patroli extends CI_Controller
     // }
 
 
-    public function index(Type $var = null)
+    public function index()
     {
 
         $anggota = array('role_id' => 1);
         $danru = array('role_id' => 2);
         $korlap = array('role_id' => 3);
         $sipd = array('role_id' => 4);
+<<<<<<< HEAD
+=======
 
         $wil = "WIL2";
 
@@ -72,7 +74,9 @@ class Report_Patroli extends CI_Controller
 
         $this->load->view('web/fotter');
     }
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
 
+<<<<<<< HEAD
 
     public function gmaps()
     {
@@ -149,6 +153,8 @@ class Report_Patroli extends CI_Controller
         $danru    = array('role_id' => 2);
         $korlap   = array('role_id' => 3);
         $sipd     = array('role_id' => 4);
+=======
+>>>>>>> bb78d4d63d06fc5214e377effe63f2dfbfeb91a5
         $data = array(
             'biodata' => $this->db->get_where('biodata', array('id_biodata' => $this->session->userdata('id_akun')))->row(),
             'url'  => $this->uri->segment(2),
@@ -161,7 +167,9 @@ class Report_Patroli extends CI_Controller
         $this->load->view('web/header', $data);
         $this->load->view('PIC/report_patroli', $data);
         $this->load->view('web/fotter');
+        # code...
     }
+
 
     public function reportHarian(Type $var = null)
     {
@@ -169,35 +177,62 @@ class Report_Patroli extends CI_Controller
 
         $day = $this->input->post("day");
         $area = $this->input->post("area_kerja1");
+<<<<<<< HEAD
+        $this->db->where('area_kerja',$area);
+=======
         $this->db->where('area_kerja', $area);
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
         $result = $this->db->get_where('report_patrol', ['tanggal' => $day, 'area_kerja' => $area]);
 
         $data = [
             'patrol'  =>  $result,
+<<<<<<< HEAD
+            'area'    => $area ,
+=======
             'area'    => $area,
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
             'tgl1'    => $day,
             'tgl2'     => ""
         ];
+<<<<<<< HEAD
         $mpdf = new \Mpdf\Mpdf(['mode' => 'utf-8', 'format' => 'A4-P']);
         $data = $this->load->view('PIC/report_pdf_patrol', $data,  TRUE);
+=======
+        $mpdf = new \Mpdf\Mpdf();
+        $data = $this->load->view('PIC/pdf_patroli', $data,  TRUE);
+>>>>>>> bb78d4d63d06fc5214e377effe63f2dfbfeb91a5
         $mpdf->WriteHTML($data);
+<<<<<<< HEAD
+        $mpdf->Output("Report Patroli " . $area . ".pdf" , 'I');
+=======
         $mpdf->Output("Report Patroli " . $area . ".pdf", 'I');
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
     }
 
 
     public function reportPeriodik(Type $var = null)
     {
+        # code...
+
         $day = $this->input->post("day2");
         $day2 = $this->input->post("day3");
         $area = $this->input->post("area2");
+<<<<<<< HEAD
+        $this->db->where('area_kerja',$area);
+=======
         $this->db->where('area_kerja', $area);
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
         $this->db->where('tanggal >=', $day);
         $this->db->where('tanggal <=', $day2);
         $result = $this->db->get('report_patrol');
 
         $data = [
             'patrol'  =>  $result,
+<<<<<<< HEAD
+            'area'    => $area ,
+=======
             'area'    => $area,
+>>>>>>> f33318bbb26ed793c30aa8a174dbd481395a3426
             'tgl1'    => $day,
             'tgl2'     => $day2
         ];
